@@ -22,7 +22,7 @@ namespace app {
 
 #include <string>
 
-class xapp_jwt{
+class xrf_jwt{
 	private:
 	public:
 		void test_jwt();
