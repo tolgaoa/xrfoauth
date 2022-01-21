@@ -14,13 +14,15 @@
 
 #include "xrf_jwt.hpp"
 
+#include <string>
 #include <iostream>
 
-#include <jwt-cpp/jwt.h>
+#include <jwt/jwt.hpp>
+
 
 using namespace xrf::app;
 
-/*bool xrf_jwt::generate_signature(const std::string& xapp_consumer_id, const std::string& scope,
+bool xrf_jwt::generate_signature(const std::string& xapp_consumer_id, const std::string& scope,
                                  const std::string& target_xapp_id,
                                  const std::string& xrf_id, std::string& signature) const {
 
@@ -47,9 +49,9 @@ bool xrf_jwt::get_secret_key(const std::string& scope, const std::string& target
         key = "secret";
         return true;
 
-}*/
+}
 
-/*void xrf_jwt::test_jwt(){
+void xrf_jwt::test_jwt(){
 
         using namespace jwt::params;
 
@@ -66,12 +68,30 @@ bool xrf_jwt::get_secret_key(const std::string& scope, const std::string& target
         auto dec_obj = jwt::decode(enc_str, algorithms({"HS256"}), secret(key));
         std::cout << dec_obj.header() << std::endl;
         std::cout << dec_obj.payload() << std::endl;
-}*/
+	std::cout << "token printed" << std::endl;
+}
 
 
 
 
-int main (){
+/*int main (){
+
+
+	using namespace jwt::params;
+
+        auto key = "secret";  // Secret to use for the algorithm
+        // Create JWT object
+        jwt::jwt_object obj{algorithm("HS256"), payload({{"some", "payload"}}),
+                      secret(key)};
+
+        // Get the encoded string/assertion
+        auto enc_str = obj.signature();
+        std::cout << enc_str << std::endl;
+
+        // Decode
+        auto dec_obj = jwt::decode(enc_str, algorithms({"HS256"}), secret(key));
+        std::cout << dec_obj.header() << std::endl;
+        std::cout << dec_obj.payload() << std::endl;
 
 	std::string token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJpc3MiOiJhdXRoMCJ9.AbIJTDMFc7yUa5MhvcP03nJPyCPzZtQcGEp-zWfOkEE";
     	auto decoded = jwt::decode(token);
@@ -80,9 +100,18 @@ int main (){
         	std::cout << e.first << " = " << e.second << std::endl;
 
 	auto verifier = jwt::verify()
-    		.allow_algorithm(jwt::algorithm::hs512{ "secret" })
+    		.allow_algorithm(jwt::algorithm::hs256{ "secret" })
     		.with_issuer("auth0");
 
 	verifier.verify(decoded);
 
-}
+	auto jwttoken = jwt::create()
+    		.set_issuer("auth0")
+    		.set_type("JWS")
+    		.set_payload_claim("sample", jwt::claim(std::string("test")))
+    		.sign(jwt::algorithm::hs256{"secret"});
+
+	std::cout << jwttoken << std::endl;
+
+}*/
+

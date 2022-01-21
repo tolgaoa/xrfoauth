@@ -1,10 +1,13 @@
-cmake_minimum_required(VERSION 2.4)
-
+cmake_minimum_required(VERSION 3.4)
 project(xappoauth)
 
-#find_package(cpp-jwt REQUIRED)
-#add_subdirectory(third_party/cpp-jwt)
+set(CMAKE_CXX_STANDARDS 14)
+
+set(OPENSSL_USE_STATIC_LIBS TRUE)
+find_package(OpenSSL REQUIRED)
 
 include_directories(${PROJECT_SOURCE_DIR})
-set(SOURCES main.cpp ${PROJECT_SOURCE_DIR}/xapp_jwt.cpp)
+set(SOURCES main.cpp ${PROJECT_SOURCE_DIR}/xrf_jwt.hpp)
 add_executable(test ${SOURCES}) 
+target_link_libraries(test OpenSSL::SSL)
+target_link_libraries(test OpenSSL::Crypto)
