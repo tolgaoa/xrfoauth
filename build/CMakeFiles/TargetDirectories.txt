@@ -1,3 +1,0 @@
-/home/nsslm/Documents/xappOauth/build/CMakeFiles/test.dir
-/home/nsslm/Documents/xappOauth/build/CMakeFiles/edit_cache.dir
-/home/nsslm/Documents/xappOauth/build/CMakeFiles/rebuild_cache.dir

@@ -149,7 +149,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=tcpclient
+CMAKE_PROJECT_NAME:STATIC=xappoauth
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -220,13 +220,13 @@ EXECUTABLE_OUTPUT_PATH:PATH=
 LIBRARY_OUTPUT_PATH:PATH=
 
 //Value Computed by CMake
-tcpclient_BINARY_DIR:STATIC=/home/nsslm/Documents/xappOauth/build
+xappoauth_BINARY_DIR:STATIC=/home/nsslm/Documents/xappOauth/build
 
 //Value Computed by CMake
-tcpclient_IS_TOP_LEVEL:STATIC=ON
+xappoauth_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-tcpclient_SOURCE_DIR:STATIC=/home/nsslm/Documents/xappOauth
+xappoauth_SOURCE_DIR:STATIC=/home/nsslm/Documents/xappOauth
 
 
 ########################
