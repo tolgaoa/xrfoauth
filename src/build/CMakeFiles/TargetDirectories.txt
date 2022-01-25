@@ -1,0 +1,6 @@
+/home/tahome/Documents/xrfoauth/src/build/CMakeFiles/xappoauth.dir
+/home/tahome/Documents/xrfoauth/src/build/CMakeFiles/edit_cache.dir
+/home/tahome/Documents/xrfoauth/src/build/CMakeFiles/rebuild_cache.dir
+/home/tahome/Documents/xrfoauth/src/build/xrfapp/CMakeFiles/XRF.dir
+/home/tahome/Documents/xrfoauth/src/build/xrfapp/CMakeFiles/edit_cache.dir
+/home/tahome/Documents/xrfoauth/src/build/xrfapp/CMakeFiles/rebuild_cache.dir

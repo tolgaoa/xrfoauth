@@ -1,4 +1,4 @@
-#include "xrf_jwt.cpp"
+#include "xrfapp/xrf_jwt.hpp"
 
 
 int main(){

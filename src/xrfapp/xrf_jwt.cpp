@@ -46,6 +46,7 @@ bool xrf_jwt::generate_signature(const std::string& xapp_consumer_id, const std:
 bool xrf_jwt::get_secret_key(const std::string& scope, const std::string& target_xapp_id,
                              std::string& key) const {
 
+	// Will complete this later. For now it can return the key from the class object. 
         key = "secret";
         return true;
 

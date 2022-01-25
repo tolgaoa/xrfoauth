@@ -1,0 +1,2 @@
+/usr/bin/ar qc libXRF.a CMakeFiles/XRF.dir/xrf_jwt.cpp.o
+/usr/bin/ranlib libXRF.a

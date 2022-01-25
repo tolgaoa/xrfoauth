@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/xappoauth.dir/main.cpp.o -o xappoauth  xrfapp/libXRF.a 
