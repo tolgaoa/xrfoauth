@@ -93,6 +93,8 @@ xappoauth_EXTERNAL_OBJECTS =
 xappoauth: CMakeFiles/xappoauth.dir/main.cpp.o
 xappoauth: CMakeFiles/xappoauth.dir/build.make
 xappoauth: xrfapp/libXRF.a
+xappoauth: /usr/lib/x86_64-linux-gnu/libssl.a
+xappoauth: /usr/lib/x86_64-linux-gnu/libcrypto.a
 xappoauth: CMakeFiles/xappoauth.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tahome/Documents/xrfoauth/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable xappoauth"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/xappoauth.dir/link.txt --verbose=$(VERBOSE)

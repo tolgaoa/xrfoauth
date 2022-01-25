@@ -1,6 +1,8 @@
-CMakeFiles/test.dir/xrf_jwt.cpp.o: \
- /home/nsslm/Documents/xappOauth/xrf_jwt.cpp /usr/include/stdc-predef.h \
- /home/nsslm/Documents/xappOauth/xrf_jwt.hpp /usr/include/c++/7/string \
+xrfapp/CMakeFiles/XRF.dir/xrf_jwt.cpp.o: \
+ /home/tahome/Documents/xrfoauth/src/xrfapp/xrf_jwt.cpp \
+ /usr/include/stdc-predef.h \
+ /home/tahome/Documents/xrfoauth/src/xrfapp/xrf_jwt.hpp \
+ /usr/include/c++/7/string \
  /usr/include/x86_64-linux-gnu/c++/7/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/7/bits/os_defines.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
