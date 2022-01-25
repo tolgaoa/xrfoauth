@@ -1,0 +1,181 @@
+openapi: 3.0.0
+info:
+  title: 'XRF OAUTH 2.0'
+  description: |
+	XRF OAUTH 2.0 Authorization server for generating access tokens to xApps
+  contact:
+	name: Tolga Atalay
+	email: tolgaoa@vt.edu
+servers:
+  - url: http://xrfapi.com
+paths: 
+  /oauth2/token:
+    post:
+	  summary: Access token request
+	  operationId: AccessTokenRequest
+	  tags:
+	    - Access Token Request
+	  parameters:
+	    - name: Content-Encoding
+		    in: header
+		    description: Content-Encoding
+		    schema: 
+		      type: string
+		  - name: Accept-Encoding
+			  in: header
+				description: Accept-Encoding
+				schema:
+				  type: string
+	  requestBody:
+	    content:
+		    application/x-www-form-urlencoded:
+		      schema: 
+			      $ref: '#/components/schemas/AccessTokenReq'
+		  required: true
+	  responses:
+	    '200':
+		    description: Successfull access token request
+		    content: 
+			    application/json:
+			      schema:
+				      $ref: '#components/schemas/AccessTokenRsp'
+		    headers:
+		      Cache-Control:
+			      $ref: '#/components/headers/cache-control'
+			    Pragma:
+			      $ref: '#/components/headers/pragma'
+			    Accept-Encoding:
+            description: Accept-Encoding, described in IETF RFC 7694
+            schema:
+              type: string
+          Content-Encoding:
+            description: Content-Encoding, described in IETF RFC 7231
+            schema:
+              type: string
+		  '400':
+         description: Error in the Access Token Request
+         content:
+           application/json:
+             schema:
+             $ref: '#/components/schemas/AccessTokenErr'
+components:
+  headers:
+	  cache-control:
+	    required: true
+	    schema:
+		    type: string
+		    enum:
+		      - no-store
+	  pragma:
+	    required: true
+	     schema: 
+	       type: string
+		     enum:
+   		     - no-cache
+  schemas:
+    AccessTokenReq:
+	    description: The access token request information coming to the server
+	    type: object
+	    required:
+	      - grant_type
+		    - xappId
+		    - scope
+	    properties: 
+	      grant_type:	
+		      type: string
+		      enum: 
+		        - client_credentials
+		    nfInstanceId:
+		      type: string
+		      format: uuid
+		      description: Unique string for the given xApp. Similar to 5GC VNFs, the format is a Universally Unique Identifier (UUID) version 4 as described in RFC 4122
+		    scope: 
+		      type: string
+		      pattern: '^([a-zA-Z0-9_:-]+)( [a-zA-Z0-9_:-]+)*$'
+		    grant_type:
+		      type: string
+		      enum:
+		        - xapp_credentials
+    AccessTokenRsp:
+	    description: The access token response information going from the server
+	    type: object
+	    required: 
+	      - access_token
+		    - token_type
+   	  properties:
+		    access_token:
+		      type: string
+		      description: JSON Web signature signed JSON object 
+		    token_type: 
+		      type: string
+		      enum:
+			      - Bearer
+		    expires_in:
+		      type: integer
+		    scope: 
+		      type: string
+		      pattern: '^([a-zA-Z0-9_:-]+)( [a-zA-Z0-9_:-]+)*$'
+    AccessTokenClaims:
+      description: The claims data structure for the access token
+      type: object
+      required:
+        - iss
+        - sub
+        - scope
+        - exp
+      properties:
+        iss:
+          type: string
+		  format: uuid
+        sub:
+		  type: string
+		  format: uuid
+        scope:
+          type: string
+          pattern: '^([a-zA-Z0-9_:-]+)( [a-zA-Z0-9_:-]+)*$'
+        exp:
+          type: integer
+	  AccessTokenErr:
+      description: Error returned in the access token response message
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: string
+          enum:
+            - invalid_request
+            - invalid_client
+            - invalid_grant
+            - unauthorized_client
+            - unsupported_grant_type
+            - invalid_scope
+        error_description:
+          type: string
+        error_uri:
+          type: string
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
