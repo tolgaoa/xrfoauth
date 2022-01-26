@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/xappoauth.dir/main.cpp.o -o xappoauth   -L/home/tahome/Documents/xrfoauth/src/xrfapp  -Wl,-rpath,/home/tahome/Documents/xrfoauth/src/xrfapp xrfapp/libXRF.a /usr/lib/x86_64-linux-gnu/libssl.a /usr/lib/x86_64-linux-gnu/libcrypto.a -lpthread -ldl 
+/usr/bin/c++ CMakeFiles/xappoauth.dir/main.cpp.o -o xappoauth  xrfapp/libXRF.a /usr/lib/x86_64-linux-gnu/libssl.a /usr/lib/x86_64-linux-gnu/libcrypto.a -lpthread -ldl 
