@@ -4,7 +4,7 @@
  * as the execution method of the tokens
  *
  *
- * ! file xapp_jwt.hpp
+ * ! file xrf_jwt.hpp
  *  \brief
  * \author: Tolga Omer Atalay
  * \Affiliation: VirginiaTech
