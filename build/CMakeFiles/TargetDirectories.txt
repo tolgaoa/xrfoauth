@@ -1,3 +1,0 @@
-/home/tahome/Documents/xrfoauth/build/CMakeFiles/test.dir
-/home/tahome/Documents/xrfoauth/build/CMakeFiles/edit_cache.dir
-/home/tahome/Documents/xrfoauth/build/CMakeFiles/rebuild_cache.dir

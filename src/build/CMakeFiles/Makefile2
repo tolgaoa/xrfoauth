@@ -45,19 +45,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/local/lib/python3.6/dist-packages/cmake/data/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /usr/local/lib/python3.6/dist-packages/cmake/data/bin/cmake -E rm -f
+RM = /usr/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/tahome/Documents/xrfoauth/src
+CMAKE_SOURCE_DIR = /home/taport/Documents/xrfoauth/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/tahome/Documents/xrfoauth/src/build
+CMAKE_BINARY_DIR = /home/taport/Documents/xrfoauth/src/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -98,14 +98,14 @@ xrfapp/clean: xrfapp/CMakeFiles/XRF.dir/clean
 CMakeFiles/xappoauth.dir/all: xrfapp/CMakeFiles/XRF.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/xappoauth.dir/build.make CMakeFiles/xappoauth.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/xappoauth.dir/build.make CMakeFiles/xappoauth.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/tahome/Documents/xrfoauth/src/build/CMakeFiles --progress-num=3,4 "Built target xappoauth"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/taport/Documents/xrfoauth/src/build/CMakeFiles --progress-num=3,4 "Built target xappoauth"
 .PHONY : CMakeFiles/xappoauth.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/xappoauth.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tahome/Documents/xrfoauth/src/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/taport/Documents/xrfoauth/src/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/xappoauth.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tahome/Documents/xrfoauth/src/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/taport/Documents/xrfoauth/src/build/CMakeFiles 0
 .PHONY : CMakeFiles/xappoauth.dir/rule
 
 # Convenience name for target.
@@ -124,14 +124,14 @@ CMakeFiles/xappoauth.dir/clean:
 xrfapp/CMakeFiles/XRF.dir/all:
 	$(MAKE) $(MAKESILENT) -f xrfapp/CMakeFiles/XRF.dir/build.make xrfapp/CMakeFiles/XRF.dir/depend
 	$(MAKE) $(MAKESILENT) -f xrfapp/CMakeFiles/XRF.dir/build.make xrfapp/CMakeFiles/XRF.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/tahome/Documents/xrfoauth/src/build/CMakeFiles --progress-num=1,2 "Built target XRF"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/taport/Documents/xrfoauth/src/build/CMakeFiles --progress-num=1,2 "Built target XRF"
 .PHONY : xrfapp/CMakeFiles/XRF.dir/all
 
 # Build rule for subdir invocation for target.
 xrfapp/CMakeFiles/XRF.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tahome/Documents/xrfoauth/src/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/taport/Documents/xrfoauth/src/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 xrfapp/CMakeFiles/XRF.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tahome/Documents/xrfoauth/src/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/taport/Documents/xrfoauth/src/build/CMakeFiles 0
 .PHONY : xrfapp/CMakeFiles/XRF.dir/rule
 
 # Convenience name for target.

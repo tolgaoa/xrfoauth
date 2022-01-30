@@ -755,8 +755,8 @@ const char* info_language_standard_default =
   "INFO" ":" "standard_default[" C_VERSION "]";
 
 const char* info_language_extensions_default = "INFO" ":" "extensions_default["
-// !defined(_MSC_VER) to exclude Clang's MSVC compatibility mode.
-#if (defined(__clang__) || defined(__GNUC__) ||                               \
+/* !defined(_MSC_VER) to exclude Clang's MSVC compatibility mode. */
+#if (defined(__clang__) || defined(__GNUC__) || defined(__xlC__) ||           \
      defined(__TI_COMPILER_VERSION__)) &&                                     \
   !defined(__STRICT_ANSI__) && !defined(_MSC_VER)
   "ON"
