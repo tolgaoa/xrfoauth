@@ -84,6 +84,17 @@ class xrf_main{
 		  * @param {profile_id}: profile id of the xrf
 		  * @param{xrfp}: pointer to the xrf profile to tbe added
 		  */
+		
+		 void access_token_request(const std::string& request_main, AccessTokenRsp& ac_tok_rsp, 
+				           int& http_code, const uint8_t http_version, ProblemDetails& problem_details);
+		 /*
+		  * @param{request_main}: the main body which includes the request for the token
+		  * @param{ac_tok_rsp}: the response
+		  * @param{http_code}: http message code
+		  * @param{http_version}: http version --> 1
+		  * @param{problem_details}: auto generated api parameter describing error cases
+		  */
+
 	private:
 		 std::string xrf_id;
 		 std::map<std::string, std::shared_ptr<xrf_profile>> instance_id_to_xrf_profile;

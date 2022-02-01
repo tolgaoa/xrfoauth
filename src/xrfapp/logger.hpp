@@ -77,9 +77,8 @@ class Logger {
 
   static _Logger& async_cmd() { return *singleton().m_async_cmd; }
   static _Logger& itti() { return *singleton().m_itti; }
-  static _Logger& nrf_app() { return *singleton().m_nrf_app; }
+  static _Logger& xrf_main() { return *singleton().m_xrf_main; }
   static _Logger& system() { return *singleton().m_system; }
-  static _Logger& nrf_sbi() { return *singleton().m_nrf_sbi; }
 
  private:
   static Logger* m_singleton;
@@ -99,9 +98,8 @@ class Logger {
 
   _Logger* m_async_cmd;
   _Logger* m_itti;
-  _Logger* m_nrf_app;
+  _Logger* m_xrf_main;
   _Logger* m_system;
-  _Logger* m_nrf_sbi;
 };
 
 #endif  // __LOGGER_H

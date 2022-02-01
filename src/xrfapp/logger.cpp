@@ -53,10 +53,10 @@ void Logger::_init(
   std::stringstream ss;
   ss << "[%Y-%m-%dT%H:%M:%S.%f] [" << app << "] [%n] [%l] %v";
 
-  m_async_cmd = new _Logger("async_c", m_sinks, ss.str().c_str());
-  m_itti      = new _Logger("itti   ", m_sinks, ss.str().c_str());
-  m_nrf_app   = new _Logger("xrf_app", m_sinks, ss.str().c_str());
-  m_system    = new _Logger("system ", m_sinks, ss.str().c_str());
+  m_async_cmd  = new _Logger("async_c" , m_sinks, ss.str().c_str());
+  m_itti       = new _Logger("itti   " , m_sinks, ss.str().c_str());
+  m_xrf_main   = new _Logger("xrf_main", m_sinks, ss.str().c_str());
+  m_system     = new _Logger("system " , m_sinks, ss.str().c_str());
 }
 
 //------------------------------------------------------------------------------
