@@ -11,13 +11,13 @@ The scenario is showing that a functionality split has been applied to the 5G RA
 The primary type of adversary is the MVNO N, who is allowed to submit onboarding requests to the management infrastructure of the 5G system. This allows them to onboard their own xAppN onto the near-real time RIC platform. xAppN is cohabiting with xApps from other MVNOs and using an open message router to exchange messages with them. Without any authentication and authorization mechanism to oversee the exchange of messages between xApps, this adversary can gain access to the message exchange loop between xApp1 and xApp2.
 
 **Attack Vector:**
-  - Item 1 MVNO submits new xApp request to the MANO.
-  - Item 2 Resources are allocated for the xApp and the request is forwarded to the near-RT RIC
-  - Item 3 xApp is onboarded.
-  - Item 4 xApp interferes with the communication of other xApps by utilizing existing subscription IDs, bypassing authorization and authentication in intra-RIC communication. 
+  - MVNO submits new xApp request to the MANO.
+  - Resources are allocated for the xApp and the request is forwarded to the near-RT RIC
+  - xApp is onboarded.
+  - xApp interferes with the communication of other xApps by utilizing existing subscription IDs, bypassing authorization and authentication in intra-RIC communication. 
 
 **Case Study:**
 A scenario is formulated to describe the types of attacks that an attacker can carry out. xApp1 is subscribed to receive RLC and MAC layer information from the DU. This information is forwarded to xApp2 where various real-time load balancing decisions are made and traffic patterns are adjusted. Finally these decisions are relayed back to xApp1 for execution. In such a scenario, the attacker can carry out the following attacks.
-    - Item 1 Eavesdropping: on sensitive real-time decisions regarding user device operations. 
-    - Item 2 Faulty injections: to change either the incoming data to be used by xApp2 for decision making or outgoing data to xApp1 for execution to alter the ultimate behaviour of the system. 
+    - *Eavesdropping*: on sensitive real-time decisions regarding user device operations. 
+    - *Faulty injections*: to change either the incoming data to be used by xApp2 for decision making or outgoing data to xApp1 for execution to alter the ultimate behaviour of the system. 
 
