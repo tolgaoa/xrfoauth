@@ -3,4 +3,21 @@
 The initial makings of an OAuth2.0 server to be integrated into the LF RIC in the future for enabling authentication between select xApps. 
 
 The goal of this project is address the threat model given below.
+
 ![Alt text](thrmdlxrf.png?raw=true)
+
+The scenario is showing that a functionality split has been applied to the 5G RAN protocol stack. As a result of this, the first three layers of the radio stack are implemented closer to the fronthaul in the DU while the upper two layers are closer to the backhaul inside the CU. Both the DU and CU are softwarized platforms deployed at micro-datacentres, made up of COTS hardware, in the edge network. The O-RAN near-real time RIC is deployed at the same hierarchy as the DU and CU given that the xApps will subscribe information from various radio protocol layers. The majority of the 5G core components, NFV MANO platform as well as the non-real time RIC, are deployed in the central cloud.  
+
+The primary type of adversary is the MVNO N, who is allowed to submit onboarding requests to the management infrastructure of the 5G system. This allows them to onboard their own xAppN onto the near-real time RIC platform. xAppN is cohabiting with xApps from other MVNOs and using an open message router to exchange messages with them. Without any authentication and authorization mechanism to oversee the exchange of messages between xApps, this adversary can gain access to the message exchange loop between xApp1 and xApp2.
+
+**Attack Vector:**
+  - Item 1 MVNO submits new xApp request to the MANO.
+  - Item 2 Resources are allocated for the xApp and the request is forwarded to the near-RT RIC
+  - Item 3 xApp is onboarded.
+  - Item 4 xApp interferes with the communication of other xApps by utilizing existing subscription IDs, bypassing authorization and authentication in intra-RIC communication. 
+
+**Case Study:**
+A scenario is formulated to describe the types of attacks that an attacker can carry out. xApp1 is subscribed to receive RLC and MAC layer information from the DU. This information is forwarded to xApp2 where various real-time load balancing decisions are made and traffic patterns are adjusted. Finally these decisions are relayed back to xApp1 for execution. In such a scenario, the attacker can carry out the following attacks.
+    - Item 1 Eavesdropping: on sensitive real-time decisions regarding user device operations. 
+    - Item 2 Faulty injections: to change either the incoming data to be used by xApp2 for decision making or outgoing data to xApp1 for execution to alter the ultimate behaviour of the system. 
+
