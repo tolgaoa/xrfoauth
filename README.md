@@ -3,4 +3,4 @@
 The initial makings of an OAuth2.0 server to be integrated into the LF RIC in the future for enabling authentication between select xApps. 
 
 The goal of this project is address the threat model given below.
-![alt text](https://github.com/[chateauxvt]/[xrfoauth]/blob/[working]/thrmdlxrf.jpg?raw=true)
+![alt text](thrmdlxrf.jpg?raw=true)
