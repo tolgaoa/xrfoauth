@@ -20,10 +20,10 @@
 //#include <AccessTokenResponse.h> TODO implement in the api-server a seperate section for the response that will be sent upon an acces token request 
 //#include "genuint.hpp" TODO a header for generating unsigned integers for different types using templates 
 #include "ProblemDetails.h"
-#include "xrf_action.hpp"
-#include "xrf_profile.hpp"
-#include "xrf_search.hpp"
-#include "xrf_subscribe.hpp"
+//#include "xrf_action.hpp"
+//#include "xrf_profile.hpp"
+//#include "xrf_search.hpp"
+//#include "xrf_subscribe.hpp"
 
 namespace xrf {
 namespace app {
@@ -85,8 +85,8 @@ class xrf_main{
 		  * @param{xrfp}: pointer to the xrf profile to tbe added
 		  */
 		
-		 void access_token_request(const std::string& request_main, AccessTokenRsp& ac_tok_rsp, 
-				           int& http_code, const uint8_t http_version, ProblemDetails& problem_details);
+		 //void access_token_request(const std::string& request_main, AccessTokenRsp& ac_tok_rsp, int& http_code, const uint8_t http_version, ProblemDetails& problem_details);
+		 void access_token_request(const std::string& request_main, AccessTokenRsp& ac_tok_rsp, int& http_code, const uint8_t http_version, ProblemDetails& problem_details);
 		 /*
 		  * @param{request_main}: the main body which includes the request for the token
 		  * @param{ac_tok_rsp}: the response
@@ -96,7 +96,7 @@ class xrf_main{
 		  */
 
 	private:
-		 std::string xrf_id;
+		 /*std::string xrf_id;
 		 std::map<std::string, std::shared_ptr<xrf_profile>> instance_id_to_xrf_profile;
 		 std::shared_mutex mut_instance_id_conv_xrf_profile;
 
@@ -108,7 +108,7 @@ class xrf_main{
 
                  util::uint_generator<uint32_t> search_id_generator;
                  std::map<std::string, std::shared_ptr<xrf_search_result>>search_id_conv_search_result;
-                 mutable std::shared_mutex mut_search_id_conv_search_result;
+                 mutable std::shared_mutex mut_search_id_conv_search_result;*/
 
 };
 

@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/XRF.dir/xrf_jwt.cpp.o"
   "CMakeFiles/XRF.dir/xrf_jwt.cpp.o.d"
+  "CMakeFiles/XRF.dir/xrf_main.cpp.o"
+  "CMakeFiles/XRF.dir/xrf_main.cpp.o.d"
   "libXRF.a"
   "libXRF.pdb"
 )

@@ -1,5 +1,8 @@
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../api-server/api)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../api-server/impl)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../api-server/model)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../api-server/)
+
 add_library (XRF STATIC 
 	xrf_jwt.cpp
-	task_man.cpp
-	xrf_main.cpp
-	xrf_event.cpp)
+	xrf_main.cpp)
