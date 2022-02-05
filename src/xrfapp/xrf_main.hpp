@@ -17,7 +17,7 @@
 
 
 #include <string>
-//#include <AccessTokenResponse.h> TODO implement in the api-server a seperate section for the response that will be sent upon an acces token request 
+#include <AccessTokenRsp.h>  
 //#include "genuint.hpp" TODO a header for generating unsigned integers for different types using templates 
 #include "ProblemDetails.h"
 //#include "xrf_action.hpp"
@@ -28,11 +28,11 @@
 namespace xrf {
 namespace app {
 
-using namespace::xrf::app;
+using namespace::xrf::model;
 class xrf_config;
 class xrf_main{
 	public:
-		xrf_main(const std::string& configuration, xrf_action& action);
+		//xrf_main(const std::string& configuration, xrf_action& action);
 		xrf_main(xrf_main const&) = delete;
 		void operator = (xrf_main const&) = delete;
 		
@@ -41,7 +41,7 @@ class xrf_main{
 		 * Generate a unique string for the XRF ID 
 		 */
 
-		void register_xapp(const std::string& xapp_id, nt& http_n, const uint8_t http_v, 
+		void register_xapp(const std::string& xapp_id, int& http_n, const uint8_t http_v, 
 				   ProblemDetails& problem_details);
 		/*
 		 * Carry out xApp registration
@@ -71,19 +71,21 @@ class xrf_main{
 		 * @param {problem_details}: auto-generated api parameter describing error cases
 		 */
 
-		 bool add_xapp_profile(const std::string& profile_id, const std::shared_ptr<xrf_profile>& xrfp);
-		/*
-		* Add a xrf profile
-		* @param {profile_id}: profile id of the xrf
-		* @param {xrfp}: pointer to the xrf profile to be added
-		*/
+		
+	       	//bool add_xapp_profile(const std::string& profile_id, const std::shared_ptr<xrf_profile>& xrfp);
+		///*
+		//* Add a xrf profile
+		//* @param {profile_id}: profile id of the xrf
+		//* @param {xrfp}: pointer to the xrf profile to be added
+		//*/
+		
 
-		 bool upd_xrf_profile(const std::string& profile_id, const std::shared_ptr<xrf_profile>& xrfp);
-		 /*
-		  * Update xrf profile
-		  * @param {profile_id}: profile id of the xrf
-		  * @param{xrfp}: pointer to the xrf profile to tbe added
-		  */
+		 //bool upd_xrf_profile(const std::string& profile_id, const std::shared_ptr<xrf_profile>& xrfp);
+		 ///*
+		 // * Update xrf profile
+		 // * @param {profile_id}: profile id of the xrf
+		 // * @param{xrfp}: pointer to the xrf profile to tbe added
+		 // */
 		
 		 //void access_token_request(const std::string& request_main, AccessTokenRsp& ac_tok_rsp, int& http_code, const uint8_t http_version, ProblemDetails& problem_details);
 		 void access_token_request(const std::string& request_main, AccessTokenRsp& ac_tok_rsp, int& http_code, const uint8_t http_version, ProblemDetails& problem_details);

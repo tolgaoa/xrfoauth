@@ -8,12 +8,13 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/nsslm/Documents/xrfoauth/src/main.cpp" "CMakeFiles/xappoauth.dir/main.cpp.o" "gcc" "CMakeFiles/xappoauth.dir/main.cpp.o.d"
+  "/home/tahome/Documents/xrfoauth/src/main.cpp" "CMakeFiles/xappoauth.dir/main.cpp.o" "gcc" "CMakeFiles/xappoauth.dir/main.cpp.o.d"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/nsslm/Documents/xrfoauth/src/build/xrfapp/CMakeFiles/XRF.dir/DependInfo.cmake"
+  "/home/tahome/Documents/xrfoauth/src/build/xrfapp/CMakeFiles/XRF.dir/DependInfo.cmake"
+  "/home/tahome/Documents/xrfoauth/src/build/api-server/CMakeFiles/XRF_API.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

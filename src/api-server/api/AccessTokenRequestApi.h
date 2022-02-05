@@ -30,7 +30,7 @@
 #include "AccessTokenRsp.h"
 #include <string>
 
-namespace org::openapitools::server::api
+namespace xrf::api
 {
 
 class  AccessTokenRequestApi {

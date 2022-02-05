@@ -8,8 +8,10 @@ find_package(OpenSSL REQUIRED)
 
 include_directories(${PROJECT_SOURCE_DIR})
 include_directories(${PROJECT_SOURCE_DIR}/xrfapp)
+include_directories(${PROJECT_SOURCE_DIR}/api-server)
 
 add_subdirectory(xrfapp)
+add_subdirectory(api-server)
 
 add_executable(${PROJECT_NAME} main.cpp) 
 

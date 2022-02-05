@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/nsslm/Documents/xrfoauth/src -I/home/nsslm/Documents/xrfoauth/src/xrfapp -I/home/nsslm/Documents/xrfoauth/src/.
+CXX_INCLUDES = -I/home/tahome/Documents/xrfoauth/src -I/home/tahome/Documents/xrfoauth/src/xrfapp -I/home/tahome/Documents/xrfoauth/src/api-server -I/home/tahome/Documents/xrfoauth/src/.
 
 CXX_FLAGS = 
 

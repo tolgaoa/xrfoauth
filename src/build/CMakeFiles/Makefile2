@@ -45,19 +45,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = /usr/local/lib/python3.6/dist-packages/cmake/data/bin/cmake
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E rm -f
+RM = /usr/local/lib/python3.6/dist-packages/cmake/data/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/nsslm/Documents/xrfoauth/src
+CMAKE_SOURCE_DIR = /home/tahome/Documents/xrfoauth/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/nsslm/Documents/xrfoauth/src/build
+CMAKE_BINARY_DIR = /home/tahome/Documents/xrfoauth/src/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -65,16 +65,34 @@ CMAKE_BINARY_DIR = /home/nsslm/Documents/xrfoauth/src/build
 # The main recursive "all" target.
 all: CMakeFiles/xappoauth.dir/all
 all: xrfapp/all
+all: api-server/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: xrfapp/preinstall
+preinstall: api-server/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/xappoauth.dir/clean
 clean: xrfapp/clean
+clean: api-server/clean
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory api-server
+
+# Recursive "all" directory target.
+api-server/all: api-server/CMakeFiles/XRF_API.dir/all
+.PHONY : api-server/all
+
+# Recursive "preinstall" directory target.
+api-server/preinstall:
+.PHONY : api-server/preinstall
+
+# Recursive "clean" directory target.
+api-server/clean: api-server/CMakeFiles/XRF_API.dir/clean
+.PHONY : api-server/clean
 
 #=============================================================================
 # Directory level rules for directory xrfapp
@@ -96,16 +114,17 @@ xrfapp/clean: xrfapp/CMakeFiles/XRF.dir/clean
 
 # All Build rule for target.
 CMakeFiles/xappoauth.dir/all: xrfapp/CMakeFiles/XRF.dir/all
+CMakeFiles/xappoauth.dir/all: api-server/CMakeFiles/XRF_API.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/xappoauth.dir/build.make CMakeFiles/xappoauth.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/xappoauth.dir/build.make CMakeFiles/xappoauth.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nsslm/Documents/xrfoauth/src/build/CMakeFiles --progress-num=4,5 "Built target xappoauth"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/tahome/Documents/xrfoauth/src/build/CMakeFiles --progress-num=12,13 "Built target xappoauth"
 .PHONY : CMakeFiles/xappoauth.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/xappoauth.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nsslm/Documents/xrfoauth/src/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tahome/Documents/xrfoauth/src/build/CMakeFiles 13
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/xappoauth.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nsslm/Documents/xrfoauth/src/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tahome/Documents/xrfoauth/src/build/CMakeFiles 0
 .PHONY : CMakeFiles/xappoauth.dir/rule
 
 # Convenience name for target.
@@ -124,14 +143,14 @@ CMakeFiles/xappoauth.dir/clean:
 xrfapp/CMakeFiles/XRF.dir/all:
 	$(MAKE) $(MAKESILENT) -f xrfapp/CMakeFiles/XRF.dir/build.make xrfapp/CMakeFiles/XRF.dir/depend
 	$(MAKE) $(MAKESILENT) -f xrfapp/CMakeFiles/XRF.dir/build.make xrfapp/CMakeFiles/XRF.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nsslm/Documents/xrfoauth/src/build/CMakeFiles --progress-num=1,2,3 "Built target XRF"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/tahome/Documents/xrfoauth/src/build/CMakeFiles --progress-num=1,2,3 "Built target XRF"
 .PHONY : xrfapp/CMakeFiles/XRF.dir/all
 
 # Build rule for subdir invocation for target.
 xrfapp/CMakeFiles/XRF.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nsslm/Documents/xrfoauth/src/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tahome/Documents/xrfoauth/src/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 xrfapp/CMakeFiles/XRF.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nsslm/Documents/xrfoauth/src/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tahome/Documents/xrfoauth/src/build/CMakeFiles 0
 .PHONY : xrfapp/CMakeFiles/XRF.dir/rule
 
 # Convenience name for target.
@@ -142,6 +161,32 @@ XRF: xrfapp/CMakeFiles/XRF.dir/rule
 xrfapp/CMakeFiles/XRF.dir/clean:
 	$(MAKE) $(MAKESILENT) -f xrfapp/CMakeFiles/XRF.dir/build.make xrfapp/CMakeFiles/XRF.dir/clean
 .PHONY : xrfapp/CMakeFiles/XRF.dir/clean
+
+#=============================================================================
+# Target rules for target api-server/CMakeFiles/XRF_API.dir
+
+# All Build rule for target.
+api-server/CMakeFiles/XRF_API.dir/all:
+	$(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/depend
+	$(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/tahome/Documents/xrfoauth/src/build/CMakeFiles --progress-num=4,5,6,7,8,9,10,11 "Built target XRF_API"
+.PHONY : api-server/CMakeFiles/XRF_API.dir/all
+
+# Build rule for subdir invocation for target.
+api-server/CMakeFiles/XRF_API.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tahome/Documents/xrfoauth/src/build/CMakeFiles 8
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 api-server/CMakeFiles/XRF_API.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tahome/Documents/xrfoauth/src/build/CMakeFiles 0
+.PHONY : api-server/CMakeFiles/XRF_API.dir/rule
+
+# Convenience name for target.
+XRF_API: api-server/CMakeFiles/XRF_API.dir/rule
+.PHONY : XRF_API
+
+# clean rule for target.
+api-server/CMakeFiles/XRF_API.dir/clean:
+	$(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/clean
+.PHONY : api-server/CMakeFiles/XRF_API.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

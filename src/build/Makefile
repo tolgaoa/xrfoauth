@@ -48,19 +48,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = /usr/local/lib/python3.6/dist-packages/cmake/data/bin/cmake
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E rm -f
+RM = /usr/local/lib/python3.6/dist-packages/cmake/data/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/nsslm/Documents/xrfoauth/src
+CMAKE_SOURCE_DIR = /home/tahome/Documents/xrfoauth/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/nsslm/Documents/xrfoauth/src/build
+CMAKE_BINARY_DIR = /home/tahome/Documents/xrfoauth/src/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /home/nsslm/Documents/xrfoauth/src/build
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+	/usr/local/lib/python3.6/dist-packages/cmake/data/bin/ctest --force-new-ctest-process $(ARGS)
 .PHONY : test
 
 # Special rule for the target test
@@ -78,7 +78,7 @@ test/fast: test
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/usr/local/lib/python3.6/dist-packages/cmake/data/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -88,7 +88,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/local/lib/python3.6/dist-packages/cmake/data/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -97,9 +97,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nsslm/Documents/xrfoauth/src/build/CMakeFiles /home/nsslm/Documents/xrfoauth/src/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tahome/Documents/xrfoauth/src/build/CMakeFiles /home/tahome/Documents/xrfoauth/src/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nsslm/Documents/xrfoauth/src/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tahome/Documents/xrfoauth/src/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -152,6 +152,19 @@ XRF/fast:
 	$(MAKE) $(MAKESILENT) -f xrfapp/CMakeFiles/XRF.dir/build.make xrfapp/CMakeFiles/XRF.dir/build
 .PHONY : XRF/fast
 
+#=============================================================================
+# Target rules for targets named XRF_API
+
+# Build rule for target.
+XRF_API: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 XRF_API
+.PHONY : XRF_API
+
+# fast build rule for target.
+XRF_API/fast:
+	$(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/build
+.PHONY : XRF_API/fast
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -186,6 +199,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... XRF"
+	@echo "... XRF_API"
 	@echo "... xappoauth"
 	@echo "... main.o"
 	@echo "... main.i"

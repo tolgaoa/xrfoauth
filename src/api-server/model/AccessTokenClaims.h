@@ -22,7 +22,7 @@
 #include <string>
 #include <nlohmann/json.hpp>
 
-namespace org::openapitools::server::model
+namespace xrf::model
 {
 
 /// <summary>

@@ -35,15 +35,14 @@ using namespace std::chrono;
 
 xrf_jwt* jwt_instance = NULL;
 
-//void xrf_main::access_token_request(const std::string& request_main, AccessTokenRsp& ac_tok_rsp, int& http_code, const uint8_t http_version, ProblemDetails& problem_details){
-void xrf_main::access_token_request(const std::string& request_main, AccessTokenRsp& ac_tok_rsp, int& http_code, const uint8_t http_version){
+void xrf_main::access_token_request(const std::string& request_main, AccessTokenRsp& ac_tok_rsp, int& http_code, const uint8_t http_version, ProblemDetails& problem_details){
 
 	std::map<std::string, std::string> access_token_req;
-	std::vector<std::string>> values;
+	std::vector<std::string> values;
 	boost::split(values, request_main, boost::is_any_of("&"), boost::token_compress_on);
 
 	for (auto i : values){
-		std::vector<std:::string> value;
+		std::vector<std::string> value;
 		boost::split(value, i, boost::is_any_of("&"), boost::token_compress_on);
 		if (value.size() != 2){
 			Logger::xrf_main().debug("Invalid request");

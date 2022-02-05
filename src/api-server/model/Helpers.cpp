@@ -12,7 +12,7 @@
 #include "Helpers.h"
 #include <regex>
 
-namespace org::openapitools::server::helpers
+namespace xrf::helpers
 {
 
 const std::regex regexRfc3339_date(R"(^(\d{4})\-(\d{2})\-(\d{2})$)");

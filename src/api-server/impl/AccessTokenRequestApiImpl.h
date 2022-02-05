@@ -33,7 +33,7 @@
 #include "AccessTokenRsp.h"
 #include <string>
 
-namespace org::openapitools::server::api
+namespace xrf::api
 {
 
 using namespace org::openapitools::server::model;

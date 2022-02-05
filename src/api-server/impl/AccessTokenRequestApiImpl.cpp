@@ -17,7 +17,7 @@ namespace openapitools {
 namespace server {
 namespace api {
 
-using namespace org::openapitools::server::model;
+using namespace xrf::model;
 
 AccessTokenRequestApiImpl::AccessTokenRequestApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : AccessTokenRequestApi(rtr)

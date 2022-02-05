@@ -57,9 +57,36 @@ static void setUpUnixSignals(std::vector<int> quitSignals) {
 }
 #endif
 
-using namespace org::openapitools::server::api;
+using namespace xrf::api;
+using namespace xrf::app;
 
-int main() {
+
+void XRFApiServer::init(size_t thr) {
+  auto opts = Pistache::Http::Endpoint::options().threads(thr);
+  opts.flags(Pistache::Tcp::Options::ReuseAddr);
+  opts.maxRequestSize(PISTACHE_SERVER_MAX_PAYLOAD);
+  m_httpEndpoint->init(opts);
+
+  //m_completeStoredSearchDocumentApiImpl->init();
+  //m_nfInstancesStoreApiImpl->init();
+  //m_storedSearchDocumentApiImpl->init();
+  //m_nfInstanceIDDocumentApiImpl->init();
+  //m_subscriptionIDDocumentApiImpl->init();
+  //m_subscriptionsCollectionApiImpl->init();
+  //m_discNFInstancesStoreApiImpl->init();
+  m_accessTokenRequestApiImpl->init();
+}
+void XRFApiServer::start() {
+  Logger::xrf_sbi().info("Started http server");
+  m_httpEndpoint->setHandler(m_router->handler());
+  m_httpEndpoint->serve();
+}
+void NRFApiServer::shutdown() {
+  m_httpEndpoint->shutdown();
+}
+
+
+/*int main() {
 #ifdef __linux__
     std::vector<int> sigs{SIGQUIT, SIGINT, SIGTERM, SIGHUP};
     setUpUnixSignals(sigs);
@@ -85,4 +112,4 @@ int main() {
 
     httpEndpoint->shutdown();
 
-}
+}*/

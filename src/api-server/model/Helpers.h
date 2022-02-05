@@ -24,7 +24,7 @@
 #include <vector>
 #include <map>
 
-namespace org::openapitools::server::helpers
+namespace xrf::helpers
 {
 
     class ValidationException : public std::runtime_error

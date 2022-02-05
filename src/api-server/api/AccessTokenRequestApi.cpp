@@ -13,7 +13,7 @@
 #include "AccessTokenRequestApi.h"
 #include "Helpers.h"
 
-namespace org::openapitools::server::api
+namespace xrf::api
 {
 
 using namespace org::openapitools::server::helpers;

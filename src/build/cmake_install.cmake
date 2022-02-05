@@ -1,4 +1,4 @@
-# Install script for directory: /home/nsslm/Documents/xrfoauth/src
+# Install script for directory: /home/tahome/Documents/xrfoauth/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,7 +44,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/nsslm/Documents/xrfoauth/src/build/xrfapp/cmake_install.cmake")
+  include("/home/tahome/Documents/xrfoauth/src/build/xrfapp/cmake_install.cmake")
+  include("/home/tahome/Documents/xrfoauth/src/build/api-server/cmake_install.cmake")
 
 endif()
 
@@ -56,5 +57,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/nsslm/Documents/xrfoauth/src/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/tahome/Documents/xrfoauth/src/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

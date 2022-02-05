@@ -16,7 +16,7 @@
 
 #include <sstream>
 
-namespace org::openapitools::server::model
+namespace xrf::model
 {
 
 AccessTokenRsp::AccessTokenRsp()

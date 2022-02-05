@@ -22,8 +22,7 @@
 #include <string>
 #include <nlohmann/json.hpp>
 
-namespace org::openapitools::server::model
-{
+namespace xrf::model {
 
 /// <summary>
 /// Contains information related to the access token response
@@ -97,6 +96,6 @@ protected:
     
 };
 
-} // namespace org::openapitools::server::model
+}
 
 #endif /* AccessTokenRsp_H_ */
