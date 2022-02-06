@@ -2,7 +2,10 @@ cmake_minimum_required(VERSION 3.4)
 project(xappoauth)
 enable_testing()
 
-set(CMAKE_CXX_STANDARDS 14)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
 set(OPENSSL_USE_STATIC_LIBS TRUE)
 find_package(OpenSSL REQUIRED)
 

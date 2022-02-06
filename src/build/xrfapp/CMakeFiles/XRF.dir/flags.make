@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/tahome/Documents/xrfoauth/src -I/home/tahome/Documents/xrfoauth/src/xrfapp -I/home/tahome/Documents/xrfoauth/src/api-server -I/home/tahome/Documents/xrfoauth/src/xrfapp/../api-server/api -I/home/tahome/Documents/xrfoauth/src/xrfapp/../api-server/impl -I/home/tahome/Documents/xrfoauth/src/xrfapp/../api-server/model -I/home/tahome/Documents/xrfoauth/src/xrfapp/../api-server
+CXX_INCLUDES = -I/home/taport/Documents/xrfoauth/src -I/home/taport/Documents/xrfoauth/src/xrfapp -I/home/taport/Documents/xrfoauth/src/api-server -I/home/taport/Documents/xrfoauth/src/xrfapp/../api-server/api -I/home/taport/Documents/xrfoauth/src/xrfapp/../api-server/impl -I/home/taport/Documents/xrfoauth/src/xrfapp/../api-server/model -I/home/taport/Documents/xrfoauth/src/xrfapp/../api-server
 
-CXX_FLAGS = 
+CXX_FLAGS = -std=c++17
 

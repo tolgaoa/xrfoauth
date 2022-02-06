@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/local/lib/python3.6/dist-packages/cmake/data/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /usr/local/lib/python3.6/dist-packages/cmake/data/bin/cmake -E rm -f
+RM = /usr/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/tahome/Documents/xrfoauth/src
+CMAKE_SOURCE_DIR = /home/taport/Documents/xrfoauth/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/tahome/Documents/xrfoauth/src/build
+CMAKE_BINARY_DIR = /home/taport/Documents/xrfoauth/src/build
 
 # Include any dependencies generated for this target.
 include api-server/CMakeFiles/XRF_API.dir/depend.make
@@ -72,100 +72,100 @@ include api-server/CMakeFiles/XRF_API.dir/flags.make
 api-server/CMakeFiles/XRF_API.dir/api/AccessTokenRequestApi.cpp.o: api-server/CMakeFiles/XRF_API.dir/flags.make
 api-server/CMakeFiles/XRF_API.dir/api/AccessTokenRequestApi.cpp.o: ../api-server/api/AccessTokenRequestApi.cpp
 api-server/CMakeFiles/XRF_API.dir/api/AccessTokenRequestApi.cpp.o: api-server/CMakeFiles/XRF_API.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tahome/Documents/xrfoauth/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object api-server/CMakeFiles/XRF_API.dir/api/AccessTokenRequestApi.cpp.o"
-	cd /home/tahome/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT api-server/CMakeFiles/XRF_API.dir/api/AccessTokenRequestApi.cpp.o -MF CMakeFiles/XRF_API.dir/api/AccessTokenRequestApi.cpp.o.d -o CMakeFiles/XRF_API.dir/api/AccessTokenRequestApi.cpp.o -c /home/tahome/Documents/xrfoauth/src/api-server/api/AccessTokenRequestApi.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/taport/Documents/xrfoauth/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object api-server/CMakeFiles/XRF_API.dir/api/AccessTokenRequestApi.cpp.o"
+	cd /home/taport/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT api-server/CMakeFiles/XRF_API.dir/api/AccessTokenRequestApi.cpp.o -MF CMakeFiles/XRF_API.dir/api/AccessTokenRequestApi.cpp.o.d -o CMakeFiles/XRF_API.dir/api/AccessTokenRequestApi.cpp.o -c /home/taport/Documents/xrfoauth/src/api-server/api/AccessTokenRequestApi.cpp
 
 api-server/CMakeFiles/XRF_API.dir/api/AccessTokenRequestApi.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/XRF_API.dir/api/AccessTokenRequestApi.cpp.i"
-	cd /home/tahome/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tahome/Documents/xrfoauth/src/api-server/api/AccessTokenRequestApi.cpp > CMakeFiles/XRF_API.dir/api/AccessTokenRequestApi.cpp.i
+	cd /home/taport/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/taport/Documents/xrfoauth/src/api-server/api/AccessTokenRequestApi.cpp > CMakeFiles/XRF_API.dir/api/AccessTokenRequestApi.cpp.i
 
 api-server/CMakeFiles/XRF_API.dir/api/AccessTokenRequestApi.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/XRF_API.dir/api/AccessTokenRequestApi.cpp.s"
-	cd /home/tahome/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tahome/Documents/xrfoauth/src/api-server/api/AccessTokenRequestApi.cpp -o CMakeFiles/XRF_API.dir/api/AccessTokenRequestApi.cpp.s
+	cd /home/taport/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/taport/Documents/xrfoauth/src/api-server/api/AccessTokenRequestApi.cpp -o CMakeFiles/XRF_API.dir/api/AccessTokenRequestApi.cpp.s
 
 api-server/CMakeFiles/XRF_API.dir/impl/AccessTokenRequestApiImpl.cpp.o: api-server/CMakeFiles/XRF_API.dir/flags.make
 api-server/CMakeFiles/XRF_API.dir/impl/AccessTokenRequestApiImpl.cpp.o: ../api-server/impl/AccessTokenRequestApiImpl.cpp
 api-server/CMakeFiles/XRF_API.dir/impl/AccessTokenRequestApiImpl.cpp.o: api-server/CMakeFiles/XRF_API.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tahome/Documents/xrfoauth/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object api-server/CMakeFiles/XRF_API.dir/impl/AccessTokenRequestApiImpl.cpp.o"
-	cd /home/tahome/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT api-server/CMakeFiles/XRF_API.dir/impl/AccessTokenRequestApiImpl.cpp.o -MF CMakeFiles/XRF_API.dir/impl/AccessTokenRequestApiImpl.cpp.o.d -o CMakeFiles/XRF_API.dir/impl/AccessTokenRequestApiImpl.cpp.o -c /home/tahome/Documents/xrfoauth/src/api-server/impl/AccessTokenRequestApiImpl.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/taport/Documents/xrfoauth/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object api-server/CMakeFiles/XRF_API.dir/impl/AccessTokenRequestApiImpl.cpp.o"
+	cd /home/taport/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT api-server/CMakeFiles/XRF_API.dir/impl/AccessTokenRequestApiImpl.cpp.o -MF CMakeFiles/XRF_API.dir/impl/AccessTokenRequestApiImpl.cpp.o.d -o CMakeFiles/XRF_API.dir/impl/AccessTokenRequestApiImpl.cpp.o -c /home/taport/Documents/xrfoauth/src/api-server/impl/AccessTokenRequestApiImpl.cpp
 
 api-server/CMakeFiles/XRF_API.dir/impl/AccessTokenRequestApiImpl.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/XRF_API.dir/impl/AccessTokenRequestApiImpl.cpp.i"
-	cd /home/tahome/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tahome/Documents/xrfoauth/src/api-server/impl/AccessTokenRequestApiImpl.cpp > CMakeFiles/XRF_API.dir/impl/AccessTokenRequestApiImpl.cpp.i
+	cd /home/taport/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/taport/Documents/xrfoauth/src/api-server/impl/AccessTokenRequestApiImpl.cpp > CMakeFiles/XRF_API.dir/impl/AccessTokenRequestApiImpl.cpp.i
 
 api-server/CMakeFiles/XRF_API.dir/impl/AccessTokenRequestApiImpl.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/XRF_API.dir/impl/AccessTokenRequestApiImpl.cpp.s"
-	cd /home/tahome/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tahome/Documents/xrfoauth/src/api-server/impl/AccessTokenRequestApiImpl.cpp -o CMakeFiles/XRF_API.dir/impl/AccessTokenRequestApiImpl.cpp.s
+	cd /home/taport/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/taport/Documents/xrfoauth/src/api-server/impl/AccessTokenRequestApiImpl.cpp -o CMakeFiles/XRF_API.dir/impl/AccessTokenRequestApiImpl.cpp.s
 
 api-server/CMakeFiles/XRF_API.dir/model/AccessTokenClaims.cpp.o: api-server/CMakeFiles/XRF_API.dir/flags.make
 api-server/CMakeFiles/XRF_API.dir/model/AccessTokenClaims.cpp.o: ../api-server/model/AccessTokenClaims.cpp
 api-server/CMakeFiles/XRF_API.dir/model/AccessTokenClaims.cpp.o: api-server/CMakeFiles/XRF_API.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tahome/Documents/xrfoauth/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object api-server/CMakeFiles/XRF_API.dir/model/AccessTokenClaims.cpp.o"
-	cd /home/tahome/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT api-server/CMakeFiles/XRF_API.dir/model/AccessTokenClaims.cpp.o -MF CMakeFiles/XRF_API.dir/model/AccessTokenClaims.cpp.o.d -o CMakeFiles/XRF_API.dir/model/AccessTokenClaims.cpp.o -c /home/tahome/Documents/xrfoauth/src/api-server/model/AccessTokenClaims.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/taport/Documents/xrfoauth/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object api-server/CMakeFiles/XRF_API.dir/model/AccessTokenClaims.cpp.o"
+	cd /home/taport/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT api-server/CMakeFiles/XRF_API.dir/model/AccessTokenClaims.cpp.o -MF CMakeFiles/XRF_API.dir/model/AccessTokenClaims.cpp.o.d -o CMakeFiles/XRF_API.dir/model/AccessTokenClaims.cpp.o -c /home/taport/Documents/xrfoauth/src/api-server/model/AccessTokenClaims.cpp
 
 api-server/CMakeFiles/XRF_API.dir/model/AccessTokenClaims.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/XRF_API.dir/model/AccessTokenClaims.cpp.i"
-	cd /home/tahome/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tahome/Documents/xrfoauth/src/api-server/model/AccessTokenClaims.cpp > CMakeFiles/XRF_API.dir/model/AccessTokenClaims.cpp.i
+	cd /home/taport/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/taport/Documents/xrfoauth/src/api-server/model/AccessTokenClaims.cpp > CMakeFiles/XRF_API.dir/model/AccessTokenClaims.cpp.i
 
 api-server/CMakeFiles/XRF_API.dir/model/AccessTokenClaims.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/XRF_API.dir/model/AccessTokenClaims.cpp.s"
-	cd /home/tahome/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tahome/Documents/xrfoauth/src/api-server/model/AccessTokenClaims.cpp -o CMakeFiles/XRF_API.dir/model/AccessTokenClaims.cpp.s
+	cd /home/taport/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/taport/Documents/xrfoauth/src/api-server/model/AccessTokenClaims.cpp -o CMakeFiles/XRF_API.dir/model/AccessTokenClaims.cpp.s
 
 api-server/CMakeFiles/XRF_API.dir/model/AccessTokenErr.cpp.o: api-server/CMakeFiles/XRF_API.dir/flags.make
 api-server/CMakeFiles/XRF_API.dir/model/AccessTokenErr.cpp.o: ../api-server/model/AccessTokenErr.cpp
 api-server/CMakeFiles/XRF_API.dir/model/AccessTokenErr.cpp.o: api-server/CMakeFiles/XRF_API.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tahome/Documents/xrfoauth/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object api-server/CMakeFiles/XRF_API.dir/model/AccessTokenErr.cpp.o"
-	cd /home/tahome/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT api-server/CMakeFiles/XRF_API.dir/model/AccessTokenErr.cpp.o -MF CMakeFiles/XRF_API.dir/model/AccessTokenErr.cpp.o.d -o CMakeFiles/XRF_API.dir/model/AccessTokenErr.cpp.o -c /home/tahome/Documents/xrfoauth/src/api-server/model/AccessTokenErr.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/taport/Documents/xrfoauth/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object api-server/CMakeFiles/XRF_API.dir/model/AccessTokenErr.cpp.o"
+	cd /home/taport/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT api-server/CMakeFiles/XRF_API.dir/model/AccessTokenErr.cpp.o -MF CMakeFiles/XRF_API.dir/model/AccessTokenErr.cpp.o.d -o CMakeFiles/XRF_API.dir/model/AccessTokenErr.cpp.o -c /home/taport/Documents/xrfoauth/src/api-server/model/AccessTokenErr.cpp
 
 api-server/CMakeFiles/XRF_API.dir/model/AccessTokenErr.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/XRF_API.dir/model/AccessTokenErr.cpp.i"
-	cd /home/tahome/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tahome/Documents/xrfoauth/src/api-server/model/AccessTokenErr.cpp > CMakeFiles/XRF_API.dir/model/AccessTokenErr.cpp.i
+	cd /home/taport/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/taport/Documents/xrfoauth/src/api-server/model/AccessTokenErr.cpp > CMakeFiles/XRF_API.dir/model/AccessTokenErr.cpp.i
 
 api-server/CMakeFiles/XRF_API.dir/model/AccessTokenErr.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/XRF_API.dir/model/AccessTokenErr.cpp.s"
-	cd /home/tahome/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tahome/Documents/xrfoauth/src/api-server/model/AccessTokenErr.cpp -o CMakeFiles/XRF_API.dir/model/AccessTokenErr.cpp.s
+	cd /home/taport/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/taport/Documents/xrfoauth/src/api-server/model/AccessTokenErr.cpp -o CMakeFiles/XRF_API.dir/model/AccessTokenErr.cpp.s
 
 api-server/CMakeFiles/XRF_API.dir/model/AccessTokenRsp.cpp.o: api-server/CMakeFiles/XRF_API.dir/flags.make
 api-server/CMakeFiles/XRF_API.dir/model/AccessTokenRsp.cpp.o: ../api-server/model/AccessTokenRsp.cpp
 api-server/CMakeFiles/XRF_API.dir/model/AccessTokenRsp.cpp.o: api-server/CMakeFiles/XRF_API.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tahome/Documents/xrfoauth/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object api-server/CMakeFiles/XRF_API.dir/model/AccessTokenRsp.cpp.o"
-	cd /home/tahome/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT api-server/CMakeFiles/XRF_API.dir/model/AccessTokenRsp.cpp.o -MF CMakeFiles/XRF_API.dir/model/AccessTokenRsp.cpp.o.d -o CMakeFiles/XRF_API.dir/model/AccessTokenRsp.cpp.o -c /home/tahome/Documents/xrfoauth/src/api-server/model/AccessTokenRsp.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/taport/Documents/xrfoauth/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object api-server/CMakeFiles/XRF_API.dir/model/AccessTokenRsp.cpp.o"
+	cd /home/taport/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT api-server/CMakeFiles/XRF_API.dir/model/AccessTokenRsp.cpp.o -MF CMakeFiles/XRF_API.dir/model/AccessTokenRsp.cpp.o.d -o CMakeFiles/XRF_API.dir/model/AccessTokenRsp.cpp.o -c /home/taport/Documents/xrfoauth/src/api-server/model/AccessTokenRsp.cpp
 
 api-server/CMakeFiles/XRF_API.dir/model/AccessTokenRsp.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/XRF_API.dir/model/AccessTokenRsp.cpp.i"
-	cd /home/tahome/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tahome/Documents/xrfoauth/src/api-server/model/AccessTokenRsp.cpp > CMakeFiles/XRF_API.dir/model/AccessTokenRsp.cpp.i
+	cd /home/taport/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/taport/Documents/xrfoauth/src/api-server/model/AccessTokenRsp.cpp > CMakeFiles/XRF_API.dir/model/AccessTokenRsp.cpp.i
 
 api-server/CMakeFiles/XRF_API.dir/model/AccessTokenRsp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/XRF_API.dir/model/AccessTokenRsp.cpp.s"
-	cd /home/tahome/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tahome/Documents/xrfoauth/src/api-server/model/AccessTokenRsp.cpp -o CMakeFiles/XRF_API.dir/model/AccessTokenRsp.cpp.s
+	cd /home/taport/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/taport/Documents/xrfoauth/src/api-server/model/AccessTokenRsp.cpp -o CMakeFiles/XRF_API.dir/model/AccessTokenRsp.cpp.s
 
 api-server/CMakeFiles/XRF_API.dir/model/Helpers.cpp.o: api-server/CMakeFiles/XRF_API.dir/flags.make
 api-server/CMakeFiles/XRF_API.dir/model/Helpers.cpp.o: ../api-server/model/Helpers.cpp
 api-server/CMakeFiles/XRF_API.dir/model/Helpers.cpp.o: api-server/CMakeFiles/XRF_API.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tahome/Documents/xrfoauth/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object api-server/CMakeFiles/XRF_API.dir/model/Helpers.cpp.o"
-	cd /home/tahome/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT api-server/CMakeFiles/XRF_API.dir/model/Helpers.cpp.o -MF CMakeFiles/XRF_API.dir/model/Helpers.cpp.o.d -o CMakeFiles/XRF_API.dir/model/Helpers.cpp.o -c /home/tahome/Documents/xrfoauth/src/api-server/model/Helpers.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/taport/Documents/xrfoauth/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object api-server/CMakeFiles/XRF_API.dir/model/Helpers.cpp.o"
+	cd /home/taport/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT api-server/CMakeFiles/XRF_API.dir/model/Helpers.cpp.o -MF CMakeFiles/XRF_API.dir/model/Helpers.cpp.o.d -o CMakeFiles/XRF_API.dir/model/Helpers.cpp.o -c /home/taport/Documents/xrfoauth/src/api-server/model/Helpers.cpp
 
 api-server/CMakeFiles/XRF_API.dir/model/Helpers.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/XRF_API.dir/model/Helpers.cpp.i"
-	cd /home/tahome/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tahome/Documents/xrfoauth/src/api-server/model/Helpers.cpp > CMakeFiles/XRF_API.dir/model/Helpers.cpp.i
+	cd /home/taport/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/taport/Documents/xrfoauth/src/api-server/model/Helpers.cpp > CMakeFiles/XRF_API.dir/model/Helpers.cpp.i
 
 api-server/CMakeFiles/XRF_API.dir/model/Helpers.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/XRF_API.dir/model/Helpers.cpp.s"
-	cd /home/tahome/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tahome/Documents/xrfoauth/src/api-server/model/Helpers.cpp -o CMakeFiles/XRF_API.dir/model/Helpers.cpp.s
+	cd /home/taport/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/taport/Documents/xrfoauth/src/api-server/model/Helpers.cpp -o CMakeFiles/XRF_API.dir/model/Helpers.cpp.s
 
 api-server/CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.o: api-server/CMakeFiles/XRF_API.dir/flags.make
 api-server/CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.o: ../api-server/model/ProblemDetails.cpp
 api-server/CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.o: api-server/CMakeFiles/XRF_API.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tahome/Documents/xrfoauth/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object api-server/CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.o"
-	cd /home/tahome/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT api-server/CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.o -MF CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.o.d -o CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.o -c /home/tahome/Documents/xrfoauth/src/api-server/model/ProblemDetails.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/taport/Documents/xrfoauth/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object api-server/CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.o"
+	cd /home/taport/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT api-server/CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.o -MF CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.o.d -o CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.o -c /home/taport/Documents/xrfoauth/src/api-server/model/ProblemDetails.cpp
 
 api-server/CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.i"
-	cd /home/tahome/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tahome/Documents/xrfoauth/src/api-server/model/ProblemDetails.cpp > CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.i
+	cd /home/taport/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/taport/Documents/xrfoauth/src/api-server/model/ProblemDetails.cpp > CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.i
 
 api-server/CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.s"
-	cd /home/tahome/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tahome/Documents/xrfoauth/src/api-server/model/ProblemDetails.cpp -o CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.s
+	cd /home/taport/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/taport/Documents/xrfoauth/src/api-server/model/ProblemDetails.cpp -o CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.s
 
 # Object files for target XRF_API
 XRF_API_OBJECTS = \
@@ -189,19 +189,19 @@ api-server/libXRF_API.a: api-server/CMakeFiles/XRF_API.dir/model/Helpers.cpp.o
 api-server/libXRF_API.a: api-server/CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.o
 api-server/libXRF_API.a: api-server/CMakeFiles/XRF_API.dir/build.make
 api-server/libXRF_API.a: api-server/CMakeFiles/XRF_API.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tahome/Documents/xrfoauth/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX static library libXRF_API.a"
-	cd /home/tahome/Documents/xrfoauth/src/build/api-server && $(CMAKE_COMMAND) -P CMakeFiles/XRF_API.dir/cmake_clean_target.cmake
-	cd /home/tahome/Documents/xrfoauth/src/build/api-server && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/XRF_API.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/taport/Documents/xrfoauth/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX static library libXRF_API.a"
+	cd /home/taport/Documents/xrfoauth/src/build/api-server && $(CMAKE_COMMAND) -P CMakeFiles/XRF_API.dir/cmake_clean_target.cmake
+	cd /home/taport/Documents/xrfoauth/src/build/api-server && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/XRF_API.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 api-server/CMakeFiles/XRF_API.dir/build: api-server/libXRF_API.a
 .PHONY : api-server/CMakeFiles/XRF_API.dir/build
 
 api-server/CMakeFiles/XRF_API.dir/clean:
-	cd /home/tahome/Documents/xrfoauth/src/build/api-server && $(CMAKE_COMMAND) -P CMakeFiles/XRF_API.dir/cmake_clean.cmake
+	cd /home/taport/Documents/xrfoauth/src/build/api-server && $(CMAKE_COMMAND) -P CMakeFiles/XRF_API.dir/cmake_clean.cmake
 .PHONY : api-server/CMakeFiles/XRF_API.dir/clean
 
 api-server/CMakeFiles/XRF_API.dir/depend:
-	cd /home/tahome/Documents/xrfoauth/src/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/tahome/Documents/xrfoauth/src /home/tahome/Documents/xrfoauth/src/api-server /home/tahome/Documents/xrfoauth/src/build /home/tahome/Documents/xrfoauth/src/build/api-server /home/tahome/Documents/xrfoauth/src/build/api-server/CMakeFiles/XRF_API.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/taport/Documents/xrfoauth/src/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/taport/Documents/xrfoauth/src /home/taport/Documents/xrfoauth/src/api-server /home/taport/Documents/xrfoauth/src/build /home/taport/Documents/xrfoauth/src/build/api-server /home/taport/Documents/xrfoauth/src/build/api-server/CMakeFiles/XRF_API.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : api-server/CMakeFiles/XRF_API.dir/depend
 
