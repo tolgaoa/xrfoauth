@@ -12,24 +12,15 @@
 
 #include "AccessTokenRequestApiImpl.h"
 
-namespace org {
-namespace openapitools {
-namespace server {
-namespace api {
+namespace xrf::api {
 
 using namespace xrf::model;
 
 AccessTokenRequestApiImpl::AccessTokenRequestApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr)
-    : AccessTokenRequestApi(rtr)
-{
-}
+    : AccessTokenRequestApi(rtr) {}
 
 void AccessTokenRequestApiImpl::access_token_request(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter &response){
     response.send(Pistache::Http::Code::Ok, "Do some magic\n");
 }
 
 }
-}
-}
-}
-

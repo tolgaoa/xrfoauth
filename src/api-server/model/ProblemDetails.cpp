@@ -39,7 +39,7 @@ void ProblemDetails::validate() const
     std::stringstream msg;
     if (!validate(msg))
     {
-        throw org::openapitools::server::helpers::ValidationException(msg.str());
+        throw xrf::helpers::ValidationException(msg.str());
     }
 }
 

@@ -26,7 +26,7 @@
 #include <chrono>
 
 #include "xrf_jwt.hpp"
-#include "logger.hpp"
+//#include "logger.hpp"
 
 
 
@@ -45,9 +45,9 @@ void xrf_main::access_token_request(const std::string& request_main, AccessToken
 		std::vector<std::string> value;
 		boost::split(value, i, boost::is_any_of("&"), boost::token_compress_on);
 		if (value.size() != 2){
-			Logger::xrf_main().debug("Invalid request");
+			//Logger::xrf_main().debug("Invalid request");
 		}else access_token_req[value[0]] = value[1];	
 
-		Logger::xrf_main().debug("(Key, value): %s, %s", value[0].c_str(), value[1].c_str());
+		//Logger::xrf_main().debug("(Key, value): %s, %s", value[0].c_str(), value[1].c_str());
 	}
 };

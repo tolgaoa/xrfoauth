@@ -27,28 +27,29 @@
 
 #include <AccessTokenRequestApi.h>
 
-#include <pistache/optional.h>
+//#include <pistache/optional.h>
 
 #include "AccessTokenErr.h"
 #include "AccessTokenRsp.h"
 #include <string>
 
+#include "xrf_main.hpp"
+
 namespace xrf::api
 {
 
-using namespace org::openapitools::server::model;
+using namespace xrf::model;
+using namespace xrf::app;
 
-class AccessTokenRequestApiImpl : public org::openapitools::server::api::AccessTokenRequestApi {
+class AccessTokenRequestApiImpl : public xrf::api::AccessTokenRequestApi {
 public:
-    explicit AccessTokenRequestApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
-    ~AccessTokenRequestApiImpl() override = default;
+     AccessTokenRequestApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
+    ~AccessTokenRequestApiImpl() {}
 
     void access_token_request(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter &response);
 
 };
 
-} // namespace org::openapitools::server::api
-
-
+} 
 
 #endif
