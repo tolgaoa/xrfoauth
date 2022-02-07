@@ -34,8 +34,8 @@ public:
 int main(int argc, char** argv){
 
 	//Test JWT
-	xrf_jwt obj;
-	obj.test_jwt();
+	/*xrf_jwt obj;
+	obj.test_jwt();*/
 
 	//Define the XRF application instance pointer
 

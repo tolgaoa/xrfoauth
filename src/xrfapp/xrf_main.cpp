@@ -33,7 +33,8 @@
 using namespace xrf::app;
 using namespace std::chrono;
 
-xrf_jwt* jwt_instance = NULL;
+extern xrf_main* xrf_main_inst;
+xrf_jwt* xrf_jwt_inst = nullptr;
 
 void xrf_main::access_token_request(
 		const std::string& request_main, AccessTokenRsp& access_token_rsp, 
@@ -46,14 +47,27 @@ void xrf_main::access_token_request(
 
 	for (auto i : key_values){
 		std::vector<std::string> key_value;
-		boost::split(key_value, i, boost::is_any_of("&"), boost::token_compress_on);
+		boost::split(key_value, i, boost::is_any_of(","), boost::token_compress_on);
 		if (key_value.size() != 2){
 			std::cout << "Invalid Request" << std::endl;
 			//Logger::xrf_main().debug("Invalid request");
 		}else access_token_req[key_value[0]] = key_value[1];	
 
 		//Logger::xrf_main().debug("(Key, value): %s, %s", value[0].c_str(), value[1].c_str());
-		printf("(Key, Value):  %s, %s", key_value[0].c_str(), key_value[1].c_str());
+		printf("(Key, Value):  %s, %s \n", key_value[0].c_str(), key_value[1].c_str());
 	}
+
+	//Generate the JWT object
+	std::string signature = {};
+	bool outcome = false;
+
+	outcome = xrf_jwt_inst->generate_signature("00001", "1", "00002", "A1", signature);
+	std::cout << signature << std::endl;
+
+	access_token_rsp.setAccessToken(signature);
+	access_token_rsp.setTokenType("Bearer");
+	http_code = 200;
+
+	
 
 };
