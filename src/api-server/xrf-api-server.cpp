@@ -21,10 +21,12 @@
 #endif
 
 #include "AccessTokenRequestApiImpl.h"
+#include "xrf-api-server.h"
 
 #define PISTACHE_SERVER_THREADS     2
 #define PISTACHE_SERVER_MAX_REQUEST_SIZE 32768
 #define PISTACHE_SERVER_MAX_RESPONSE_SIZE 32768
+#define PISTACHE_SERVER_MAX_PAYLOAD 32768
 
 static Pistache::Http::Endpoint *httpEndpoint;
 #ifdef __linux__
@@ -80,7 +82,7 @@ void XRFApiServer::start() {
   m_httpEndpoint->setHandler(m_router->handler());
   m_httpEndpoint->serve();
 }
-void NRFApiServer::shutdown() {
+void XRFApiServer::shutdown() {
   m_httpEndpoint->shutdown();
 }
 

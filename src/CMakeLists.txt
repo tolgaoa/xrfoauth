@@ -24,9 +24,11 @@ add_subdirectory(api-server)
 add_executable(${PROJECT_NAME} main.cpp) 
 
 target_include_directories(${PROJECT_NAME} PUBLIC ./)
-#target_link_directories(${PROJECT_NAME} PUBLIC xrfapp/)
-target_link_libraries(${PROJECT_NAME} XRF_API XRF)
 
+target_link_directories(${PROJECT_NAME} PUBLIC xrfapp/)
+target_link_directories(${PROJECT_NAME} PUBLIC api-server/)
+
+target_link_libraries(${PROJECT_NAME} XRF_API XRF)
 target_link_libraries(${PROJECT_NAME} OpenSSL::SSL)
 target_link_libraries(${PROJECT_NAME} OpenSSL::Crypto)
 target_link_libraries(${PROJECT_NAME} ${PISTACHE_LIBRARY})

@@ -72,23 +72,6 @@ class xrf_main{
 		 * @param {problem_details}: auto-generated api parameter describing error cases
 		 */
 
-		
-	       	//bool add_xapp_profile(const std::string& profile_id, const std::shared_ptr<xrf_profile>& xrfp);
-		///*
-		//* Add a xrf profile
-		//* @param {profile_id}: profile id of the xrf
-		//* @param {xrfp}: pointer to the xrf profile to be added
-		//*/
-		
-
-		 //bool upd_xrf_profile(const std::string& profile_id, const std::shared_ptr<xrf_profile>& xrfp);
-		 ///*
-		 // * Update xrf profile
-		 // * @param {profile_id}: profile id of the xrf
-		 // * @param{xrfp}: pointer to the xrf profile to tbe added
-		 // */
-		
-		 //void access_token_request(const std::string& request_main, AccessTokenRsp& ac_tok_rsp, int& http_code, const uint8_t http_version, ProblemDetails& problem_details);
 		 void access_token_request(const std::string& request_main, AccessTokenRsp& ac_tok_rsp, int& http_code, const uint8_t http_version, ProblemDetails& problem_details);
 		 /*
 		  * @param{request_main}: the main body which includes the request for the token

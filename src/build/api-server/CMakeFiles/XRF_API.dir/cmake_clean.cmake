@@ -13,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/XRF_API.dir/model/Helpers.cpp.o.d"
   "CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.o"
   "CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.o.d"
+  "CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o"
+  "CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o.d"
   "libXRF_API.a"
   "libXRF_API.pdb"
 )

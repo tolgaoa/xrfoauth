@@ -308,6 +308,30 @@ model/ProblemDetails.cpp.s:
 	cd /home/taport/Documents/xrfoauth/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.s
 .PHONY : model/ProblemDetails.cpp.s
 
+xrf-api-server.o: xrf-api-server.cpp.o
+.PHONY : xrf-api-server.o
+
+# target to build an object file
+xrf-api-server.cpp.o:
+	cd /home/taport/Documents/xrfoauth/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o
+.PHONY : xrf-api-server.cpp.o
+
+xrf-api-server.i: xrf-api-server.cpp.i
+.PHONY : xrf-api-server.i
+
+# target to preprocess a source file
+xrf-api-server.cpp.i:
+	cd /home/taport/Documents/xrfoauth/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.i
+.PHONY : xrf-api-server.cpp.i
+
+xrf-api-server.s: xrf-api-server.cpp.s
+.PHONY : xrf-api-server.s
+
+# target to generate assembly for a file
+xrf-api-server.cpp.s:
+	cd /home/taport/Documents/xrfoauth/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.s
+.PHONY : xrf-api-server.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -339,6 +363,9 @@ help:
 	@echo "... model/ProblemDetails.o"
 	@echo "... model/ProblemDetails.i"
 	@echo "... model/ProblemDetails.s"
+	@echo "... xrf-api-server.o"
+	@echo "... xrf-api-server.i"
+	@echo "... xrf-api-server.s"
 .PHONY : help
 
 

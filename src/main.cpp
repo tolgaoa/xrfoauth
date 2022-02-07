@@ -39,7 +39,7 @@ int main(int argc, char** argv){
 
 	//Define the XRF application instance pointer
 
-	//Test Sample Pistache Server
+	/*//Test Sample Pistache Server
 	Pistache::Address addr(Pistache::Ipv4::any(), Pistache::Port(9080));
 	auto opts = Pistache::Http::Endpoint::options()
 		    .threads(1);
@@ -47,10 +47,12 @@ int main(int argc, char** argv){
 	Http::Endpoint server(addr);
 	server.init(opts);
 	server.setHandler(Http::make_handler<HelloHandler>());
-	server.serve();	
+	server.serve();	*/
 	
-	//api_server = new XRFApiServer(addr, xrf_main_inst);
-	//api_server->init(2);
+	Pistache::Address addr(Pistache::Ipv4::any(), Pistache::Port(9090));
+	api_server = new XRFApiServer(addr, xrf_main_inst);	
+	api_server->init(2);
+	api_server->start();
 
 	return 0;
 

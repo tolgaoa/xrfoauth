@@ -15,6 +15,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/taport/Documents/xrfoauth/src/api-server/model/AccessTokenRsp.cpp" "api-server/CMakeFiles/XRF_API.dir/model/AccessTokenRsp.cpp.o" "gcc" "api-server/CMakeFiles/XRF_API.dir/model/AccessTokenRsp.cpp.o.d"
   "/home/taport/Documents/xrfoauth/src/api-server/model/Helpers.cpp" "api-server/CMakeFiles/XRF_API.dir/model/Helpers.cpp.o" "gcc" "api-server/CMakeFiles/XRF_API.dir/model/Helpers.cpp.o.d"
   "/home/taport/Documents/xrfoauth/src/api-server/model/ProblemDetails.cpp" "api-server/CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.o" "gcc" "api-server/CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.o.d"
+  "/home/taport/Documents/xrfoauth/src/api-server/xrf-api-server.cpp" "api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o" "gcc" "api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o.d"
   )
 
 # Targets to which this target links.

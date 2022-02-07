@@ -167,6 +167,20 @@ api-server/CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.s"
 	cd /home/taport/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/taport/Documents/xrfoauth/src/api-server/model/ProblemDetails.cpp -o CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.s
 
+api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: api-server/CMakeFiles/XRF_API.dir/flags.make
+api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-server.cpp
+api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: api-server/CMakeFiles/XRF_API.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/taport/Documents/xrfoauth/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o"
+	cd /home/taport/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o -MF CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o.d -o CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o -c /home/taport/Documents/xrfoauth/src/api-server/xrf-api-server.cpp
+
+api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/XRF_API.dir/xrf-api-server.cpp.i"
+	cd /home/taport/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/taport/Documents/xrfoauth/src/api-server/xrf-api-server.cpp > CMakeFiles/XRF_API.dir/xrf-api-server.cpp.i
+
+api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/XRF_API.dir/xrf-api-server.cpp.s"
+	cd /home/taport/Documents/xrfoauth/src/build/api-server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/taport/Documents/xrfoauth/src/api-server/xrf-api-server.cpp -o CMakeFiles/XRF_API.dir/xrf-api-server.cpp.s
+
 # Object files for target XRF_API
 XRF_API_OBJECTS = \
 "CMakeFiles/XRF_API.dir/api/AccessTokenRequestApi.cpp.o" \
@@ -175,7 +189,8 @@ XRF_API_OBJECTS = \
 "CMakeFiles/XRF_API.dir/model/AccessTokenErr.cpp.o" \
 "CMakeFiles/XRF_API.dir/model/AccessTokenRsp.cpp.o" \
 "CMakeFiles/XRF_API.dir/model/Helpers.cpp.o" \
-"CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.o"
+"CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.o" \
+"CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o"
 
 # External object files for target XRF_API
 XRF_API_EXTERNAL_OBJECTS =
@@ -187,9 +202,10 @@ api-server/libXRF_API.a: api-server/CMakeFiles/XRF_API.dir/model/AccessTokenErr.
 api-server/libXRF_API.a: api-server/CMakeFiles/XRF_API.dir/model/AccessTokenRsp.cpp.o
 api-server/libXRF_API.a: api-server/CMakeFiles/XRF_API.dir/model/Helpers.cpp.o
 api-server/libXRF_API.a: api-server/CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.o
+api-server/libXRF_API.a: api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o
 api-server/libXRF_API.a: api-server/CMakeFiles/XRF_API.dir/build.make
 api-server/libXRF_API.a: api-server/CMakeFiles/XRF_API.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/taport/Documents/xrfoauth/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX static library libXRF_API.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/taport/Documents/xrfoauth/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX static library libXRF_API.a"
 	cd /home/taport/Documents/xrfoauth/src/build/api-server && $(CMAKE_COMMAND) -P CMakeFiles/XRF_API.dir/cmake_clean_target.cmake
 	cd /home/taport/Documents/xrfoauth/src/build/api-server && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/XRF_API.dir/link.txt --verbose=$(VERBOSE)
 
