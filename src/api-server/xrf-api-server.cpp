@@ -77,7 +77,6 @@ void XRFApiServer::init(size_t thr) {
   m_accessTokenRequestApiImpl->init();
 }
 void XRFApiServer::start() {
-  Logger::xrf_sbi().info("Started http server");
   m_httpEndpoint->setHandler(m_router->handler());
   m_httpEndpoint->serve();
 }

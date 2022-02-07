@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/xappoauth.dir/main.cpp.o -o xappoauth  api-server/libXRF_API.a xrfapp/libXRF.a /usr/lib/x86_64-linux-gnu/libssl.a /usr/lib/x86_64-linux-gnu/libcrypto.a -lpthread -ldl 
+/usr/bin/c++ CMakeFiles/xappoauth.dir/main.cpp.o -o xappoauth  -Wl,-rpath,/usr/local/lib/x86_64-linux-gnu api-server/libXRF_API.a xrfapp/libXRF.a /usr/lib/x86_64-linux-gnu/libssl.a /usr/lib/x86_64-linux-gnu/libcrypto.a /usr/local/lib/x86_64-linux-gnu/libpistache.so -lpthread -ldl 

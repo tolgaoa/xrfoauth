@@ -24,10 +24,10 @@ using namespace xrf::api;
 using namespace xrf::app;
 class XRFApiServer {
  public:
-  XRFApiServer(Pistache::Address address, xrf_app* xrf_app_inst)
-      : m_httpEndpoint(std::make_shared<Pistache::Http::Endpoint>(address)) {
+  XRFApiServer(Pistache::Address addr, xrf_main* xrf_main_inst)
+      : m_httpEndpoint(std::make_shared<Pistache::Http::Endpoint>(addr)) {
     m_router  = std::make_shared<Pistache::Rest::Router>();
-    m_address = address.host() + ":" + (address.port()).toString();
+    m_address = addr.host() + ":" + (addr.port()).toString();
 
     /*m_completeStoredSearchDocumentApiImpl =
         std::make_shared<CompleteStoredSearchDocumentApiImpl>(
@@ -50,7 +50,7 @@ class XRFApiServer {
         std::make_shared<DiscNFInstancesStoreApiImpl>(
             m_router, nrf_app_inst, m_address);*/
     m_accessTokenRequestApiImpl = std::make_shared<AccessTokenRequestApiImpl>(
-        m_router, xrf_app_inst, m_address);
+        m_router, xrf_main_inst, m_address);
   }
   void init(size_t thr = 1);
   void start();
