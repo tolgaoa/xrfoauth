@@ -35,7 +35,7 @@ using namespace std::chrono;
 
 xrf_jwt* jwt_instance = NULL;
 
-void xrf_main::access_token_request(const std::string& request_main, AccessTokenRsp& ac_tok_rsp, int& http_code, const uint8_t http_version, ProblemDetails& problem_details){
+void xrf_main::access_token_request(const std::string& request_main, AccessTokenRsp& access_token_rsp, int& http_code, const uint8_t http_version, ProblemDetails& problem_details){
 
 	std::map<std::string, std::string> access_token_req;
 	std::vector<std::string> values;

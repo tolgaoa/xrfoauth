@@ -35,7 +35,7 @@ static void sigHandler [[noreturn]] (int sig){
         case SIGTERM:
         case SIGHUP:
         default:
-            httpEndpoint->shutdown();
+            httpEndpoint->shutdown();//can change default to nothing later
             break;
     }
     exit(0);

@@ -92,8 +92,8 @@ xappoauth_EXTERNAL_OBJECTS =
 
 xappoauth: CMakeFiles/xappoauth.dir/main.cpp.o
 xappoauth: CMakeFiles/xappoauth.dir/build.make
-xappoauth: xrfapp/libXRF.a
 xappoauth: api-server/libXRF_API.a
+xappoauth: xrfapp/libXRF.a
 xappoauth: /usr/lib/x86_64-linux-gnu/libssl.a
 xappoauth: /usr/lib/x86_64-linux-gnu/libcrypto.a
 xappoauth: CMakeFiles/xappoauth.dir/link.txt

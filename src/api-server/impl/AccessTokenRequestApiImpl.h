@@ -29,6 +29,7 @@
 
 //#include <pistache/optional.h>
 
+#include "ProblemDetails.h"
 #include "AccessTokenErr.h"
 #include "AccessTokenRsp.h"
 #include <string>
@@ -43,10 +44,14 @@ using namespace xrf::app;
 
 class AccessTokenRequestApiImpl : public xrf::api::AccessTokenRequestApi {
 public:
-     AccessTokenRequestApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
-    ~AccessTokenRequestApiImpl() {}
+	AccessTokenRequestApiImpl(std::shared_ptr<Pistache::Rest::Router>& rtr, xrf_main* xrf_main_inst,
+		               std::string addr);
+	~AccessTokenRequestApiImpl() {}
 
-    void access_token_request(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter &response);
+	void access_token_request(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter &response);
+private:
+	xrf_main*  m_xrf_main;
+	std::string m_addr;
 
 };
 

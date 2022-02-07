@@ -16,11 +16,26 @@ namespace xrf::api {
 
 using namespace xrf::model;
 
-AccessTokenRequestApiImpl::AccessTokenRequestApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr)
-    : AccessTokenRequestApi(rtr) {}
+AccessTokenRequestApiImpl::AccessTokenRequestApiImpl(std::shared_ptr<Pistache::Rest::Router>& rtr, xrf_main* xrf_main_inst, std::string addr)
+    : AccessTokenRequestApi(rtr), m_xrf_main(xrf_main_inst), m_addr(addr) {}
 
 void AccessTokenRequestApiImpl::access_token_request(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter &response){
-    response.send(Pistache::Http::Code::Ok, "Do some magic\n");
+	std::cout << "Incoming request for an OAuth2 access token from XRF" << std::endl; //replace with the logger later 
+	int http_code = 0;
+	ProblemDetails problem_details = {};
+	AccessTokenRsp access_token_rsp = {};
+	m_xrf_main->access_token_request(request.body(), access_token_rsp, http_code, 1, problem_details);
+
+	nlohmann::json json_data = {};
+	std::string content_type = "application/problem+json";
+	if (http_code != 200) { //check if HTTP_STATUS_CODE is 200
+		to_json(json_data, problem_details);
+		content_type = "application/problem+json";
+	} else to_json(json_data, access_token_rsp);
+	
+	response.headers().add<Pistache::Http::Header::ContentType>(Pistache::Http::Mime::MediaType(content_type));
+
+	response.send(Pistache::Http::Code(http_code), json_data.dump().c_str());
 }
 
 }
