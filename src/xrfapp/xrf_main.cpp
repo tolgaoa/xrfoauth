@@ -67,6 +67,8 @@ void xrf_main::access_token_request(
 	access_token_rsp.setAccessToken(signature);
 	access_token_rsp.setTokenType("Bearer");
 	http_code = 200;
+	
+	
 
 	
 

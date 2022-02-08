@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/taport/Documents/xrfoauth/src -I/home/taport/Documents/xrfoauth/src/xrfapp -I/home/taport/Documents/xrfoauth/src/api-server -I/home/taport/Documents/xrfoauth/src/api-server/api -I/home/taport/Documents/xrfoauth/src/api-server/impl -I/home/taport/Documents/xrfoauth/src/api-server/model -I/home/taport/Documents/xrfoauth/src/xrfapp/../api-server/api -I/home/taport/Documents/xrfoauth/src/xrfapp/../api-server/impl -I/home/taport/Documents/xrfoauth/src/xrfapp/../api-server/model -I/home/taport/Documents/xrfoauth/src/xrfapp/../api-server
+CXX_INCLUDES = -I/home/nsslm/Documents/xrfoauth/src -I/home/nsslm/Documents/xrfoauth/src/xrfapp -I/home/nsslm/Documents/xrfoauth/src/api-server -I/home/nsslm/Documents/xrfoauth/src/api-server/api -I/home/nsslm/Documents/xrfoauth/src/api-server/impl -I/home/nsslm/Documents/xrfoauth/src/api-server/model -I/home/nsslm/Documents/xrfoauth/src/xrfapp/../api-server/api -I/home/nsslm/Documents/xrfoauth/src/xrfapp/../api-server/impl -I/home/nsslm/Documents/xrfoauth/src/xrfapp/../api-server/model -I/home/nsslm/Documents/xrfoauth/src/xrfapp/../api-server
 
 CXX_FLAGS = -std=c++17
 
