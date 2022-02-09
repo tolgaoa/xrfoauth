@@ -1,22 +1,22 @@
 Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
-Change Dir: /home/nsslm/Documents/xrfoauth/src/build/CMakeFiles/CMakeTmp
+Change Dir: /home/taport/Documents/xrfoauth/src/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make -f Makefile cmTC_00449/fast && /usr/bin/make  -f CMakeFiles/cmTC_00449.dir/build.make CMakeFiles/cmTC_00449.dir/build
-make[1]: Entering directory '/home/nsslm/Documents/xrfoauth/src/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_00449.dir/src.c.o
-/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_00449.dir/src.c.o -c /home/nsslm/Documents/xrfoauth/src/build/CMakeFiles/CMakeTmp/src.c
-Linking C executable cmTC_00449
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_00449.dir/link.txt --verbose=1
-/usr/bin/cc CMakeFiles/cmTC_00449.dir/src.c.o -o cmTC_00449 
-/usr/bin/ld: CMakeFiles/cmTC_00449.dir/src.c.o: in function `main':
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_4b206/fast && /usr/bin/make  -f CMakeFiles/cmTC_4b206.dir/build.make CMakeFiles/cmTC_4b206.dir/build
+make[1]: Entering directory '/home/taport/Documents/xrfoauth/src/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4b206.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_4b206.dir/src.c.o -c /home/taport/Documents/xrfoauth/src/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_4b206
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4b206.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_4b206.dir/src.c.o -o cmTC_4b206 
+/usr/bin/ld: CMakeFiles/cmTC_4b206.dir/src.c.o: in function `main':
 src.c:(.text+0x46): undefined reference to `pthread_create'
 /usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
 /usr/bin/ld: src.c:(.text+0x5e): undefined reference to `pthread_cancel'
 /usr/bin/ld: src.c:(.text+0x6f): undefined reference to `pthread_join'
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_00449.dir/build.make:99: cmTC_00449] Error 1
-make[1]: Leaving directory '/home/nsslm/Documents/xrfoauth/src/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:127: cmTC_00449/fast] Error 2
+make[1]: *** [CMakeFiles/cmTC_4b206.dir/build.make:99: cmTC_4b206] Error 1
+make[1]: Leaving directory '/home/taport/Documents/xrfoauth/src/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_4b206/fast] Error 2
 
 
 Source file was:
@@ -41,20 +41,20 @@ int main(void)
 }
 
 Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /home/nsslm/Documents/xrfoauth/src/build/CMakeFiles/CMakeTmp
+Change Dir: /home/taport/Documents/xrfoauth/src/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make -f Makefile cmTC_c874d/fast && /usr/bin/make  -f CMakeFiles/cmTC_c874d.dir/build.make CMakeFiles/cmTC_c874d.dir/build
-make[1]: Entering directory '/home/nsslm/Documents/xrfoauth/src/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_c874d.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_c874d.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
-Linking C executable cmTC_c874d
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c874d.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_c874d.dir/CheckFunctionExists.c.o -o cmTC_c874d  -lpthreads 
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_dec08/fast && /usr/bin/make  -f CMakeFiles/cmTC_dec08.dir/build.make CMakeFiles/cmTC_dec08.dir/build
+make[1]: Entering directory '/home/taport/Documents/xrfoauth/src/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_dec08.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_dec08.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_dec08
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dec08.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_dec08.dir/CheckFunctionExists.c.o -o cmTC_dec08  -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_c874d.dir/build.make:99: cmTC_c874d] Error 1
-make[1]: Leaving directory '/home/nsslm/Documents/xrfoauth/src/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:127: cmTC_c874d/fast] Error 2
+make[1]: *** [CMakeFiles/cmTC_dec08.dir/build.make:99: cmTC_dec08] Error 1
+make[1]: Leaving directory '/home/taport/Documents/xrfoauth/src/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_dec08/fast] Error 2
 
 
 

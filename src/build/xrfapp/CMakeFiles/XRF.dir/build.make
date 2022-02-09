@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/nsslm/Documents/xrfoauth/src
+CMAKE_SOURCE_DIR = /home/taport/Documents/xrfoauth/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/nsslm/Documents/xrfoauth/src/build
+CMAKE_BINARY_DIR = /home/taport/Documents/xrfoauth/src/build
 
 # Include any dependencies generated for this target.
 include xrfapp/CMakeFiles/XRF.dir/depend.make
@@ -72,30 +72,30 @@ include xrfapp/CMakeFiles/XRF.dir/flags.make
 xrfapp/CMakeFiles/XRF.dir/xrf_jwt.cpp.o: xrfapp/CMakeFiles/XRF.dir/flags.make
 xrfapp/CMakeFiles/XRF.dir/xrf_jwt.cpp.o: ../xrfapp/xrf_jwt.cpp
 xrfapp/CMakeFiles/XRF.dir/xrf_jwt.cpp.o: xrfapp/CMakeFiles/XRF.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nsslm/Documents/xrfoauth/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object xrfapp/CMakeFiles/XRF.dir/xrf_jwt.cpp.o"
-	cd /home/nsslm/Documents/xrfoauth/src/build/xrfapp && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT xrfapp/CMakeFiles/XRF.dir/xrf_jwt.cpp.o -MF CMakeFiles/XRF.dir/xrf_jwt.cpp.o.d -o CMakeFiles/XRF.dir/xrf_jwt.cpp.o -c /home/nsslm/Documents/xrfoauth/src/xrfapp/xrf_jwt.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/taport/Documents/xrfoauth/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object xrfapp/CMakeFiles/XRF.dir/xrf_jwt.cpp.o"
+	cd /home/taport/Documents/xrfoauth/src/build/xrfapp && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT xrfapp/CMakeFiles/XRF.dir/xrf_jwt.cpp.o -MF CMakeFiles/XRF.dir/xrf_jwt.cpp.o.d -o CMakeFiles/XRF.dir/xrf_jwt.cpp.o -c /home/taport/Documents/xrfoauth/src/xrfapp/xrf_jwt.cpp
 
 xrfapp/CMakeFiles/XRF.dir/xrf_jwt.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/XRF.dir/xrf_jwt.cpp.i"
-	cd /home/nsslm/Documents/xrfoauth/src/build/xrfapp && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nsslm/Documents/xrfoauth/src/xrfapp/xrf_jwt.cpp > CMakeFiles/XRF.dir/xrf_jwt.cpp.i
+	cd /home/taport/Documents/xrfoauth/src/build/xrfapp && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/taport/Documents/xrfoauth/src/xrfapp/xrf_jwt.cpp > CMakeFiles/XRF.dir/xrf_jwt.cpp.i
 
 xrfapp/CMakeFiles/XRF.dir/xrf_jwt.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/XRF.dir/xrf_jwt.cpp.s"
-	cd /home/nsslm/Documents/xrfoauth/src/build/xrfapp && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nsslm/Documents/xrfoauth/src/xrfapp/xrf_jwt.cpp -o CMakeFiles/XRF.dir/xrf_jwt.cpp.s
+	cd /home/taport/Documents/xrfoauth/src/build/xrfapp && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/taport/Documents/xrfoauth/src/xrfapp/xrf_jwt.cpp -o CMakeFiles/XRF.dir/xrf_jwt.cpp.s
 
 xrfapp/CMakeFiles/XRF.dir/xrf_main.cpp.o: xrfapp/CMakeFiles/XRF.dir/flags.make
 xrfapp/CMakeFiles/XRF.dir/xrf_main.cpp.o: ../xrfapp/xrf_main.cpp
 xrfapp/CMakeFiles/XRF.dir/xrf_main.cpp.o: xrfapp/CMakeFiles/XRF.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nsslm/Documents/xrfoauth/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object xrfapp/CMakeFiles/XRF.dir/xrf_main.cpp.o"
-	cd /home/nsslm/Documents/xrfoauth/src/build/xrfapp && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT xrfapp/CMakeFiles/XRF.dir/xrf_main.cpp.o -MF CMakeFiles/XRF.dir/xrf_main.cpp.o.d -o CMakeFiles/XRF.dir/xrf_main.cpp.o -c /home/nsslm/Documents/xrfoauth/src/xrfapp/xrf_main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/taport/Documents/xrfoauth/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object xrfapp/CMakeFiles/XRF.dir/xrf_main.cpp.o"
+	cd /home/taport/Documents/xrfoauth/src/build/xrfapp && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT xrfapp/CMakeFiles/XRF.dir/xrf_main.cpp.o -MF CMakeFiles/XRF.dir/xrf_main.cpp.o.d -o CMakeFiles/XRF.dir/xrf_main.cpp.o -c /home/taport/Documents/xrfoauth/src/xrfapp/xrf_main.cpp
 
 xrfapp/CMakeFiles/XRF.dir/xrf_main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/XRF.dir/xrf_main.cpp.i"
-	cd /home/nsslm/Documents/xrfoauth/src/build/xrfapp && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nsslm/Documents/xrfoauth/src/xrfapp/xrf_main.cpp > CMakeFiles/XRF.dir/xrf_main.cpp.i
+	cd /home/taport/Documents/xrfoauth/src/build/xrfapp && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/taport/Documents/xrfoauth/src/xrfapp/xrf_main.cpp > CMakeFiles/XRF.dir/xrf_main.cpp.i
 
 xrfapp/CMakeFiles/XRF.dir/xrf_main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/XRF.dir/xrf_main.cpp.s"
-	cd /home/nsslm/Documents/xrfoauth/src/build/xrfapp && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nsslm/Documents/xrfoauth/src/xrfapp/xrf_main.cpp -o CMakeFiles/XRF.dir/xrf_main.cpp.s
+	cd /home/taport/Documents/xrfoauth/src/build/xrfapp && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/taport/Documents/xrfoauth/src/xrfapp/xrf_main.cpp -o CMakeFiles/XRF.dir/xrf_main.cpp.s
 
 # Object files for target XRF
 XRF_OBJECTS = \
@@ -109,19 +109,19 @@ xrfapp/libXRF.a: xrfapp/CMakeFiles/XRF.dir/xrf_jwt.cpp.o
 xrfapp/libXRF.a: xrfapp/CMakeFiles/XRF.dir/xrf_main.cpp.o
 xrfapp/libXRF.a: xrfapp/CMakeFiles/XRF.dir/build.make
 xrfapp/libXRF.a: xrfapp/CMakeFiles/XRF.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nsslm/Documents/xrfoauth/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libXRF.a"
-	cd /home/nsslm/Documents/xrfoauth/src/build/xrfapp && $(CMAKE_COMMAND) -P CMakeFiles/XRF.dir/cmake_clean_target.cmake
-	cd /home/nsslm/Documents/xrfoauth/src/build/xrfapp && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/XRF.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/taport/Documents/xrfoauth/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libXRF.a"
+	cd /home/taport/Documents/xrfoauth/src/build/xrfapp && $(CMAKE_COMMAND) -P CMakeFiles/XRF.dir/cmake_clean_target.cmake
+	cd /home/taport/Documents/xrfoauth/src/build/xrfapp && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/XRF.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 xrfapp/CMakeFiles/XRF.dir/build: xrfapp/libXRF.a
 .PHONY : xrfapp/CMakeFiles/XRF.dir/build
 
 xrfapp/CMakeFiles/XRF.dir/clean:
-	cd /home/nsslm/Documents/xrfoauth/src/build/xrfapp && $(CMAKE_COMMAND) -P CMakeFiles/XRF.dir/cmake_clean.cmake
+	cd /home/taport/Documents/xrfoauth/src/build/xrfapp && $(CMAKE_COMMAND) -P CMakeFiles/XRF.dir/cmake_clean.cmake
 .PHONY : xrfapp/CMakeFiles/XRF.dir/clean
 
 xrfapp/CMakeFiles/XRF.dir/depend:
-	cd /home/nsslm/Documents/xrfoauth/src/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/nsslm/Documents/xrfoauth/src /home/nsslm/Documents/xrfoauth/src/xrfapp /home/nsslm/Documents/xrfoauth/src/build /home/nsslm/Documents/xrfoauth/src/build/xrfapp /home/nsslm/Documents/xrfoauth/src/build/xrfapp/CMakeFiles/XRF.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/taport/Documents/xrfoauth/src/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/taport/Documents/xrfoauth/src /home/taport/Documents/xrfoauth/src/xrfapp /home/taport/Documents/xrfoauth/src/build /home/taport/Documents/xrfoauth/src/build/xrfapp /home/taport/Documents/xrfoauth/src/build/xrfapp/CMakeFiles/XRF.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : xrfapp/CMakeFiles/XRF.dir/depend
 

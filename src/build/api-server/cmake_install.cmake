@@ -1,4 +1,4 @@
-# Install script for directory: /home/nsslm/Documents/xrfoauth/src/api-server
+# Install script for directory: /home/taport/Documents/xrfoauth/src/api-server
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
