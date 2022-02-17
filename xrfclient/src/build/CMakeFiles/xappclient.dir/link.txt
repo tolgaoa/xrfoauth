@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/xappclient.dir/main.cpp.o -o xappclient   -L/home/taport/Documents/xrfoauth/xrfclient/src/clientapp  -Wl,-rpath,/home/taport/Documents/xrfoauth/xrfclient/src/clientapp clientapp/libXAPP_CLIENT.a /usr/lib/x86_64-linux-gnu/libssl.a /usr/lib/x86_64-linux-gnu/libcrypto.a /usr/lib/x86_64-linux-gnu/libpistache.so -lpthread -ldl 
