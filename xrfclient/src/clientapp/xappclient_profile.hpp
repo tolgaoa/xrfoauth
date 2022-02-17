@@ -12,6 +12,9 @@
  * \email: tolgaoa@vt.edu
 */
 
+#ifndef FILE_XAPPCLIENT_PROFILE_SEEN
+#define FILE_XAPPCLIENT_PROFILE_SEEN
+
 #include <arpa/inet.h>
 #include <netinet/in.h>
 #include <map>
@@ -21,10 +24,7 @@
 #include <utility>
 #include <vector>
 
-//#include "logger.hpp"
-
-#ifndef FILE_XAPPCLIENT_PROFILE_SEEN
-#define FILE_XAPPCLIENT_PROFILE_SEEN
+#include "logger.hpp"
 
 namespace xappclient {
 
@@ -40,7 +40,7 @@ class xappclient_profile : public std::enable_shared_from_this<xappclient_profil
 		xappclient_profile& operator=(const xappclient_profile& x) {
 			xappclient_instance_id = x.xappclient_instance_id;
 			ipv4_addresses = x.ipv4_addresses;
-			xappclient_instance_name = x.xapp_client_instance_name;
+			xappclient_instance_name = x.xappclient_instance_name;
 			xappclient_status = x.xappclient_status;
 			return *this;
 		}
@@ -62,7 +62,7 @@ class xappclient_profile : public std::enable_shared_from_this<xappclient_profil
 		 * @param instance name
 		 */
 
-		std::string get_xappclient_instance_id() const;
+		std::string get_xappclient_instance_name() const;
 		/* 
 		 * retreive the name of an xapp instance
 		 */
@@ -84,17 +84,11 @@ class xappclient_profile : public std::enable_shared_from_this<xappclient_profil
 		 * @param addresses: set of addresses
 		 */
 
-		std::vector get_xappclient_ipv4() const;
-		/*
-		 * retrieve ipv4 addresses of the xappclient
-		 */
-		
 		void display() const;
 		/*
 		 * display the xapp information
 		 */
 
-	protected:
 		std::string xappclient_instance_id;
 		std::string xappclient_instance_name;
 		std::string xappclient_status;

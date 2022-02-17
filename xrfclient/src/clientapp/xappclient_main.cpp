@@ -24,11 +24,23 @@ void xappclient_main::register_with_xrf() {
 	unsigned int wait = 10000;
 	usleep(wait);
 	create_xappclient_profile();
-	//send_xapp_registration_request();
+	send_xapp_registration_request();
 }
+
+void xappclient_main::generate_uuid(){
+	xappclient_instance_id = to_string(boost::uuids::random_generator()());
+};
+
 
 void xappclient_main::create_xappclient_profile() {
 	generate_uuid();
 
+	xappclient_instance_profile.set_xappclient_instance_id(xappclient_instance_id);
+	xappclient_instance_profile.set_xappclient_status("REGISTERED");
+	xappclient_instance_profile.set_xappclient_instance_name("xApp1");
 
 }
+
+void xappclient_main::send_xapp_registration_request(){
+	//Logger::xapp_main().debug("Send registration request to the XRF");	
+};

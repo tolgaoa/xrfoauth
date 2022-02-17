@@ -9,15 +9,16 @@
 #include <iostream>
 #include <thread>
 
+#include "xappclient_main.hpp"
 
-using namespace xappclient::app;
+using namespace xappclient;
 
-xappclient* xappclient_inst = nullptr;
+xappclient_main* xappclient_main_inst = nullptr;
 
 
 int main(int argc, char** argv){
 
-	xappclient_inst-register_with_xrf();
+	xappclient_main_inst->register_with_xrf();
 
 	return 0;
 

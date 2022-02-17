@@ -4,7 +4,7 @@
  * OAUTH 2.0 server using JSON web tokens as the execution method of the tokens
  *
  *
- * ! file xappclient_main.cpp
+ * ! file xappclient_main.hpp
  *  \brief
  * \author: Tolga Omer Atalay
  * \Affiliation: VirginiaTech
@@ -15,6 +15,9 @@
 #ifndef FILE_XAPPCLIENT_MAIN_HPP_SEEN
 #define FILE_XAPPCLIENT_MAIN_HPP_SEEN
 
+#include <boost/uuid/uuid.hpp>
+#include <boost/uuid/uuid_io.hpp>
+#include <boost/uuid/uuid_generators.hpp>
 #include <boost/thread/future.hpp>
 #include <future>
 #include <map>
@@ -22,6 +25,9 @@
 #include <shared_mutex>
 #include <string>
 #include <thread>
+
+#include "xappclient_profile.hpp"
+#include "logger.hpp"
 
 namespace xappclient{
 
@@ -46,7 +52,16 @@ class xappclient_main {
 		void generate_uuid();
 		/*
 		 * create a random string id for the xapp instance
+	       	 */
+
+		void send_xapp_registration_request();
+		/*
+		 * initate a request to the XRF for registration
 		 */
+
+        private:
+                xappclient_profile xappclient_instance_profile;
+                std::string xappclient_instance_id;
 };
 
 

@@ -20,7 +20,7 @@
 
 using namespace xappclient;
 
-void xappclient::set_xappclient_instance_id(const std::string& instance_id){
+void xappclient_profile::set_xappclient_instance_id(const std::string& instance_id){
 	xappclient_instance_id = instance_id;
 };
 
@@ -33,7 +33,7 @@ void xappclient_profile::set_xappclient_instance_name(const std::string& instanc
 };
 
 std::string xappclient_profile::get_xappclient_instance_name() const{
-	return xapp_client_instance_name;
+	return xappclient_instance_name;
 };
 
 void xappclient_profile::set_xappclient_status(const std::string& instance_status){
@@ -46,10 +46,6 @@ std::string xappclient_profile::get_xappclient_status() const {
 
 void xappclient_profile::set_xappclient_ipv4(const std::vector<struct in_addr>& addresses){
 	ipv4_addresses = addresses;
-};
-
-void xappclient_profile::get_xappclient_ipv4() const {
-	return ipv4_addresses;
 };
 
 void xappclient_profile::display() const {
