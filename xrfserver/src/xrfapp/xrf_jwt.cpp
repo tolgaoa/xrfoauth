@@ -29,7 +29,7 @@ bool xrf_jwt::generate_signature(const std::string& xapp_consumer_id, const std:
         std::string key;
         get_secret_key(scope, target_xapp_id, key);
 
-        jwt::jwt_object obj{jwt::params::algorithm("HS256"),
+        jwt::jwt_object obj{jwt::params::algorithm("RS256"),
                         jwt::params::payload({{"iss", xrf_id},
                                             {"sub", xapp_consumer_id},
                                             {"aud", target_xapp_id},
@@ -56,11 +56,15 @@ void xrf_jwt::test_jwt(){
 
         using namespace jwt::params;
 
-        auto key = "secret";  // Secret to use for the algorithm
-        // Create JWT object
-        jwt::jwt_object obj{algorithm("HS256"), payload({{"some", "payload"}}),
+        //auto key = "secret";  // Secret to use for the algorithm
+        auto key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCxqmqi+wZv8uKr3GPkxn35PECHNgUQuvh1thb4QaXQd4lSASylGwvN0UGRtw2I988d5X9pg8JM3w2MfoMt+YcEkIZDkFssZMXfA7woTmX3Yy8q6Rj7JAj0rRVqF52Vukg1nJzM3w5FVfcmejWhgVPinFreLRNCb6NUuoX0mbJ4nNvW7+5hgAjaHikTZp+iJryXvW2WX+vSyLaHJHDa9kYNEvBQuhAROd8Rr9clDAcivIGD+gMwDKiDilm1LYSx7khTtJj2jVV1BwpyUWom89eyQmqlpbCfSVVkpGSaFA/vAEBxV3WUuuGxRIDd4otTZo0SoMYgzFjbGpk3C+iATPSXTWUVVMAeAkoURQRTNM2sUjyHTBEAAcIDm9jxSf39mEI6TFmEE/s4fJWAg8og2CrWTSmmEOAZKA8T5RoN0Q4vXb660PC/H8BN91+HDLwY/e37W9kMKwQv7sOSX3OU8wjXZqNg77Z09eauw4eiZo4eyOsYrdwNjCrTVcKvImF3S9M= taport@taport-ThinkPad-T540p"; 
+        
+	std::cout << "Create JWT Object" << std::endl;
+	// Create JWT object
+        jwt::jwt_object obj{algorithm("RS256"), payload({{"some", "payload"}}),
                       secret(key)};
 
+	std::cout << "encode and sign the object" << std::endl;
         // Get the encoded string/assertion
         auto enc_str = obj.signature();
         std::cout << enc_str << std::endl;

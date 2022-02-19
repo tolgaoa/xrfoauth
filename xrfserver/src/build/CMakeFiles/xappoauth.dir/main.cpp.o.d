@@ -1,6 +1,7 @@
 CMakeFiles/xappoauth.dir/main.cpp.o: \
- /home/taport/Documents/xrfoauth/src/main.cpp /usr/include/stdc-predef.h \
- /home/taport/Documents/xrfoauth/src/xrfapp/xrf_jwt.hpp \
+ /home/taport/Documents/xrfoauth/xrfserver/src/main.cpp \
+ /usr/include/stdc-predef.h \
+ /home/taport/Documents/xrfoauth/xrfserver/src/xrfapp/xrf_jwt.hpp \
  /usr/include/c++/9/string \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
@@ -124,8 +125,8 @@ CMakeFiles/xappoauth.dir/main.cpp.o: \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/9/bits/basic_string.tcc \
- /home/taport/Documents/xrfoauth/src/xrfapp/xrf_main.hpp \
- /home/taport/Documents/xrfoauth/src/api-server/model/ProblemDetails.h \
+ /home/taport/Documents/xrfoauth/xrfserver/src/xrfapp/xrf_main.hpp \
+ /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/ProblemDetails.h \
  /usr/include/nlohmann/json.hpp /usr/include/c++/9/algorithm \
  /usr/include/c++/9/utility /usr/include/c++/9/bits/stl_relops.h \
  /usr/include/c++/9/bits/stl_algo.h \
@@ -251,8 +252,8 @@ CMakeFiles/xappoauth.dir/main.cpp.o: \
  /usr/include/nlohmann/detail/conversions/to_chars.hpp \
  /usr/include/nlohmann/detail/macro_unscope.hpp \
  /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
- /home/taport/Documents/xrfoauth/src/api-server/model/AccessTokenRsp.h \
- /home/taport/Documents/xrfoauth/src/api-server/xrf-api-server.h \
+ /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/AccessTokenRsp.h \
+ /home/taport/Documents/xrfoauth/xrfserver/src/api-server/xrf-api-server.h \
  /usr/include/pistache/endpoint.h /usr/include/pistache/http.h \
  /usr/include/c++/9/chrono /usr/include/c++/9/ratio \
  /usr/include/c++/9/ctime /usr/include/c++/9/bits/parse_numbers.h \
@@ -359,7 +360,7 @@ CMakeFiles/xappoauth.dir/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/struct_sigstack.h \
  /usr/include/x86_64-linux-gnu/bits/sigthread.h \
  /usr/include/x86_64-linux-gnu/bits/signal_ext.h \
- /home/taport/Documents/xrfoauth/src/api-server/impl/AccessTokenRequestApiImpl.h \
- /home/taport/Documents/xrfoauth/src/api-server/api/AccessTokenRequestApi.h \
- /home/taport/Documents/xrfoauth/src/api-server/model/AccessTokenErr.h \
+ /home/taport/Documents/xrfoauth/xrfserver/src/api-server/impl/AccessTokenRequestApiImpl.h \
+ /home/taport/Documents/xrfoauth/xrfserver/src/api-server/api/AccessTokenRequestApi.h \
+ /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/AccessTokenErr.h \
  /usr/include/c++/9/stdlib.h
