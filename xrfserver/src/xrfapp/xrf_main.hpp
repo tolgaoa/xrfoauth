@@ -20,6 +20,9 @@
 #include "ProblemDetails.h"
 #include "AccessTokenRsp.h"
 
+#include "spdlog/spdlog.h"
+
+
 //#include "genuint.hpp" TODO a header for generating unsigned integers for different types using templates 
 //#include "xrf_action.hpp"
 //#include "xrf_profile.hpp"

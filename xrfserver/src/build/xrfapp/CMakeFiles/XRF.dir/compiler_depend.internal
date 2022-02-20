@@ -702,6 +702,78 @@ xrfapp/CMakeFiles/XRF.dir/xrf_main.cpp.o
  /usr/include/nlohmann/detail/macro_unscope.hpp
  /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp
  /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/AccessTokenRsp.h
+ /usr/local/include/spdlog/spdlog.h
+ /usr/local/include/spdlog/common.h
+ /usr/local/include/spdlog/tweakme.h
+ /usr/local/include/spdlog/details/null_mutex.h
+ /usr/include/c++/9/atomic
+ /usr/include/c++/9/chrono
+ /usr/include/c++/9/ratio
+ /usr/include/c++/9/ctime
+ /usr/include/c++/9/bits/parse_numbers.h
+ /usr/local/include/spdlog/fmt/fmt.h
+ /usr/local/include/spdlog/fmt/bundled/core.h
+ /usr/local/include/spdlog/fmt/bundled/format.h
+ /usr/local/include/spdlog/fmt/bundled/core.h
+ /usr/local/include/spdlog/fmt/bundled/format-inl.h
+ /usr/include/c++/9/climits
+ /usr/lib/gcc/x86_64-linux-gnu/9/include/limits.h
+ /usr/lib/gcc/x86_64-linux-gnu/9/include/syslimits.h
+ /usr/include/limits.h
+ /usr/include/x86_64-linux-gnu/bits/posix1_lim.h
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h
+ /usr/include/linux/limits.h
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h
+ /usr/include/x86_64-linux-gnu/bits/uio_lim.h
+ /usr/include/c++/9/cstdarg
+ /usr/include/c++/9/locale
+ /usr/include/c++/9/bits/locale_facets_nonio.h
+ /usr/include/x86_64-linux-gnu/c++/9/bits/time_members.h
+ /usr/include/x86_64-linux-gnu/c++/9/bits/messages_members.h
+ /usr/include/libintl.h
+ /usr/include/c++/9/bits/codecvt.h
+ /usr/include/c++/9/bits/locale_facets_nonio.tcc
+ /usr/include/c++/9/bits/locale_conv.h
+ /usr/local/include/spdlog/fmt/bundled/format.h
+ /usr/local/include/spdlog/common-inl.h
+ /usr/local/include/spdlog/details/registry.h
+ /usr/include/c++/9/mutex
+ /usr/include/c++/9/bits/std_mutex.h
+ /usr/include/c++/9/bits/unique_lock.h
+ /usr/local/include/spdlog/details/registry-inl.h
+ /usr/local/include/spdlog/details/periodic_worker.h
+ /usr/include/c++/9/condition_variable
+ /usr/include/c++/9/thread
+ /usr/local/include/spdlog/details/periodic_worker-inl.h
+ /usr/local/include/spdlog/logger.h
+ /usr/local/include/spdlog/details/log_msg.h
+ /usr/local/include/spdlog/details/log_msg-inl.h
+ /usr/local/include/spdlog/details/os.h
+ /usr/local/include/spdlog/details/os-inl.h
+ /usr/include/x86_64-linux-gnu/sys/stat.h
+ /usr/include/x86_64-linux-gnu/bits/stat.h
+ /usr/include/x86_64-linux-gnu/bits/statx.h
+ /usr/include/linux/stat.h
+ /usr/include/linux/types.h
+ /usr/include/x86_64-linux-gnu/asm/types.h
+ /usr/include/asm-generic/types.h
+ /usr/include/asm-generic/int-ll64.h
+ /usr/include/x86_64-linux-gnu/asm/bitsperlong.h
+ /usr/include/asm-generic/bitsperlong.h
+ /usr/include/linux/posix_types.h
+ /usr/include/linux/stddef.h
+ /usr/include/x86_64-linux-gnu/asm/posix_types.h
+ /usr/include/x86_64-linux-gnu/asm/posix_types_64.h
+ /usr/include/asm-generic/posix_types.h
+ /usr/include/x86_64-linux-gnu/bits/statx-generic.h
+ /usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h
+ /usr/include/x86_64-linux-gnu/bits/types/struct_statx.h
+ /usr/include/fcntl.h
+ /usr/include/x86_64-linux-gnu/bits/fcntl.h
+ /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h
+ /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h
+ /usr/include/linux/falloc.h
  /usr/include/unistd.h
  /usr/include/x86_64-linux-gnu/bits/posix_opt.h
  /usr/include/x86_64-linux-gnu/bits/environments.h
@@ -709,6 +781,28 @@ xrfapp/CMakeFiles/XRF.dir/xrf_main.cpp.o
  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h
+ /usr/include/x86_64-linux-gnu/sys/syscall.h
+ /usr/include/x86_64-linux-gnu/asm/unistd.h
+ /usr/include/x86_64-linux-gnu/asm/unistd_64.h
+ /usr/include/x86_64-linux-gnu/bits/syscall.h
+ /usr/local/include/spdlog/details/backtracer.h
+ /usr/local/include/spdlog/details/log_msg_buffer.h
+ /usr/local/include/spdlog/details/log_msg_buffer-inl.h
+ /usr/local/include/spdlog/details/circular_q.h
+ /usr/local/include/spdlog/details/backtracer-inl.h
+ /usr/local/include/spdlog/logger-inl.h
+ /usr/local/include/spdlog/sinks/sink.h
+ /usr/local/include/spdlog/formatter.h
+ /usr/local/include/spdlog/sinks/sink-inl.h
+ /usr/local/include/spdlog/pattern_formatter.h
+ /usr/local/include/spdlog/pattern_formatter-inl.h
+ /usr/local/include/spdlog/details/fmt_helper.h
+ /usr/local/include/spdlog/sinks/ansicolor_sink.h
+ /usr/local/include/spdlog/details/console_globals.h
+ /usr/local/include/spdlog/sinks/ansicolor_sink-inl.h
+ /usr/local/include/spdlog/version.h
+ /usr/local/include/spdlog/details/synchronous_factory.h
+ /usr/local/include/spdlog/spdlog-inl.h
  /usr/include/boost/algorithm/string.hpp
  /usr/include/boost/algorithm/string/std_containers_traits.hpp
  /usr/include/boost/config.hpp
@@ -982,16 +1076,6 @@ xrfapp/CMakeFiles/XRF.dir/xrf_main.cpp.o
  /usr/include/boost/range/detail/misc_concept.hpp
  /usr/include/boost/type_traits/make_unsigned.hpp
  /usr/include/boost/type_traits/is_signed.hpp
- /usr/include/c++/9/climits
- /usr/lib/gcc/x86_64-linux-gnu/9/include/limits.h
- /usr/lib/gcc/x86_64-linux-gnu/9/include/syslimits.h
- /usr/include/limits.h
- /usr/include/x86_64-linux-gnu/bits/posix1_lim.h
- /usr/include/x86_64-linux-gnu/bits/local_lim.h
- /usr/include/linux/limits.h
- /usr/include/x86_64-linux-gnu/bits/posix2_lim.h
- /usr/include/x86_64-linux-gnu/bits/xopen_lim.h
- /usr/include/x86_64-linux-gnu/bits/uio_lim.h
  /usr/include/boost/type_traits/is_unsigned.hpp
  /usr/include/boost/type_traits/add_volatile.hpp
  /usr/include/boost/range/detail/has_member_size.hpp
@@ -1036,15 +1120,6 @@ xrfapp/CMakeFiles/XRF.dir/xrf_main.cpp.o
  /usr/include/boost/algorithm/string/detail/trim.hpp
  /usr/include/boost/detail/iterator.hpp
  /usr/include/boost/algorithm/string/classification.hpp
- /usr/include/c++/9/locale
- /usr/include/c++/9/bits/locale_facets_nonio.h
- /usr/include/c++/9/ctime
- /usr/include/x86_64-linux-gnu/c++/9/bits/time_members.h
- /usr/include/x86_64-linux-gnu/c++/9/bits/messages_members.h
- /usr/include/libintl.h
- /usr/include/c++/9/bits/codecvt.h
- /usr/include/c++/9/bits/locale_facets_nonio.tcc
- /usr/include/c++/9/bits/locale_conv.h
  /usr/include/boost/algorithm/string/detail/classification.hpp
  /usr/include/boost/algorithm/string/predicate_facade.hpp
  /usr/include/boost/algorithm/string/case_conv.hpp
@@ -1152,7 +1227,6 @@ xrfapp/CMakeFiles/XRF.dir/xrf_main.cpp.o
  /usr/include/boost/smart_ptr/detail/sp_counted_base_std_atomic.hpp
  /usr/include/boost/smart_ptr/detail/sp_typeinfo_.hpp
  /usr/include/boost/smart_ptr/detail/sp_noexcept.hpp
- /usr/include/c++/9/atomic
  /usr/include/boost/smart_ptr/detail/sp_counted_impl.hpp
  /usr/include/boost/smart_ptr/detail/sp_disable_deprecated.hpp
  /usr/include/boost/smart_ptr/detail/sp_convertible.hpp
@@ -1580,10 +1654,6 @@ xrfapp/CMakeFiles/XRF.dir/xrf_main.cpp.o
  /usr/include/boost/uuid/entropy_error.hpp
  /usr/include/boost/uuid/detail/random_provider_detect_platform.hpp
  /usr/include/boost/predef/library/c/cloudabi.h
- /usr/include/x86_64-linux-gnu/sys/syscall.h
- /usr/include/x86_64-linux-gnu/asm/unistd.h
- /usr/include/x86_64-linux-gnu/asm/unistd_64.h
- /usr/include/x86_64-linux-gnu/bits/syscall.h
  /usr/include/boost/uuid/detail/random_provider_include_platform.hpp
  /usr/include/boost/uuid/detail/random_provider_getrandom.ipp
  /usr/include/x86_64-linux-gnu/sys/random.h
@@ -1595,8 +1665,5 @@ xrfapp/CMakeFiles/XRF.dir/xrf_main.cpp.o
  /usr/lib/gcc/x86_64-linux-gnu/9/include/mmintrin.h
  /usr/lib/gcc/x86_64-linux-gnu/9/include/mm_malloc.h
  /usr/include/boost/uuid/uuid_io.hpp
- /usr/include/c++/9/chrono
- /usr/include/c++/9/ratio
- /usr/include/c++/9/bits/parse_numbers.h
  /home/taport/Documents/xrfoauth/xrfserver/src/xrfapp/xrf_jwt.hpp
 

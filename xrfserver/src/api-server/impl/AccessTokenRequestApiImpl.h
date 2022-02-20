@@ -35,6 +35,7 @@
 #include <string>
 
 #include "xrf_main.hpp"
+#include "spdlog/spdlog.h"
 
 namespace xrf::api
 {

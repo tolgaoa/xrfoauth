@@ -29,7 +29,7 @@ bool xrf_jwt::generate_signature(const std::string& xapp_consumer_id, const std:
         std::string key;
         get_secret_key(scope, target_xapp_id, key);
 
-        jwt::jwt_object obj{jwt::params::algorithm("RS256"),
+        jwt::jwt_object obj{jwt::params::algorithm("ES256"),
                         jwt::params::payload({{"iss", xrf_id},
                                             {"sub", xapp_consumer_id},
                                             {"aud", target_xapp_id},
@@ -45,9 +45,16 @@ bool xrf_jwt::generate_signature(const std::string& xapp_consumer_id, const std:
 
 bool xrf_jwt::get_secret_key(const std::string& scope, const std::string& target_xapp_id,
                              std::string& key) const {
+                std::string keypriv =
+R"(-----BEGIN EC PRIVATE KEY-----
+MIGkAgEBBDBeLCgapjZmvTatMHaYX3A02+0Ys3Tr8kda+E9DFnmCSiCOEig519fT
+13edeU8YdDugBwYFK4EEACKhZANiAASibEL3JxzwCRdLBZCm7WQ3kWaDL+wP8omo
+3e2VJmZQRnfDdzopgl8r3s8w5JlBpR17J0Gir8g6CVBA6PzMuq5urkilppSINDnR
+4mDv0+9e4uJVQf3xwEv+jywNUH+wbPM=
+-----END EC PRIVATE KEY-----)";
 
 	// Will complete this later. For now it can return the key from the class object. 
-        key = "secret";
+        key = keypriv;
         return true;
 
 }

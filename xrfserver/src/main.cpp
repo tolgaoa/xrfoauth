@@ -34,8 +34,8 @@ public:
 int main(int argc, char** argv){
 
 	//Test JWT
-	xrf_jwt obj;
-	obj.test_jwt();
+	/*xrf_jwt obj;
+	obj.test_jwt();*/
 
 	//Define the XRF application instance pointer
 
@@ -48,12 +48,14 @@ int main(int argc, char** argv){
 	server.init(opts);
 	server.setHandler(Http::make_handler<HelloHandler>());
 	server.serve();	*/
+
+	spdlog::info("Starting XRF API Server");
 	
-	/*Pistache::Address addr(Pistache::Ipv4::any(), Pistache::Port(9090));
+	Pistache::Address addr(Pistache::Ipv4::any(), Pistache::Port(9090));
 	api_server = new XRFApiServer(addr, xrf_main_inst);	
 	api_server->init(2);
 	api_server->start();
-*/
+
 	return 0;
 
 

@@ -60,7 +60,8 @@ void xrf_main::access_token_request(
 	bool outcome = false;
 
 	outcome = xrf_jwt_inst->generate_signature("00001", "1", "00002", "A1", sign);
-	std::cout << sign << std::endl;
+	spdlog::info("JWT Access Token Generated");
+	spdlog::info(sign);
 
 	access_token_rsp.setAccessToken(sign);
 	access_token_rsp.setTokenType("Bearer");

@@ -310,24 +310,116 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
   /usr/include/nlohmann/detail/macro_unscope.hpp \
   /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
   ../api-server/model/AccessTokenRsp.h \
-  ../api-server/xrf-api-server.h \
-  /usr/include/pistache/endpoint.h \
-  /usr/include/pistache/http.h \
+  /usr/local/include/spdlog/spdlog.h \
+  /usr/local/include/spdlog/common.h \
+  /usr/local/include/spdlog/tweakme.h \
+  /usr/local/include/spdlog/details/null_mutex.h \
+  /usr/include/c++/9/atomic \
   /usr/include/c++/9/chrono \
   /usr/include/c++/9/ratio \
   /usr/include/c++/9/ctime \
   /usr/include/c++/9/bits/parse_numbers.h \
+  /usr/local/include/spdlog/fmt/fmt.h \
+  /usr/local/include/spdlog/fmt/bundled/core.h \
+  /usr/local/include/spdlog/fmt/bundled/format.h \
+  /usr/local/include/spdlog/fmt/bundled/core.h \
+  /usr/local/include/spdlog/fmt/bundled/format-inl.h \
+  /usr/include/c++/9/climits \
+  /usr/lib/gcc/x86_64-linux-gnu/9/include/limits.h \
+  /usr/lib/gcc/x86_64-linux-gnu/9/include/syslimits.h \
+  /usr/include/limits.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+  /usr/include/linux/limits.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/c++/9/cstdarg \
+  /usr/include/c++/9/locale \
+  /usr/include/c++/9/bits/locale_facets_nonio.h \
+  /usr/include/x86_64-linux-gnu/c++/9/bits/time_members.h \
+  /usr/include/x86_64-linux-gnu/c++/9/bits/messages_members.h \
+  /usr/include/libintl.h \
+  /usr/include/c++/9/bits/codecvt.h \
+  /usr/include/c++/9/bits/locale_facets_nonio.tcc \
+  /usr/include/c++/9/bits/locale_conv.h \
+  /usr/local/include/spdlog/fmt/bundled/format.h \
+  /usr/local/include/spdlog/common-inl.h \
+  /usr/local/include/spdlog/details/registry.h \
+  /usr/include/c++/9/mutex \
+  /usr/include/c++/9/bits/std_mutex.h \
+  /usr/include/c++/9/bits/unique_lock.h \
+  /usr/local/include/spdlog/details/registry-inl.h \
+  /usr/local/include/spdlog/details/periodic_worker.h \
+  /usr/include/c++/9/condition_variable \
+  /usr/include/c++/9/thread \
+  /usr/local/include/spdlog/details/periodic_worker-inl.h \
+  /usr/local/include/spdlog/logger.h \
+  /usr/local/include/spdlog/details/log_msg.h \
+  /usr/local/include/spdlog/details/log_msg-inl.h \
+  /usr/local/include/spdlog/details/os.h \
+  /usr/local/include/spdlog/details/os-inl.h \
+  /usr/include/x86_64-linux-gnu/sys/stat.h \
+  /usr/include/x86_64-linux-gnu/bits/stat.h \
+  /usr/include/x86_64-linux-gnu/bits/statx.h \
+  /usr/include/linux/stat.h \
+  /usr/include/linux/types.h \
+  /usr/include/x86_64-linux-gnu/asm/types.h \
+  /usr/include/asm-generic/types.h \
+  /usr/include/asm-generic/int-ll64.h \
+  /usr/include/x86_64-linux-gnu/asm/bitsperlong.h \
+  /usr/include/asm-generic/bitsperlong.h \
+  /usr/include/linux/posix_types.h \
+  /usr/include/linux/stddef.h \
+  /usr/include/x86_64-linux-gnu/asm/posix_types.h \
+  /usr/include/x86_64-linux-gnu/asm/posix_types_64.h \
+  /usr/include/asm-generic/posix_types.h \
+  /usr/include/x86_64-linux-gnu/bits/statx-generic.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_statx.h \
+  /usr/include/fcntl.h \
+  /usr/include/x86_64-linux-gnu/bits/fcntl.h \
+  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
+  /usr/include/linux/falloc.h \
+  /usr/include/unistd.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
+  /usr/local/include/spdlog/details/backtracer.h \
+  /usr/local/include/spdlog/details/log_msg_buffer.h \
+  /usr/local/include/spdlog/details/log_msg_buffer-inl.h \
+  /usr/local/include/spdlog/details/circular_q.h \
+  /usr/local/include/spdlog/details/backtracer-inl.h \
+  /usr/local/include/spdlog/logger-inl.h \
+  /usr/local/include/spdlog/sinks/sink.h \
+  /usr/local/include/spdlog/formatter.h \
+  /usr/local/include/spdlog/sinks/sink-inl.h \
+  /usr/local/include/spdlog/pattern_formatter.h \
+  /usr/local/include/spdlog/pattern_formatter-inl.h \
+  /usr/local/include/spdlog/details/fmt_helper.h \
+  /usr/local/include/spdlog/sinks/ansicolor_sink.h \
+  /usr/local/include/spdlog/details/console_globals.h \
+  /usr/local/include/spdlog/sinks/ansicolor_sink-inl.h \
+  /usr/local/include/spdlog/version.h \
+  /usr/local/include/spdlog/details/synchronous_factory.h \
+  /usr/local/include/spdlog/spdlog-inl.h \
+  ../api-server/xrf-api-server.h \
+  /usr/include/pistache/endpoint.h \
+  /usr/include/pistache/http.h \
   /usr/include/c++/9/sstream \
   /usr/include/c++/9/bits/sstream.tcc \
   /usr/include/x86_64-linux-gnu/sys/timerfd.h \
   /usr/include/x86_64-linux-gnu/bits/timerfd.h \
   /usr/include/pistache/async.h \
   /usr/include/pistache/typeid.h \
-  /usr/include/c++/9/atomic \
-  /usr/include/c++/9/condition_variable \
-  /usr/include/c++/9/bits/std_mutex.h \
-  /usr/include/c++/9/bits/unique_lock.h \
-  /usr/include/c++/9/mutex \
   /usr/include/pistache/cookie.h \
   /usr/include/c++/9/list \
   /usr/include/c++/9/bits/stl_list.h \
@@ -342,19 +434,11 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
   /usr/include/netdb.h \
   /usr/include/netinet/in.h \
   /usr/include/x86_64-linux-gnu/sys/socket.h \
-  /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
   /usr/include/x86_64-linux-gnu/bits/socket.h \
   /usr/include/x86_64-linux-gnu/bits/socket_type.h \
   /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
   /usr/include/x86_64-linux-gnu/asm/socket.h \
   /usr/include/asm-generic/socket.h \
-  /usr/include/linux/posix_types.h \
-  /usr/include/linux/stddef.h \
-  /usr/include/x86_64-linux-gnu/asm/posix_types.h \
-  /usr/include/x86_64-linux-gnu/asm/posix_types_64.h \
-  /usr/include/asm-generic/posix_types.h \
-  /usr/include/x86_64-linux-gnu/asm/bitsperlong.h \
-  /usr/include/asm-generic/bitsperlong.h \
   /usr/include/x86_64-linux-gnu/asm/sockios.h \
   /usr/include/asm-generic/sockios.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
@@ -371,16 +455,6 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
   /usr/include/c++/9/iostream \
   /usr/include/pistache/config.h \
   /usr/include/pistache/flags.h \
-  /usr/include/c++/9/climits \
-  /usr/lib/gcc/x86_64-linux-gnu/9/include/limits.h \
-  /usr/lib/gcc/x86_64-linux-gnu/9/include/syslimits.h \
-  /usr/include/limits.h \
-  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
-  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
-  /usr/include/linux/limits.h \
-  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
-  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
-  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
   /usr/include/c++/9/bitset \
   /usr/include/pistache/tcp.h \
   /usr/include/pistache/prototype.h \
@@ -388,19 +462,11 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
   /usr/include/pistache/mailbox.h \
   /usr/include/x86_64-linux-gnu/sys/eventfd.h \
   /usr/include/x86_64-linux-gnu/bits/eventfd.h \
-  /usr/include/unistd.h \
-  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
-  /usr/include/x86_64-linux-gnu/bits/environments.h \
-  /usr/include/x86_64-linux-gnu/bits/confname.h \
-  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
-  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
-  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/pistache/reactor.h \
   /usr/include/x86_64-linux-gnu/sys/resource.h \
   /usr/include/x86_64-linux-gnu/bits/resource.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_rusage.h \
   /usr/include/x86_64-linux-gnu/sys/time.h \
-  /usr/include/c++/9/thread \
   /usr/include/c++/9/deque \
   /usr/include/c++/9/bits/stl_deque.h \
   /usr/include/c++/9/bits/deque.tcc \
@@ -410,14 +476,6 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
   /usr/include/pistache/ssl_wrappers.h \
   /usr/include/pistache/router.h \
   /usr/include/c++/9/regex \
-  /usr/include/c++/9/locale \
-  /usr/include/c++/9/bits/locale_facets_nonio.h \
-  /usr/include/x86_64-linux-gnu/c++/9/bits/time_members.h \
-  /usr/include/x86_64-linux-gnu/c++/9/bits/messages_members.h \
-  /usr/include/libintl.h \
-  /usr/include/c++/9/bits/codecvt.h \
-  /usr/include/c++/9/bits/locale_facets_nonio.tcc \
-  /usr/include/c++/9/bits/locale_conv.h \
   /usr/include/c++/9/stack \
   /usr/include/c++/9/bits/stl_stack.h \
   /usr/include/c++/9/bits/regex_constants.h \
@@ -465,8 +523,6 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/signal_ext.h:
 
-/usr/include/x86_64-linux-gnu/bits/sigstack.h:
-
 /usr/include/x86_64-linux-gnu/sys/ucontext.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/stack_t.h:
@@ -478,10 +534,6 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 /usr/include/x86_64-linux-gnu/bits/siginfo-consts-arch.h:
 
 /usr/include/x86_64-linux-gnu/bits/siginfo-consts.h:
-
-/usr/include/x86_64-linux-gnu/bits/ss_flags.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/sig_atomic_t.h:
 
 /usr/include/c++/9/memory_resource:
 
@@ -497,37 +549,13 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/c++/9/stack:
 
-/usr/include/c++/9/bits/locale_conv.h:
-
-/usr/include/c++/9/bits/locale_facets_nonio.tcc:
-
-/usr/include/libintl.h:
-
-/usr/include/x86_64-linux-gnu/c++/9/bits/messages_members.h:
-
-/usr/include/x86_64-linux-gnu/c++/9/bits/time_members.h:
-
-/usr/include/c++/9/locale:
-
 /usr/include/c++/9/regex:
 
 /usr/include/pistache/router.h:
 
-/usr/include/pistache/string_logger.h:
-
 /usr/include/pistache/log.h:
 
 /usr/include/pistache/listener.h:
-
-/usr/include/x86_64-linux-gnu/bits/getopt_core.h:
-
-/usr/include/x86_64-linux-gnu/bits/confname.h:
-
-/usr/include/c++/9/bits/regex_scanner.h:
-
-/usr/include/x86_64-linux-gnu/bits/posix_opt.h:
-
-/usr/include/unistd.h:
 
 /usr/include/x86_64-linux-gnu/bits/eventfd.h:
 
@@ -536,22 +564,6 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 /usr/include/pistache/transport.h:
 
 /usr/include/pistache/tcp.h:
-
-/usr/include/x86_64-linux-gnu/bits/uio_lim.h:
-
-../api-server/impl/AccessTokenRequestApiImpl.h:
-
-/usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
-
-/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
-
-/usr/include/linux/limits.h:
-
-/usr/include/x86_64-linux-gnu/bits/local_lim.h:
-
-/usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/9/include/limits.h:
 
 /usr/include/pistache/flags.h:
 
@@ -573,12 +585,6 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/asm-generic/sockios.h:
 
-/usr/include/x86_64-linux-gnu/asm/bitsperlong.h:
-
-/usr/include/linux/stddef.h:
-
-/usr/include/linux/posix_types.h:
-
 /usr/include/x86_64-linux-gnu/bits/resource.h:
 
 /usr/include/asm-generic/socket.h:
@@ -586,10 +592,6 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 /usr/include/x86_64-linux-gnu/bits/sockaddr.h:
 
 /usr/include/x86_64-linux-gnu/bits/socket.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h:
-
-/usr/include/x86_64-linux-gnu/sys/socket.h:
 
 /usr/include/netinet/in.h:
 
@@ -599,29 +601,145 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/pistache/http_headers.h:
 
-/usr/include/x86_64-linux-gnu/sys/resource.h:
-
-/usr/include/c++/9/bits/unordered_set.h:
-
 /usr/include/c++/9/list:
 
 /usr/include/pistache/cookie.h:
 
-/usr/include/c++/9/atomic:
-
 /usr/include/pistache/typeid.h:
+
+/usr/include/pistache/http.h:
+
+/usr/include/pistache/endpoint.h:
+
+/usr/local/include/spdlog/details/fmt_helper.h:
+
+/usr/include/pistache/string_logger.h:
+
+/usr/local/include/spdlog/pattern_formatter.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigstack.h:
+
+/usr/local/include/spdlog/sinks/sink-inl.h:
+
+/usr/local/include/spdlog/formatter.h:
+
+/usr/local/include/spdlog/logger-inl.h:
+
+/usr/include/x86_64-linux-gnu/sys/resource.h:
+
+/usr/include/c++/9/bits/unordered_set.h:
+
+/usr/local/include/spdlog/details/backtracer-inl.h:
+
+/usr/local/include/spdlog/details/log_msg_buffer-inl.h:
+
+/usr/include/x86_64-linux-gnu/asm/unistd_64.h:
+
+/usr/include/x86_64-linux-gnu/bits/getopt_core.h:
+
+/usr/include/x86_64-linux-gnu/bits/confname.h:
+
+/usr/include/x86_64-linux-gnu/sys/socket.h:
+
+/usr/local/include/spdlog/sinks/sink.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h:
+
+/usr/include/fcntl.h:
+
+/usr/include/linux/stddef.h:
+
+/usr/include/linux/posix_types.h:
+
+/usr/include/asm-generic/int-ll64.h:
+
+/usr/include/x86_64-linux-gnu/asm/types.h:
+
+/usr/include/linux/stat.h:
+
+/usr/include/unistd.h:
+
+/usr/include/x86_64-linux-gnu/bits/statx.h:
+
+/usr/include/x86_64-linux-gnu/sys/stat.h:
+
+/usr/include/x86_64-linux-gnu/asm/bitsperlong.h:
+
+/usr/local/include/spdlog/details/os-inl.h:
+
+/usr/local/include/spdlog/details/synchronous_factory.h:
+
+/usr/local/include/spdlog/details/log_msg.h:
+
+/usr/local/include/spdlog/logger.h:
+
+/usr/include/x86_64-linux-gnu/bits/ss_flags.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/sig_atomic_t.h:
+
+/usr/local/include/spdlog/details/periodic_worker-inl.h:
+
+/usr/include/x86_64-linux-gnu/bits/timerfd.h:
 
 /usr/include/c++/9/condition_variable:
 
-/usr/include/x86_64-linux-gnu/bits/timerfd.h:
+/usr/include/c++/9/bits/regex_scanner.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix_opt.h:
+
+/usr/local/include/spdlog/details/periodic_worker.h:
+
+/usr/local/include/spdlog/details/registry-inl.h:
+
+/usr/local/include/spdlog/details/registry.h:
+
+/usr/include/c++/9/bits/locale_conv.h:
+
+/usr/include/c++/9/bits/locale_facets_nonio.tcc:
+
+/usr/include/libintl.h:
+
+/usr/include/x86_64-linux-gnu/c++/9/bits/messages_members.h:
+
+/usr/include/x86_64-linux-gnu/c++/9/bits/time_members.h:
+
+/usr/include/c++/9/locale:
+
+/usr/include/c++/9/cstdarg:
+
+/usr/include/x86_64-linux-gnu/bits/uio_lim.h:
+
+../api-server/impl/AccessTokenRequestApiImpl.h:
+
+/usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/x86_64-linux-gnu/bits/local_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/9/include/limits.h:
+
+/usr/local/include/spdlog/fmt/bundled/format.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h:
+
+/usr/local/include/spdlog/fmt/bundled/core.h:
+
+/usr/local/include/spdlog/fmt/fmt.h:
 
 /usr/include/c++/9/ctime:
 
 /usr/include/c++/9/ratio:
 
-/usr/include/pistache/http.h:
+/usr/include/c++/9/atomic:
 
-/usr/include/pistache/endpoint.h:
+/usr/local/include/spdlog/details/null_mutex.h:
+
+/usr/local/include/spdlog/tweakme.h:
 
 /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp:
 
@@ -631,6 +749,8 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/nlohmann/detail/json_pointer.hpp:
 
+/usr/local/include/spdlog/details/circular_q.h:
+
 /usr/include/nlohmann/detail/iterators/internal_iterator.hpp:
 
 /usr/include/nlohmann/detail/input/parser.hpp:
@@ -638,6 +758,8 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 /usr/include/nlohmann/detail/input/lexer.hpp:
 
 /usr/include/c++/9/bits/sstream.tcc:
+
+/usr/include/x86_64-linux-gnu/bits/syscall.h:
 
 /usr/include/nlohmann/detail/meta/is_sax.hpp:
 
@@ -647,11 +769,15 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/c++/9/bitset:
 
+/usr/local/include/spdlog/common.h:
+
 /usr/include/string.h:
 
 /usr/include/c++/9/cstring:
 
 /usr/include/nlohmann/detail/conversions/to_json.hpp:
+
+/usr/include/linux/types.h:
 
 /usr/include/nlohmann/detail/value_t.hpp:
 
@@ -664,6 +790,8 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 /usr/include/x86_64-linux-gnu/sys/timerfd.h:
 
 /usr/include/nlohmann/detail/iterators/iterator_traits.hpp:
+
+/usr/local/include/spdlog/details/console_globals.h:
 
 /usr/include/nlohmann/thirdparty/hedley/hedley.hpp:
 
@@ -703,6 +831,8 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/c++/9/tr1/ell_integral.tcc:
 
+/usr/local/include/spdlog/common-inl.h:
+
 /usr/include/x86_64-linux-gnu/sys/types.h:
 
 /usr/include/x86_64-linux-gnu/bits/waitstatus.h:
@@ -723,6 +853,8 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/c++/9/bits/cpp_type_traits.h:
 
+/usr/local/include/spdlog/sinks/ansicolor_sink-inl.h:
+
 /usr/include/nlohmann/detail/conversions/to_chars.hpp:
 
 /usr/include/c++/9/bits/locale_facets.tcc:
@@ -741,6 +873,8 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
 
+/usr/local/include/spdlog/details/backtracer.h:
+
 /usr/include/locale.h:
 
 /usr/include/c++/9/ext/atomicity.h:
@@ -752,6 +886,8 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 /usr/include/c++/9/cwchar:
 
 /usr/include/c++/9/bits/postypes.h:
+
+/usr/local/include/spdlog/pattern_formatter-inl.h:
 
 /usr/include/c++/9/pstl/glue_algorithm_defs.h:
 
@@ -807,6 +943,8 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/ctype.h:
 
+/usr/include/x86_64-linux-gnu/sys/syscall.h:
+
 /usr/include/c++/9/bits/localefwd.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h:
@@ -842,6 +980,8 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 /usr/include/x86_64-linux-gnu/asm/posix_types.h:
 
 /usr/include/x86_64-linux-gnu/c++/9/bits/c++allocator.h:
+
+/usr/include/x86_64-linux-gnu/asm/unistd.h:
 
 /usr/include/c++/9/bits/stl_uninitialized.h:
 
@@ -882,6 +1022,8 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
 
 /usr/include/c++/9/bits/char_traits.h:
+
+/usr/local/include/spdlog/spdlog-inl.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
 
@@ -925,9 +1067,9 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
-/usr/include/limits.h:
-
 /usr/include/c++/9/unordered_set:
+
+/usr/include/limits.h:
 
 /usr/include/c++/9/bits/cxxabi_forced.h:
 
@@ -947,6 +1089,8 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/c++/9/bits/stl_iterator_base_types.h:
 
+/usr/include/x86_64-linux-gnu/bits/stat.h:
+
 /usr/include/c++/9/bits/ostream.tcc:
 
 /usr/include/c++/9/deque:
@@ -962,6 +1106,8 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 /usr/include/c++/9/bits/stl_pair.h:
 
 /usr/include/pistache/config.h:
+
+/usr/include/x86_64-linux-gnu/bits/fcntl-linux.h:
 
 /usr/include/c++/9/bits/stl_map.h:
 
@@ -1008,6 +1154,8 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 ../api-server/model/ProblemDetails.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
+
+/usr/local/include/spdlog/sinks/ansicolor_sink.h:
 
 /usr/include/c++/9/bits/gslice.h:
 
@@ -1113,7 +1261,11 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/asm-generic/bitsperlong.h:
 
+/usr/include/asm-generic/types.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
+
+/usr/local/include/spdlog/details/log_msg_buffer.h:
 
 /usr/include/nlohmann/detail/input/binary_reader.hpp:
 
@@ -1155,6 +1307,8 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
 
+/usr/local/include/spdlog/details/os.h:
+
 /usr/include/c++/9/cstddef:
 
 /usr/include/c++/9/bits/basic_string.tcc:
@@ -1169,6 +1323,10 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/c++/9/algorithm:
 
+/usr/local/include/spdlog/version.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_statx.h:
+
 /usr/include/nlohmann/detail/iterators/json_reverse_iterator.hpp:
 
 /usr/include/c++/9/bits/stl_relops.h:
@@ -1176,6 +1334,8 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 /usr/include/c++/9/bits/list.tcc:
 
 /usr/include/pistache/async.h:
+
+/usr/include/x86_64-linux-gnu/bits/fcntl.h:
 
 /usr/include/c++/9/bits/algorithmfwd.h:
 
@@ -1193,6 +1353,8 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/c++/9/array:
 
+/usr/include/x86_64-linux-gnu/bits/statx-generic.h:
+
 /usr/include/c++/9/stdexcept:
 
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
@@ -1200,6 +1362,8 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 /usr/include/c++/9/bits/std_function.h:
 
 /usr/include/x86_64-linux-gnu/bits/math-vector.h:
+
+/usr/local/include/spdlog/spdlog.h:
 
 /usr/include/c++/9/clocale:
 
@@ -1275,6 +1439,8 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/c++/9/streambuf:
 
+/usr/local/include/spdlog/details/log_msg-inl.h:
+
 /usr/include/x86_64-linux-gnu/c++/9/bits/ctype_base.h:
 
 /usr/include/c++/9/istream:
@@ -1313,6 +1479,8 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/c++/9/sstream:
 
+/usr/local/include/spdlog/fmt/bundled/format-inl.h:
+
 /usr/include/c++/9/typeinfo:
 
 /usr/include/x86_64-linux-gnu/bits/timesize.h:
@@ -1350,6 +1518,8 @@ CMakeFiles/xappoauth.dir/main.cpp.o: ../main.cpp \
 /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
 
 /usr/include/x86_64-linux-gnu/bits/in.h:
+
+/usr/include/linux/falloc.h:
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h:
 

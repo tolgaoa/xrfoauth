@@ -862,7 +862,65 @@ api-server/CMakeFiles/XRF_API.dir/impl/AccessTokenRequestApiImpl.cpp.o: ../api-s
   /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
   ../api-server/model/AccessTokenRsp.h \
   ../api-server/model/ProblemDetails.h \
-  ../xrfapp/xrf_main.hpp
+  ../xrfapp/xrf_main.hpp \
+  /usr/local/include/spdlog/spdlog.h \
+  /usr/local/include/spdlog/common.h \
+  /usr/local/include/spdlog/tweakme.h \
+  /usr/local/include/spdlog/details/null_mutex.h \
+  /usr/local/include/spdlog/fmt/fmt.h \
+  /usr/local/include/spdlog/fmt/bundled/core.h \
+  /usr/local/include/spdlog/fmt/bundled/format.h \
+  /usr/local/include/spdlog/fmt/bundled/core.h \
+  /usr/local/include/spdlog/fmt/bundled/format-inl.h \
+  /usr/include/c++/9/cstdarg \
+  /usr/local/include/spdlog/fmt/bundled/format.h \
+  /usr/local/include/spdlog/common-inl.h \
+  /usr/local/include/spdlog/details/registry.h \
+  /usr/local/include/spdlog/details/registry-inl.h \
+  /usr/local/include/spdlog/details/periodic_worker.h \
+  /usr/local/include/spdlog/details/periodic_worker-inl.h \
+  /usr/local/include/spdlog/logger.h \
+  /usr/local/include/spdlog/details/log_msg.h \
+  /usr/local/include/spdlog/details/log_msg-inl.h \
+  /usr/local/include/spdlog/details/os.h \
+  /usr/local/include/spdlog/details/os-inl.h \
+  /usr/include/x86_64-linux-gnu/sys/stat.h \
+  /usr/include/x86_64-linux-gnu/bits/stat.h \
+  /usr/include/x86_64-linux-gnu/bits/statx.h \
+  /usr/include/linux/stat.h \
+  /usr/include/linux/types.h \
+  /usr/include/x86_64-linux-gnu/asm/types.h \
+  /usr/include/asm-generic/types.h \
+  /usr/include/asm-generic/int-ll64.h \
+  /usr/include/x86_64-linux-gnu/bits/statx-generic.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_statx.h \
+  /usr/include/fcntl.h \
+  /usr/include/x86_64-linux-gnu/bits/fcntl.h \
+  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
+  /usr/include/linux/falloc.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
+  /usr/local/include/spdlog/details/backtracer.h \
+  /usr/local/include/spdlog/details/log_msg_buffer.h \
+  /usr/local/include/spdlog/details/log_msg_buffer-inl.h \
+  /usr/local/include/spdlog/details/circular_q.h \
+  /usr/local/include/spdlog/details/backtracer-inl.h \
+  /usr/local/include/spdlog/logger-inl.h \
+  /usr/local/include/spdlog/sinks/sink.h \
+  /usr/local/include/spdlog/formatter.h \
+  /usr/local/include/spdlog/sinks/sink-inl.h \
+  /usr/local/include/spdlog/pattern_formatter.h \
+  /usr/local/include/spdlog/pattern_formatter-inl.h \
+  /usr/local/include/spdlog/details/fmt_helper.h \
+  /usr/local/include/spdlog/sinks/ansicolor_sink.h \
+  /usr/local/include/spdlog/details/console_globals.h \
+  /usr/local/include/spdlog/sinks/ansicolor_sink-inl.h \
+  /usr/local/include/spdlog/version.h \
+  /usr/local/include/spdlog/details/synchronous_factory.h \
+  /usr/local/include/spdlog/spdlog-inl.h
 
 api-server/CMakeFiles/XRF_API.dir/model/AccessTokenClaims.cpp.o: ../api-server/model/AccessTokenClaims.cpp \
   /usr/include/stdc-predef.h \
@@ -2829,12 +2887,68 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
   ../api-server/model/AccessTokenRsp.h \
   ../api-server/model/ProblemDetails.h \
   ../xrfapp/xrf_main.hpp \
+  /usr/local/include/spdlog/spdlog.h \
+  /usr/local/include/spdlog/common.h \
+  /usr/local/include/spdlog/tweakme.h \
+  /usr/local/include/spdlog/details/null_mutex.h \
+  /usr/local/include/spdlog/fmt/fmt.h \
+  /usr/local/include/spdlog/fmt/bundled/core.h \
+  /usr/local/include/spdlog/fmt/bundled/format.h \
+  /usr/local/include/spdlog/fmt/bundled/core.h \
+  /usr/local/include/spdlog/fmt/bundled/format-inl.h \
+  /usr/include/c++/9/cstdarg \
+  /usr/local/include/spdlog/fmt/bundled/format.h \
+  /usr/local/include/spdlog/common-inl.h \
+  /usr/local/include/spdlog/details/registry.h \
+  /usr/local/include/spdlog/details/registry-inl.h \
+  /usr/local/include/spdlog/details/periodic_worker.h \
+  /usr/local/include/spdlog/details/periodic_worker-inl.h \
+  /usr/local/include/spdlog/logger.h \
+  /usr/local/include/spdlog/details/log_msg.h \
+  /usr/local/include/spdlog/details/log_msg-inl.h \
+  /usr/local/include/spdlog/details/os.h \
+  /usr/local/include/spdlog/details/os-inl.h \
+  /usr/include/x86_64-linux-gnu/sys/stat.h \
+  /usr/include/x86_64-linux-gnu/bits/stat.h \
+  /usr/include/x86_64-linux-gnu/bits/statx.h \
+  /usr/include/linux/stat.h \
+  /usr/include/linux/types.h \
+  /usr/include/x86_64-linux-gnu/asm/types.h \
+  /usr/include/asm-generic/types.h \
+  /usr/include/asm-generic/int-ll64.h \
+  /usr/include/x86_64-linux-gnu/bits/statx-generic.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_statx.h \
+  /usr/include/fcntl.h \
+  /usr/include/x86_64-linux-gnu/bits/fcntl.h \
+  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
+  /usr/include/linux/falloc.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
+  /usr/local/include/spdlog/details/backtracer.h \
+  /usr/local/include/spdlog/details/log_msg_buffer.h \
+  /usr/local/include/spdlog/details/log_msg_buffer-inl.h \
+  /usr/local/include/spdlog/details/circular_q.h \
+  /usr/local/include/spdlog/details/backtracer-inl.h \
+  /usr/local/include/spdlog/logger-inl.h \
+  /usr/local/include/spdlog/sinks/sink.h \
+  /usr/local/include/spdlog/formatter.h \
+  /usr/local/include/spdlog/sinks/sink-inl.h \
+  /usr/local/include/spdlog/pattern_formatter.h \
+  /usr/local/include/spdlog/pattern_formatter-inl.h \
+  /usr/local/include/spdlog/details/fmt_helper.h \
+  /usr/local/include/spdlog/sinks/ansicolor_sink.h \
+  /usr/local/include/spdlog/details/console_globals.h \
+  /usr/local/include/spdlog/sinks/ansicolor_sink-inl.h \
+  /usr/local/include/spdlog/version.h \
+  /usr/local/include/spdlog/details/synchronous_factory.h \
+  /usr/local/include/spdlog/spdlog-inl.h \
   ../api-server/xrf-api-server.h
 
 
 /usr/include/x86_64-linux-gnu/bits/signal_ext.h:
-
-/usr/include/x86_64-linux-gnu/bits/sigstack.h:
 
 /usr/include/x86_64-linux-gnu/sys/ucontext.h:
 
@@ -2848,10 +2962,6 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 
 /usr/include/x86_64-linux-gnu/bits/siginfo-consts.h:
 
-/usr/include/x86_64-linux-gnu/bits/ss_flags.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/sig_atomic_t.h:
-
 ../api-server/xrf-api-server.cpp:
 
 ../api-server/model/ProblemDetails.cpp:
@@ -2859,6 +2969,62 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 ../api-server/model/Helpers.cpp:
 
 ../api-server/model/AccessTokenClaims.h:
+
+/usr/local/include/spdlog/details/fmt_helper.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigstack.h:
+
+/usr/local/include/spdlog/sinks/sink-inl.h:
+
+/usr/local/include/spdlog/formatter.h:
+
+/usr/local/include/spdlog/logger-inl.h:
+
+/usr/local/include/spdlog/details/log_msg_buffer-inl.h:
+
+/usr/include/x86_64-linux-gnu/asm/unistd_64.h:
+
+/usr/include/fcntl.h:
+
+/usr/include/asm-generic/int-ll64.h:
+
+/usr/include/x86_64-linux-gnu/asm/types.h:
+
+/usr/include/linux/stat.h:
+
+/usr/include/x86_64-linux-gnu/sys/stat.h:
+
+/usr/local/include/spdlog/details/synchronous_factory.h:
+
+/usr/local/include/spdlog/details/log_msg.h:
+
+/usr/local/include/spdlog/logger.h:
+
+/usr/include/x86_64-linux-gnu/bits/ss_flags.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/sig_atomic_t.h:
+
+/usr/local/include/spdlog/details/periodic_worker-inl.h:
+
+/usr/local/include/spdlog/details/registry-inl.h:
+
+/usr/local/include/spdlog/details/registry.h:
+
+/usr/include/c++/9/cstdarg:
+
+/usr/local/include/spdlog/fmt/bundled/format.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h:
+
+/usr/local/include/spdlog/fmt/bundled/core.h:
+
+/usr/local/include/spdlog/fmt/fmt.h:
+
+/usr/local/include/spdlog/details/null_mutex.h:
+
+/usr/local/include/spdlog/tweakme.h:
+
+/usr/local/include/spdlog/pattern_formatter.h:
 
 /usr/include/pistache/string_logger.h:
 
@@ -2874,6 +3040,8 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 
 /usr/include/nlohmann/detail/json_pointer.hpp:
 
+/usr/local/include/spdlog/details/circular_q.h:
+
 /usr/include/nlohmann/detail/iterators/internal_iterator.hpp:
 
 /usr/include/nlohmann/detail/input/parser.hpp:
@@ -2882,6 +3050,8 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 
 /usr/include/nlohmann/detail/conversions/to_json.hpp:
 
+/usr/include/linux/types.h:
+
 /usr/include/nlohmann/detail/value_t.hpp:
 
 /usr/include/nlohmann/detail/meta/detected.hpp:
@@ -2889,6 +3059,8 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 /usr/include/nlohmann/detail/meta/void_t.hpp:
 
 /usr/include/nlohmann/detail/meta/cpp_future.hpp:
+
+/usr/local/include/spdlog/details/console_globals.h:
 
 /usr/include/nlohmann/thirdparty/hedley/hedley.hpp:
 
@@ -2972,9 +3144,13 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 
 /usr/include/x86_64-linux-gnu/bits/confname.h:
 
+/usr/local/include/spdlog/details/periodic_worker.h:
+
 /usr/include/c++/9/bits/regex_scanner.h:
 
 /usr/include/x86_64-linux-gnu/bits/posix_opt.h:
+
+/usr/include/x86_64-linux-gnu/bits/statx.h:
 
 /usr/include/unistd.h:
 
@@ -3022,6 +3198,8 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 
 /usr/include/asm-generic/sockios.h:
 
+/usr/local/include/spdlog/details/os-inl.h:
+
 /usr/include/x86_64-linux-gnu/asm/bitsperlong.h:
 
 /usr/include/linux/stddef.h:
@@ -3036,6 +3214,8 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 
 /usr/include/x86_64-linux-gnu/bits/socket.h:
 
+/usr/local/include/spdlog/sinks/sink.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h:
 
 /usr/include/x86_64-linux-gnu/sys/socket.h:
@@ -3047,6 +3227,8 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 /usr/include/signal.h:
 
 /usr/include/strings.h:
+
+/usr/local/include/spdlog/common.h:
 
 /usr/include/c++/9/bitset:
 
@@ -3075,6 +3257,8 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 /usr/include/c++/9/tr1/gamma.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/iscanonical.h:
+
+/usr/include/linux/falloc.h:
 
 /usr/include/x86_64-linux-gnu/bits/in.h:
 
@@ -3106,6 +3290,8 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 
 /usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
+/usr/local/include/spdlog/spdlog-inl.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
 
 /usr/include/c++/9/bits/char_traits.h:
@@ -3132,6 +3318,8 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 
 /usr/include/c++/9/debug/assertions.h:
 
+/usr/include/x86_64-linux-gnu/bits/statx-generic.h:
+
 /usr/include/c++/9/stdexcept:
 
 /usr/include/nlohmann/detail/iterators/iterator_traits.hpp:
@@ -3139,6 +3327,8 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 /usr/include/x86_64-linux-gnu/sys/timerfd.h:
 
 /usr/include/c++/9/array:
+
+/usr/local/include/spdlog/pattern_formatter-inl.h:
 
 /usr/include/c++/9/pstl/glue_algorithm_defs.h:
 
@@ -3159,6 +3349,8 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 ../xrfapp/xrf_main.hpp:
 
 /usr/include/c++/9/bits/hash_bytes.h:
+
+/usr/local/include/spdlog/details/backtracer.h:
 
 /usr/include/locale.h:
 
@@ -3190,6 +3382,8 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 
 /usr/include/c++/9/bits/stl_construct.h:
 
+/usr/include/x86_64-linux-gnu/sys/syscall.h:
+
 /usr/include/c++/9/bits/localefwd.h:
 
 /usr/include/x86_64-linux-gnu/bits/signum-generic.h:
@@ -3204,6 +3398,8 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 
 /usr/include/c++/9/bits/cpp_type_traits.h:
 
+/usr/local/include/spdlog/sinks/ansicolor_sink-inl.h:
+
 /usr/include/nlohmann/detail/conversions/to_chars.hpp:
 
 /usr/include/c++/9/bits/locale_facets.tcc:
@@ -3215,6 +3411,8 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
 
 /usr/include/c++/9/bits/unordered_map.h:
+
+/usr/local/include/spdlog/details/backtracer-inl.h:
 
 /usr/include/x86_64-linux-gnu/sys/resource.h:
 
@@ -3235,6 +3433,8 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 /usr/include/nlohmann/json_fwd.hpp:
 
 /usr/include/c++/9/initializer_list:
+
+/usr/local/include/spdlog/sinks/ansicolor_sink.h:
 
 /usr/include/c++/9/bits/gslice.h:
 
@@ -3274,6 +3474,10 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 
 /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
 
+/usr/local/include/spdlog/version.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_statx.h:
+
 /usr/include/nlohmann/detail/iterators/json_reverse_iterator.hpp:
 
 /usr/include/c++/9/bits/stl_relops.h:
@@ -3285,6 +3489,8 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 /usr/include/c++/9/string_view:
 
 /usr/include/c++/9/bits/concept_check.h:
+
+/usr/local/include/spdlog/common-inl.h:
 
 /usr/include/x86_64-linux-gnu/sys/types.h:
 
@@ -3308,6 +3514,8 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 
 /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
 
+/usr/include/x86_64-linux-gnu/bits/stat.h:
+
 /usr/include/c++/9/bits/ostream.tcc:
 
 /usr/include/x86_64-linux-gnu/c++/9/bits/cpu_defines.h:
@@ -3319,6 +3527,8 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 /usr/include/x86_64-linux-gnu/bits/siginfo-arch.h:
 
 /usr/include/c++/9/utility:
+
+/usr/local/include/spdlog/details/os.h:
 
 /usr/include/c++/9/cstddef:
 
@@ -3354,11 +3564,15 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 
 /usr/include/c++/9/bits/uses_allocator.h:
 
+/usr/include/asm-generic/types.h:
+
 /usr/include/asm-generic/bitsperlong.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
 
 /usr/include/c++/9/ratio:
+
+/usr/local/include/spdlog/details/log_msg_buffer.h:
 
 /usr/include/nlohmann/detail/input/binary_reader.hpp:
 
@@ -3456,6 +3670,8 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 
 /usr/include/c++/9/bits/exception_ptr.h:
 
+/usr/include/x86_64-linux-gnu/bits/fcntl.h:
+
 /usr/include/c++/9/bits/list.tcc:
 
 /usr/include/c++/9/bits/algorithmfwd.h:
@@ -3470,6 +3686,8 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 
 /usr/include/x86_64-linux-gnu/c++/9/bits/c++allocator.h:
 
+/usr/include/x86_64-linux-gnu/asm/unistd.h:
+
 /usr/include/c++/9/bits/stl_uninitialized.h:
 
 /usr/include/c++/9/bits/stl_deque.h:
@@ -3479,6 +3697,8 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 /usr/include/stdlib.h:
 
 /usr/include/c++/9/bits/stl_bvector.h:
+
+/usr/include/x86_64-linux-gnu/bits/fcntl-linux.h:
 
 /usr/include/pistache/config.h:
 
@@ -3604,6 +3824,8 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 
 /usr/include/x86_64-linux-gnu/bits/math-vector.h:
 
+/usr/local/include/spdlog/spdlog.h:
+
 /usr/include/c++/9/clocale:
 
 /usr/include/c++/9/bits/refwrap.h:
@@ -3686,6 +3908,8 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 
 /usr/include/c++/9/backward/auto_ptr.h:
 
+/usr/local/include/spdlog/fmt/bundled/format-inl.h:
+
 /usr/include/c++/9/typeinfo:
 
 /usr/include/x86_64-linux-gnu/bits/timesize.h:
@@ -3726,6 +3950,8 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 
 /usr/include/x86_64-linux-gnu/c++/9/bits/error_constants.h:
 
+/usr/local/include/spdlog/details/log_msg-inl.h:
+
 /usr/include/x86_64-linux-gnu/c++/9/bits/ctype_base.h:
 
 /usr/include/c++/9/valarray:
@@ -3735,6 +3961,8 @@ api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o: ../api-server/xrf-api-se
 /usr/include/c++/9/bits/gslice_array.h:
 
 /usr/include/c++/9/ostream:
+
+/usr/include/x86_64-linux-gnu/bits/syscall.h:
 
 /usr/include/nlohmann/detail/meta/is_sax.hpp:
 

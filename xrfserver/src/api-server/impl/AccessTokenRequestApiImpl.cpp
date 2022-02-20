@@ -24,7 +24,7 @@ AccessTokenRequestApiImpl::AccessTokenRequestApiImpl(
     		: AccessTokenRequestApi(rtr), m_xrf_main(xrf_main_inst), m_addr(addr) {}
 
 void AccessTokenRequestApiImpl::access_token_request(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter &response){
-	std::cout << "Incoming request for an OAuth2 access token from XRF" << std::endl; //replace with the logger later 
+	spdlog::info("Incoming Request for an OAuth2 access token from xApp");	
 	int http_code = 0;
 	ProblemDetails problem_details = {};
 	AccessTokenRsp access_token_rsp = {};
