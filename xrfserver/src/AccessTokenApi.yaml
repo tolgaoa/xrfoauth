@@ -2,9 +2,9 @@ openapi: 3.0.0
 
 info:
   version: '1'
-  title: 'XRF OAuth2'
+  title: 'XRF OAuth2 Token Request API'
   description: |
-    XRF OAuth2 Authorization server for generating access tokens to xApps
+    XRF OAuth2 Authorization server, token generation API
   contact: 
     name: Tolga Atalay
     email: tolgaoa@vt.edu
@@ -102,7 +102,7 @@ components:
         scope:
           type: string
           pattern: '^([a-zA-Z0-9_:-]+)( [a-zA-Z0-9_:-]+)*$'
-        hnrfAccessTokenUri:
+        hxrfAccessTokenUri:
           type: string
           description: URI formatted string
 

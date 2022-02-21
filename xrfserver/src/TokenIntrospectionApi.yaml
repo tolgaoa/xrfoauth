@@ -1,0 +1,168 @@
+openapi: 3.0.0
+
+info:
+  version: '1'
+  title: 'XRF OAuth2 Token Introspection Request  API'
+  description: |
+    XRF OAuth2 Authorization server, token introspection API
+  contact: 
+    name: Tolga Atalay
+    email: tolgaoa@vt.edu
+servers: 
+  - url: http://xrfapi.com
+paths:
+  /token/val:
+    post:
+      summary: Token Introspection Request
+      operationId: TokenIntroReq
+      tags:
+        - Token Introspection Request
+      parameters:
+        - name: Content-Encoding
+          in: header
+          description: Content-Encoding, described in IETF RFC 7231
+          schema:
+            type: string
+        - name: Accept-Encoding
+          in: header
+          description: Accept-Encoding, described in IETF RFC 7231
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TokenIntroReq'
+        required: true
+      responses:
+        '200':
+          description: Successful Token Introspection Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenIntroReq'
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/cache-control'
+            Pragma:
+              $ref: '#/components/headers/pragma'
+            Accept-Encoding:
+              description: Accept-Encoding, described in IETF RFC 7694
+              schema:
+                type: string
+            Content-Encoding:
+              description: Content-Encoding, described in IETF RFC 7231
+              schema:
+                type: string
+        '400':
+          description: Error in the token introspection Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenIntroErr'
+            application/problem+json:
+              schema:
+                $ref: '#components/schemas/ProblemDetails'
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/cache-control'
+            Pragma:
+              $ref: '#/components/headers/pragma'
+components:
+  headers:
+    cache-control:
+      required: true
+      schema:
+        type: string
+        enum:
+          - no-store
+    pragma:
+      required: true
+      schema:
+        type: string
+        enum:
+          - no-cache
+  schemas:
+    TokenIntroReq:
+      description: Contains information related to the token introspection request
+      type: object
+      required:
+        - accessToken
+        - tokenType
+      properties:
+        accessToken:
+          type: string
+          description: the JWS access token passed on to XRF server for validation
+        tokenType:
+          type: string
+            enum:
+              - Bearer
+        hxrfInitAuthUri:
+          type: string
+          description: URI formatted string
+
+    TokenAuthRsp:
+      description: Contains information related to the token inrospection response
+      type: object
+      required:
+        - tokenValidity
+        - tokenTimeLeft
+      properties:
+        tokenValidity:
+          type: string
+          description: informing the requesting party of the validity of the token
+        tokenTimeLeft:
+          type: integer
+          description: time left on the token side
+
+    TokenIntroClaims:
+      description: The claims data structure for the token introspection request
+      type: object
+      required:
+        - token
+        - targetxAppId
+        - targetxAppInfo
+      properties:
+        rootCA:
+          type: string
+        pubkey:
+          type: string
+        identity:
+          type: string
+
+    TokenIntroErr:
+      description: Error returned in the token introspection response message
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: string
+          enum:
+            - invalid_request
+            - invalid_token
+            - tampered_token
+        error_description:
+          type: string
+        error_uri:
+          type: string
+
+    ProblemDetails:
+      description: Provides additional information in an error response.
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/Uri'
+        title:
+          type: string
+        status:
+          type: integer
+        detail:
+          type: string
+          description: A human-readable explanation specific to this occurrence of the problem.
+        instance:
+          $ref: '#/components/schemas/Uri'
+    Uri:
+      type: string
+      description: String providing an URI formatted according to RFC 3986
+

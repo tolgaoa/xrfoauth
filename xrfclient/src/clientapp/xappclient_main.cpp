@@ -42,5 +42,5 @@ void xappclient_main::create_xappclient_profile() {
 }
 
 void xappclient_main::send_xapp_registration_request(){
-	//Logger::xapp_main().debug("Send registration request to the XRF");	
+	Logger::xapp_main().debug("Send registration request to the XRF");	
 };
