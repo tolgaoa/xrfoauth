@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/nsslm/Documents/xrfoauth/xrfserver/src/build/api-server/CMakeFiles/NLOHMANN"
+		},
+		{
+			"file" : "/home/nsslm/Documents/xrfoauth/xrfserver/src/build/api-server/CMakeFiles/NLOHMANN.rule"
+		},
+		{
+			"file" : "/home/nsslm/Documents/xrfoauth/xrfserver/src/build/api-server/CMakeFiles/NLOHMANN-complete.rule"
+		},
+		{
+			"file" : "/home/nsslm/Documents/xrfoauth/xrfserver/src/build/api-server/NLOHMANN-prefix/src/NLOHMANN-stamp/NLOHMANN-build.rule"
+		},
+		{
+			"file" : "/home/nsslm/Documents/xrfoauth/xrfserver/src/build/api-server/NLOHMANN-prefix/src/NLOHMANN-stamp/NLOHMANN-configure.rule"
+		},
+		{
+			"file" : "/home/nsslm/Documents/xrfoauth/xrfserver/src/build/api-server/NLOHMANN-prefix/src/NLOHMANN-stamp/NLOHMANN-download.rule"
+		},
+		{
+			"file" : "/home/nsslm/Documents/xrfoauth/xrfserver/src/build/api-server/NLOHMANN-prefix/src/NLOHMANN-stamp/NLOHMANN-install.rule"
+		},
+		{
+			"file" : "/home/nsslm/Documents/xrfoauth/xrfserver/src/build/api-server/NLOHMANN-prefix/src/NLOHMANN-stamp/NLOHMANN-mkdir.rule"
+		},
+		{
+			"file" : "/home/nsslm/Documents/xrfoauth/xrfserver/src/build/api-server/NLOHMANN-prefix/src/NLOHMANN-stamp/NLOHMANN-patch.rule"
+		},
+		{
+			"file" : "/home/nsslm/Documents/xrfoauth/xrfserver/src/build/api-server/NLOHMANN-prefix/src/NLOHMANN-stamp/NLOHMANN-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"NLOHMANN"
+		],
+		"name" : "NLOHMANN"
+	}
+}

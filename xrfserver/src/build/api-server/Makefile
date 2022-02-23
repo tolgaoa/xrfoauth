@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/taport/Documents/xrfoauth/xrfserver/src
+CMAKE_SOURCE_DIR = /home/nsslm/Documents/xrfoauth/xrfserver/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/taport/Documents/xrfoauth/xrfserver/src/build
+CMAKE_BINARY_DIR = /home/nsslm/Documents/xrfoauth/xrfserver/src/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -97,14 +97,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/taport/Documents/xrfoauth/xrfserver/src/build/CMakeFiles /home/taport/Documents/xrfoauth/xrfserver/src/build/api-server//CMakeFiles/progress.marks
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 api-server/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/taport/Documents/xrfoauth/xrfserver/src/build/CMakeFiles 0
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/nsslm/Documents/xrfoauth/xrfserver/src/build/CMakeFiles /home/nsslm/Documents/xrfoauth/xrfserver/src/build/api-server//CMakeFiles/progress.marks
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 api-server/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nsslm/Documents/xrfoauth/xrfserver/src/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 api-server/clean
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 api-server/clean
 .PHONY : clean
 
 # The main clean target
@@ -113,39 +113,67 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 api-server/preinstall
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 api-server/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 api-server/preinstall
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 api-server/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
-api-server/CMakeFiles/XRF_API.dir/rule:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 api-server/CMakeFiles/XRF_API.dir/rule
-.PHONY : api-server/CMakeFiles/XRF_API.dir/rule
+api-server/CMakeFiles/PISTACHE.dir/rule:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 api-server/CMakeFiles/PISTACHE.dir/rule
+.PHONY : api-server/CMakeFiles/PISTACHE.dir/rule
 
 # Convenience name for target.
-XRF_API: api-server/CMakeFiles/XRF_API.dir/rule
-.PHONY : XRF_API
+PISTACHE: api-server/CMakeFiles/PISTACHE.dir/rule
+.PHONY : PISTACHE
 
 # fast build rule for target.
-XRF_API/fast:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/build
-.PHONY : XRF_API/fast
+PISTACHE/fast:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/PISTACHE.dir/build.make api-server/CMakeFiles/PISTACHE.dir/build
+.PHONY : PISTACHE/fast
+
+# Convenience name for target.
+api-server/CMakeFiles/NLOHMANN.dir/rule:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 api-server/CMakeFiles/NLOHMANN.dir/rule
+.PHONY : api-server/CMakeFiles/NLOHMANN.dir/rule
+
+# Convenience name for target.
+NLOHMANN: api-server/CMakeFiles/NLOHMANN.dir/rule
+.PHONY : NLOHMANN
+
+# fast build rule for target.
+NLOHMANN/fast:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/NLOHMANN.dir/build.make api-server/CMakeFiles/NLOHMANN.dir/build
+.PHONY : NLOHMANN/fast
+
+# Convenience name for target.
+api-server/CMakeFiles/api-server.dir/rule:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 api-server/CMakeFiles/api-server.dir/rule
+.PHONY : api-server/CMakeFiles/api-server.dir/rule
+
+# Convenience name for target.
+api-server: api-server/CMakeFiles/api-server.dir/rule
+.PHONY : api-server
+
+# fast build rule for target.
+api-server/fast:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/build
+.PHONY : api-server/fast
 
 api/AccessTokenRequestApi.o: api/AccessTokenRequestApi.cpp.o
 .PHONY : api/AccessTokenRequestApi.o
 
 # target to build an object file
 api/AccessTokenRequestApi.cpp.o:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/api/AccessTokenRequestApi.cpp.o
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/api/AccessTokenRequestApi.cpp.o
 .PHONY : api/AccessTokenRequestApi.cpp.o
 
 api/AccessTokenRequestApi.i: api/AccessTokenRequestApi.cpp.i
@@ -153,7 +181,7 @@ api/AccessTokenRequestApi.i: api/AccessTokenRequestApi.cpp.i
 
 # target to preprocess a source file
 api/AccessTokenRequestApi.cpp.i:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/api/AccessTokenRequestApi.cpp.i
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/api/AccessTokenRequestApi.cpp.i
 .PHONY : api/AccessTokenRequestApi.cpp.i
 
 api/AccessTokenRequestApi.s: api/AccessTokenRequestApi.cpp.s
@@ -161,15 +189,159 @@ api/AccessTokenRequestApi.s: api/AccessTokenRequestApi.cpp.s
 
 # target to generate assembly for a file
 api/AccessTokenRequestApi.cpp.s:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/api/AccessTokenRequestApi.cpp.s
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/api/AccessTokenRequestApi.cpp.s
 .PHONY : api/AccessTokenRequestApi.cpp.s
+
+api/InitialAuthenticationRequestApi.o: api/InitialAuthenticationRequestApi.cpp.o
+.PHONY : api/InitialAuthenticationRequestApi.o
+
+# target to build an object file
+api/InitialAuthenticationRequestApi.cpp.o:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/api/InitialAuthenticationRequestApi.cpp.o
+.PHONY : api/InitialAuthenticationRequestApi.cpp.o
+
+api/InitialAuthenticationRequestApi.i: api/InitialAuthenticationRequestApi.cpp.i
+.PHONY : api/InitialAuthenticationRequestApi.i
+
+# target to preprocess a source file
+api/InitialAuthenticationRequestApi.cpp.i:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/api/InitialAuthenticationRequestApi.cpp.i
+.PHONY : api/InitialAuthenticationRequestApi.cpp.i
+
+api/InitialAuthenticationRequestApi.s: api/InitialAuthenticationRequestApi.cpp.s
+.PHONY : api/InitialAuthenticationRequestApi.s
+
+# target to generate assembly for a file
+api/InitialAuthenticationRequestApi.cpp.s:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/api/InitialAuthenticationRequestApi.cpp.s
+.PHONY : api/InitialAuthenticationRequestApi.cpp.s
+
+api/TokenIntrospectionRequestApi.o: api/TokenIntrospectionRequestApi.cpp.o
+.PHONY : api/TokenIntrospectionRequestApi.o
+
+# target to build an object file
+api/TokenIntrospectionRequestApi.cpp.o:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/api/TokenIntrospectionRequestApi.cpp.o
+.PHONY : api/TokenIntrospectionRequestApi.cpp.o
+
+api/TokenIntrospectionRequestApi.i: api/TokenIntrospectionRequestApi.cpp.i
+.PHONY : api/TokenIntrospectionRequestApi.i
+
+# target to preprocess a source file
+api/TokenIntrospectionRequestApi.cpp.i:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/api/TokenIntrospectionRequestApi.cpp.i
+.PHONY : api/TokenIntrospectionRequestApi.cpp.i
+
+api/TokenIntrospectionRequestApi.s: api/TokenIntrospectionRequestApi.cpp.s
+.PHONY : api/TokenIntrospectionRequestApi.s
+
+# target to generate assembly for a file
+api/TokenIntrospectionRequestApi.cpp.s:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/api/TokenIntrospectionRequestApi.cpp.s
+.PHONY : api/TokenIntrospectionRequestApi.cpp.s
+
+api/XAppDeleteInstanceApi.o: api/XAppDeleteInstanceApi.cpp.o
+.PHONY : api/XAppDeleteInstanceApi.o
+
+# target to build an object file
+api/XAppDeleteInstanceApi.cpp.o:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/api/XAppDeleteInstanceApi.cpp.o
+.PHONY : api/XAppDeleteInstanceApi.cpp.o
+
+api/XAppDeleteInstanceApi.i: api/XAppDeleteInstanceApi.cpp.i
+.PHONY : api/XAppDeleteInstanceApi.i
+
+# target to preprocess a source file
+api/XAppDeleteInstanceApi.cpp.i:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/api/XAppDeleteInstanceApi.cpp.i
+.PHONY : api/XAppDeleteInstanceApi.cpp.i
+
+api/XAppDeleteInstanceApi.s: api/XAppDeleteInstanceApi.cpp.s
+.PHONY : api/XAppDeleteInstanceApi.s
+
+# target to generate assembly for a file
+api/XAppDeleteInstanceApi.cpp.s:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/api/XAppDeleteInstanceApi.cpp.s
+.PHONY : api/XAppDeleteInstanceApi.cpp.s
+
+api/XAppDiscoverInstancesApi.o: api/XAppDiscoverInstancesApi.cpp.o
+.PHONY : api/XAppDiscoverInstancesApi.o
+
+# target to build an object file
+api/XAppDiscoverInstancesApi.cpp.o:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/api/XAppDiscoverInstancesApi.cpp.o
+.PHONY : api/XAppDiscoverInstancesApi.cpp.o
+
+api/XAppDiscoverInstancesApi.i: api/XAppDiscoverInstancesApi.cpp.i
+.PHONY : api/XAppDiscoverInstancesApi.i
+
+# target to preprocess a source file
+api/XAppDiscoverInstancesApi.cpp.i:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/api/XAppDiscoverInstancesApi.cpp.i
+.PHONY : api/XAppDiscoverInstancesApi.cpp.i
+
+api/XAppDiscoverInstancesApi.s: api/XAppDiscoverInstancesApi.cpp.s
+.PHONY : api/XAppDiscoverInstancesApi.s
+
+# target to generate assembly for a file
+api/XAppDiscoverInstancesApi.cpp.s:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/api/XAppDiscoverInstancesApi.cpp.s
+.PHONY : api/XAppDiscoverInstancesApi.cpp.s
+
+api/XAppGetInstanceApi.o: api/XAppGetInstanceApi.cpp.o
+.PHONY : api/XAppGetInstanceApi.o
+
+# target to build an object file
+api/XAppGetInstanceApi.cpp.o:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/api/XAppGetInstanceApi.cpp.o
+.PHONY : api/XAppGetInstanceApi.cpp.o
+
+api/XAppGetInstanceApi.i: api/XAppGetInstanceApi.cpp.i
+.PHONY : api/XAppGetInstanceApi.i
+
+# target to preprocess a source file
+api/XAppGetInstanceApi.cpp.i:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/api/XAppGetInstanceApi.cpp.i
+.PHONY : api/XAppGetInstanceApi.cpp.i
+
+api/XAppGetInstanceApi.s: api/XAppGetInstanceApi.cpp.s
+.PHONY : api/XAppGetInstanceApi.s
+
+# target to generate assembly for a file
+api/XAppGetInstanceApi.cpp.s:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/api/XAppGetInstanceApi.cpp.s
+.PHONY : api/XAppGetInstanceApi.cpp.s
+
+api/XAppRegisterInstanceApi.o: api/XAppRegisterInstanceApi.cpp.o
+.PHONY : api/XAppRegisterInstanceApi.o
+
+# target to build an object file
+api/XAppRegisterInstanceApi.cpp.o:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/api/XAppRegisterInstanceApi.cpp.o
+.PHONY : api/XAppRegisterInstanceApi.cpp.o
+
+api/XAppRegisterInstanceApi.i: api/XAppRegisterInstanceApi.cpp.i
+.PHONY : api/XAppRegisterInstanceApi.i
+
+# target to preprocess a source file
+api/XAppRegisterInstanceApi.cpp.i:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/api/XAppRegisterInstanceApi.cpp.i
+.PHONY : api/XAppRegisterInstanceApi.cpp.i
+
+api/XAppRegisterInstanceApi.s: api/XAppRegisterInstanceApi.cpp.s
+.PHONY : api/XAppRegisterInstanceApi.s
+
+# target to generate assembly for a file
+api/XAppRegisterInstanceApi.cpp.s:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/api/XAppRegisterInstanceApi.cpp.s
+.PHONY : api/XAppRegisterInstanceApi.cpp.s
 
 impl/AccessTokenRequestApiImpl.o: impl/AccessTokenRequestApiImpl.cpp.o
 .PHONY : impl/AccessTokenRequestApiImpl.o
 
 # target to build an object file
 impl/AccessTokenRequestApiImpl.cpp.o:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/impl/AccessTokenRequestApiImpl.cpp.o
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/impl/AccessTokenRequestApiImpl.cpp.o
 .PHONY : impl/AccessTokenRequestApiImpl.cpp.o
 
 impl/AccessTokenRequestApiImpl.i: impl/AccessTokenRequestApiImpl.cpp.i
@@ -177,7 +349,7 @@ impl/AccessTokenRequestApiImpl.i: impl/AccessTokenRequestApiImpl.cpp.i
 
 # target to preprocess a source file
 impl/AccessTokenRequestApiImpl.cpp.i:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/impl/AccessTokenRequestApiImpl.cpp.i
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/impl/AccessTokenRequestApiImpl.cpp.i
 .PHONY : impl/AccessTokenRequestApiImpl.cpp.i
 
 impl/AccessTokenRequestApiImpl.s: impl/AccessTokenRequestApiImpl.cpp.s
@@ -185,15 +357,159 @@ impl/AccessTokenRequestApiImpl.s: impl/AccessTokenRequestApiImpl.cpp.s
 
 # target to generate assembly for a file
 impl/AccessTokenRequestApiImpl.cpp.s:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/impl/AccessTokenRequestApiImpl.cpp.s
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/impl/AccessTokenRequestApiImpl.cpp.s
 .PHONY : impl/AccessTokenRequestApiImpl.cpp.s
+
+impl/InitialAuthenticationRequestApiImpl.o: impl/InitialAuthenticationRequestApiImpl.cpp.o
+.PHONY : impl/InitialAuthenticationRequestApiImpl.o
+
+# target to build an object file
+impl/InitialAuthenticationRequestApiImpl.cpp.o:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/impl/InitialAuthenticationRequestApiImpl.cpp.o
+.PHONY : impl/InitialAuthenticationRequestApiImpl.cpp.o
+
+impl/InitialAuthenticationRequestApiImpl.i: impl/InitialAuthenticationRequestApiImpl.cpp.i
+.PHONY : impl/InitialAuthenticationRequestApiImpl.i
+
+# target to preprocess a source file
+impl/InitialAuthenticationRequestApiImpl.cpp.i:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/impl/InitialAuthenticationRequestApiImpl.cpp.i
+.PHONY : impl/InitialAuthenticationRequestApiImpl.cpp.i
+
+impl/InitialAuthenticationRequestApiImpl.s: impl/InitialAuthenticationRequestApiImpl.cpp.s
+.PHONY : impl/InitialAuthenticationRequestApiImpl.s
+
+# target to generate assembly for a file
+impl/InitialAuthenticationRequestApiImpl.cpp.s:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/impl/InitialAuthenticationRequestApiImpl.cpp.s
+.PHONY : impl/InitialAuthenticationRequestApiImpl.cpp.s
+
+impl/TokenIntrospectionRequestApiImpl.o: impl/TokenIntrospectionRequestApiImpl.cpp.o
+.PHONY : impl/TokenIntrospectionRequestApiImpl.o
+
+# target to build an object file
+impl/TokenIntrospectionRequestApiImpl.cpp.o:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/impl/TokenIntrospectionRequestApiImpl.cpp.o
+.PHONY : impl/TokenIntrospectionRequestApiImpl.cpp.o
+
+impl/TokenIntrospectionRequestApiImpl.i: impl/TokenIntrospectionRequestApiImpl.cpp.i
+.PHONY : impl/TokenIntrospectionRequestApiImpl.i
+
+# target to preprocess a source file
+impl/TokenIntrospectionRequestApiImpl.cpp.i:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/impl/TokenIntrospectionRequestApiImpl.cpp.i
+.PHONY : impl/TokenIntrospectionRequestApiImpl.cpp.i
+
+impl/TokenIntrospectionRequestApiImpl.s: impl/TokenIntrospectionRequestApiImpl.cpp.s
+.PHONY : impl/TokenIntrospectionRequestApiImpl.s
+
+# target to generate assembly for a file
+impl/TokenIntrospectionRequestApiImpl.cpp.s:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/impl/TokenIntrospectionRequestApiImpl.cpp.s
+.PHONY : impl/TokenIntrospectionRequestApiImpl.cpp.s
+
+impl/XAppDeleteInstanceApiImpl.o: impl/XAppDeleteInstanceApiImpl.cpp.o
+.PHONY : impl/XAppDeleteInstanceApiImpl.o
+
+# target to build an object file
+impl/XAppDeleteInstanceApiImpl.cpp.o:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/impl/XAppDeleteInstanceApiImpl.cpp.o
+.PHONY : impl/XAppDeleteInstanceApiImpl.cpp.o
+
+impl/XAppDeleteInstanceApiImpl.i: impl/XAppDeleteInstanceApiImpl.cpp.i
+.PHONY : impl/XAppDeleteInstanceApiImpl.i
+
+# target to preprocess a source file
+impl/XAppDeleteInstanceApiImpl.cpp.i:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/impl/XAppDeleteInstanceApiImpl.cpp.i
+.PHONY : impl/XAppDeleteInstanceApiImpl.cpp.i
+
+impl/XAppDeleteInstanceApiImpl.s: impl/XAppDeleteInstanceApiImpl.cpp.s
+.PHONY : impl/XAppDeleteInstanceApiImpl.s
+
+# target to generate assembly for a file
+impl/XAppDeleteInstanceApiImpl.cpp.s:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/impl/XAppDeleteInstanceApiImpl.cpp.s
+.PHONY : impl/XAppDeleteInstanceApiImpl.cpp.s
+
+impl/XAppDiscoverInstancesApiImpl.o: impl/XAppDiscoverInstancesApiImpl.cpp.o
+.PHONY : impl/XAppDiscoverInstancesApiImpl.o
+
+# target to build an object file
+impl/XAppDiscoverInstancesApiImpl.cpp.o:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/impl/XAppDiscoverInstancesApiImpl.cpp.o
+.PHONY : impl/XAppDiscoverInstancesApiImpl.cpp.o
+
+impl/XAppDiscoverInstancesApiImpl.i: impl/XAppDiscoverInstancesApiImpl.cpp.i
+.PHONY : impl/XAppDiscoverInstancesApiImpl.i
+
+# target to preprocess a source file
+impl/XAppDiscoverInstancesApiImpl.cpp.i:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/impl/XAppDiscoverInstancesApiImpl.cpp.i
+.PHONY : impl/XAppDiscoverInstancesApiImpl.cpp.i
+
+impl/XAppDiscoverInstancesApiImpl.s: impl/XAppDiscoverInstancesApiImpl.cpp.s
+.PHONY : impl/XAppDiscoverInstancesApiImpl.s
+
+# target to generate assembly for a file
+impl/XAppDiscoverInstancesApiImpl.cpp.s:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/impl/XAppDiscoverInstancesApiImpl.cpp.s
+.PHONY : impl/XAppDiscoverInstancesApiImpl.cpp.s
+
+impl/XAppGetInstanceApiImpl.o: impl/XAppGetInstanceApiImpl.cpp.o
+.PHONY : impl/XAppGetInstanceApiImpl.o
+
+# target to build an object file
+impl/XAppGetInstanceApiImpl.cpp.o:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/impl/XAppGetInstanceApiImpl.cpp.o
+.PHONY : impl/XAppGetInstanceApiImpl.cpp.o
+
+impl/XAppGetInstanceApiImpl.i: impl/XAppGetInstanceApiImpl.cpp.i
+.PHONY : impl/XAppGetInstanceApiImpl.i
+
+# target to preprocess a source file
+impl/XAppGetInstanceApiImpl.cpp.i:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/impl/XAppGetInstanceApiImpl.cpp.i
+.PHONY : impl/XAppGetInstanceApiImpl.cpp.i
+
+impl/XAppGetInstanceApiImpl.s: impl/XAppGetInstanceApiImpl.cpp.s
+.PHONY : impl/XAppGetInstanceApiImpl.s
+
+# target to generate assembly for a file
+impl/XAppGetInstanceApiImpl.cpp.s:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/impl/XAppGetInstanceApiImpl.cpp.s
+.PHONY : impl/XAppGetInstanceApiImpl.cpp.s
+
+impl/XAppRegisterInstanceApiImpl.o: impl/XAppRegisterInstanceApiImpl.cpp.o
+.PHONY : impl/XAppRegisterInstanceApiImpl.o
+
+# target to build an object file
+impl/XAppRegisterInstanceApiImpl.cpp.o:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/impl/XAppRegisterInstanceApiImpl.cpp.o
+.PHONY : impl/XAppRegisterInstanceApiImpl.cpp.o
+
+impl/XAppRegisterInstanceApiImpl.i: impl/XAppRegisterInstanceApiImpl.cpp.i
+.PHONY : impl/XAppRegisterInstanceApiImpl.i
+
+# target to preprocess a source file
+impl/XAppRegisterInstanceApiImpl.cpp.i:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/impl/XAppRegisterInstanceApiImpl.cpp.i
+.PHONY : impl/XAppRegisterInstanceApiImpl.cpp.i
+
+impl/XAppRegisterInstanceApiImpl.s: impl/XAppRegisterInstanceApiImpl.cpp.s
+.PHONY : impl/XAppRegisterInstanceApiImpl.s
+
+# target to generate assembly for a file
+impl/XAppRegisterInstanceApiImpl.cpp.s:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/impl/XAppRegisterInstanceApiImpl.cpp.s
+.PHONY : impl/XAppRegisterInstanceApiImpl.cpp.s
 
 model/AccessTokenClaims.o: model/AccessTokenClaims.cpp.o
 .PHONY : model/AccessTokenClaims.o
 
 # target to build an object file
 model/AccessTokenClaims.cpp.o:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/model/AccessTokenClaims.cpp.o
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/AccessTokenClaims.cpp.o
 .PHONY : model/AccessTokenClaims.cpp.o
 
 model/AccessTokenClaims.i: model/AccessTokenClaims.cpp.i
@@ -201,7 +517,7 @@ model/AccessTokenClaims.i: model/AccessTokenClaims.cpp.i
 
 # target to preprocess a source file
 model/AccessTokenClaims.cpp.i:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/model/AccessTokenClaims.cpp.i
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/AccessTokenClaims.cpp.i
 .PHONY : model/AccessTokenClaims.cpp.i
 
 model/AccessTokenClaims.s: model/AccessTokenClaims.cpp.s
@@ -209,7 +525,7 @@ model/AccessTokenClaims.s: model/AccessTokenClaims.cpp.s
 
 # target to generate assembly for a file
 model/AccessTokenClaims.cpp.s:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/model/AccessTokenClaims.cpp.s
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/AccessTokenClaims.cpp.s
 .PHONY : model/AccessTokenClaims.cpp.s
 
 model/AccessTokenErr.o: model/AccessTokenErr.cpp.o
@@ -217,7 +533,7 @@ model/AccessTokenErr.o: model/AccessTokenErr.cpp.o
 
 # target to build an object file
 model/AccessTokenErr.cpp.o:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/model/AccessTokenErr.cpp.o
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/AccessTokenErr.cpp.o
 .PHONY : model/AccessTokenErr.cpp.o
 
 model/AccessTokenErr.i: model/AccessTokenErr.cpp.i
@@ -225,7 +541,7 @@ model/AccessTokenErr.i: model/AccessTokenErr.cpp.i
 
 # target to preprocess a source file
 model/AccessTokenErr.cpp.i:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/model/AccessTokenErr.cpp.i
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/AccessTokenErr.cpp.i
 .PHONY : model/AccessTokenErr.cpp.i
 
 model/AccessTokenErr.s: model/AccessTokenErr.cpp.s
@@ -233,7 +549,7 @@ model/AccessTokenErr.s: model/AccessTokenErr.cpp.s
 
 # target to generate assembly for a file
 model/AccessTokenErr.cpp.s:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/model/AccessTokenErr.cpp.s
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/AccessTokenErr.cpp.s
 .PHONY : model/AccessTokenErr.cpp.s
 
 model/AccessTokenRsp.o: model/AccessTokenRsp.cpp.o
@@ -241,7 +557,7 @@ model/AccessTokenRsp.o: model/AccessTokenRsp.cpp.o
 
 # target to build an object file
 model/AccessTokenRsp.cpp.o:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/model/AccessTokenRsp.cpp.o
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/AccessTokenRsp.cpp.o
 .PHONY : model/AccessTokenRsp.cpp.o
 
 model/AccessTokenRsp.i: model/AccessTokenRsp.cpp.i
@@ -249,7 +565,7 @@ model/AccessTokenRsp.i: model/AccessTokenRsp.cpp.i
 
 # target to preprocess a source file
 model/AccessTokenRsp.cpp.i:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/model/AccessTokenRsp.cpp.i
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/AccessTokenRsp.cpp.i
 .PHONY : model/AccessTokenRsp.cpp.i
 
 model/AccessTokenRsp.s: model/AccessTokenRsp.cpp.s
@@ -257,7 +573,7 @@ model/AccessTokenRsp.s: model/AccessTokenRsp.cpp.s
 
 # target to generate assembly for a file
 model/AccessTokenRsp.cpp.s:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/model/AccessTokenRsp.cpp.s
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/AccessTokenRsp.cpp.s
 .PHONY : model/AccessTokenRsp.cpp.s
 
 model/Helpers.o: model/Helpers.cpp.o
@@ -265,7 +581,7 @@ model/Helpers.o: model/Helpers.cpp.o
 
 # target to build an object file
 model/Helpers.cpp.o:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/model/Helpers.cpp.o
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/Helpers.cpp.o
 .PHONY : model/Helpers.cpp.o
 
 model/Helpers.i: model/Helpers.cpp.i
@@ -273,7 +589,7 @@ model/Helpers.i: model/Helpers.cpp.i
 
 # target to preprocess a source file
 model/Helpers.cpp.i:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/model/Helpers.cpp.i
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/Helpers.cpp.i
 .PHONY : model/Helpers.cpp.i
 
 model/Helpers.s: model/Helpers.cpp.s
@@ -281,15 +597,159 @@ model/Helpers.s: model/Helpers.cpp.s
 
 # target to generate assembly for a file
 model/Helpers.cpp.s:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/model/Helpers.cpp.s
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/Helpers.cpp.s
 .PHONY : model/Helpers.cpp.s
+
+model/InitAuthClaims.o: model/InitAuthClaims.cpp.o
+.PHONY : model/InitAuthClaims.o
+
+# target to build an object file
+model/InitAuthClaims.cpp.o:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/InitAuthClaims.cpp.o
+.PHONY : model/InitAuthClaims.cpp.o
+
+model/InitAuthClaims.i: model/InitAuthClaims.cpp.i
+.PHONY : model/InitAuthClaims.i
+
+# target to preprocess a source file
+model/InitAuthClaims.cpp.i:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/InitAuthClaims.cpp.i
+.PHONY : model/InitAuthClaims.cpp.i
+
+model/InitAuthClaims.s: model/InitAuthClaims.cpp.s
+.PHONY : model/InitAuthClaims.s
+
+# target to generate assembly for a file
+model/InitAuthClaims.cpp.s:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/InitAuthClaims.cpp.s
+.PHONY : model/InitAuthClaims.cpp.s
+
+model/InitAuthErr.o: model/InitAuthErr.cpp.o
+.PHONY : model/InitAuthErr.o
+
+# target to build an object file
+model/InitAuthErr.cpp.o:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/InitAuthErr.cpp.o
+.PHONY : model/InitAuthErr.cpp.o
+
+model/InitAuthErr.i: model/InitAuthErr.cpp.i
+.PHONY : model/InitAuthErr.i
+
+# target to preprocess a source file
+model/InitAuthErr.cpp.i:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/InitAuthErr.cpp.i
+.PHONY : model/InitAuthErr.cpp.i
+
+model/InitAuthErr.s: model/InitAuthErr.cpp.s
+.PHONY : model/InitAuthErr.s
+
+# target to generate assembly for a file
+model/InitAuthErr.cpp.s:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/InitAuthErr.cpp.s
+.PHONY : model/InitAuthErr.cpp.s
+
+model/InitAuthReq.o: model/InitAuthReq.cpp.o
+.PHONY : model/InitAuthReq.o
+
+# target to build an object file
+model/InitAuthReq.cpp.o:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/InitAuthReq.cpp.o
+.PHONY : model/InitAuthReq.cpp.o
+
+model/InitAuthReq.i: model/InitAuthReq.cpp.i
+.PHONY : model/InitAuthReq.i
+
+# target to preprocess a source file
+model/InitAuthReq.cpp.i:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/InitAuthReq.cpp.i
+.PHONY : model/InitAuthReq.cpp.i
+
+model/InitAuthReq.s: model/InitAuthReq.cpp.s
+.PHONY : model/InitAuthReq.s
+
+# target to generate assembly for a file
+model/InitAuthReq.cpp.s:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/InitAuthReq.cpp.s
+.PHONY : model/InitAuthReq.cpp.s
+
+model/InitAuthRsp.o: model/InitAuthRsp.cpp.o
+.PHONY : model/InitAuthRsp.o
+
+# target to build an object file
+model/InitAuthRsp.cpp.o:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/InitAuthRsp.cpp.o
+.PHONY : model/InitAuthRsp.cpp.o
+
+model/InitAuthRsp.i: model/InitAuthRsp.cpp.i
+.PHONY : model/InitAuthRsp.i
+
+# target to preprocess a source file
+model/InitAuthRsp.cpp.i:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/InitAuthRsp.cpp.i
+.PHONY : model/InitAuthRsp.cpp.i
+
+model/InitAuthRsp.s: model/InitAuthRsp.cpp.s
+.PHONY : model/InitAuthRsp.s
+
+# target to generate assembly for a file
+model/InitAuthRsp.cpp.s:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/InitAuthRsp.cpp.s
+.PHONY : model/InitAuthRsp.cpp.s
+
+model/Link.o: model/Link.cpp.o
+.PHONY : model/Link.o
+
+# target to build an object file
+model/Link.cpp.o:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/Link.cpp.o
+.PHONY : model/Link.cpp.o
+
+model/Link.i: model/Link.cpp.i
+.PHONY : model/Link.i
+
+# target to preprocess a source file
+model/Link.cpp.i:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/Link.cpp.i
+.PHONY : model/Link.cpp.i
+
+model/Link.s: model/Link.cpp.s
+.PHONY : model/Link.s
+
+# target to generate assembly for a file
+model/Link.cpp.s:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/Link.cpp.s
+.PHONY : model/Link.cpp.s
+
+model/LinksValueSchema.o: model/LinksValueSchema.cpp.o
+.PHONY : model/LinksValueSchema.o
+
+# target to build an object file
+model/LinksValueSchema.cpp.o:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/LinksValueSchema.cpp.o
+.PHONY : model/LinksValueSchema.cpp.o
+
+model/LinksValueSchema.i: model/LinksValueSchema.cpp.i
+.PHONY : model/LinksValueSchema.i
+
+# target to preprocess a source file
+model/LinksValueSchema.cpp.i:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/LinksValueSchema.cpp.i
+.PHONY : model/LinksValueSchema.cpp.i
+
+model/LinksValueSchema.s: model/LinksValueSchema.cpp.s
+.PHONY : model/LinksValueSchema.s
+
+# target to generate assembly for a file
+model/LinksValueSchema.cpp.s:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/LinksValueSchema.cpp.s
+.PHONY : model/LinksValueSchema.cpp.s
 
 model/ProblemDetails.o: model/ProblemDetails.cpp.o
 .PHONY : model/ProblemDetails.o
 
 # target to build an object file
 model/ProblemDetails.cpp.o:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.o
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/ProblemDetails.cpp.o
 .PHONY : model/ProblemDetails.cpp.o
 
 model/ProblemDetails.i: model/ProblemDetails.cpp.i
@@ -297,7 +757,7 @@ model/ProblemDetails.i: model/ProblemDetails.cpp.i
 
 # target to preprocess a source file
 model/ProblemDetails.cpp.i:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.i
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/ProblemDetails.cpp.i
 .PHONY : model/ProblemDetails.cpp.i
 
 model/ProblemDetails.s: model/ProblemDetails.cpp.s
@@ -305,15 +765,255 @@ model/ProblemDetails.s: model/ProblemDetails.cpp.s
 
 # target to generate assembly for a file
 model/ProblemDetails.cpp.s:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/model/ProblemDetails.cpp.s
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/ProblemDetails.cpp.s
 .PHONY : model/ProblemDetails.cpp.s
+
+model/TokenIntroClaims.o: model/TokenIntroClaims.cpp.o
+.PHONY : model/TokenIntroClaims.o
+
+# target to build an object file
+model/TokenIntroClaims.cpp.o:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/TokenIntroClaims.cpp.o
+.PHONY : model/TokenIntroClaims.cpp.o
+
+model/TokenIntroClaims.i: model/TokenIntroClaims.cpp.i
+.PHONY : model/TokenIntroClaims.i
+
+# target to preprocess a source file
+model/TokenIntroClaims.cpp.i:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/TokenIntroClaims.cpp.i
+.PHONY : model/TokenIntroClaims.cpp.i
+
+model/TokenIntroClaims.s: model/TokenIntroClaims.cpp.s
+.PHONY : model/TokenIntroClaims.s
+
+# target to generate assembly for a file
+model/TokenIntroClaims.cpp.s:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/TokenIntroClaims.cpp.s
+.PHONY : model/TokenIntroClaims.cpp.s
+
+model/TokenIntroErr.o: model/TokenIntroErr.cpp.o
+.PHONY : model/TokenIntroErr.o
+
+# target to build an object file
+model/TokenIntroErr.cpp.o:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/TokenIntroErr.cpp.o
+.PHONY : model/TokenIntroErr.cpp.o
+
+model/TokenIntroErr.i: model/TokenIntroErr.cpp.i
+.PHONY : model/TokenIntroErr.i
+
+# target to preprocess a source file
+model/TokenIntroErr.cpp.i:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/TokenIntroErr.cpp.i
+.PHONY : model/TokenIntroErr.cpp.i
+
+model/TokenIntroErr.s: model/TokenIntroErr.cpp.s
+.PHONY : model/TokenIntroErr.s
+
+# target to generate assembly for a file
+model/TokenIntroErr.cpp.s:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/TokenIntroErr.cpp.s
+.PHONY : model/TokenIntroErr.cpp.s
+
+model/TokenIntroRsp.o: model/TokenIntroRsp.cpp.o
+.PHONY : model/TokenIntroRsp.o
+
+# target to build an object file
+model/TokenIntroRsp.cpp.o:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/TokenIntroRsp.cpp.o
+.PHONY : model/TokenIntroRsp.cpp.o
+
+model/TokenIntroRsp.i: model/TokenIntroRsp.cpp.i
+.PHONY : model/TokenIntroRsp.i
+
+# target to preprocess a source file
+model/TokenIntroRsp.cpp.i:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/TokenIntroRsp.cpp.i
+.PHONY : model/TokenIntroRsp.cpp.i
+
+model/TokenIntroRsp.s: model/TokenIntroRsp.cpp.s
+.PHONY : model/TokenIntroRsp.s
+
+# target to generate assembly for a file
+model/TokenIntroRsp.cpp.s:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/TokenIntroRsp.cpp.s
+.PHONY : model/TokenIntroRsp.cpp.s
+
+model/UriList.o: model/UriList.cpp.o
+.PHONY : model/UriList.o
+
+# target to build an object file
+model/UriList.cpp.o:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/UriList.cpp.o
+.PHONY : model/UriList.cpp.o
+
+model/UriList.i: model/UriList.cpp.i
+.PHONY : model/UriList.i
+
+# target to preprocess a source file
+model/UriList.cpp.i:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/UriList.cpp.i
+.PHONY : model/UriList.cpp.i
+
+model/UriList.s: model/UriList.cpp.s
+.PHONY : model/UriList.s
+
+# target to generate assembly for a file
+model/UriList.cpp.s:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/UriList.cpp.s
+.PHONY : model/UriList.cpp.s
+
+model/XAppDiscErr.o: model/XAppDiscErr.cpp.o
+.PHONY : model/XAppDiscErr.o
+
+# target to build an object file
+model/XAppDiscErr.cpp.o:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/XAppDiscErr.cpp.o
+.PHONY : model/XAppDiscErr.cpp.o
+
+model/XAppDiscErr.i: model/XAppDiscErr.cpp.i
+.PHONY : model/XAppDiscErr.i
+
+# target to preprocess a source file
+model/XAppDiscErr.cpp.i:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/XAppDiscErr.cpp.i
+.PHONY : model/XAppDiscErr.cpp.i
+
+model/XAppDiscErr.s: model/XAppDiscErr.cpp.s
+.PHONY : model/XAppDiscErr.s
+
+# target to generate assembly for a file
+model/XAppDiscErr.cpp.s:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/XAppDiscErr.cpp.s
+.PHONY : model/XAppDiscErr.cpp.s
+
+model/XAppProfile.o: model/XAppProfile.cpp.o
+.PHONY : model/XAppProfile.o
+
+# target to build an object file
+model/XAppProfile.cpp.o:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/XAppProfile.cpp.o
+.PHONY : model/XAppProfile.cpp.o
+
+model/XAppProfile.i: model/XAppProfile.cpp.i
+.PHONY : model/XAppProfile.i
+
+# target to preprocess a source file
+model/XAppProfile.cpp.i:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/XAppProfile.cpp.i
+.PHONY : model/XAppProfile.cpp.i
+
+model/XAppProfile.s: model/XAppProfile.cpp.s
+.PHONY : model/XAppProfile.s
+
+# target to generate assembly for a file
+model/XAppProfile.cpp.s:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/XAppProfile.cpp.s
+.PHONY : model/XAppProfile.cpp.s
+
+model/XAppService.o: model/XAppService.cpp.o
+.PHONY : model/XAppService.o
+
+# target to build an object file
+model/XAppService.cpp.o:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/XAppService.cpp.o
+.PHONY : model/XAppService.cpp.o
+
+model/XAppService.i: model/XAppService.cpp.i
+.PHONY : model/XAppService.i
+
+# target to preprocess a source file
+model/XAppService.cpp.i:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/XAppService.cpp.i
+.PHONY : model/XAppService.cpp.i
+
+model/XAppService.s: model/XAppService.cpp.s
+.PHONY : model/XAppService.s
+
+# target to generate assembly for a file
+model/XAppService.cpp.s:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/XAppService.cpp.s
+.PHONY : model/XAppService.cpp.s
+
+model/XAppService_anyOf.o: model/XAppService_anyOf.cpp.o
+.PHONY : model/XAppService_anyOf.o
+
+# target to build an object file
+model/XAppService_anyOf.cpp.o:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/XAppService_anyOf.cpp.o
+.PHONY : model/XAppService_anyOf.cpp.o
+
+model/XAppService_anyOf.i: model/XAppService_anyOf.cpp.i
+.PHONY : model/XAppService_anyOf.i
+
+# target to preprocess a source file
+model/XAppService_anyOf.cpp.i:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/XAppService_anyOf.cpp.i
+.PHONY : model/XAppService_anyOf.cpp.i
+
+model/XAppService_anyOf.s: model/XAppService_anyOf.cpp.s
+.PHONY : model/XAppService_anyOf.s
+
+# target to generate assembly for a file
+model/XAppService_anyOf.cpp.s:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/XAppService_anyOf.cpp.s
+.PHONY : model/XAppService_anyOf.cpp.s
+
+model/XAppStatus.o: model/XAppStatus.cpp.o
+.PHONY : model/XAppStatus.o
+
+# target to build an object file
+model/XAppStatus.cpp.o:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/XAppStatus.cpp.o
+.PHONY : model/XAppStatus.cpp.o
+
+model/XAppStatus.i: model/XAppStatus.cpp.i
+.PHONY : model/XAppStatus.i
+
+# target to preprocess a source file
+model/XAppStatus.cpp.i:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/XAppStatus.cpp.i
+.PHONY : model/XAppStatus.cpp.i
+
+model/XAppStatus.s: model/XAppStatus.cpp.s
+.PHONY : model/XAppStatus.s
+
+# target to generate assembly for a file
+model/XAppStatus.cpp.s:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/XAppStatus.cpp.s
+.PHONY : model/XAppStatus.cpp.s
+
+model/XAppStatus_anyOf.o: model/XAppStatus_anyOf.cpp.o
+.PHONY : model/XAppStatus_anyOf.o
+
+# target to build an object file
+model/XAppStatus_anyOf.cpp.o:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/XAppStatus_anyOf.cpp.o
+.PHONY : model/XAppStatus_anyOf.cpp.o
+
+model/XAppStatus_anyOf.i: model/XAppStatus_anyOf.cpp.i
+.PHONY : model/XAppStatus_anyOf.i
+
+# target to preprocess a source file
+model/XAppStatus_anyOf.cpp.i:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/XAppStatus_anyOf.cpp.i
+.PHONY : model/XAppStatus_anyOf.cpp.i
+
+model/XAppStatus_anyOf.s: model/XAppStatus_anyOf.cpp.s
+.PHONY : model/XAppStatus_anyOf.s
+
+# target to generate assembly for a file
+model/XAppStatus_anyOf.cpp.s:
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/model/XAppStatus_anyOf.cpp.s
+.PHONY : model/XAppStatus_anyOf.cpp.s
 
 xrf-api-server.o: xrf-api-server.cpp.o
 .PHONY : xrf-api-server.o
 
 # target to build an object file
 xrf-api-server.cpp.o:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.o
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/xrf-api-server.cpp.o
 .PHONY : xrf-api-server.cpp.o
 
 xrf-api-server.i: xrf-api-server.cpp.i
@@ -321,7 +1021,7 @@ xrf-api-server.i: xrf-api-server.cpp.i
 
 # target to preprocess a source file
 xrf-api-server.cpp.i:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.i
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/xrf-api-server.cpp.i
 .PHONY : xrf-api-server.cpp.i
 
 xrf-api-server.s: xrf-api-server.cpp.s
@@ -329,7 +1029,7 @@ xrf-api-server.s: xrf-api-server.cpp.s
 
 # target to generate assembly for a file
 xrf-api-server.cpp.s:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/xrf-api-server.cpp.s
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/xrf-api-server.cpp.s
 .PHONY : xrf-api-server.cpp.s
 
 # Help Target
@@ -341,13 +1041,51 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... XRF_API"
+	@echo "... NLOHMANN"
+	@echo "... PISTACHE"
+	@echo "... api-server"
 	@echo "... api/AccessTokenRequestApi.o"
 	@echo "... api/AccessTokenRequestApi.i"
 	@echo "... api/AccessTokenRequestApi.s"
+	@echo "... api/InitialAuthenticationRequestApi.o"
+	@echo "... api/InitialAuthenticationRequestApi.i"
+	@echo "... api/InitialAuthenticationRequestApi.s"
+	@echo "... api/TokenIntrospectionRequestApi.o"
+	@echo "... api/TokenIntrospectionRequestApi.i"
+	@echo "... api/TokenIntrospectionRequestApi.s"
+	@echo "... api/XAppDeleteInstanceApi.o"
+	@echo "... api/XAppDeleteInstanceApi.i"
+	@echo "... api/XAppDeleteInstanceApi.s"
+	@echo "... api/XAppDiscoverInstancesApi.o"
+	@echo "... api/XAppDiscoverInstancesApi.i"
+	@echo "... api/XAppDiscoverInstancesApi.s"
+	@echo "... api/XAppGetInstanceApi.o"
+	@echo "... api/XAppGetInstanceApi.i"
+	@echo "... api/XAppGetInstanceApi.s"
+	@echo "... api/XAppRegisterInstanceApi.o"
+	@echo "... api/XAppRegisterInstanceApi.i"
+	@echo "... api/XAppRegisterInstanceApi.s"
 	@echo "... impl/AccessTokenRequestApiImpl.o"
 	@echo "... impl/AccessTokenRequestApiImpl.i"
 	@echo "... impl/AccessTokenRequestApiImpl.s"
+	@echo "... impl/InitialAuthenticationRequestApiImpl.o"
+	@echo "... impl/InitialAuthenticationRequestApiImpl.i"
+	@echo "... impl/InitialAuthenticationRequestApiImpl.s"
+	@echo "... impl/TokenIntrospectionRequestApiImpl.o"
+	@echo "... impl/TokenIntrospectionRequestApiImpl.i"
+	@echo "... impl/TokenIntrospectionRequestApiImpl.s"
+	@echo "... impl/XAppDeleteInstanceApiImpl.o"
+	@echo "... impl/XAppDeleteInstanceApiImpl.i"
+	@echo "... impl/XAppDeleteInstanceApiImpl.s"
+	@echo "... impl/XAppDiscoverInstancesApiImpl.o"
+	@echo "... impl/XAppDiscoverInstancesApiImpl.i"
+	@echo "... impl/XAppDiscoverInstancesApiImpl.s"
+	@echo "... impl/XAppGetInstanceApiImpl.o"
+	@echo "... impl/XAppGetInstanceApiImpl.i"
+	@echo "... impl/XAppGetInstanceApiImpl.s"
+	@echo "... impl/XAppRegisterInstanceApiImpl.o"
+	@echo "... impl/XAppRegisterInstanceApiImpl.i"
+	@echo "... impl/XAppRegisterInstanceApiImpl.s"
 	@echo "... model/AccessTokenClaims.o"
 	@echo "... model/AccessTokenClaims.i"
 	@echo "... model/AccessTokenClaims.s"
@@ -360,9 +1098,57 @@ help:
 	@echo "... model/Helpers.o"
 	@echo "... model/Helpers.i"
 	@echo "... model/Helpers.s"
+	@echo "... model/InitAuthClaims.o"
+	@echo "... model/InitAuthClaims.i"
+	@echo "... model/InitAuthClaims.s"
+	@echo "... model/InitAuthErr.o"
+	@echo "... model/InitAuthErr.i"
+	@echo "... model/InitAuthErr.s"
+	@echo "... model/InitAuthReq.o"
+	@echo "... model/InitAuthReq.i"
+	@echo "... model/InitAuthReq.s"
+	@echo "... model/InitAuthRsp.o"
+	@echo "... model/InitAuthRsp.i"
+	@echo "... model/InitAuthRsp.s"
+	@echo "... model/Link.o"
+	@echo "... model/Link.i"
+	@echo "... model/Link.s"
+	@echo "... model/LinksValueSchema.o"
+	@echo "... model/LinksValueSchema.i"
+	@echo "... model/LinksValueSchema.s"
 	@echo "... model/ProblemDetails.o"
 	@echo "... model/ProblemDetails.i"
 	@echo "... model/ProblemDetails.s"
+	@echo "... model/TokenIntroClaims.o"
+	@echo "... model/TokenIntroClaims.i"
+	@echo "... model/TokenIntroClaims.s"
+	@echo "... model/TokenIntroErr.o"
+	@echo "... model/TokenIntroErr.i"
+	@echo "... model/TokenIntroErr.s"
+	@echo "... model/TokenIntroRsp.o"
+	@echo "... model/TokenIntroRsp.i"
+	@echo "... model/TokenIntroRsp.s"
+	@echo "... model/UriList.o"
+	@echo "... model/UriList.i"
+	@echo "... model/UriList.s"
+	@echo "... model/XAppDiscErr.o"
+	@echo "... model/XAppDiscErr.i"
+	@echo "... model/XAppDiscErr.s"
+	@echo "... model/XAppProfile.o"
+	@echo "... model/XAppProfile.i"
+	@echo "... model/XAppProfile.s"
+	@echo "... model/XAppService.o"
+	@echo "... model/XAppService.i"
+	@echo "... model/XAppService.s"
+	@echo "... model/XAppService_anyOf.o"
+	@echo "... model/XAppService_anyOf.i"
+	@echo "... model/XAppService_anyOf.s"
+	@echo "... model/XAppStatus.o"
+	@echo "... model/XAppStatus.i"
+	@echo "... model/XAppStatus.s"
+	@echo "... model/XAppStatus_anyOf.o"
+	@echo "... model/XAppStatus_anyOf.i"
+	@echo "... model/XAppStatus_anyOf.s"
 	@echo "... xrf-api-server.o"
 	@echo "... xrf-api-server.i"
 	@echo "... xrf-api-server.s"
@@ -377,6 +1163,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/taport/Documents/xrfoauth/xrfserver/src/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/nsslm/Documents/xrfoauth/xrfserver/src/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

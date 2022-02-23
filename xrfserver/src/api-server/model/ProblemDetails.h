@@ -1,6 +1,6 @@
 /**
-* XRF OAuth2
-* XRF OAuth2 Authorization server for generating access tokens to xApps 
+* XRF OAuth2 xApp Discvoery API
+* XRF OAuth2 Authorization server, xApp Discovery API 
 *
 * The version of the OpenAPI document: 1
 * Contact: tolgaoa@vt.edu
@@ -22,7 +22,8 @@
 #include <string>
 #include <nlohmann/json.hpp>
 
-namespace xrf::model {
+namespace org::openapitools::server::model
+{
 
 /// <summary>
 /// Provides additional information in an error response.
@@ -109,6 +110,6 @@ protected:
     
 };
 
-}
+} // namespace org::openapitools::server::model
 
 #endif /* ProblemDetails_H_ */

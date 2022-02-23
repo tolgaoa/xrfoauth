@@ -1,6 +1,6 @@
 /**
-* XRF OAuth2
-* XRF OAuth2 Authorization server for generating access tokens to xApps 
+* XRF OAuth2 xApp Discvoery API
+* XRF OAuth2 Authorization server, xApp Discovery API 
 *
 * The version of the OpenAPI document: 1
 * Contact: tolgaoa@vt.edu
@@ -24,7 +24,7 @@
 #include <vector>
 #include <map>
 
-namespace xrf::helpers
+namespace org::openapitools::server::helpers
 {
 
     class ValidationException : public std::runtime_error

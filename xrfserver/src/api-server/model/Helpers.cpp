@@ -1,6 +1,6 @@
 /**
-* XRF OAuth2
-* XRF OAuth2 Authorization server for generating access tokens to xApps 
+* XRF OAuth2 xApp Discvoery API
+* XRF OAuth2 Authorization server, xApp Discovery API 
 *
 * The version of the OpenAPI document: 1
 * Contact: tolgaoa@vt.edu
@@ -12,7 +12,7 @@
 #include "Helpers.h"
 #include <regex>
 
-namespace xrf::helpers
+namespace org::openapitools::server::helpers
 {
 
 const std::regex regexRfc3339_date(R"(^(\d{4})\-(\d{2})\-(\d{2})$)");

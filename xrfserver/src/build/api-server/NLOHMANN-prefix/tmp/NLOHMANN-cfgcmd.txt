@@ -1,0 +1,1 @@
+cmd='/usr/bin/cmake;-DCMAKE_INSTALL_PREFIX=/home/nsslm/Documents/xrfoauth/xrfserver/src/api-server/external;-GUnix Makefiles;<SOURCE_DIR><SOURCE_SUBDIR>'

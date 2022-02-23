@@ -1,0 +1,326 @@
+openapi: 3.0.0
+
+info:
+  version: '1'
+  title: 'XRF OAuth2 xApp Discvoery API'
+  description: |
+    XRF OAuth2 Authorization server, xApp Discovery API
+  contact: 
+    name: Tolga Atalay
+    email: tolgaoa@vt.edu
+servers: 
+  - url: http://xrfapi.com
+paths:
+  /xapp/disc:
+    get:
+      summary: Discover the set of xApp Instances offering a given service
+      operationId: xAppDiscInst
+      tags:
+        - xApp Discover Instances
+      parameters:
+        - name: Accept-Encoding
+          in: header
+          description: Accept-Encoding, described in IETF RFC 7231
+          schema:
+            type: string
+        - name: targetxAppService
+          in: query
+          description: service offered by the target xApp
+          required: true
+          schema: 
+            $ref: '#/components/schemas/xAppService'
+        - name: reqestingxAppService
+          in: query
+          description: service offered by the requesting xApp
+          required: true
+          schema:
+            $ref: '#/components/schemas/xAppService'
+      responses:
+        '200':
+          description: Successful xApp Discovery
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/xAppDiscRsp'
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/cache-control'
+            Pragma:
+              $ref: '#/components/headers/pragma'
+            Accept-Encoding:
+              description: Accept-Encoding, described in IETF RFC 7694
+              schema:
+                type: string
+            Content-Encoding:
+              description: Content-Encoding, described in IETF RFC 7231
+              schema:
+                type: string
+        '400':
+          description: Error in the xApp Discovery Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/xAppDiscErr'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/cache-control'
+            Pragma:
+              $ref: '#/components/headers/pragma'
+  /xapp/disc/{xAppInstanceId}:
+    get:
+      summary: retreive specific xApp using its ID
+      operationId: GetxAppInstance
+      tags:
+        - xApp Get Instance
+      parameters:
+        - name: xAppInstanceId
+          in: path
+          description: specific ID for the xApp instance
+          required: true
+          schema:
+            $ref: '#/components/schemas/xAppInstanceId'
+      responses:
+        '200':
+          description: Valid xApp ID response
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/cache-control'
+            Pragma:
+              $ref: '#/components/headers/pragma'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/xAppProfile'
+        '400':
+          description: Invalid xApp ID response
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/cache-control'
+            Pragma:
+              $ref: '#/components/headers/pragma'
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/xAppDiscErr'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+    put:
+      summary: register new xApp instance
+      operationId: RegisterxAppInstance
+      tags:
+        - xApp Register Instance
+      parameters:
+        - name: xAppInstanceId
+          in: path
+          required: true
+          description: specific ID for an xApp
+          schema:
+            $ref: '#/components/schemas/xAppProfile'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/xAppProfile'
+      responses:
+        '200':
+          description: xApp OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/cache-control'
+            Pragma:
+              $ref: '#/components/headers/pragma'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/xAppProfile'
+        '400':
+          description: BAD Request
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/cache-control'
+            Pragma:
+              $ref: '#/components/headers/pragma'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/xAppDiscErr'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+    delete:
+      summary: delete a specific xApp
+      operationId: DeletexAppInstance
+      tags:
+        - xApp Delete Instance
+      parameters:
+        - name: xAppInstanceId
+          in: path
+          required: true
+          description: specific ID of the xApp Instance to delete
+          schema:
+            $ref: '#/components/schemas/xAppInstanceId'
+      responses:
+        '204':
+          description: Expected response to a successful deletion
+        '400':
+          description: Invalid xApp ID response
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/cache-control'
+            Pragma:
+              $ref: '#/components/headers/pragma'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/xAppDiscErr'
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+
+components:
+  securitySchemes:
+    oAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: '/oauth2/token'
+          scopes:
+            xrf-man: access to the XRF management API
+  headers:
+    cache-control:
+      required: true
+      schema:
+        type: string
+        enum:
+          - no-store
+    pragma:
+      required: true
+      schema:
+        type: string
+        enum:
+          - no-cache
+  schemas:
+    xAppProfile:
+      description: xApp instance information in the XRF repo
+      type: object
+      required:
+        - xAppInstanceId
+        - xAppRole
+        - xAppStatus
+        - xAppIpv4
+      anyOf:
+        - required: [ ipv4addresses ]
+        - required: [ ipv6addresses ]
+      properties:
+        xAppInstanceId:
+          $ref: '#/components/schemas/xAppInstanceId'
+        xAppService:
+          $ref: '#/components/schemas/xAppService'
+        xAppStatus:
+          $ref: '#/components/schemas/xAppStatus'
+        xAppIpv4:
+          $ref: '#/components/schemas/xAppIpv4'
+    xAppService:
+      description: specific xApp roles for other xApps to discover
+      anyOf:
+        - type: string
+          enum:
+            - AD
+            - LP
+            - MC
+            - QP
+            - QPD
+            - TS
+            - KPI
+            - SSP
+      type: string
+    xAppInstanceId:
+      type: string
+      format: uuid
+      description: unique identifier for the xApp instance
+    xAppStatus:
+      type: string
+      description: xApp status identifier
+      anyOf:
+        - type: string
+          enum:
+            - REGISTERED
+            - SUSPENDED
+            - UNDISCOVERABLE
+    xAppIpv4:
+      type: string
+      pattern: '^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$'
+      example: '10.9.0.10'
+      description: ipv4 address of the xApp in dotted decimal notation as defined in RFC 1166
+
+    xAppDiscRsp:
+      description: Response for initial xApp discovery for a large set
+
+    xAppDiscErr:
+      description: Error returned in the xApp Discovery message
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: string
+          enum:
+            - invalid_request
+            - invalid_client
+        error_description:
+          type: string
+        error_uri:
+          type: string
+
+    ProblemDetails:
+      description: Provides additional information in an error response.
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/Uri'
+        title:
+          type: string
+        status:
+          type: integer
+        detail:
+          type: string
+          description: A human-readable explanation specific to this occurrence of the problem.
+        instance:
+          $ref: '#/components/schemas/Uri'
+
+    Uri:
+      type: string
+      description: String providing an URI formatted according to RFC 3986
+
+    UriList:
+      description: Represents a set of URIs following the 3GPP hypermedia format (containing a "_links" attribute).
+      type: object
+      properties:
+        _links:
+          type: object
+          description: List of the URI of xApp instances. It has two members whose names are item and self. The item attribute contains an array of URIs.'
+          additionalProperties:
+            $ref: '#/components/schemas/LinksValueSchema'
+          minProperties: 1
+        totalItemCount:
+          type: integer
+
+    LinksValueSchema:
+      oneOf:
+        - type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          minItems: 1
+        - $ref: '#/components/schemas/Link'
+      description: A list of mutually exclusive alternatives of 1 or more links
+    Link:
+      type: object
+      properties:
+        href:
+          $ref: '#/components/schemas/Uri'
+      description: It contains the URI of the linked resource.
+

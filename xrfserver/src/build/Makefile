@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/taport/Documents/xrfoauth/xrfserver/src
+CMAKE_SOURCE_DIR = /home/nsslm/Documents/xrfoauth/xrfserver/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/taport/Documents/xrfoauth/xrfserver/src/build
+CMAKE_BINARY_DIR = /home/nsslm/Documents/xrfoauth/xrfserver/src/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -97,9 +97,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/taport/Documents/xrfoauth/xrfserver/src/build/CMakeFiles /home/taport/Documents/xrfoauth/xrfserver/src/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nsslm/Documents/xrfoauth/xrfserver/src/build/CMakeFiles /home/nsslm/Documents/xrfoauth/xrfserver/src/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/taport/Documents/xrfoauth/xrfserver/src/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nsslm/Documents/xrfoauth/xrfserver/src/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -153,17 +153,43 @@ XRF/fast:
 .PHONY : XRF/fast
 
 #=============================================================================
-# Target rules for targets named XRF_API
+# Target rules for targets named PISTACHE
 
 # Build rule for target.
-XRF_API: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 XRF_API
-.PHONY : XRF_API
+PISTACHE: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PISTACHE
+.PHONY : PISTACHE
 
 # fast build rule for target.
-XRF_API/fast:
-	$(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/XRF_API.dir/build.make api-server/CMakeFiles/XRF_API.dir/build
-.PHONY : XRF_API/fast
+PISTACHE/fast:
+	$(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/PISTACHE.dir/build.make api-server/CMakeFiles/PISTACHE.dir/build
+.PHONY : PISTACHE/fast
+
+#=============================================================================
+# Target rules for targets named NLOHMANN
+
+# Build rule for target.
+NLOHMANN: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 NLOHMANN
+.PHONY : NLOHMANN
+
+# fast build rule for target.
+NLOHMANN/fast:
+	$(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/NLOHMANN.dir/build.make api-server/CMakeFiles/NLOHMANN.dir/build
+.PHONY : NLOHMANN/fast
+
+#=============================================================================
+# Target rules for targets named api-server
+
+# Build rule for target.
+api-server: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 api-server
+.PHONY : api-server
+
+# fast build rule for target.
+api-server/fast:
+	$(MAKE) $(MAKESILENT) -f api-server/CMakeFiles/api-server.dir/build.make api-server/CMakeFiles/api-server.dir/build
+.PHONY : api-server/fast
 
 main.o: main.cpp.o
 .PHONY : main.o
@@ -198,8 +224,10 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... NLOHMANN"
+	@echo "... PISTACHE"
 	@echo "... XRF"
-	@echo "... XRF_API"
+	@echo "... api-server"
 	@echo "... xappoauth"
 	@echo "... main.o"
 	@echo "... main.i"

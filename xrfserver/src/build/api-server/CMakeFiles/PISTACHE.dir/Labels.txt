@@ -1,0 +1,13 @@
+# Target labels
+ PISTACHE
+# Source files and their labels
+/home/nsslm/Documents/xrfoauth/xrfserver/src/build/api-server/CMakeFiles/PISTACHE
+/home/nsslm/Documents/xrfoauth/xrfserver/src/build/api-server/CMakeFiles/PISTACHE.rule
+/home/nsslm/Documents/xrfoauth/xrfserver/src/build/api-server/CMakeFiles/PISTACHE-complete.rule
+/home/nsslm/Documents/xrfoauth/xrfserver/src/build/api-server/PISTACHE-prefix/src/PISTACHE-stamp/PISTACHE-build.rule
+/home/nsslm/Documents/xrfoauth/xrfserver/src/build/api-server/PISTACHE-prefix/src/PISTACHE-stamp/PISTACHE-configure.rule
+/home/nsslm/Documents/xrfoauth/xrfserver/src/build/api-server/PISTACHE-prefix/src/PISTACHE-stamp/PISTACHE-download.rule
+/home/nsslm/Documents/xrfoauth/xrfserver/src/build/api-server/PISTACHE-prefix/src/PISTACHE-stamp/PISTACHE-install.rule
+/home/nsslm/Documents/xrfoauth/xrfserver/src/build/api-server/PISTACHE-prefix/src/PISTACHE-stamp/PISTACHE-mkdir.rule
+/home/nsslm/Documents/xrfoauth/xrfserver/src/build/api-server/PISTACHE-prefix/src/PISTACHE-stamp/PISTACHE-patch.rule
+/home/nsslm/Documents/xrfoauth/xrfserver/src/build/api-server/PISTACHE-prefix/src/PISTACHE-stamp/PISTACHE-update.rule

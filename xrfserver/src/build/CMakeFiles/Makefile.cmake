@@ -12,6 +12,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.22.2/CMakeCCompiler.cmake"
   "CMakeFiles/3.22.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.22.2/CMakeSystem.cmake"
+  "api-server/NLOHMANN-prefix/tmp/NLOHMANN-cfgcmd.txt.in"
+  "api-server/PISTACHE-prefix/tmp/PISTACHE-cfgcmd.txt.in"
   "../xrfapp/CMakeLists.txt"
   "/usr/share/cmake-3.22/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake"
@@ -28,6 +30,9 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-3.22/Modules/Compiler/GNU-C.cmake"
   "/usr/share/cmake-3.22/Modules/Compiler/GNU-CXX.cmake"
   "/usr/share/cmake-3.22/Modules/Compiler/GNU.cmake"
+  "/usr/share/cmake-3.22/Modules/ExternalProject-gitupdate.cmake.in"
+  "/usr/share/cmake-3.22/Modules/ExternalProject.cmake"
+  "/usr/share/cmake-3.22/Modules/FindGit.cmake"
   "/usr/share/cmake-3.22/Modules/FindOpenSSL.cmake"
   "/usr/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake"
   "/usr/share/cmake-3.22/Modules/FindPackageMessage.cmake"
@@ -39,6 +44,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-3.22/Modules/Platform/Linux-GNU.cmake"
   "/usr/share/cmake-3.22/Modules/Platform/Linux.cmake"
   "/usr/share/cmake-3.22/Modules/Platform/UnixPaths.cmake"
+  "/usr/share/cmake-3.22/Modules/RepositoryInfo.txt.in"
   )
 
 # The corresponding makefile is:
@@ -51,6 +57,12 @@ set(CMAKE_MAKEFILE_OUTPUTS
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "xrfapp/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "api-server/PISTACHE-prefix/src/PISTACHE-stamp/PISTACHE-gitinfo.txt"
+  "api-server/PISTACHE-prefix/tmp/PISTACHE-gitupdate.cmake"
+  "api-server/PISTACHE-prefix/tmp/PISTACHE-cfgcmd.txt"
+  "api-server/NLOHMANN-prefix/src/NLOHMANN-stamp/NLOHMANN-gitinfo.txt"
+  "api-server/NLOHMANN-prefix/tmp/NLOHMANN-gitupdate.cmake"
+  "api-server/NLOHMANN-prefix/tmp/NLOHMANN-cfgcmd.txt"
   "api-server/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
@@ -58,5 +70,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/xappoauth.dir/DependInfo.cmake"
   "xrfapp/CMakeFiles/XRF.dir/DependInfo.cmake"
-  "api-server/CMakeFiles/XRF_API.dir/DependInfo.cmake"
+  "api-server/CMakeFiles/PISTACHE.dir/DependInfo.cmake"
+  "api-server/CMakeFiles/NLOHMANN.dir/DependInfo.cmake"
+  "api-server/CMakeFiles/api-server.dir/DependInfo.cmake"
   )
