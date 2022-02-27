@@ -17,12 +17,12 @@ paths:
       operationId: xAppDiscInst
       tags:
         - xApp Discover Instances
-          #parameters:
-              #- name: targetxApp
-              #in: query
-              #description: service offered by the target xApp
-              #schema: 
-              #$ref: '#/components/schemas/xAppService'
+      parameters:
+        - name: targetxApp
+          in: query
+          description: service offered by the target xApp
+          schema: 
+            $ref: '#/components/schemas/xAppService'
       responses:
         '200':
           description: Successful xApp Discovery
@@ -320,4 +320,3 @@ components:
         href:
           $ref: '#/components/schemas/Uri'
       description: It contains the URI of the linked resource.
-

@@ -1,0 +1,12 @@
+/home/taport/Documents/xrfoauth/xrfserver/src/build/CMakeFiles/xappoauth.dir
+/home/taport/Documents/xrfoauth/xrfserver/src/build/CMakeFiles/test.dir
+/home/taport/Documents/xrfoauth/xrfserver/src/build/CMakeFiles/edit_cache.dir
+/home/taport/Documents/xrfoauth/xrfserver/src/build/CMakeFiles/rebuild_cache.dir
+/home/taport/Documents/xrfoauth/xrfserver/src/build/xrfapp/CMakeFiles/XRF.dir
+/home/taport/Documents/xrfoauth/xrfserver/src/build/xrfapp/CMakeFiles/test.dir
+/home/taport/Documents/xrfoauth/xrfserver/src/build/xrfapp/CMakeFiles/edit_cache.dir
+/home/taport/Documents/xrfoauth/xrfserver/src/build/xrfapp/CMakeFiles/rebuild_cache.dir
+/home/taport/Documents/xrfoauth/xrfserver/src/build/api-server/CMakeFiles/XRF_API.dir
+/home/taport/Documents/xrfoauth/xrfserver/src/build/api-server/CMakeFiles/test.dir
+/home/taport/Documents/xrfoauth/xrfserver/src/build/api-server/CMakeFiles/edit_cache.dir
+/home/taport/Documents/xrfoauth/xrfserver/src/build/api-server/CMakeFiles/rebuild_cache.dir
