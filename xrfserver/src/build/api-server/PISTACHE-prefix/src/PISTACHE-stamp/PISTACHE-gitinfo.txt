@@ -1,3 +1,0 @@
-repository='https://github.com/oktal/pistache.git'
-module=''
-tag='origin'

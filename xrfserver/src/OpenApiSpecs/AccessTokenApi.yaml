@@ -19,6 +19,7 @@ paths:
         - Access Token Request
       parameters:
         - name: Content-Encoding
+          required: true
           in: header
           description: Content-Encoding, described in IETF RFC 7231
           schema:

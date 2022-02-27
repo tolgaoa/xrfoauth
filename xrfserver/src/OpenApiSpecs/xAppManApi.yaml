@@ -11,30 +11,18 @@ info:
 servers: 
   - url: http://xrfapi.com
 paths:
-  /xapp/disc:
+  /xapp/discall:
     get:
       summary: Discover the set of xApp Instances offering a given service
       operationId: xAppDiscInst
       tags:
         - xApp Discover Instances
-      parameters:
-        - name: Accept-Encoding
-          in: header
-          description: Accept-Encoding, described in IETF RFC 7231
-          schema:
-            type: string
-        - name: targetxAppService
-          in: query
-          description: service offered by the target xApp
-          required: true
-          schema: 
-            $ref: '#/components/schemas/xAppService'
-        - name: reqestingxAppService
-          in: query
-          description: service offered by the requesting xApp
-          required: true
-          schema:
-            $ref: '#/components/schemas/xAppService'
+          #parameters:
+              #- name: targetxApp
+              #in: query
+              #description: service offered by the target xApp
+              #schema: 
+              #$ref: '#/components/schemas/xAppService'
       responses:
         '200':
           description: Successful xApp Discovery
@@ -204,6 +192,7 @@ components:
         enum:
           - no-cache
   schemas:
+
     xAppProfile:
       description: xApp instance information in the XRF repo
       type: object
@@ -259,6 +248,14 @@ components:
 
     xAppDiscRsp:
       description: Response for initial xApp discovery for a large set
+      type: object
+      required:
+        - xApplist
+      properties:
+        xApplist:
+          type: array
+          items:
+            type: string
 
     xAppDiscErr:
       description: Error returned in the xApp Discovery message
