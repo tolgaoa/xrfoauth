@@ -251,4 +251,6 @@ api-server/CMakeFiles/XRF_API.dir/model/AccessTokenClaims.cpp.o: \
  /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
  /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/Helpers.h \
  /usr/include/c++/9/ctime /usr/include/c++/9/sstream \
- /usr/include/c++/9/bits/sstream.tcc
+ /usr/include/c++/9/bits/sstream.tcc \
+ /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/XAppService.h \
+ /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/XAppService_anyOf.h

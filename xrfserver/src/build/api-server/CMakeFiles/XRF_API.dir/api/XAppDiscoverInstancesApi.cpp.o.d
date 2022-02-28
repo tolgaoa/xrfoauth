@@ -337,4 +337,5 @@ api-server/CMakeFiles/XRF_API.dir/api/XAppDiscoverInstancesApi.cpp.o: \
  /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/XAppDiscRsp.h \
  /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/XAppService.h \
  /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/XAppService_anyOf.h \
- /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/Helpers.h
+ /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/Helpers.h \
+ /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/XAppService.h

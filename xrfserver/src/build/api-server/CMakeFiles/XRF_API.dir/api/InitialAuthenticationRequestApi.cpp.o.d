@@ -335,4 +335,6 @@ api-server/CMakeFiles/XRF_API.dir/api/InitialAuthenticationRequestApi.cpp.o: \
  /usr/include/nlohmann/detail/macro_unscope.hpp \
  /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
  /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/InitAuthReq.h \
- /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/Helpers.h
+ /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/Helpers.h \
+ /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/XAppService.h \
+ /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/XAppService_anyOf.h
