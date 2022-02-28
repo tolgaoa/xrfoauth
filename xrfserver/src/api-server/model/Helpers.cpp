@@ -87,6 +87,14 @@ bool fromStringValue(const std::string &inStr, std::string &value){
     return true;
 }
 
+//Manually added helper functions after auto-generation of the api
+bool fromStringValue(const std::basic_string<char> &inStr, xrf::model::xAppService &value){
+  value = std::string(inStr);
+  return true;
+}
+//------------------------------
+
+
 bool fromStringValue(const std::string &inStr, int32_t &value){
     try {
         value = std::stoi( inStr );
