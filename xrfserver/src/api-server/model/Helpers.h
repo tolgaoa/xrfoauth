@@ -102,7 +102,7 @@ namespace xrf::helpers
     std::string toStringValue(const double value);
 
     //Custom fromStringValue functions manually added after auto-generation
-    //bool fromStringValue(const std::basic_string<char> &inStr, xrf::model::xAppService &value); 
+    bool fromStringValue(const std::basic_string<char> &inStr, xrf::model::xAppService &value); 
 
 
     bool fromStringValue(const std::string &inStr, std::string &value);
