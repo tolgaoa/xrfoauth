@@ -27,7 +27,7 @@
 
 #include <XAppGetInstanceApi.h>
 
-//#include <pistache/optional.h>
+#include <pistache/optional.h>
 
 #include "XAppDiscErr.h"
 #include "XAppProfile.h"

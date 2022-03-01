@@ -253,6 +253,9 @@ api-server/CMakeFiles/XRF_API.dir/model/Helpers.cpp.o: \
  /usr/include/nlohmann/detail/conversions/to_chars.hpp \
  /usr/include/nlohmann/detail/macro_unscope.hpp \
  /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
+ /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/XAppProfile.h \
+ /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/XAppStatus.h \
+ /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/XAppStatus_anyOf.h \
  /usr/include/c++/9/regex /usr/include/c++/9/bitset \
  /usr/include/c++/9/locale /usr/include/c++/9/bits/locale_facets_nonio.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/time_members.h \

@@ -22,7 +22,7 @@ XAppRegisterInstanceApiImpl::XAppRegisterInstanceApiImpl(const std::shared_ptr<P
 {
 }
 
-void XAppRegisterInstanceApiImpl::registerx_app_instance(const XAppProfile &xAppInstanceId, const XAppProfile &xAppProfile, Pistache::Http::ResponseWriter &response) {
+void XAppRegisterInstanceApiImpl::registerx_app_instance(const std::string &xAppInstanceId, const XAppProfile &xAppProfile, Pistache::Http::ResponseWriter &response) {
     response.send(Pistache::Http::Code::Ok, "Do some magic\n");
 }
 

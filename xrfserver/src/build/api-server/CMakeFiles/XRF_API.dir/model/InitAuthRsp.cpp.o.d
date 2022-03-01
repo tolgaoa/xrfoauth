@@ -253,4 +253,7 @@ api-server/CMakeFiles/XRF_API.dir/model/InitAuthRsp.cpp.o: \
  /usr/include/c++/9/ctime /usr/include/c++/9/sstream \
  /usr/include/c++/9/bits/sstream.tcc \
  /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/XAppService.h \
- /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/XAppService_anyOf.h
+ /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/XAppService_anyOf.h \
+ /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/XAppProfile.h \
+ /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/XAppStatus.h \
+ /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/XAppStatus_anyOf.h

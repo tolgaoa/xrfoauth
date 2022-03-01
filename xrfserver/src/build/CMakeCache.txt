@@ -219,7 +219,7 @@ OPENSSL_INCLUDE_DIR:PATH=/usr/include
 OPENSSL_SSL_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libssl.a
 
 //Path to a library.
-PISTACHE_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libpistache.so
+PISTACHE_LIBRARY:FILEPATH=/usr/local/lib/libpistache.so
 
 //Arguments to supply to pkg-config
 PKG_CONFIG_ARGN:STRING=

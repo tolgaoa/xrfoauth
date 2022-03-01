@@ -22,10 +22,9 @@ XAppDiscoverInstancesApiImpl::XAppDiscoverInstancesApiImpl(const std::shared_ptr
 {
 }
 
-void XAppDiscoverInstancesApiImpl::x_app_disc_inst(const XAppService &targetxApp, Pistache::Http::ResponseWriter &response) {
+void XAppDiscoverInstancesApiImpl::x_app_disc_inst(const Pistache::Optional<XAppService> &targetxApp, Pistache::Http::ResponseWriter &response) {
     response.send(Pistache::Http::Code::Ok, "Do some magic\n");
 }
 
 }
 }
-

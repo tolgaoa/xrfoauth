@@ -49,7 +49,7 @@ bool XAppService::validate(std::stringstream& msg, const std::string& pathPrefix
 
 bool XAppService::operator==(const XAppService& rhs) const
 {
-    return
+    return true;
     
     
     ;

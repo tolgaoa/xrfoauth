@@ -104,10 +104,10 @@ paths:
       parameters:
         - name: xAppInstanceId
           in: path
+          description: specific ID for the xApp instance
           required: true
-          description: specific ID for an xApp
           schema:
-            $ref: '#/components/schemas/xAppProfile'
+            $ref: '#/components/schemas/xAppInstanceId'
       requestBody:
         content:
           application/json:

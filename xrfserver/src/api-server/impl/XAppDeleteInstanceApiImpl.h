@@ -27,7 +27,7 @@
 
 #include <XAppDeleteInstanceApi.h>
 
-//#include <pistache/optional.h>
+#include <pistache/optional.h>
 
 #include "XAppDiscErr.h"
 #include <string>

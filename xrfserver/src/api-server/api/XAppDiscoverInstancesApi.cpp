@@ -63,12 +63,10 @@ void XAppDiscoverInstancesApi::x_app_disc_inst_handler(const Pistache::Rest::Req
 
     // Getting the query params
     auto targetxAppQuery = request.query().get("targetxApp");
-    XAppService targetxApp;
-    //if(!targetxAppQuery.isEmpty()){
-    if(!targetxAppQuery.has_value()){
+    Pistache::Optional<XAppService> targetxApp;
+    if(!targetxAppQuery.isEmpty()){
         XAppService valueQuery_instance;
-        //if(fromStringValue(targetxAppQuery.get(), valueQuery_instance)){
-        if(fromStringValue(targetxAppQuery.value(), valueQuery_instance)){
+        if(fromStringValue(targetxAppQuery.get(), valueQuery_instance)){
             targetxApp = Pistache::Some(valueQuery_instance);
         }
     }

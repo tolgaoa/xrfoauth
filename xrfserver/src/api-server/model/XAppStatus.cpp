@@ -49,7 +49,7 @@ bool XAppStatus::validate(std::stringstream& msg, const std::string& pathPrefix)
 
 bool XAppStatus::operator==(const XAppStatus& rhs) const
 {
-    return
+    return true;
     
     
     ;

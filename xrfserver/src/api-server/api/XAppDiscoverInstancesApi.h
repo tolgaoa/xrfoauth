@@ -22,8 +22,7 @@
 #include <pistache/http.h>
 #include <pistache/router.h>
 #include <pistache/http_headers.h>
-//#include <pistache/optional.h>
-#include <optional>
+#include <pistache/optional.h>
 
 #include <utility>
 
@@ -33,6 +32,8 @@
 
 namespace xrf::api
 {
+
+using namespace xrf::model;
 
 class  XAppDiscoverInstancesApi {
 public:
@@ -71,7 +72,7 @@ private:
     /// 
     /// </remarks>
     /// <param name="targetxApp">service offered by the target xApp (optional, default to std::make_shared&lt;XAppService&gt;())</param>
-    virtual void x_app_disc_inst(const xrf::model::XAppService &targetxApp, Pistache::Http::ResponseWriter &response) = 0;
+    virtual void x_app_disc_inst(const Pistache::Optional<XAppService> &targetxApp, Pistache::Http::ResponseWriter &response) = 0;
 
 };
 

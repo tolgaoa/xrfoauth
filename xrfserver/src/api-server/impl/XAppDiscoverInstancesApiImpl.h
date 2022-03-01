@@ -27,7 +27,7 @@
 
 #include <XAppDiscoverInstancesApi.h>
 
-//#include <pistache/optional.h>
+#include <pistache/optional.h>
 
 #include "XAppDiscErr.h"
 #include "XAppDiscRsp.h"
@@ -43,7 +43,7 @@ public:
     explicit XAppDiscoverInstancesApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
     ~XAppDiscoverInstancesApiImpl() override = default;
 
-    void x_app_disc_inst(const XAppService &targetxApp, Pistache::Http::ResponseWriter &response);
+    void x_app_disc_inst(const Pistache::Optional<XAppService> &targetxApp, Pistache::Http::ResponseWriter &response);
 
 };
 

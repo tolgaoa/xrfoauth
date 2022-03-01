@@ -27,10 +27,11 @@
 
 #include <XAppRegisterInstanceApi.h>
 
-//#include <pistache/optional.h>
+#include <pistache/optional.h>
 
 #include "XAppDiscErr.h"
 #include "XAppProfile.h"
+#include <string>
 
 namespace xrf::api
 {
@@ -42,7 +43,7 @@ public:
     explicit XAppRegisterInstanceApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
     ~XAppRegisterInstanceApiImpl() override = default;
 
-    void registerx_app_instance(const XAppProfile &xAppInstanceId, const XAppProfile &xAppProfile, Pistache::Http::ResponseWriter &response);
+    void registerx_app_instance(const std::string &xAppInstanceId, const XAppProfile &xAppProfile, Pistache::Http::ResponseWriter &response);
 
 };
 

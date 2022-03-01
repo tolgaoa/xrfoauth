@@ -22,12 +22,13 @@
 #include <pistache/http.h>
 #include <pistache/router.h>
 #include <pistache/http_headers.h>
-//#include <pistache/optional.h>
+#include <pistache/optional.h>
 
 #include <utility>
 
 #include "XAppDiscErr.h"
 #include "XAppProfile.h"
+#include <string>
 
 namespace xrf::api
 {
@@ -68,9 +69,9 @@ private:
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="xAppInstanceId">specific ID for an xApp</param>
+    /// <param name="xAppInstanceId">specific ID for the xApp instance</param>
     /// <param name="xAppProfile"> (optional)</param>
-    virtual void registerx_app_instance(const xrf::model::XAppProfile &xAppInstanceId, const xrf::model::XAppProfile &xAppProfile, Pistache::Http::ResponseWriter &response) = 0;
+    virtual void registerx_app_instance(const std::string &xAppInstanceId, const xrf::model::XAppProfile &xAppProfile, Pistache::Http::ResponseWriter &response) = 0;
 
 };
 

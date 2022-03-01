@@ -61,7 +61,7 @@ void XAppRegisterInstanceApi::registerx_app_instance_handler(const Pistache::Res
     try {
 
     // Getting the path params
-    auto xAppInstanceId = request.param(":xAppInstanceId").as<XAppProfile>();
+    auto xAppInstanceId = request.param(":xAppInstanceId").as<std::string>();
     
     // Getting the body param
     
