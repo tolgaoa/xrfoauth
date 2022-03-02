@@ -124,6 +124,7 @@ MIGkAgEBBDBeLCgapjZmvTatMHaYX3A02+0Ys3Tr8kda+E9DFnmCSiCOEig519fT
 4mDv0+9e4uJVQf3xwEv+jywNUH+wbPM=
 -----END EC PRIVATE KEY-----)";
 
+
 	std::cout << "Create string view of the private key" << std::endl;
 	jwt::string_view sv = key;
 	std::cout << key << std::endl;
@@ -137,10 +138,16 @@ MIGkAgEBBDBeLCgapjZmvTatMHaYX3A02+0Ys3Tr8kda+E9DFnmCSiCOEig519fT
         jwt::jwt_object obj{algorithm("ES256"), payload({{"some", "payload"}}),
                       secret(key)};
 
+	std::cout << obj.header() << std::endl;
+	std::cout << obj.payload() << std::endl;
+	std::cout << "JWT Object Printed" << std::endl;
+	
+
 	std::cout << "encode and sign the object" << std::endl;
         // Get the encoded string/assertion
         auto enc_str = obj.signature();
         std::cout << enc_str << std::endl;
+	std::cout << "encrypted token printed" << std::endl;
 
         // Decode
         auto dec_obj = jwt::decode(enc_str, algorithms({"ES256"}), secret(keypub));

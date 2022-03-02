@@ -34,8 +34,9 @@ public:
 int main(int argc, char** argv){
 
 	//Test JWT
-	/*xrf_jwt obj;
-	obj.test_jwt();*/
+	spdlog::info("Testing JWT Elliptic Key Enc/Dec Scheme");
+	xrf_jwt obj;
+	obj.test_jwt();
 
 	//Define the XRF application instance pointer
 
