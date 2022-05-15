@@ -48,7 +48,7 @@ void xrf_main::access_token_request(
 	for (auto i : kvpairs){
 		std::vector<std::string> kv;
 		boost::split(kv, i, boost::is_any_of(","), boost::token_compress_on);
-		if (kv.size() != 2){
+		if (kv.size() != 3){
 			std::cout << "Invalid Request" << std::endl;
 		}else request[kv[0]] = kv[1];	
 
@@ -62,7 +62,7 @@ void xrf_main::access_token_request(
 	outcome = xrf_jwt_inst->generate_signature("00001", "1", "00002", "A1", sign);
 	spdlog::info("JWT Access Token Generated");
 	spdlog::info(sign);
-
+	spdlog::info("JWT Access Token Signed");
 	access_token_rsp.setAccessToken(sign);
 	access_token_rsp.setTokenType("Bearer");
 	http_code = 200;

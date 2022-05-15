@@ -29,7 +29,7 @@ void AccessTokenRequestApiImpl::access_token_request(const Pistache::Rest::Reque
 	ProblemDetails problem_details = {};
 	AccessTokenRsp access_token_rsp = {};
 	m_xrf_main->access_token_request(request.body(), access_token_rsp, http_code, 1, problem_details);
-
+	spdlog::info("Token generation complete");
 	nlohmann::json json_data = {};
 	std::string content_type = "application/problem+json";
 	if (http_code != 200) { //check if HTTP_STATUS_CODE is 200
