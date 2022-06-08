@@ -3,6 +3,7 @@
  * Linux Foundation (LF) for distributing access tokens to xApps from an OAUTH 2.0 server using JSON web tokens
  * as the execution method of the tokens
  *
+ * Library for generating a JSON Web Token
  *
  * ! file xrf_jwt.cpp
  *  \brief

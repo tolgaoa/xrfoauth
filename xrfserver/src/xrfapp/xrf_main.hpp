@@ -33,7 +33,6 @@ namespace xrf {
 namespace app {
 
 using namespace::xrf::model;
-class xrf_config;
 class xrf_main{
 	public:
 		//xrf_main(const std::string& configuration, xrf_action& action);
