@@ -32,13 +32,13 @@ void AccessTokenRequestApiImpl::access_token_request(const Pistache::Rest::Reque
 	spdlog::info("Token generation complete");
 	nlohmann::json json_data = {};
 	std::string content_type = "application/problem+json";
+
 	if (http_code != 200) { //check if HTTP_STATUS_CODE is 200
 		to_json(json_data, problem_details);
 		content_type = "application/problem+json";
 	} else to_json(json_data, access_token_rsp);
 	
 	response.headers().add<Pistache::Http::Header::ContentType>(Pistache::Http::Mime::MediaType(content_type));
-
 	response.send(Pistache::Http::Code(http_code), json_data.dump().c_str());
 }
 

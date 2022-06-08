@@ -22,7 +22,9 @@ namespace xrf::model
 InitAuthReq::InitAuthReq()
 {
     m_Certificate = "";
+    m_CertificateIsSet = false;
     m_NfInstanceId = "";
+    m_NfInstanceIdIsSet = false;
     m_HxrfInitAuthUri = "";
     m_HxrfInitAuthUriIsSet = false;
     
@@ -56,11 +58,11 @@ bool InitAuthReq::operator==(const InitAuthReq& rhs) const
     return
     
     
-    (getCertificate() == rhs.getCertificate())
-     &&
     
-    (getNfInstanceId() == rhs.getNfInstanceId())
-     &&
+    ((!certificateIsSet() && !rhs.certificateIsSet()) || (certificateIsSet() && rhs.certificateIsSet() && getCertificate() == rhs.getCertificate())) &&
+    
+    
+    ((!nfInstanceIdIsSet() && !rhs.nfInstanceIdIsSet()) || (nfInstanceIdIsSet() && rhs.nfInstanceIdIsSet() && getNfInstanceId() == rhs.getNfInstanceId())) &&
     
     
     ((!hxrfInitAuthUriIsSet() && !rhs.hxrfInitAuthUriIsSet()) || (hxrfInitAuthUriIsSet() && rhs.hxrfInitAuthUriIsSet() && getHxrfInitAuthUri() == rhs.getHxrfInitAuthUri()))
@@ -76,8 +78,10 @@ bool InitAuthReq::operator!=(const InitAuthReq& rhs) const
 void to_json(nlohmann::json& j, const InitAuthReq& o)
 {
     j = nlohmann::json();
-    j["certificate"] = o.m_Certificate;
-    j["nfInstanceId"] = o.m_NfInstanceId;
+    if(o.certificateIsSet())
+        j["certificate"] = o.m_Certificate;
+    if(o.nfInstanceIdIsSet())
+        j["nfInstanceId"] = o.m_NfInstanceId;
     if(o.hxrfInitAuthUriIsSet())
         j["hxrfInitAuthUri"] = o.m_HxrfInitAuthUri;
     
@@ -85,8 +89,16 @@ void to_json(nlohmann::json& j, const InitAuthReq& o)
 
 void from_json(const nlohmann::json& j, InitAuthReq& o)
 {
-    j.at("certificate").get_to(o.m_Certificate);
-    j.at("nfInstanceId").get_to(o.m_NfInstanceId);
+    if(j.find("certificate") != j.end())
+    {
+        j.at("certificate").get_to(o.m_Certificate);
+        o.m_CertificateIsSet = true;
+    } 
+    if(j.find("nfInstanceId") != j.end())
+    {
+        j.at("nfInstanceId").get_to(o.m_NfInstanceId);
+        o.m_NfInstanceIdIsSet = true;
+    } 
     if(j.find("hxrfInitAuthUri") != j.end())
     {
         j.at("hxrfInitAuthUri").get_to(o.m_HxrfInitAuthUri);
@@ -102,6 +114,15 @@ std::string InitAuthReq::getCertificate() const
 void InitAuthReq::setCertificate(std::string const& value)
 {
     m_Certificate = value;
+    m_CertificateIsSet = true;
+}
+bool InitAuthReq::certificateIsSet() const
+{
+    return m_CertificateIsSet;
+}
+void InitAuthReq::unsetCertificate()
+{
+    m_CertificateIsSet = false;
 }
 std::string InitAuthReq::getNfInstanceId() const
 {
@@ -110,6 +131,15 @@ std::string InitAuthReq::getNfInstanceId() const
 void InitAuthReq::setNfInstanceId(std::string const& value)
 {
     m_NfInstanceId = value;
+    m_NfInstanceIdIsSet = true;
+}
+bool InitAuthReq::nfInstanceIdIsSet() const
+{
+    return m_NfInstanceIdIsSet;
+}
+void InitAuthReq::unsetNfInstanceId()
+{
+    m_NfInstanceIdIsSet = false;
 }
 std::string InitAuthReq::getHxrfInitAuthUri() const
 {

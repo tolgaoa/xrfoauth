@@ -66,9 +66,34 @@ void xrf_main::access_token_request(
 	access_token_rsp.setAccessToken(sign);
 	access_token_rsp.setTokenType("Bearer");
 	http_code = 200;
-	
-	
+};
 
-	
+void xrf_main::handle_auth_request
+	(const std::string& request_main, InitAuthRsp& in_auth_rsp, 
+	 int& http_code, const uint8_t http_version, 
+	 ProblemDetails& problem_details){
+
+	std::map<std::string, std::string> request;
+        std::vector<std::string> kvpairs;
+        boost::split(kvpairs, request_main, boost::is_any_of("&"), boost::token_compress_on);
+
+	for (auto i : kvpairs){
+                std::vector<std::string> kv;
+                boost::split(kv, i, boost::is_any_of(":"), boost::token_compress_on);
+                if (kv.size() != 1){
+                        std::cout << "Invalid Request" << std::endl;
+                }else request[kv[0]] = kv[1];
+
+		spdlog::debug("(Key, Value):  %s, %s \n", kv[0].c_str(), kv[1].c_str());
+        }
+		
+	spdlog::info("Starting processing of Incoming Authentication Request");	
+	//--------------------Sudip's function-----------------------------
+	std::string str1 = "Sudip's String B";
+        const std::string str2 = str1;
+	//-----------------------------------------------------------------
+		
+	spdlog::info("Finished processing Incoming Authentication Request");
+	in_auth_rsp.setChallenge(str2);
 
 };

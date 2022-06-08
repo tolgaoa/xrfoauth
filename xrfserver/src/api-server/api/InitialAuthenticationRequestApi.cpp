@@ -23,8 +23,7 @@ const std::string InitialAuthenticationRequestApi::base = "";
 
 InitialAuthenticationRequestApi::InitialAuthenticationRequestApi(const std::shared_ptr<Pistache::Rest::Router>& rtr)
     : router(rtr)
-{
-}
+{}
 
 void InitialAuthenticationRequestApi::init() {
     setupRoutes();
@@ -59,9 +58,6 @@ std::pair<Pistache::Http::Code, std::string> InitialAuthenticationRequestApi::ha
 
 void InitialAuthenticationRequestApi::init_auth_request_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response) {
     try {
-
-
-    // Getting the body param
     
     InitAuthReq initAuthReq;
     
@@ -75,7 +71,7 @@ void InitialAuthenticationRequestApi::init_auth_request_handler(const Pistache::
     }
 
     try {
-        this->init_auth_request(initAuthReq, response);
+        this->init_auth_request(request, response);
     } catch (Pistache::Http::HttpError &e) {
         response.send(static_cast<Pistache::Http::Code>(e.code()), e.what());
         return;
@@ -94,6 +90,7 @@ void InitialAuthenticationRequestApi::init_auth_request_handler(const Pistache::
 void InitialAuthenticationRequestApi::initial_authentication_request_api_default_handler(const Pistache::Rest::Request &, Pistache::Http::ResponseWriter response) {
     response.send(Pistache::Http::Code::Not_Found, "The requested method does not exist");
 }
+  
 
 } // namespace xrf::api
 

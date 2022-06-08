@@ -19,9 +19,9 @@
 #include <string>
 #include "ProblemDetails.h"
 #include "AccessTokenRsp.h"
+#include "InitAuthRsp.h"
 
 #include "spdlog/spdlog.h"
-
 
 //#include "genuint.hpp" TODO a header for generating unsigned integers for different types using templates 
 //#include "xrf_action.hpp"
@@ -79,6 +79,15 @@ class xrf_main{
 		 /*
 		  * @param{request_main}: the main body which includes the request for the token
 		  * @param{ac_tok_rsp}: the response
+		  * @param{http_code}: http message code
+		  * @param{http_version}: http version --> 1
+		  * @param{problem_details}: auto generated api parameter describing error cases
+		  */
+
+		 void handle_auth_request(const std::string& request_main, InitAuthRsp& in_auth_rsp, int& http_code, const uint8_t http_version, ProblemDetails& problem_details);
+		 /*
+		  * @param{request_main}: the main body which includes the initial information received from te client side
+		  * @param{in_auth_rsp}: the response
 		  * @param{http_code}: http message code
 		  * @param{http_version}: http version --> 1
 		  * @param{problem_details}: auto generated api parameter describing error cases

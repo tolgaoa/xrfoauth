@@ -1,7 +1,7 @@
 api-server/CMakeFiles/XRF_API.dir/impl/InitialAuthenticationRequestApiImpl.cpp.o: \
- /home/taport/Documents/xrfoauth/xrfserver/src/api-server/impl/InitialAuthenticationRequestApiImpl.cpp \
+ /home/taport/xrfoauth/xrfserver/src/api-server/impl/InitialAuthenticationRequestApiImpl.cpp \
  /usr/include/stdc-predef.h \
- /home/taport/Documents/xrfoauth/xrfserver/src/api-server/impl/InitialAuthenticationRequestApiImpl.h \
+ /home/taport/xrfoauth/xrfserver/src/api-server/impl/InitialAuthenticationRequestApiImpl.h \
  /usr/local/include/pistache/endpoint.h \
  /usr/local/include/pistache/listener.h /usr/local/include/pistache/tcp.h \
  /usr/include/c++/9/memory /usr/include/c++/9/bits/stl_algobase.h \
@@ -293,8 +293,8 @@ api-server/CMakeFiles/XRF_API.dir/impl/InitialAuthenticationRequestApiImpl.cpp.o
  /usr/include/c++/9/bits/regex_executor.tcc \
  /usr/include/c++/9/memory_resource /usr/include/c++/9/shared_mutex \
  /usr/local/include/pistache/string_view.h \
- /home/taport/Documents/xrfoauth/xrfserver/src/api-server/api/InitialAuthenticationRequestApi.h \
- /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/InitAuthErr.h \
+ /home/taport/xrfoauth/xrfserver/src/api-server/api/InitialAuthenticationRequestApi.h \
+ /home/taport/xrfoauth/xrfserver/src/api-server/model/InitAuthErr.h \
  /usr/include/nlohmann/json.hpp /usr/include/c++/9/ciso646 \
  /usr/include/c++/9/numeric /usr/include/c++/9/bits/stl_numeric.h \
  /usr/include/c++/9/pstl/glue_numeric_defs.h \
@@ -341,4 +341,60 @@ api-server/CMakeFiles/XRF_API.dir/impl/InitialAuthenticationRequestApiImpl.cpp.o
  /usr/include/nlohmann/detail/conversions/to_chars.hpp \
  /usr/include/nlohmann/detail/macro_unscope.hpp \
  /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
- /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/InitAuthReq.h
+ /home/taport/xrfoauth/xrfserver/src/api-server/model/InitAuthReq.h \
+ /home/taport/xrfoauth/xrfserver/src/api-server/model/InitAuthRsp.h \
+ /home/taport/xrfoauth/xrfserver/src/xrfapp/xrf_main.hpp \
+ /home/taport/xrfoauth/xrfserver/src/api-server/model/ProblemDetails.h \
+ /home/taport/xrfoauth/xrfserver/src/api-server/model/AccessTokenRsp.h \
+ /usr/local/include/spdlog/spdlog.h /usr/local/include/spdlog/common.h \
+ /usr/local/include/spdlog/tweakme.h \
+ /usr/local/include/spdlog/details/null_mutex.h \
+ /usr/local/include/spdlog/fmt/fmt.h \
+ /usr/local/include/spdlog/fmt/bundled/core.h \
+ /usr/local/include/spdlog/fmt/bundled/format.h \
+ /usr/local/include/spdlog/fmt/bundled/core.h \
+ /usr/local/include/spdlog/fmt/bundled/format-inl.h \
+ /usr/include/c++/9/cstdarg \
+ /usr/local/include/spdlog/fmt/bundled/format.h \
+ /usr/local/include/spdlog/common-inl.h \
+ /usr/local/include/spdlog/details/registry.h \
+ /usr/local/include/spdlog/details/registry-inl.h \
+ /usr/local/include/spdlog/details/periodic_worker.h \
+ /usr/local/include/spdlog/details/periodic_worker-inl.h \
+ /usr/local/include/spdlog/logger.h \
+ /usr/local/include/spdlog/details/log_msg.h \
+ /usr/local/include/spdlog/details/log_msg-inl.h \
+ /usr/local/include/spdlog/details/os.h \
+ /usr/local/include/spdlog/details/os-inl.h \
+ /usr/include/x86_64-linux-gnu/sys/stat.h \
+ /usr/include/x86_64-linux-gnu/bits/stat.h \
+ /usr/include/x86_64-linux-gnu/bits/statx.h /usr/include/linux/stat.h \
+ /usr/include/linux/types.h /usr/include/x86_64-linux-gnu/asm/types.h \
+ /usr/include/asm-generic/types.h /usr/include/asm-generic/int-ll64.h \
+ /usr/include/x86_64-linux-gnu/bits/statx-generic.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_statx.h \
+ /usr/include/fcntl.h /usr/include/x86_64-linux-gnu/bits/fcntl.h \
+ /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
+ /usr/include/linux/falloc.h /usr/include/x86_64-linux-gnu/sys/syscall.h \
+ /usr/include/x86_64-linux-gnu/asm/unistd.h \
+ /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
+ /usr/include/x86_64-linux-gnu/bits/syscall.h \
+ /usr/local/include/spdlog/details/backtracer.h \
+ /usr/local/include/spdlog/details/log_msg_buffer.h \
+ /usr/local/include/spdlog/details/log_msg_buffer-inl.h \
+ /usr/local/include/spdlog/details/circular_q.h \
+ /usr/local/include/spdlog/details/backtracer-inl.h \
+ /usr/local/include/spdlog/logger-inl.h \
+ /usr/local/include/spdlog/sinks/sink.h \
+ /usr/local/include/spdlog/formatter.h \
+ /usr/local/include/spdlog/sinks/sink-inl.h \
+ /usr/local/include/spdlog/pattern_formatter.h \
+ /usr/local/include/spdlog/pattern_formatter-inl.h \
+ /usr/local/include/spdlog/details/fmt_helper.h \
+ /usr/local/include/spdlog/sinks/ansicolor_sink.h \
+ /usr/local/include/spdlog/details/console_globals.h \
+ /usr/local/include/spdlog/sinks/ansicolor_sink-inl.h \
+ /usr/local/include/spdlog/version.h \
+ /usr/local/include/spdlog/details/synchronous_factory.h \
+ /usr/local/include/spdlog/spdlog-inl.h

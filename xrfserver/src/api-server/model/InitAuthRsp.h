@@ -63,19 +63,23 @@ public:
     /// </summary>
     std::string getChallenge() const;
     void setChallenge(std::string const& value);
+    bool challengeIsSet() const;
+    void unsetChallenge();
     /// <summary>
     /// UUID specific to the XRF server
     /// </summary>
     std::string getXrfInstanceId() const;
     void setXrfInstanceId(std::string const& value);
+    bool xrfInstanceIdIsSet() const;
+    void unsetXrfInstanceId();
 
     friend void to_json(nlohmann::json& j, const InitAuthRsp& o);
     friend void from_json(const nlohmann::json& j, InitAuthRsp& o);
 protected:
     std::string m_Challenge;
-
+    bool m_ChallengeIsSet;
     std::string m_XrfInstanceId;
-
+    bool m_XrfInstanceIdIsSet;
     
 };
 

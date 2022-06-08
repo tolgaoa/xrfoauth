@@ -1,6 +1,6 @@
 /**
-* XRF OAuth2 xApp Discvoery API
-* XRF OAuth2 Authorization server, xApp Discovery API 
+* XRF OAuth2 Initial Authentication Request API
+* XRF OAuth2 Authorization server, initial authentication with the xApp API 
 *
 * The version of the OpenAPI document: 1
 * Contact: tolgaoa@vt.edu
@@ -84,17 +84,6 @@ std::string toStringValue(const double value){
 
 bool fromStringValue(const std::string &inStr, std::string &value){
     value = std::string(inStr);
-    return true;
-}
-
-// Added after auto-generation
-bool fromStringValue(const std::basic_string<char> &inStr, xrf::model::XAppService &value){
-    //value = std::string(inStr);
-    return true;
-}
-
-bool fromStringValue(const std::basic_string<char> &inStr, xrf::model::XAppProfile &value){
-    //value = std::string(inStr);
     return true;
 }
 

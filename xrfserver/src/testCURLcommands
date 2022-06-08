@@ -1,1 +1,3 @@
 curl -X POST http://10.0.0.135:9090/oauth2/token -H 'Content-Type: application/json' -d '{test1,test2&test3,test4}'
+
+curl -X POST http://10.82.100.26:9090/init/auth -H 'Content-Type: application/json' -d '{"xxx":"yyy", "iii":"jjj"}'

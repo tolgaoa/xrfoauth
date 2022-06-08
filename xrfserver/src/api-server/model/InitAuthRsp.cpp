@@ -22,7 +22,9 @@ namespace xrf::model
 InitAuthRsp::InitAuthRsp()
 {
     m_Challenge = "";
+    m_ChallengeIsSet = false;
     m_XrfInstanceId = "";
+    m_XrfInstanceIdIsSet = false;
     
 }
 
@@ -54,11 +56,11 @@ bool InitAuthRsp::operator==(const InitAuthRsp& rhs) const
     return
     
     
-    (getChallenge() == rhs.getChallenge())
-     &&
     
-    (getXrfInstanceId() == rhs.getXrfInstanceId())
+    ((!challengeIsSet() && !rhs.challengeIsSet()) || (challengeIsSet() && rhs.challengeIsSet() && getChallenge() == rhs.getChallenge())) &&
     
+    
+    ((!xrfInstanceIdIsSet() && !rhs.xrfInstanceIdIsSet()) || (xrfInstanceIdIsSet() && rhs.xrfInstanceIdIsSet() && getXrfInstanceId() == rhs.getXrfInstanceId()))
     
     ;
 }
@@ -71,15 +73,25 @@ bool InitAuthRsp::operator!=(const InitAuthRsp& rhs) const
 void to_json(nlohmann::json& j, const InitAuthRsp& o)
 {
     j = nlohmann::json();
-    j["challenge"] = o.m_Challenge;
-    j["xrfInstanceId"] = o.m_XrfInstanceId;
+    if(o.challengeIsSet())
+        j["challenge"] = o.m_Challenge;
+    if(o.xrfInstanceIdIsSet())
+        j["xrfInstanceId"] = o.m_XrfInstanceId;
     
 }
 
 void from_json(const nlohmann::json& j, InitAuthRsp& o)
 {
-    j.at("challenge").get_to(o.m_Challenge);
-    j.at("xrfInstanceId").get_to(o.m_XrfInstanceId);
+    if(j.find("challenge") != j.end())
+    {
+        j.at("challenge").get_to(o.m_Challenge);
+        o.m_ChallengeIsSet = true;
+    } 
+    if(j.find("xrfInstanceId") != j.end())
+    {
+        j.at("xrfInstanceId").get_to(o.m_XrfInstanceId);
+        o.m_XrfInstanceIdIsSet = true;
+    } 
     
 }
 
@@ -90,6 +102,15 @@ std::string InitAuthRsp::getChallenge() const
 void InitAuthRsp::setChallenge(std::string const& value)
 {
     m_Challenge = value;
+    m_ChallengeIsSet = true;
+}
+bool InitAuthRsp::challengeIsSet() const
+{
+    return m_ChallengeIsSet;
+}
+void InitAuthRsp::unsetChallenge()
+{
+    m_ChallengeIsSet = false;
 }
 std::string InitAuthRsp::getXrfInstanceId() const
 {
@@ -98,6 +119,15 @@ std::string InitAuthRsp::getXrfInstanceId() const
 void InitAuthRsp::setXrfInstanceId(std::string const& value)
 {
     m_XrfInstanceId = value;
+    m_XrfInstanceIdIsSet = true;
+}
+bool InitAuthRsp::xrfInstanceIdIsSet() const
+{
+    return m_XrfInstanceIdIsSet;
+}
+void InitAuthRsp::unsetXrfInstanceId()
+{
+    m_XrfInstanceIdIsSet = false;
 }
 
 

@@ -1,7 +1,7 @@
 api-server/CMakeFiles/XRF_API.dir/impl/AccessTokenRequestApiImpl.cpp.o: \
- /home/taport/Documents/xrfoauth/xrfserver/src/api-server/impl/AccessTokenRequestApiImpl.cpp \
+ /home/taport/xrfoauth/xrfserver/src/api-server/impl/AccessTokenRequestApiImpl.cpp \
  /usr/include/stdc-predef.h \
- /home/taport/Documents/xrfoauth/xrfserver/src/api-server/impl/AccessTokenRequestApiImpl.h \
+ /home/taport/xrfoauth/xrfserver/src/api-server/impl/AccessTokenRequestApiImpl.h \
  /usr/local/include/pistache/endpoint.h \
  /usr/local/include/pistache/listener.h /usr/local/include/pistache/tcp.h \
  /usr/include/c++/9/memory /usr/include/c++/9/bits/stl_algobase.h \
@@ -293,8 +293,8 @@ api-server/CMakeFiles/XRF_API.dir/impl/AccessTokenRequestApiImpl.cpp.o: \
  /usr/include/c++/9/bits/regex_executor.tcc \
  /usr/include/c++/9/memory_resource /usr/include/c++/9/shared_mutex \
  /usr/local/include/pistache/string_view.h \
- /home/taport/Documents/xrfoauth/xrfserver/src/api-server/api/AccessTokenRequestApi.h \
- /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/AccessTokenErr.h \
+ /home/taport/xrfoauth/xrfserver/src/api-server/api/AccessTokenRequestApi.h \
+ /home/taport/xrfoauth/xrfserver/src/api-server/model/AccessTokenErr.h \
  /usr/include/nlohmann/json.hpp /usr/include/c++/9/ciso646 \
  /usr/include/c++/9/numeric /usr/include/c++/9/bits/stl_numeric.h \
  /usr/include/c++/9/pstl/glue_numeric_defs.h \
@@ -341,9 +341,10 @@ api-server/CMakeFiles/XRF_API.dir/impl/AccessTokenRequestApiImpl.cpp.o: \
  /usr/include/nlohmann/detail/conversions/to_chars.hpp \
  /usr/include/nlohmann/detail/macro_unscope.hpp \
  /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
- /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/AccessTokenRsp.h \
- /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/ProblemDetails.h \
- /home/taport/Documents/xrfoauth/xrfserver/src/xrfapp/xrf_main.hpp \
+ /home/taport/xrfoauth/xrfserver/src/api-server/model/AccessTokenRsp.h \
+ /home/taport/xrfoauth/xrfserver/src/api-server/model/ProblemDetails.h \
+ /home/taport/xrfoauth/xrfserver/src/xrfapp/xrf_main.hpp \
+ /home/taport/xrfoauth/xrfserver/src/api-server/model/InitAuthRsp.h \
  /usr/local/include/spdlog/spdlog.h /usr/local/include/spdlog/common.h \
  /usr/local/include/spdlog/tweakme.h \
  /usr/local/include/spdlog/details/null_mutex.h \

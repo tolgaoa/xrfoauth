@@ -22,12 +22,14 @@
 #include <pistache/http.h>
 #include <pistache/router.h>
 #include <pistache/http_headers.h>
-//#include <pistache/optional.h>
+#include <pistache/optional.h>
 
 #include <utility>
 
 #include "InitAuthErr.h"
 #include "InitAuthReq.h"
+#include "InitAuthRsp.h"
+#include <string>
 
 namespace xrf::api
 {
@@ -69,7 +71,7 @@ private:
     /// 
     /// </remarks>
     /// <param name="initAuthReq"></param>
-    virtual void init_auth_request(const xrf::model::InitAuthReq &initAuthReq, Pistache::Http::ResponseWriter &response) = 0;
+    virtual void init_auth_request(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter &response) = 0;
 
 };
 

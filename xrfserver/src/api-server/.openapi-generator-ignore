@@ -9,12 +9,12 @@
 #ApiClient.cs
 
 # You can match any string of characters against a directory, file or extension with a single asterisk (*):
-#foo/*/qux
-# The above matches foo/bar/qux and foo/baz/qux, but not foo/bar/baz/qux
+#bar/*/qux
+# The above matches bar/bar/qux and bar/baz/qux, but not bar/bar/baz/qux
 
 # You can recursively match patterns against a directory, file or extension with a double asterisk (**):
-#foo/**/qux
-# This matches foo/bar/qux, foo/baz/qux, and foo/bar/baz/qux
+#bar/**/qux
+# This matches bar/bar/qux, bar/baz/qux, and bar/bar/baz/qux
 
 # You can also negate patterns with an exclamation (!).
 # For example, you can ignore all files in a docs folder with the file extension .md:

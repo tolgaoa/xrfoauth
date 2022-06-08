@@ -1,7 +1,7 @@
 api-server/CMakeFiles/XRF_API.dir/model/Helpers.cpp.o: \
- /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/Helpers.cpp \
+ /home/taport/xrfoauth/xrfserver/src/api-server/model/Helpers.cpp \
  /usr/include/stdc-predef.h \
- /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/Helpers.h \
+ /home/taport/xrfoauth/xrfserver/src/api-server/model/Helpers.h \
  /usr/include/c++/9/ctime \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
@@ -156,11 +156,8 @@ api-server/CMakeFiles/XRF_API.dir/model/Helpers.cpp.o: \
  /usr/include/c++/9/bits/stl_map.h /usr/include/c++/9/tuple \
  /usr/include/c++/9/array /usr/include/c++/9/bits/uses_allocator.h \
  /usr/include/c++/9/bits/invoke.h /usr/include/c++/9/bits/stl_multimap.h \
- /usr/include/c++/9/bits/erase_if.h \
- /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/XAppService.h \
- /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/XAppService_anyOf.h \
- /usr/include/nlohmann/json.hpp /usr/include/c++/9/algorithm \
- /usr/include/c++/9/bits/stl_algo.h \
+ /usr/include/c++/9/bits/erase_if.h /usr/include/c++/9/regex \
+ /usr/include/c++/9/algorithm /usr/include/c++/9/bits/stl_algo.h \
  /usr/include/c++/9/bits/algorithmfwd.h \
  /usr/include/c++/9/bits/stl_heap.h /usr/include/c++/9/bits/stl_tempbuf.h \
  /usr/include/c++/9/bits/uniform_int_dist.h \
@@ -170,13 +167,17 @@ api-server/CMakeFiles/XRF_API.dir/model/Helpers.cpp.o: \
  /usr/include/c++/9/bits/hashtable.h \
  /usr/include/c++/9/bits/hashtable_policy.h \
  /usr/include/c++/9/bits/unordered_map.h \
- /usr/include/c++/9/pstl/execution_defs.h /usr/include/c++/9/cassert \
- /usr/include/assert.h /usr/include/c++/9/ciso646 \
- /usr/include/c++/9/cstddef /usr/include/c++/9/iterator \
- /usr/include/c++/9/bits/stream_iterator.h /usr/include/c++/9/memory \
+ /usr/include/c++/9/pstl/execution_defs.h /usr/include/c++/9/bitset \
+ /usr/include/c++/9/iterator /usr/include/c++/9/bits/stream_iterator.h \
+ /usr/include/c++/9/locale /usr/include/c++/9/bits/locale_facets_nonio.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/9/bits/codecvt.h \
+ /usr/include/c++/9/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/9/bits/locale_conv.h \
+ /usr/include/c++/9/bits/unique_ptr.h /usr/include/c++/9/memory \
  /usr/include/c++/9/bits/stl_raw_storage_iter.h \
  /usr/include/c++/9/ext/concurrence.h \
- /usr/include/c++/9/bits/unique_ptr.h \
  /usr/include/c++/9/bits/shared_ptr.h \
  /usr/include/c++/9/bits/shared_ptr_base.h \
  /usr/include/c++/9/bits/allocated_ptr.h \
@@ -184,87 +185,10 @@ api-server/CMakeFiles/XRF_API.dir/model/Helpers.cpp.o: \
  /usr/include/c++/9/bits/atomic_base.h \
  /usr/include/c++/9/bits/atomic_lockfree_defines.h \
  /usr/include/c++/9/backward/auto_ptr.h \
- /usr/include/c++/9/pstl/glue_memory_defs.h /usr/include/c++/9/numeric \
- /usr/include/c++/9/bits/stl_numeric.h \
- /usr/include/c++/9/pstl/glue_numeric_defs.h \
- /usr/include/nlohmann/adl_serializer.hpp \
- /usr/include/nlohmann/detail/conversions/from_json.hpp \
- /usr/include/c++/9/forward_list /usr/include/c++/9/bits/forward_list.h \
- /usr/include/c++/9/bits/forward_list.tcc /usr/include/c++/9/valarray \
- /usr/include/c++/9/cmath /usr/include/math.h \
- /usr/include/x86_64-linux-gnu/bits/math-vector.h \
- /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
- /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
- /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
- /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
- /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
- /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
- /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
- /usr/include/c++/9/bits/specfun.h /usr/include/c++/9/tr1/gamma.tcc \
- /usr/include/c++/9/tr1/special_function_util.h \
- /usr/include/c++/9/tr1/bessel_function.tcc \
- /usr/include/c++/9/tr1/beta_function.tcc \
- /usr/include/c++/9/tr1/ell_integral.tcc \
- /usr/include/c++/9/tr1/exp_integral.tcc \
- /usr/include/c++/9/tr1/hypergeometric.tcc \
- /usr/include/c++/9/tr1/legendre_function.tcc \
- /usr/include/c++/9/tr1/modified_bessel_func.tcc \
- /usr/include/c++/9/tr1/poly_hermite.tcc \
- /usr/include/c++/9/tr1/poly_laguerre.tcc \
- /usr/include/c++/9/tr1/riemann_zeta.tcc \
- /usr/include/c++/9/bits/valarray_array.h \
- /usr/include/c++/9/bits/valarray_array.tcc \
- /usr/include/c++/9/bits/valarray_before.h \
- /usr/include/c++/9/bits/slice_array.h \
- /usr/include/c++/9/bits/valarray_after.h \
- /usr/include/c++/9/bits/gslice.h /usr/include/c++/9/bits/gslice_array.h \
- /usr/include/c++/9/bits/mask_array.h \
- /usr/include/c++/9/bits/indirect_array.h \
- /usr/include/nlohmann/detail/exceptions.hpp \
- /usr/include/nlohmann/detail/input/position_t.hpp \
- /usr/include/nlohmann/detail/macro_scope.hpp \
- /usr/include/nlohmann/thirdparty/hedley/hedley.hpp \
- /usr/include/nlohmann/detail/meta/cpp_future.hpp \
- /usr/include/nlohmann/detail/meta/type_traits.hpp \
- /usr/include/nlohmann/detail/iterators/iterator_traits.hpp \
- /usr/include/nlohmann/detail/meta/void_t.hpp \
- /usr/include/nlohmann/detail/meta/detected.hpp \
- /usr/include/nlohmann/json_fwd.hpp \
- /usr/include/nlohmann/detail/value_t.hpp \
- /usr/include/nlohmann/detail/conversions/to_json.hpp \
- /usr/include/nlohmann/detail/iterators/iteration_proxy.hpp \
- /usr/include/nlohmann/detail/input/binary_reader.hpp \
- /usr/include/c++/9/cstring /usr/include/string.h /usr/include/strings.h \
- /usr/include/nlohmann/detail/input/input_adapters.hpp \
- /usr/include/nlohmann/detail/input/json_sax.hpp \
- /usr/include/nlohmann/detail/meta/is_sax.hpp \
- /usr/include/nlohmann/detail/input/lexer.hpp \
- /usr/include/nlohmann/detail/input/parser.hpp \
- /usr/include/nlohmann/detail/iterators/internal_iterator.hpp \
- /usr/include/nlohmann/detail/iterators/primitive_iterator.hpp \
- /usr/include/nlohmann/detail/iterators/iter_impl.hpp \
- /usr/include/nlohmann/detail/iterators/json_reverse_iterator.hpp \
- /usr/include/nlohmann/detail/json_pointer.hpp \
- /usr/include/nlohmann/detail/json_ref.hpp \
- /usr/include/nlohmann/detail/output/binary_writer.hpp \
- /usr/include/nlohmann/detail/output/output_adapters.hpp \
- /usr/include/nlohmann/detail/output/serializer.hpp \
- /usr/include/nlohmann/detail/conversions/to_chars.hpp \
- /usr/include/nlohmann/detail/macro_unscope.hpp \
- /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
- /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/XAppProfile.h \
- /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/XAppStatus.h \
- /home/taport/Documents/xrfoauth/xrfserver/src/api-server/model/XAppStatus_anyOf.h \
- /usr/include/c++/9/regex /usr/include/c++/9/bitset \
- /usr/include/c++/9/locale /usr/include/c++/9/bits/locale_facets_nonio.h \
- /usr/include/x86_64-linux-gnu/c++/9/bits/time_members.h \
- /usr/include/x86_64-linux-gnu/c++/9/bits/messages_members.h \
- /usr/include/libintl.h /usr/include/c++/9/bits/codecvt.h \
- /usr/include/c++/9/bits/locale_facets_nonio.tcc \
- /usr/include/c++/9/bits/locale_conv.h /usr/include/c++/9/stack \
+ /usr/include/c++/9/pstl/glue_memory_defs.h /usr/include/c++/9/stack \
  /usr/include/c++/9/deque /usr/include/c++/9/bits/stl_deque.h \
  /usr/include/c++/9/bits/deque.tcc /usr/include/c++/9/bits/stl_stack.h \
+ /usr/include/c++/9/cstring /usr/include/string.h /usr/include/strings.h \
  /usr/include/c++/9/bits/regex_constants.h \
  /usr/include/c++/9/bits/regex_error.h \
  /usr/include/c++/9/bits/regex_automaton.h \
@@ -276,8 +200,9 @@ api-server/CMakeFiles/XRF_API.dir/model/Helpers.cpp.o: \
  /usr/include/c++/9/bits/regex.h /usr/include/c++/9/bits/regex.tcc \
  /usr/include/c++/9/bits/regex_executor.h \
  /usr/include/c++/9/bits/regex_executor.tcc \
- /usr/include/c++/9/memory_resource /usr/include/c++/9/shared_mutex \
- /usr/include/c++/9/condition_variable /usr/include/c++/9/chrono \
- /usr/include/c++/9/ratio /usr/include/c++/9/bits/parse_numbers.h \
+ /usr/include/c++/9/memory_resource /usr/include/c++/9/cstddef \
+ /usr/include/c++/9/shared_mutex /usr/include/c++/9/condition_variable \
+ /usr/include/c++/9/chrono /usr/include/c++/9/ratio \
+ /usr/include/c++/9/bits/parse_numbers.h \
  /usr/include/c++/9/bits/std_mutex.h \
  /usr/include/c++/9/bits/unique_lock.h

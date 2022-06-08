@@ -63,11 +63,15 @@ public:
     /// </summary>
     std::string getCertificate() const;
     void setCertificate(std::string const& value);
+    bool certificateIsSet() const;
+    void unsetCertificate();
     /// <summary>
     /// Universal Unique Identifier (UUID) specific to the xApp
     /// </summary>
     std::string getNfInstanceId() const;
     void setNfInstanceId(std::string const& value);
+    bool nfInstanceIdIsSet() const;
+    void unsetNfInstanceId();
     /// <summary>
     /// URI formatted string
     /// </summary>
@@ -80,9 +84,9 @@ public:
     friend void from_json(const nlohmann::json& j, InitAuthReq& o);
 protected:
     std::string m_Certificate;
-
+    bool m_CertificateIsSet;
     std::string m_NfInstanceId;
-
+    bool m_NfInstanceIdIsSet;
     std::string m_HxrfInitAuthUri;
     bool m_HxrfInitAuthUriIsSet;
     

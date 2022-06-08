@@ -32,8 +32,8 @@
 #include "ProblemDetails.h"
 #include "AccessTokenErr.h"
 #include "AccessTokenRsp.h"
-#include <string>
 
+#include <string>
 #include "xrf_main.hpp"
 #include "spdlog/spdlog.h"
 
@@ -45,8 +45,7 @@ using namespace xrf::app;
 
 class AccessTokenRequestApiImpl : public xrf::api::AccessTokenRequestApi {
 public:
-	AccessTokenRequestApiImpl(std::shared_ptr<Pistache::Rest::Router>& rtr, xrf_main* xrf_main_inst,
-		               std::string addr);
+	AccessTokenRequestApiImpl(std::shared_ptr<Pistache::Rest::Router>& rtr, xrf_main* xrf_main_inst, std::string addr);
 	~AccessTokenRequestApiImpl() {}
 
 	void access_token_request(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter &response);

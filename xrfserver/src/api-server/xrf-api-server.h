@@ -10,39 +10,41 @@
 #include <unistd.h>
 #endif
 
-//#include "CompleteStoredSearchDocumentApiImpl.h"
-//#include "NFInstancesStoreApiImpl.h"
-//#include "StoredSearchDocumentApiImpl.h"
-//#include "NFInstanceIDDocumentApiImpl.h"
-//#include "SubscriptionIDDocumentApiImpl.h"
-//#include "SubscriptionsCollectionApiImpl.h"
-//#include "DiscNFInstancesStoreApiImpl.h"
 #include "AccessTokenRequestApiImpl.h"
+#include "InitialAuthenticationRequestApiImpl.h"
 #include "xrf_main.hpp"
 
 using namespace xrf::api;
 using namespace xrf::app;
 class XRFApiServer {
 public:
-	XRFApiServer(Pistache::Address addr, xrf_main* xrf_main_inst);	 
+	XRFApiServer(Pistache::Address address, xrf_main* xrf_main_inst) 
+        	: m_httpEndpoint(std::make_shared<Pistache::Http::Endpoint>(address)) {
+		
+		m_router  = std::make_shared<Pistache::Rest::Router>();
+        	m_address = address.host() + ":" + (address.port()).toString();
+
+        	m_accessTokenRequestApiImpl = std::make_shared<AccessTokenRequestApiImpl>(
+            		m_router, xrf_main_inst, m_address);
+
+       	 	m_initialAuthenticationRequestApiImpl = std::make_shared<InitialAuthenticationRequestApiImpl>(
+            		m_router, xrf_main_inst, m_address);
+	
+	}		
 	void init(size_t thr = 1);
 	void start();
 	void shutdown();
 
 private:
+	// Pointers to Pistache endpoint and router
 	std::shared_ptr<Pistache::Http::Endpoint> m_httpEndpoint;
 	std::shared_ptr<Pistache::Rest::Router> m_router;
-	/*std::shared_ptr<CompleteStoredSearchDocumentApiImpl>
-	m_completeStoredSearchDocumentApiImpl;
-	std::shared_ptr<NFInstancesStoreApiImpl> m_nfInstancesStoreApiImpl;
-	std::shared_ptr<StoredSearchDocumentApiImpl> m_storedSearchDocumentApiImpl;
-	std::shared_ptr<NFInstanceIDDocumentApiImpl> m_nfInstanceIDDocumentApiImpl;
-	std::shared_ptr<SubscriptionIDDocumentApiImpl>
-	m_subscriptionIDDocumentApiImpl;
-	std::shared_ptr<SubscriptionsCollectionApiImpl>
-	m_subscriptionsCollectionApiImpl;
-	std::shared_ptr<DiscNFInstancesStoreApiImpl> m_discNFInstancesStoreApiImpl;*/
+	
+	// Pointers to Individual endpoint handlers
 	std::shared_ptr<AccessTokenRequestApiImpl> m_accessTokenRequestApiImpl;
+	std::shared_ptr<InitialAuthenticationRequestApiImpl> m_initialAuthenticationRequestApiImpl;
+
+	// String address
 	std::string m_address;
 };
 

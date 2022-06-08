@@ -5,3 +5,7 @@ Next things to do 02/22/2022:
 try to fix the Pistache::Optional objects. This is casued by the way OpenApi specifications are detailed. xAppDiscInst and InitAuthReqest need to be modified
 
 It might have to do with the application/json vs www-url-encoded requestBody. For some reason in application/json request body, it is perceiving some of the parameters as Optional parameters
+
+Make sure to change the <custom>request parameter in the api folder for all the auto-generated files. Some constructors also change as a result of this
+
+The constructor of the impl needs to be modified

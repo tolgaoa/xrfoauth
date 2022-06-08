@@ -1,6 +1,6 @@
 /**
-* XRF OAuth2 xApp Discvoery API
-* XRF OAuth2 Authorization server, xApp Discovery API 
+* XRF OAuth2 Initial Authentication Request API
+* XRF OAuth2 Authorization server, initial authentication with the xApp API 
 *
 * The version of the OpenAPI document: 1
 * Contact: tolgaoa@vt.edu

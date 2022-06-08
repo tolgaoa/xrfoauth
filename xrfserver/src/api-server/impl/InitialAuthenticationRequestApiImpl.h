@@ -31,18 +31,30 @@
 
 #include "InitAuthErr.h"
 #include "InitAuthReq.h"
+#include "InitAuthRsp.h"
+
+#include <string>
+#include "xrf_main.hpp"
+#include "spdlog/spdlog.h"
 
 namespace xrf::api
 {
 
 using namespace xrf::model;
+using namespace xrf::app;
 
 class InitialAuthenticationRequestApiImpl : public xrf::api::InitialAuthenticationRequestApi {
 public:
-    explicit InitialAuthenticationRequestApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
-    ~InitialAuthenticationRequestApiImpl() override = default;
+    InitialAuthenticationRequestApiImpl(std::shared_ptr<Pistache::Rest::Router>& rtr, xrf_main* xrf_main_inst, std::string addr);
+    ~InitialAuthenticationRequestApiImpl() {};
 
-    void init_auth_request(const InitAuthReq &initAuthReq, Pistache::Http::ResponseWriter &response);
+
+    void init_auth_request(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter &response);
+    //void init_auth_request(const InitAuthReq &initAuthReq, Pistache::Http::ResponseWriter &response);
+
+private:
+	xrf_main* m_xrf_main;
+	std::string m_addr;
 
 };
 

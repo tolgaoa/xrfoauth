@@ -25,11 +25,11 @@ paths:
         required: true
       responses:
         '200':
-          description: Successful Authentication Request
+          description: Successful Receipt of Authentication Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InitAuthReq'
+                $ref: '#/components/schemas/InitAuthRsp'
           headers:
             Cache-Control:
               $ref: '#/components/headers/cache-control'
@@ -76,8 +76,9 @@ components:
       description: Contains information related to the initial authentication request
       type: object
       required:
-        - certificate
-        - nfInstanceId
+        - N
+        - Hm1
+        - R1
       properties:
         certificate:
           type: string
@@ -95,8 +96,8 @@ components:
       description: Contains information related to the initial authentication response
       type: object
       required:
-        - challenge
-        - xrfInstanceId
+        - Hm2
+        - R2 
       properties:
         challenge:
           type: string
@@ -106,20 +107,22 @@ components:
           format: uuid
           description: UUID specific to the XRF server
 
-    InitAuthClaims:
-      description: The claims data structure for the initial authentication request
-      type: object
-      required:
-        - rootCA
-        - pubkey
-        - identity
-      properties:
-        rootCA:
-          type: string
-        pubkey:
-          type: string
-        identity:
-          type: string
+#    InitAuthClaims:
+#      description: The claims data structure for the initial authentication request
+#      type: object
+#      required:
+#        - N
+#        - R1
+#        - HM1
+#        - privXRF
+#        - pubxApp
+#      properties:
+#        rootCA:
+#          type: string
+#        pubkey:
+#          type: string
+#        identity:
+#          type: string
 
     InitAuthErr:
       description: Error returned in the access token response message

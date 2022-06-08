@@ -1,6 +1,6 @@
 /**
-* XRF OAuth2 xApp Discvoery API
-* XRF OAuth2 Authorization server, xApp Discovery API 
+* XRF OAuth2 Initial Authentication Request API
+* XRF OAuth2 Authorization server, initial authentication with the xApp API 
 *
 * The version of the OpenAPI document: 1
 * Contact: tolgaoa@vt.edu
@@ -23,9 +23,6 @@
 #include <sstream>
 #include <vector>
 #include <map>
-
-#include "XAppService.h"
-#include "XAppProfile.h"
 
 namespace xrf::helpers
 {
@@ -101,12 +98,6 @@ namespace xrf::helpers
     std::string toStringValue(const bool value);
     std::string toStringValue(const float value);
     std::string toStringValue(const double value);
-
-    // Added after auto-generatio
-    bool fromStringValue(const std::basic_string<char> &inStr, xrf::model::XAppService &value);
-    bool fromStringValue(const std::basic_string<char> &inStr, xrf::model::XAppProfile &value);
-    //----------------------------------
-
 
     bool fromStringValue(const std::string &inStr, std::string &value);
     bool fromStringValue(const std::string &inStr, int32_t &value);

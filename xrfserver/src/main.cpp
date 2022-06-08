@@ -20,41 +20,19 @@ using namespace Pistache;
 xrf_main* xrf_main_inst = nullptr;
 XRFApiServer* api_server = nullptr;
 
-class HelloHandler : public Http::Handler
-{
-public:
-    HTTP_PROTOTYPE(HelloHandler)
-
-    void onRequest(const Http::Request& /*request*/, Http::ResponseWriter response) override
-    {
-        response.send(Pistache::Http::Code::Ok, "Hello World\n");
-    }
-};
-
 int main(int argc, char** argv){
 
 	//Test JWT
-	spdlog::info("Testing JWT Elliptic Key Enc/Dec Scheme");
-	xrf_jwt obj;
-	obj.test_jwt();
-
-	//Define the XRF application instance pointer
-
-	/*//Test Sample Pistache Server
-	Pistache::Address addr(Pistache::Ipv4::any(), Pistache::Port(9080));
-	auto opts = Pistache::Http::Endpoint::options()
-		    .threads(1);
-
-	Http::Endpoint server(addr);
-	server.init(opts);
-	server.setHandler(Http::make_handler<HelloHandler>());
-	server.serve();	*/
+	//spdlog::info("Testing JWT Elliptic Key Enc/Dec Scheme");
+	//xrf_jwt obj;
+	//obj.test_jwt();
 
 	spdlog::info("Starting XRF API Server");
 	
 	Pistache::Address addr(Pistache::Ipv4::any(), Pistache::Port(9090));
 	api_server = new XRFApiServer(addr, xrf_main_inst);	
 	api_server->init(2);
+	//std::thread xrf_manager(&XRFApiServer::start, api_server);
 	api_server->start();
 
 	return 0;
