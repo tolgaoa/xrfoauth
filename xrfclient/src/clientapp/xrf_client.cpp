@@ -66,13 +66,16 @@ void xrf_client::curl_create_handle(const std::string& uri, const std::string& d
         
         curl = curl_easy_init();
 
-	std::string str1 = "http://10.0.0.135:9090/init/auth";
+	std::string datakvsta = "{\"Challenge\":\"";
+	std::string datakvend =  "\"}";
+	std::string datasend = datakvsta + data + datakvend; 
+
+
         if(curl) {
-                //curl_easy_setopt(curl, CURLOPT_URL, str1);
-                curl_easy_setopt(curl, CURLOPT_URL, "http://10.0.0.135:9090/init/auth");
+                curl_easy_setopt(curl, CURLOPT_URL, uri.c_str());
                 curl_easy_setopt(curl, CURLOPT_POST, 1);
                 curl_easy_setopt(curl, CURLOPT_HTTPHEADER, slist1);
-                curl_easy_setopt(curl, CURLOPT_POSTFIELDS, "{\"Challenge\":\"Sudip's String A\"}");
+                curl_easy_setopt(curl, CURLOPT_POSTFIELDS, datasend.c_str());
                 //curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json_data);
                 curl_easy_setopt(curl, CURLOPT_READDATA, &readBuffer);
                 res = curl_easy_perform(curl);

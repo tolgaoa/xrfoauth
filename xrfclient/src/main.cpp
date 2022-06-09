@@ -20,6 +20,7 @@ int main(int argc, char** argv){
 	const std::string xrfchallenge = "Sudip's String A";
 	spdlog::info("Sending Initial Authentication Challenge to XRF");
 	xapp_main_inst->sendauth_to_xrf(xrfchallenge, xrfaddress);
+	spdlog::info("Completed Initial Authentication with XRF");	
 	
 	return 0;
 }
