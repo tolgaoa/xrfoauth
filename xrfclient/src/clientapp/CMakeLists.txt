@@ -4,5 +4,5 @@
 #include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../api-server/)
 
 add_library (XAPP_CLIENT STATIC 
-	xappclient_main.cpp
-	)
+	xrf_client.cpp
+	xapp_main.cpp)

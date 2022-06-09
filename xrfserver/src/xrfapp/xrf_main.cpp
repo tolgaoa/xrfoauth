@@ -89,11 +89,11 @@ void xrf_main::handle_auth_request
 		
 	spdlog::info("Starting processing of Incoming Authentication Request");	
 	//--------------------Sudip's function-----------------------------
-	std::string str1 = "Sudip's String B";
-        const std::string str2 = str1;
+	std::string response_challenge = "Sudip's String B";
+        const std::string str1 = response_challenge;
 	//-----------------------------------------------------------------
 		
 	spdlog::info("Finished processing Incoming Authentication Request");
-	in_auth_rsp.setChallenge(str2);
+	in_auth_rsp.setChallenge(str1);
 
 };

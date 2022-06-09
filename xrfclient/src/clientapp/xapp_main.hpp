@@ -26,19 +26,28 @@
 #include <string>
 #include <thread>
 
-#include "xappclient_profile.hpp"
-#include "logger.hpp"
+#include "xrf_client.hpp"
+#include "spdlog/spdlog.h"
 
-namespace xappclient{
+namespace xrf {
+namespace app {
 
-class xappclient_main {
+class xapp_main {
 	public:
-		explicit xappclient_main();
-		xappclient_main(xappclient_main const&) = delete;
-		virtual ~xappclient_main();
+		explicit xapp_main();
+		xapp_main(xapp_main const&) = delete;
+		virtual ~xapp_main();
 
-		void operator=(xappclient_main const&) = delete;
+		void operator=(xapp_main const&) = delete;
 		
+		void sendauth_to_xrf(const std::string& challenge, const std::string& xrfaddress);
+		/*
+		 * @param[challenge] : challenge sent to 
+		 * @param[xrfaddress] : full address path and port for XRF
+		 * return void
+		 */
+
+				
 		void register_with_xrf();
 		/*
 		 * Register the xapp with the XRF server
@@ -60,13 +69,13 @@ class xappclient_main {
 		 */
 
         private:
-                xappclient_profile xappclient_instance_profile;
+                //xappclient_profile xappclient_instance_profile;
                 std::string xappclient_instance_id;
 };
 
 
 }
-
+}
 
 
 #endif

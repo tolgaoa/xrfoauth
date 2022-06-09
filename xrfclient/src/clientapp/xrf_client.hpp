@@ -30,35 +30,50 @@
 #include <vector>
 
 #include "spdlog/spdlog.h"
-#include "string.hpp"
+#include <string>
+#include <iostream>
+
+#include <nlohmann/json.hpp>
 
 namespace xrf {
 namespace app {
 
 class xrf_client {
 	private:
-		CURLM* curl_multi;
-		std::vector<CURL*> handles;
-		struct curl_slist* headers;
-	
+		CURL *curl;
+		CURLcode res;
+		std::string datasend;
+		//std::string readBuffer;
+		nlohmann::json json_send;
+		std::string content_type;	
+		struct curl_slist *headers;
+
 	public: 
 		xrf_client();
-		virtual ~xrf_client();
+		virtual ~xrf_client() = default;
 
 		xrf_client(xrf_client const&) = delete;
 		void operator=(xrf_client const &) = delete;
 
-
-		CURL* curl_create_handle(const std::string& uri, const std::string& data,
-					 std::string& response_data, uint8_t http_version);
+		void curl_create_handle(const std::string& uri, const std::string& data,
+                         std::string& response_data, uint8_t http_version);
 		/*
-		 * @param[uri] : URI
+		 * @param[uri] : target address/port/path
 		 * @param[data] : data to send
-		 * @param[response_data] : response to the data
-		 * @return void
+		 * @param[response_data] : response from target
+		 * @param[http_versoin] : http version
+		 * @return CURL
 		 */
 
-		void send_curl_multi(const std::string& uri, const std::string& data, 
+		void to_json(nlohmann::json& j, const std::string& kv1, const std::string& kv2);
+		/*
+		 * @param[j] : empty json object to load
+		 * @param[kv1] : keyvalue pair value1
+		 * @param[kv2] : keyvalue pair value2
+		 * return void
+		 */
+
+		void send_curl_easy(const std::string& uri, const std::string& data, 
 				     std::string& response_data, uint8_t http_version);
 		/*
 		 * @param[uri] : URI
