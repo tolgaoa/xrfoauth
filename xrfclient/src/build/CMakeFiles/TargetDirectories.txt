@@ -1,8 +1,0 @@
-/home/taport/Documents/xrfoauth/xrfclient/src/build/CMakeFiles/xappclient.dir
-/home/taport/Documents/xrfoauth/xrfclient/src/build/CMakeFiles/test.dir
-/home/taport/Documents/xrfoauth/xrfclient/src/build/CMakeFiles/edit_cache.dir
-/home/taport/Documents/xrfoauth/xrfclient/src/build/CMakeFiles/rebuild_cache.dir
-/home/taport/Documents/xrfoauth/xrfclient/src/build/clientapp/CMakeFiles/XAPP_CLIENT.dir
-/home/taport/Documents/xrfoauth/xrfclient/src/build/clientapp/CMakeFiles/test.dir
-/home/taport/Documents/xrfoauth/xrfclient/src/build/clientapp/CMakeFiles/edit_cache.dir
-/home/taport/Documents/xrfoauth/xrfclient/src/build/clientapp/CMakeFiles/rebuild_cache.dir

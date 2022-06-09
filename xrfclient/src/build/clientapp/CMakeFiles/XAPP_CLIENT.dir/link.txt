@@ -1,2 +1,0 @@
-/usr/bin/ar qc libXAPP_CLIENT.a CMakeFiles/XAPP_CLIENT.dir/xappclient_main.cpp.o CMakeFiles/XAPP_CLIENT.dir/xappclient_profile.cpp.o
-/usr/bin/ranlib libXAPP_CLIENT.a

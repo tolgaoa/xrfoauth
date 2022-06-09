@@ -5,4 +5,4 @@
 
 add_library (XAPP_CLIENT STATIC 
 	xappclient_main.cpp
-	xappclient_profile.cpp)
+	)

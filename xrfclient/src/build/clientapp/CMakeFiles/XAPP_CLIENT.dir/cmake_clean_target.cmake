@@ -1,3 +1,0 @@
-file(REMOVE_RECURSE
-  "libXAPP_CLIENT.a"
-)

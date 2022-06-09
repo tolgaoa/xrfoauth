@@ -80,11 +80,11 @@ void xrf_main::handle_auth_request
 	for (auto i : kvpairs){
                 std::vector<std::string> kv;
                 boost::split(kv, i, boost::is_any_of(":"), boost::token_compress_on);
-                if (kv.size() != 1){
-                        std::cout << "Invalid Request" << std::endl;
+                if (kv.size() != 2){
+                        spdlog::warn("Invalid Request--Expecting single KVpair--Received more");
                 }else request[kv[0]] = kv[1];
-
-		spdlog::debug("(Key, Value):  %s, %s \n", kv[0].c_str(), kv[1].c_str());
+		printf("(Key, Value):  %s, %s \n", kv[0].c_str(), kv[1].c_str());
+		//spdlog::info("(Key, Value):  %s, %s \n", kv[0].c_str(), kv[1].c_str());
         }
 		
 	spdlog::info("Starting processing of Incoming Authentication Request");	
