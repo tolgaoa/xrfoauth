@@ -19,7 +19,7 @@ using namespace xrf::app;
 
 extern xapp_main* xapp_main_inst;
 xrf_client* xrf_client_inst = nullptr;
-xrf_msg* xrf_msg_inst = nullptr;
+xapp_msg* xapp_msg_inst = nullptr;
 
 void xapp_main::register_with_xrf() {
 	unsigned int wait = 10000;

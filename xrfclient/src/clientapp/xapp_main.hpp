@@ -27,6 +27,7 @@
 #include <thread>
 
 #include "xrf_client.hpp"
+#include "xapp_msg.hpp"
 #include "spdlog/spdlog.h"
 
 namespace xrf {
