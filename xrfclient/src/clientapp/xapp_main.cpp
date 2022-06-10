@@ -19,6 +19,7 @@ using namespace xrf::app;
 
 extern xapp_main* xapp_main_inst;
 xrf_client* xrf_client_inst = nullptr;
+xrf_msg* xrf_msg_inst = nullptr;
 
 void xapp_main::register_with_xrf() {
 	unsigned int wait = 10000;
@@ -46,6 +47,7 @@ void xapp_main::sendauth_to_xrf(const std::string& challenge, const std::string&
 	std::string str1 = "temp1";
 	xrf_client_inst->curl_create_handle(xrfaddress, challenge, str1, 1);
 }
+
 
 
 

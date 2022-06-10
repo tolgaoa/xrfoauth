@@ -5,4 +5,5 @@
 
 add_library (XAPP_CLIENT STATIC 
 	xrf_client.cpp
-	xapp_main.cpp)
+	xapp_main.cpp
+	xapp_msg.cpp)
