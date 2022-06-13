@@ -24,10 +24,7 @@
 #include <vector>
 #include <map>
 
-#include "XAppService.h"
-#include "XAppProfile.h"
-
-namespace xrf::helpers
+namespace org::openapitools::server::helpers
 {
 
     class ValidationException : public std::runtime_error
@@ -102,11 +99,6 @@ namespace xrf::helpers
     std::string toStringValue(const float value);
     std::string toStringValue(const double value);
 
-    // Added after auto-generation
-    bool fromStringValue(const std::basic_string<char> &inStr, xrf::model::XAppService &value);
-    bool fromStringValue(const std::basic_string<char> &inStr, xrf::model::XAppProfile &value);
-    //----------------------------------
-
     bool fromStringValue(const std::string &inStr, std::string &value);
     bool fromStringValue(const std::string &inStr, int32_t &value);
     bool fromStringValue(const std::string &inStr, int64_t &value);
@@ -139,6 +131,6 @@ namespace xrf::helpers
         return fromStringValue(inStrings, value);
     }
 
-} // namespace xrf::helpers
+} // namespace org::openapitools::server::helpers
 
 #endif // Helpers_H_

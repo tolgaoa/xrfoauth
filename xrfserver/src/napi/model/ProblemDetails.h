@@ -22,7 +22,7 @@
 #include <string>
 #include <nlohmann/json.hpp>
 
-namespace xrf::model
+namespace org::openapitools::server::model
 {
 
 /// <summary>
@@ -110,6 +110,6 @@ protected:
     
 };
 
-} // namespace xrf::model
+} // namespace org::openapitools::server::model
 
 #endif /* ProblemDetails_H_ */

@@ -12,7 +12,7 @@
 #include "Helpers.h"
 #include <regex>
 
-namespace xrf::helpers
+namespace org::openapitools::server::helpers
 {
 
 const std::regex regexRfc3339_date(R"(^(\d{4})\-(\d{2})\-(\d{2})$)");
@@ -97,17 +97,6 @@ bool fromStringValue(const std::string &inStr, int32_t &value){
     return true;
 }
 
-// Added after auto-generation
-bool fromStringValue(const std::basic_string<char> &inStr, xrf::model::XAppService &value){
-    //value = std::string(inStr);
-    return true;
-}
-
-bool fromStringValue(const std::basic_string<char> &inStr, xrf::model::XAppProfile &value){
-    //value = std::string(inStr);
-    return true;
-}
-
 bool fromStringValue(const std::string &inStr, int64_t &value){
     try {
         value = std::stol( inStr );
@@ -150,4 +139,4 @@ bool fromStringValue(const std::string &inStr, double &value){
     return true;
 }
 
-} // namespace xrf::helpers
+} // namespace org::openapitools::server::helpers

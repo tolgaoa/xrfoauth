@@ -16,7 +16,7 @@
 
 #include <sstream>
 
-namespace xrf::model
+namespace org::openapitools::server::model
 {
 
 ProblemDetails::ProblemDetails()
@@ -39,7 +39,7 @@ void ProblemDetails::validate() const
     std::stringstream msg;
     if (!validate(msg))
     {
-        throw xrf::helpers::ValidationException(msg.str());
+        throw org::openapitools::server::helpers::ValidationException(msg.str());
     }
 }
 
@@ -218,5 +218,5 @@ void ProblemDetails::unsetInstance()
 }
 
 
-} // namespace xrf::model
+} // namespace org::openapitools::server::model
 
