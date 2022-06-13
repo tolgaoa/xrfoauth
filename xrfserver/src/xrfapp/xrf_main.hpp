@@ -23,11 +23,9 @@
 
 #include "spdlog/spdlog.h"
 
-//#include "genuint.hpp" TODO a header for generating unsigned integers for different types using templates 
-//#include "xrf_action.hpp"
+#include "xrf_rec_msg.hpp"
+#include "xrf_jwt.hpp"
 //#include "xrf_profile.hpp"
-//#include "xrf_search.hpp"
-//#include "xrf_subscribe.hpp"
 
 namespace xrf {
 namespace app {

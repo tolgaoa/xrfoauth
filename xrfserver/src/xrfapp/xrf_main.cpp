@@ -25,10 +25,6 @@
 #include <boost/uuid/uuid_io.hpp>
 #include <chrono>
 
-#include "xrf_jwt.hpp"
-//#include "logger.hpp"
-
-
 
 using namespace xrf::app;
 using namespace std::chrono;

@@ -19,28 +19,23 @@
 
 #include <iostream>
 #include <fstream>
-#include <algorithm>
-#include <openssl/x509v3.h>
-#include <openssl/bn.h>
-#include <openssl/asn1.h>
-#include <openssl/x509.h>
-#include <openssl/x509_vfy.h>
-#include <openssl/pem.h>
-#include <openssl/bio.h>
+#include <openssl/pem.h> 
 #include <openssl/evp.h>
 #include <openssl/rsa.h>
 #include <cstdio>
 #include <openssl/rand.h>
 #include <openssl/sha.h>
 
-#include "spdlog/spdlog.h"
-
 #define RND_LENGTH 128
 #define SHA256_LENGTH 32
 #define MSG_BUFLEN 640
 #define PLAIN_LEN 320
 #define RSA_SIG_LEN 512
-#define RSA_ENC_LEN 512
+#define	RSA_ENC_LEN 512
+#define FINAL_CIPHER_LEN 1024
+
+#define DEBUG 1
+#define WRITE_FILE 1
 
 namespace xrf {
 namespace app {
@@ -53,46 +48,46 @@ class xapp_msg{
 		virtual ~xapp_msg();
 		void operator=(xapp_msg const&) = delete;
 
-		unsigned char* generate_rand();
+		void print_debug(const std::string&, unsigned char*, unsigned int);
 		/*
-		 * return pointer to unsigned char
+		 * @param[string] : string
+		 * @param[debug_msg] : pointer to debug msg array
+		 * @param[debug_msg_len] : debug msg length
 		 */
 
-		unsigned char* calc_Hash(unsigned char* random_n);
+		void write_debug(const std::string&, unsigned char*, unsigned int);
 		/*
-		 * @param[random_n] : random number
-		 */
-		
-		void read_prvKey(const std::string& prvKeyfile);
-		/*
-		 * @param[prvKeyfile] : file containing the xApp prvKey
+		 * @param[stirng] : string
+		 * @param[write_msg] : address of the msg to be written to file
+		 * @param[write_msg_len] : length of the msg to be written to file
 		 */
 
-		unsigned char* generate_signature(unsigned char* input, size_t mdlen);
+		void gen_rand(unsigned char rand_buf[]);
 		/*
-		 * @param[input]
-		 * @param[mdlen]
-		 * return unsigned char
+		 * @param[rand_buf[]] : buffer for random number
+		 * updates the random buffer with random number
 		 */
 
-		unsigned char* conc_msg(unsigned char* msg, unsigned char* signature_addr);
+		unsigned char* gen_sig(unsigned char hm_buf[]);
 		/*
-		 * @param[msg]  
-		 * @param[signature_addr]
+		 * @param[hm_buf] : hash of random number
+		 * return signature buffer pointer
 		 */
 
-		void test_msg_gen(unsigned char* addr, const std::string& fileout);
+		void prep_msg(unsigned char m_buf[], unsigned char sig_buf[], unsigned char msg_plain_1[], unsigned char msg_plain_2[]);
 		/*
-		 * @param[addr]
-		 * @param[fileout]
-		 * return void
+		 * @param[m_buf[]] : random number
+		 * @param[sig_buf[]] : signature
+		 * @param[input1] : address of the first input to be concatenated i.e., m_buf  
+		 * @param[input2] : address of the first input to be concatenated i.e., sig_buf
+		 * prepares two input buffers with messages for encryption
 		 */
 
-		unsigned char* msg_encrypt(unsigned char* msg_plain, long int msg_plain_len);
+		unsigned char* rsa_encrypt(unsigned char* msg_plain, long int msg_plain_len);
 		/*
 		 * @param[msg_plain]
 		 * @param[msg_plain_len]
-		 * return unsigned char
+		 * return pointer to encrypted buffer
 		 */
 
 
