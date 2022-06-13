@@ -32,18 +32,32 @@
 #include "XAppDiscErr.h"
 #include "XAppProfile.h"
 #include <string>
+#include <vector>
+
+#include "xrf_main.hpp"
+#include "spdlog/spdlog.h"
+
+#include "XAppProfile.h"
+#include "xrf_main.hpp"
 
 namespace xrf::api
 {
 
 using namespace xrf::model;
+using namespace xrf::app;
 
 class XAppRegisterInstanceApiImpl : public xrf::api::XAppRegisterInstanceApi {
 public:
-    explicit XAppRegisterInstanceApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
-    ~XAppRegisterInstanceApiImpl() override = default;
+    XAppRegisterInstanceApiImpl(std::shared_ptr<Pistache::Rest::Router>& rtr, xrf_main* xrf_main_inst, std::string addr);
+    ~XAppRegisterInstanceApiImpl() {};
 
     void registerx_app_instance(const std::string &xAppInstanceId, const XAppProfile &xAppProfile, Pistache::Http::ResponseWriter &response);
+    //void registerx_app_instance(const std::string &xAppInstanceId, const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter &response);
+
+private:
+    	xrf_main* m_xrf_main;
+	std::string m_addr;
+
 
 };
 

@@ -9,3 +9,9 @@ It might have to do with the application/json vs www-url-encoded requestBody. Fo
 Make sure to change the <custom>request parameter in the api folder for all the auto-generated files. Some constructors also change as a result of this
 
 The constructor of the impl needs to be modified
+
+The api/.h files need to be modified to take in a Pistache object in the last function
+
+For the xAppDiscover, the model/Helpers need to be overloaded with the new fromStringValue functions
+
+In the impl/ files, the constructor needs to take in the main class object 

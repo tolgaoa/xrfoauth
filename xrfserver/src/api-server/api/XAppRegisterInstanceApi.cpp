@@ -13,6 +13,8 @@
 #include "XAppRegisterInstanceApi.h"
 #include "Helpers.h"
 
+#include "XAppProfile.h"
+
 namespace xrf::api
 {
 
@@ -62,6 +64,7 @@ void XAppRegisterInstanceApi::registerx_app_instance_handler(const Pistache::Res
 
     // Getting the path params
     auto xAppInstanceId = request.param(":xAppInstanceId").as<std::string>();
+    spdlog::debug("new xApp ID recorded. Proceeding to Registration");
     
     // Getting the body param
     
@@ -77,8 +80,8 @@ void XAppRegisterInstanceApi::registerx_app_instance_handler(const Pistache::Res
     }
 
     try {
-        //this->registerx_app_instance(xAppInstanceId, xAppProfile, response);
-        this->registerx_app_instance(xAppInstanceId, request, response);
+        this->registerx_app_instance(xAppInstanceId, xAppProfile, response);
+        //this->registerx_app_instance(xAppInstanceId, request, response);
         //this->registerx_app_instance(request, request, response);
     } catch (Pistache::Http::HttpError &e) {
         response.send(static_cast<Pistache::Http::Code>(e.code()), e.what());

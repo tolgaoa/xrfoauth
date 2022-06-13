@@ -16,11 +16,12 @@ namespace xrf {
 namespace api {
 
 using namespace xrf::model;
+using namespace xrf::app;
 
-XAppRegisterInstanceApiImpl::XAppRegisterInstanceApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr)
-    : XAppRegisterInstanceApi(rtr)
-{
-}
+XAppRegisterInstanceApiImpl::XAppRegisterInstanceApiImpl(
+		std::shared_ptr<Pistache::Rest::Router>& rtr, xrf_main* xrf_main_inst, 
+		std::string addr)
+    		: XAppRegisterInstanceApi(rtr), m_xrf_main(xrf_main_inst), m_addr(addr) {}
 
 void XAppRegisterInstanceApiImpl::registerx_app_instance(const std::string &xAppInstanceId, const XAppProfile &xAppProfile, Pistache::Http::ResponseWriter &response) {
     response.send(Pistache::Http::Code::Ok, "Do some magic\n");

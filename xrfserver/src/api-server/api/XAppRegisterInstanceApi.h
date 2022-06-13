@@ -25,13 +25,19 @@
 #include <pistache/optional.h>
 
 #include <utility>
+#include <iostream>
 
 #include "XAppDiscErr.h"
 #include "XAppProfile.h"
 #include <string>
+#include <vector>
+
+#include "spdlog/spdlog.h"
 
 namespace xrf::api
 {
+
+using namespace xrf::model;
 
 class  XAppRegisterInstanceApi {
 public:
@@ -75,7 +81,11 @@ private:
    
    // virtual void registerx_app_instance(const std::string &xAppInstanceId, const org::openapitools::server::model::XAppProfile &xAppProfile, Pistache::Http::ResponseWriter &response) = 0;
 
-    virtual void registerx_app_instance(const std::string &xAppInstanceId, const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter &response) = 0;
+    //virtual void registerx_app_instance(const std::string &xAppInstanceId, const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter &response) = 0;
+    
+    virtual void registerx_app_instance(const std::string& xAppInstanceId, const xrf::model::XAppProfile& xAppProfile, Pistache::Http::ResponseWriter &response) = 0;
+    
+    //virtual void registerx_app_instance(const Pistache::Rest::Request &request, const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter &response) = 0;
 
 };
 

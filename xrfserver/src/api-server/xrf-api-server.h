@@ -12,6 +12,7 @@
 
 #include "AccessTokenRequestApiImpl.h"
 #include "InitialAuthenticationRequestApiImpl.h"
+#include "XAppRegisterInstanceApiImpl.h"
 #include "xrf_main.hpp"
 
 using namespace xrf::api;
@@ -29,6 +30,9 @@ public:
 
        	 	m_initialAuthenticationRequestApiImpl = std::make_shared<InitialAuthenticationRequestApiImpl>(
             		m_router, xrf_main_inst, m_address);
+
+                m_XAppRegisterInstanceApiImpl = std::make_shared<XAppRegisterInstanceApiImpl>(
+                        m_router, xrf_main_inst, m_address);
 	
 	}		
 	void init(size_t thr = 1);
@@ -43,6 +47,7 @@ private:
 	// Pointers to Individual endpoint handlers
 	std::shared_ptr<AccessTokenRequestApiImpl> m_accessTokenRequestApiImpl;
 	std::shared_ptr<InitialAuthenticationRequestApiImpl> m_initialAuthenticationRequestApiImpl;
+	std::shared_ptr<XAppRegisterInstanceApiImpl> m_XAppRegisterInstanceApiImpl;
 
 	// String address
 	std::string m_address;
