@@ -69,9 +69,11 @@ void xrf_client::curl_create_handle(const std::string& uri, const std::string& d
 	std::string datakvsta = "{\"Challenge\":\"";
 	std::string datakvend =  "\"}";
 	std::string datasend = datakvsta + data + datakvend; 
+	
+	spdlog::debug("JSON created is");
+        spdlog::debug(datasend);
 
-
-        if(curl) {
+	if(curl) {
                 curl_easy_setopt(curl, CURLOPT_URL, uri.c_str());
                 curl_easy_setopt(curl, CURLOPT_POST, 1);
                 curl_easy_setopt(curl, CURLOPT_HTTPHEADER, slist1);

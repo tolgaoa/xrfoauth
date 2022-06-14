@@ -214,10 +214,10 @@ std::string xapp_msg::create_final_msg(unsigned char final_cipher_buf[FINAL_CIPH
 	std::string str;
 
 	char encodedData[ENCODE_DATA_LEN];
-	EVP_EncodeBlock((unsigned char*)encodedData, final_cipher_buf, FINAL_CIPHER_LEN);
+	int encoded_data_len = EVP_EncodeBlock((unsigned char*)encodedData, final_cipher_buf, FINAL_CIPHER_LEN);
 	//std::cout << encodedData << std::endl;
 	
-	for(int i=0; i < ENCODE_DATA_LEN; i++){
+	for(int i=0; i < encoded_data_len; i++){
 		str.push_back(encodedData[i]);
 	}
 
