@@ -19,7 +19,7 @@ paths:
         - Initial Authentication Request
       requestBody:
         content:
-          application/json:
+          application/octet-stream:
             schema:
               $ref: '#/components/schemas/InitAuthReq'
         required: true
@@ -27,7 +27,7 @@ paths:
         '200':
           description: Successful Receipt of Authentication Request
           content:
-            application/json:
+            application/octet-stream:
               schema:
                 $ref: '#/components/schemas/InitAuthRsp'
           headers:

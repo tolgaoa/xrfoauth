@@ -42,18 +42,55 @@ void xapp_main::create_xappclient_profile() {
 
 }
 
+/*std::string& xapp_main::create_auth_challenge(){
+	
+	//auto finalciphertext_s;
+        unsigned char final_cipher_buf[FINAL_CIPHER_LEN];
+        spdlog::info("Creating challenge");
+        xapp_msg_inst->create_final_msg(final_cipher_buf);
+        spdlog::info("Challenge created");
+
+        spdlog::debug("Cast challenge from unsigned char to string");   
+        std::ostringstream oss;
+        for(int i = 0; i < FINAL_CIPHER_LEN; ++i) 
+        {
+              oss << std::hex << std::setw(2) << std::setfill('0') << +final_cipher_buf[i];
+        }
+        auto finalciphertext_s = oss.str();
+
+        spdlog::debug(finalciphertext_s);
+
+	return finalciphertext_s;
+
+}
+*/
+
 void xapp_main::sendauth_to_xrf(const std::string& challenge, const std::string& xrfaddress){
 	
 	std::string str1 = "temp1";
 
 	unsigned char final_cipher_buf[FINAL_CIPHER_LEN];
 
-	spdlog::info("Creating Challenge");
-	xapp_msg_inst->create_final_msg(final_cipher_buf);
-	spdlog::info("Challenge Created");
+	std::string str;
+	spdlog::info("Creating challenge");
+	//str = td::string& strxapp_msg_inst->create_final_msg(final_cipher_buf, str);
+	str = xapp_msg_inst->create_final_msg(final_cipher_buf);
+	spdlog::info("Challenge created");
+	spdlog::debug("String is:");
+	spdlog::debug(str);
 
+	/*spdlog::debug("Cast challenge from unsigned char to string");	
+	std::ostringstream oss;
+	for(int i = 0; i < FINAL_CIPHER_LEN; ++i) 
+	{
+	      oss << std::hex << std::setw(2) << std::setfill('0') << +final_cipher_buf[i];
+	}
+	auto str = oss.str();	
+	
+	spdlog::debug(str);
+	*/
 	spdlog::info("Creating Client");
-	xrf_client_inst->curl_create_handle(xrfaddress, challenge, str1, 1);
+	xrf_client_inst->curl_create_handle(xrfaddress, str, str1, 1);
 	spdlog::info("Client Created");
 }
 

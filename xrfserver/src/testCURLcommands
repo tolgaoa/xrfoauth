@@ -3,3 +3,5 @@ curl -X POST http://10.0.0.135:9090/oauth2/token -H 'Content-Type: application/j
 curl -X POST http://10.0.0.135:9090/init/auth -H 'Content-Type: application/json' -d '{"xxx":"yyy"}'
 
 curl -X PUT http://10.0.0.135:9090/xapp/disc/0001 -H 'Content-Type: application/json' -d '{"xAppInstanceId":"0001", "xAppStatus":"InitAuthDone", "xAppIpv4":"10.0.0.140"}'
+
+curl -X PUT http://10.0.0.135:9090/xapp/disc/0001 -H 'Content-Type: application/json' -d '{"xAppInstanceId":"0001", "xAppStatus":"InitAuthDone", "xAppIpv4":"10.0.0.140", "xAppFunc":"TS"}'

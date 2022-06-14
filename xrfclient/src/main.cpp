@@ -20,7 +20,7 @@ int main(int argc, char** argv){
 	spdlog::set_level(spdlog::level::debug);
 
 	const std::string xrfaddress = "http://192.168.3.149:9090/init/auth";
-	const std::string xrfchallenge = "Sudip's String A";
+	const std::string xrfchallenge = "Sudip's String A" ;
 	spdlog::info("Sending Initial Authentication Challenge to XRF");
 	xapp_main_inst->sendauth_to_xrf(xrfchallenge, xrfaddress);
 	spdlog::info("Completed Initial Authentication with XRF");	

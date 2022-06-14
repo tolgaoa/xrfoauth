@@ -25,6 +25,10 @@
 #include <cstdio>
 #include <openssl/rand.h>
 #include <openssl/sha.h>
+#include <openssl/bio.h>
+
+#include <vector>
+#include <string>
 
 #include "spdlog/spdlog.h"
 
@@ -35,6 +39,7 @@
 #define RSA_SIG_LEN 512
 #define	RSA_ENC_LEN 512
 #define FINAL_CIPHER_LEN 1024
+#define ENCODE_DATA_LEN 1369
 
 #define DEBUG 0
 #define WRITE_FILE 1
@@ -101,14 +106,13 @@ class xapp_msg{
 		 * return pointer to encrypted buffer
 		 */
 		
-		void create_final_msg(unsigned char final_cipher_buf[]);
+		std::string create_final_msg(unsigned char final_cipher_buf[]);
 		/*
 		 * Create final msg for sending out
 		 * return void
 		 */
-
+	
 };
-
 
 
 }

@@ -26,6 +26,9 @@
 #include <string>
 #include <thread>
 
+#include <sstream>
+#include <iomanip>
+
 #include "xrf_client.hpp"
 #include "xapp_msg.hpp"
 #include "spdlog/spdlog.h"
@@ -63,6 +66,11 @@ class xapp_main {
 		/*
 		 * create a random string id for the xapp instance
 	       	 */
+		
+		std::string& create_auth_challenge();
+                /*
+                 * Create authentication challenge for XRF
+                 */
 
 		void send_xapp_registration_request();
 		/*
