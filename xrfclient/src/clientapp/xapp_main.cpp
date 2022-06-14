@@ -45,7 +45,16 @@ void xapp_main::create_xappclient_profile() {
 void xapp_main::sendauth_to_xrf(const std::string& challenge, const std::string& xrfaddress){
 	
 	std::string str1 = "temp1";
+
+	unsigned char final_cipher_buf[FINAL_CIPHER_LEN];
+
+	spdlog::info("Creating Challenge");
+	xapp_msg_inst->create_final_msg(final_cipher_buf);
+	spdlog::info("Challenge Created");
+
+	spdlog::info("Creating Client");
 	xrf_client_inst->curl_create_handle(xrfaddress, challenge, str1, 1);
+	spdlog::info("Client Created");
 }
 
 

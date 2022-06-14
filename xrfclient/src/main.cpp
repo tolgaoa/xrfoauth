@@ -16,6 +16,9 @@ xapp_main* xapp_main_inst = nullptr;
 
 int main(int argc, char** argv){
 	
+	//Set log level debug
+	spdlog::set_level(spdlog::level::debug);
+
 	const std::string xrfaddress = "http://10.0.0.135:9090/init/auth";
 	const std::string xrfchallenge = "Sudip's String A";
 	spdlog::info("Sending Initial Authentication Challenge to XRF");

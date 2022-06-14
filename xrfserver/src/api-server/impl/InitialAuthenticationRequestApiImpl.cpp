@@ -28,8 +28,9 @@ void InitialAuthenticationRequestApiImpl::init_auth_request(const Pistache::Rest
 	int http_code = 200;
 	ProblemDetails problem_details = {};
 	InitAuthRsp init_auth_rsp = {};
+	spdlog::debug("Entering Challenge Handle");
 	m_xrf_main->handle_auth_request(request.body(), init_auth_rsp, http_code, 1, problem_details);
-	spdlog::info("Authentication Request Processed");
+	spdlog::debug("Finished Challenge Handle");
 	nlohmann::json json_data = {};
 	std::string content_type = "application/problem+json";
 
@@ -43,8 +44,10 @@ void InitialAuthenticationRequestApiImpl::init_auth_request(const Pistache::Rest
 	};
 
 	response.headers().add<Pistache::Http::Header::ContentType>(Pistache::Http::Mime::MediaType(content_type));
-        response.send(Pistache::Http::Code(http_code), json_data.dump().c_str());
-
+        
+	spdlog::debug("Creating JSON Response for Authentication Challenge");
+	response.send(Pistache::Http::Code(http_code), json_data.dump().c_str());	
+	spdlog::info("Authentication Request Processed");
 }
 
 }

@@ -26,6 +26,8 @@
 #include <openssl/rand.h>
 #include <openssl/sha.h>
 
+#include "spdlog/spdlog.h"
+
 #define RND_LENGTH 128
 #define SHA256_LENGTH 32
 #define MSG_BUFLEN 640
@@ -62,6 +64,15 @@ class xapp_msg{
 		 * @param[write_msg_len] : length of the msg to be written to file
 		 */
 
+//TA:-----------------------ADDED This------------------------------------------
+		void calc_hash(unsigned char m_buf[], unsigned char hm_buf[]);
+		/*
+		 * @param[m_buf] : message buffer
+		 * @param[hm_buf] : hashed message buffer
+		 * return void
+		 */
+//------------------------------------------------------------------------------
+
 		void gen_rand(unsigned char rand_buf[]);
 		/*
 		 * @param[rand_buf[]] : buffer for random number
@@ -89,10 +100,12 @@ class xapp_msg{
 		 * @param[msg_plain_len]
 		 * return pointer to encrypted buffer
 		 */
-
-
-	private:
-		EVP_PKEY *prvKey;
+		
+		void create_final_msg(unsigned char final_cipher_buf[]);
+		/*
+		 * Create final msg for sending out
+		 * return void
+		 */
 
 };
 
