@@ -24,8 +24,8 @@ using namespace xrf::app;
 
 extern xapp_msg* xapp_msg_inst;
 
-/*
-void print_debug(const std::string&str, unsigned char buf[], unsigned int len){
+
+void xapp_msg::print_debug(const std::string&str, unsigned char buf[], unsigned int len){
     if(DEBUG){
         std::cout << str;
             for(int i = 0; i < len; i++){
@@ -35,7 +35,7 @@ void print_debug(const std::string&str, unsigned char buf[], unsigned int len){
         }
 }
 
-void write_debug(const std::string&str, unsigned char msg[], unsigned int msg_len){
+void xapp_msg::write_debug(const std::string&str, unsigned char msg[], unsigned int msg_len){
         if(WRITE_FILE){
             std::ofstream file(str);
             if(file.is_open()){
@@ -46,7 +46,7 @@ void write_debug(const std::string&str, unsigned char msg[], unsigned int msg_le
             }
         }
 }
-*/
+
 
 void xapp_msg::gen_rand(unsigned char rand_buf[]){
 	spdlog::debug("Generating random number");
@@ -115,9 +115,9 @@ void xapp_msg::prep_msg(unsigned char m_buf[], unsigned char sig_buf[], unsigned
 
 
 	spdlog::debug("msg:");
-	for(int i = 0; i < MSG_BUFLEN; i++){
+	/*for(int i = 0; i < MSG_BUFLEN; i++){
 		spdlog::debug("%02x",msg_buf[i]);
-	}
+	}*/
 
         if(WRITE_FILE){
                 std::ofstream plaintextFile("plaintext");
@@ -174,58 +174,42 @@ unsigned char* xapp_msg::rsa_encrypt(unsigned char* msg_plain, long int msg_plai
 }
 
 void xapp_msg::create_final_msg(unsigned char final_cipher_buf[FINAL_CIPHER_LEN]) {
-        unsigned char m_buf[RND_LENGTH];
-        gen_rand(m_buf);
+	unsigned char m_buf[RND_LENGTH];
+	gen_rand(m_buf);
+	spdlog::debug("\nm:\n", m_buf, RND_LENGTH);
 
-        unsigned char hm_buf[SHA256_LENGTH];
-        calc_hash(m_buf,hm_buf);
+	unsigned char hm_buf[SHA256_LENGTH];
+	SHA256(m_buf, RND_LENGTH, hm_buf);
+	print_debug("\nH(m):\n", hm_buf, SHA256_LENGTH);
 
-        unsigned char *sig_buf = gen_sig(hm_buf);
+	unsigned char *sig_buf = gen_sig(hm_buf);
 
-        if(WRITE_FILE){
-                std::ofstream sigFile("sig.bin");
-                if(sigFile.is_open()){
-                        for(int i = 0; i < RSA_SIG_LEN; i++){
-                                sigFile << sig_buf[i];
-                        }
-                sigFile.close();
-                }
-        }
+	print_debug("\nSig:\n", sig_buf, RSA_SIG_LEN);
+	write_debug("sig.bin", sig_buf, RSA_SIG_LEN);
 
-        unsigned char msg_plain_1[PLAIN_LEN], msg_plain_2[PLAIN_LEN];
-        prep_msg(m_buf, sig_buf, msg_plain_1, msg_plain_2);
+	unsigned char msg_plain_1[PLAIN_LEN], msg_plain_2[PLAIN_LEN];
+	prep_msg(m_buf, sig_buf, msg_plain_1, msg_plain_2);
 
-        unsigned char* msg_enc_1 = rsa_encrypt(&msg_plain_1[0], PLAIN_LEN);
+	print_debug("\nmsg_plain_1:\n", msg_plain_1, PLAIN_LEN);
+	print_debug("\nmsg_plain_2:\n", msg_plain_2, PLAIN_LEN);
 
-        if(WRITE_FILE){
-            std::ofstream ciphertext_1("ciphertext_1");
-            if(ciphertext_1.is_open()){
-                for(int i = 0; i < RSA_ENC_LEN; i++){
-                    ciphertext_1 << msg_enc_1[i];
-                }
-                ciphertext_1.close();
-            }
-        }
+	unsigned char* msg_enc_1 = rsa_encrypt(&msg_plain_1[0], PLAIN_LEN);
+	print_debug("\nCiphertext_1:\n", msg_enc_1, RSA_ENC_LEN);
+	write_debug("ciphertext_1", msg_enc_1, RSA_SIG_LEN);
 
-        unsigned char* msg_enc_2 = rsa_encrypt(&msg_plain_2[0], PLAIN_LEN);
+    	unsigned char* msg_enc_2 = rsa_encrypt(&msg_plain_2[0], PLAIN_LEN);
+    	print_debug("\nCiphertext_2:\n", msg_enc_2, RSA_ENC_LEN);
+    	write_debug("ciphertext_2", msg_enc_2, RSA_SIG_LEN);
 
-        if(WRITE_FILE){
-            std::ofstream ciphertext_2("ciphertext_2");
-            if(ciphertext_2.is_open()){
-                for(int i = 0; i < RSA_ENC_LEN; i++){
-                    ciphertext_2 << msg_enc_2[i];
-                }
-                ciphertext_2.close();
-            }
-        }
+	//unsigned char final_cipher_buf[FINAL_CIPHER_LEN];
 	
-	//Made this into a private class variable
-
-
-        for(int i = 0; i < RSA_ENC_LEN; i++){
+	for(int i = 0; i < RSA_ENC_LEN; i++){
 		final_cipher_buf[i] = msg_enc_1[i];
 		final_cipher_buf[i+RSA_ENC_LEN] = msg_enc_2[i];
-        }
+	}
+
+	print_debug("\nFinal Ciphertext:\n", final_cipher_buf, FINAL_CIPHER_LEN);
+	write_debug("finalciphertext", final_cipher_buf, FINAL_CIPHER_LEN);
 }
 
 

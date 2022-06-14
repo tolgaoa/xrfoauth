@@ -36,7 +36,7 @@
 #define	RSA_ENC_LEN 512
 #define FINAL_CIPHER_LEN 1024
 
-#define DEBUG 1
+#define DEBUG 0
 #define WRITE_FILE 1
 
 namespace xrf {
@@ -50,14 +50,14 @@ class xapp_msg{
 		virtual ~xapp_msg();
 		void operator=(xapp_msg const&) = delete;
 
-		void print_debug(const std::string&, unsigned char*, unsigned int);
+		void print_debug(const std::string&, unsigned char buf[], unsigned int len);
 		/*
 		 * @param[string] : string
 		 * @param[debug_msg] : pointer to debug msg array
 		 * @param[debug_msg_len] : debug msg length
 		 */
 
-		void write_debug(const std::string&, unsigned char*, unsigned int);
+		void write_debug(const std::string&, unsigned char msg[], unsigned int msg_len);
 		/*
 		 * @param[stirng] : string
 		 * @param[write_msg] : address of the msg to be written to file
