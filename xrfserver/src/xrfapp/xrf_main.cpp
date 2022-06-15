@@ -96,8 +96,8 @@ void xrf_main::handle_auth_request
 
 	int xapp_auth_result = xrf_msg_inst->final_verification(rec_str);
 	if (xapp_auth_result == 1) spdlog::info("Rejoice! xApp authentication successful!");
-	else if (xapp_auth_result == 0) spdlog::warning("Alas! xApp authentication failed!");
-	else spdlog::warning("Unspecified signature verification error");
+	else if (xapp_auth_result == 0) spdlog::warn("Alas! xApp authentication failed!");
+	else spdlog::warn("Unspecified signature verification error");
 	
 	//--------------------Sudip's function-----------------------------
 	std::string response_challenge = "Sudip's String B";
