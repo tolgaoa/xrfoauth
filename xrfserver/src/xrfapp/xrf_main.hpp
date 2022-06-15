@@ -23,7 +23,7 @@
 
 #include "spdlog/spdlog.h"
 
-#include "xrf_rec_msg.hpp"
+#include "xrf_msg.hpp"
 #include "xrf_jwt.hpp"
 //#include "xrf_profile.hpp"
 

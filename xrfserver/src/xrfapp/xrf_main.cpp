@@ -31,6 +31,7 @@ using namespace std::chrono;
 
 extern xrf_main* xrf_main_inst;
 xrf_jwt* xrf_jwt_inst = nullptr;
+xrf_msg* xrf_msg_inst = nullptr;
 
 void xrf_main::access_token_request(
 		const std::string& request_main, AccessTokenRsp& access_token_rsp, 
@@ -73,8 +74,9 @@ void xrf_main::handle_auth_request
         std::vector<std::string> kvpairs;
         boost::split(kvpairs, request_main, boost::is_any_of("&"), boost::token_compress_on);
 
+        std::vector<std::string> kv;
 	for (auto i : kvpairs){
-                std::vector<std::string> kv;
+                //std::vector<std::string> kv;
                 boost::split(kv, i, boost::is_any_of(":"), boost::token_compress_on);
                 if (kv.size() != 2){
                         spdlog::warn("Invalid Request--Expecting single KVpair--Received more");
@@ -82,8 +84,21 @@ void xrf_main::handle_auth_request
 		printf("(Key, Value):  %s, %s \n", kv[0].c_str(), kv[1].c_str());
 		//spdlog::info("(Key, Value):  %s, %s \n", kv[0].c_str(), kv[1].c_str());
         }
-		
+
+        
+
 	spdlog::info("Starting processing of Incoming Authentication Request");	
+	//------Processing the incoming string from authentication of the xApp-------
+	std::string rec_str = kv[1];
+	rec_str.erase(rec_str.begin()+0);
+	rec_str.erase(rec_str.end()-1);
+	rec_str.erase(rec_str.end()-1);
+
+	int xapp_auth_result = xrf_msg_inst->final_verification(rec_str);
+	if (xapp_auth_result == 1) spdlog::info("Rejoice! xApp authentication successful!");
+	else if (xapp_auth_result == 0) spdlog::info("Alas! xApp authentication failed!");
+	else spdlog::info("Unspecified signature verification error");
+
 	//--------------------Sudip's function-----------------------------
 	std::string response_challenge = "Sudip's String B";
         const std::string str1 = response_challenge;

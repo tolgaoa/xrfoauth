@@ -5,6 +5,6 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../api-server/)
 
 add_library (XRF STATIC 
 	xrf_jwt.cpp
-	xrf_rec_msg.cpp
+	xrf_msg.cpp
 	xrf_main.cpp
 	)

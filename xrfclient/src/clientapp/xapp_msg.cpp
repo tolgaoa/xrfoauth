@@ -5,7 +5,7 @@
  * OAUTH 2.0 server using JSON web tokens as the execution method of the tokens
  *
  *
- * ! file xapp_msg.hpp
+ * ! file xapp_msg.cpp
  *  \brief
  * \author: Sudip Maitra
  * \Affiliation: VirginiaTech
