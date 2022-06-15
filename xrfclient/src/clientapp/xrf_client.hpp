@@ -29,6 +29,16 @@
 #include <utility>
 #include <vector>
 
+#include <unistd.h>
+#include <boost/algorithm/string.hpp>
+#include <boost/algorithm/string/classification.hpp>
+#include <boost/algorithm/string/split.hpp>
+#include <boost/date_time/posix_time/posix_time_types.hpp>
+#include <boost/date_time/posix_time/time_formatters.hpp>
+#include <boost/uuid/random_generator.hpp>
+#include <boost/uuid/uuid_io.hpp>
+
+
 #include "spdlog/spdlog.h"
 #include <string>
 #include <iostream>
@@ -54,7 +64,7 @@ class xrf_client {
 
 		xrf_client(xrf_client const&) = delete;
 		void operator=(xrf_client const &) = delete;
-
+		
 		void curl_create_handle(const std::string& uri, const std::string& data,
                          std::string& response_data, uint8_t http_version);
 		/*

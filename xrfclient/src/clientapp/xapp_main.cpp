@@ -44,22 +44,18 @@ void xapp_main::create_xappclient_profile() {
 
 void xapp_main::sendauth_to_xrf(const std::string& challenge, const std::string& xrfaddress){
 	
-	std::string str1 = "temp1";
-
+	std::string response_from_xrf;;
 	std::string str;
 
 	spdlog::info("Creating challenge");
-	
 	xapp_msg_inst->create_final_msg(str);
-
-
 	spdlog::info("Challenge created");
-	spdlog::debug("String is:");
-	spdlog::debug(str);
+	//spdlog::debug("String is:");
+	//spdlog::debug(str);
 
 	spdlog::info("Creating Client");
-
-	xrf_client_inst->curl_create_handle(xrfaddress, str, str1, 1);
+	xrf_client_inst->curl_create_handle(xrfaddress, str, response_from_xrf, 1);
+	std::cout << "Response from XRF: " << response_from_xrf << std::endl;
 	spdlog::info("Client Created");
 }
 

@@ -20,10 +20,10 @@ using json = nlohmann::json;
 
 extern xrf_client* xrf_client_inst;
 
-static std::size_t callback(const char* in, std::size_t size, std::size_t num, std::string* out){
-	const std::size_t totalBytes(size *num);
-	out->append(in, totalBytes);
-	return totalBytes;
+static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *userp)
+{
+    ((std::string*)userp)->append((char*)contents, size * nmemb);
+    return size * nmemb;
 }
 
 xrf_client::xrf_client() {
@@ -70,8 +70,8 @@ void xrf_client::curl_create_handle(const std::string& uri, const std::string& d
 	std::string datakvend =  "\"}";
 	std::string datasend = datakvsta + data + datakvend; 
 	
-	spdlog::debug("JSON created is");
-        spdlog::debug(datasend);
+	//spdlog::debug("JSON created is");
+        //spdlog::debug(datasend);
 
 	if(curl) {
                 curl_easy_setopt(curl, CURLOPT_URL, uri.c_str());
@@ -79,12 +79,33 @@ void xrf_client::curl_create_handle(const std::string& uri, const std::string& d
                 curl_easy_setopt(curl, CURLOPT_HTTPHEADER, slist1);
                 curl_easy_setopt(curl, CURLOPT_POSTFIELDS, datasend.c_str());
                 //curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json_data);
-                curl_easy_setopt(curl, CURLOPT_READDATA, &readBuffer);
+                //curl_easy_setopt(curl, CURLOPT_READDATA, &readBuffer);
+                curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
+                curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
                 res = curl_easy_perform(curl);
                 curl_easy_cleanup(curl);
+        }
 
-                std::cout << readBuffer << std::endl;
-        }	
+        std::map<std::string, std::string> request;
+        std::vector<std::string> kvpairs;
+        boost::split(kvpairs, readBuffer, boost::is_any_of("&"), boost::token_compress_on);
+
+        std::vector<std::string> kv;
+        for (auto i : kvpairs){
+                //std::vector<std::string> kv;
+                boost::split(kv, i, boost::is_any_of(":"), boost::token_compress_on);
+                if (kv.size() != 2){
+                        spdlog::warn("Invalid Request--Expecting single KVpair--Received more");
+                }else request[kv[0]] = kv[1];
+                //`printf("(Key, Value):  %s, %s \n", kv[0].c_str(), kv[1].c_str());
+                //spdlog::info("(Key, Value):  %s, %s \n", kv[0].c_str(), kv[1].c_str());
+        }
+        std::string rec_str = kv[1];
+        rec_str.erase(rec_str.begin()+0);
+        rec_str.erase(rec_str.end()-1);
+        rec_str.erase(rec_str.end()-1);
+	
+	response_data = rec_str;
 }
 
 /*void xrf_client::send_curl_easy(const std::string& uri, const std::string& data, 
