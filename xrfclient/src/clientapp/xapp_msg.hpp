@@ -42,7 +42,7 @@
 #define ENCODE_DATA_LEN 1369
 
 #define DEBUG 0
-#define WRITE_FILE 1
+#define WRITE_FILE 0
 
 namespace xrf {
 namespace app {
@@ -106,7 +106,7 @@ class xapp_msg{
 		 * return pointer to encrypted buffer
 		 */
 		
-		std::string create_final_msg(unsigned char final_cipher_buf[]);
+		void create_final_msg(std::string&str);
 		/*
 		 * Create final msg for sending out
 		 * return void

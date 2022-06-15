@@ -173,14 +173,14 @@ unsigned char* xapp_msg::rsa_encrypt(unsigned char* msg_plain, long int msg_plai
 	return msg_enc;
 }
 
-std::string xapp_msg::create_final_msg(unsigned char final_cipher_buf[FINAL_CIPHER_LEN]) {
+void xapp_msg::create_final_msg(std::string&str) {
+
 	unsigned char m_buf[RND_LENGTH];
 	gen_rand(m_buf);
-	//spdlog::debug("\nm:\n", m_buf, RND_LENGTH);
 
 	unsigned char hm_buf[SHA256_LENGTH];
 	SHA256(m_buf, RND_LENGTH, hm_buf);
-	//print_debug("\nH(m):\n", hm_buf, SHA256_LENGTH);
+	print_debug("\nH(m):\n", hm_buf, SHA256_LENGTH);
 
 	unsigned char *sig_buf = gen_sig(hm_buf);
 
@@ -201,7 +201,7 @@ std::string xapp_msg::create_final_msg(unsigned char final_cipher_buf[FINAL_CIPH
     	print_debug("\nCiphertext_2:\n", msg_enc_2, RSA_ENC_LEN);
     	write_debug("ciphertext_2", msg_enc_2, RSA_SIG_LEN);
 
-	//unsigned char final_cipher_buf[FINAL_CIPHER_LEN];
+	unsigned char final_cipher_buf[FINAL_CIPHER_LEN];
 	
 	for(int i = 0; i < RSA_ENC_LEN; i++){
 		final_cipher_buf[i] = msg_enc_1[i];
@@ -210,21 +210,13 @@ std::string xapp_msg::create_final_msg(unsigned char final_cipher_buf[FINAL_CIPH
 
 	print_debug("\nFinal Ciphertext:\n", final_cipher_buf, FINAL_CIPHER_LEN);
 	write_debug("finalciphertext", final_cipher_buf, FINAL_CIPHER_LEN);
-	
-	std::string str;
 
 	char encodedData[ENCODE_DATA_LEN];
 	int encoded_data_len = EVP_EncodeBlock((unsigned char*)encodedData, final_cipher_buf, FINAL_CIPHER_LEN);
-	//std::cout << encodedData << std::endl;
 	
 	for(int i=0; i < encoded_data_len; i++){
 		str.push_back(encodedData[i]);
 	}
-
-	spdlog::debug("The string to be sent is:");
-	spdlog::debug(str);
-
-	return str;
 }
 
 
