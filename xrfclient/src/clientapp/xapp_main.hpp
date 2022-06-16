@@ -31,6 +31,7 @@
 
 #include "xrf_client.hpp"
 #include "xapp_msg.hpp"
+#include "xapp_profile.hpp"
 #include "spdlog/spdlog.h"
 
 namespace xrf {
@@ -50,22 +51,11 @@ class xapp_main {
 		 * @param[xrfaddress] : full address path and port for XRF
 		 * return void
 		 */
-
 				
 		void register_with_xrf();
 		/*
 		 * Register the xapp with the XRF server
 		 */
-
-		void create_xappclient_profile();
-		/*
-		 *  Create a profile for the xapp instance
-		 */
-
-		void generate_uuid();
-		/*
-		 * create a random string id for the xapp instance
-	       	 */
 		
 		std::string& create_auth_challenge();
                 /*
@@ -75,6 +65,18 @@ class xapp_main {
 		void send_xapp_registration_request();
 		/*
 		 * initate a request to the XRF for registration
+		 */
+
+                void generate_profile(std::string& instance_id_v, std::string& instance_name_v,
+                                      std::string& instance_status_v, std::string& func_v,
+                                      std::vector<std::string>& addresses);
+		/*
+		 * create xapp profile by invoking setters and creators
+		 */
+
+		void display_profile();
+		/*
+		 * display xapp profile
 		 */
 
         private:

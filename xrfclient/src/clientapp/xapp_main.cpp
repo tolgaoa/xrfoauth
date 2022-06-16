@@ -20,6 +20,7 @@ using namespace xrf::app;
 extern xapp_main* xapp_main_inst;
 xrf_client* xrf_client_inst = nullptr;
 xapp_msg* xapp_msg_inst = nullptr;
+xapp_profile* xapp_profile_inst = nullptr;
 
 void xapp_main::register_with_xrf() {
 	unsigned int wait = 10000;
@@ -28,19 +29,16 @@ void xapp_main::register_with_xrf() {
 	//send_xapp_registration_request();
 }
 
-void xapp_main::generate_uuid(){
-	xappclient_instance_id = to_string(boost::uuids::random_generator()());
+void xapp_main::generate_profile(std::string& instance_id_v, std::string& instance_name_v,
+		  std::string& instance_status_v, std::string& func_v,
+		  std::vector<std::string>& addresses){
+        xapp_profile_inst->create_profile(instance_id_v, instance_name_v, instance_status_v, func_v, addresses);
 };
 
+void xapp_main::display_profile() {
+	xapp_profile_inst->display();
+};
 
-void xapp_main::create_xappclient_profile() {
-	generate_uuid();
-
-	//xappclient_instance_profile.set_xappclient_instance_id(xappclient_instance_id);
-	//xappclient_instance_profile.set_xappclient_status("REGISTERED");
-	//xappclient_instance_profile.set_xappclient_instance_name("xApp1");
-
-}
 
 void xapp_main::sendauth_to_xrf(const std::string& challenge, const std::string& xrfaddress){
 	
@@ -57,6 +55,8 @@ void xapp_main::sendauth_to_xrf(const std::string& challenge, const std::string&
 	xrf_client_inst->curl_create_handle(xrfaddress, str, response_from_xrf, 1);
 	std::cout << "Response from XRF: " << response_from_xrf << std::endl;
 	spdlog::info("Client Created");
+
+
 }
 
 
