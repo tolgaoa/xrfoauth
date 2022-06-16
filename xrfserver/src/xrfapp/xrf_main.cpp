@@ -85,8 +85,6 @@ void xrf_main::handle_auth_request
 		//spdlog::info("(Key, Value):  %s, %s \n", kv[0].c_str(), kv[1].c_str());
         }
 
-        
-
 	spdlog::info("Starting processing of Incoming Authentication Request");	
 	//------Processing the incoming string from authentication of the xApp-------
 	std::string rec_str = kv[1];

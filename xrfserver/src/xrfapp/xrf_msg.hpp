@@ -35,7 +35,7 @@
 #define FINAL_CIPHER_LEN 1024
 #define ENCODE_DATA_LEN 1369
 
-#define DEBUG 1
+#define DEBUG 0
 #define WRITE_FILE 0
 
 
@@ -121,10 +121,6 @@ namespace app{
              * @param[str] : str will be updated with the final msg by the function
              * @param[rec_msg] : pass in the received challenege 
              */
-
-
-
-
     };
 }
 }

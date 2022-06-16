@@ -50,12 +50,22 @@ void xapp_main::sendauth_to_xrf(const std::string& challenge, const std::string&
 	spdlog::info("Creating challenge");
 	xapp_msg_inst->create_final_msg(str);
 	spdlog::info("Challenge created");
-	//spdlog::debug("String is:");
-	//spdlog::debug(str);
 
 	spdlog::info("Creating Client");
 	xrf_client_inst->curl_create_handle(xrfaddress, str, response_from_xrf, 1);
 	std::cout << "Response from XRF: " << response_from_xrf << std::endl;
+	/*
+				Process for XRF ID authentication by xApp
+	*/
+
+	unsigned char xrf_challenge[RND_LENGTH];
+
+	int xrf_auth_result = xapp_msg_inst->final_verification(response_from_xrf, xrf_challenge);
+
+	if (xrf_auth_result == 1) spdlog::info("Rejoice! xApp authentication successful!");
+	else if (xrf_auth_result == 0) spdlog::warn("Alas! xApp authentication failed!");
+	else spdlog::warn("Unspecified signature verification error");
+
 	spdlog::info("Client Created");
 }
 

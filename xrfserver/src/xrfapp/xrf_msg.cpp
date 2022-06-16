@@ -137,7 +137,6 @@ int xrf_msg::final_verification(const std::string&rec_str, unsigned char m_buf[]
     /*
                             Load ciphertext in from rec_str
     */
-    std::cout << "\nReceived string:\n" << rec_str << std::endl;
     int rec_str_len = rec_str.length();
     char rec_char_array[rec_str_len+1];
     strcpy(rec_char_array, rec_str.c_str());

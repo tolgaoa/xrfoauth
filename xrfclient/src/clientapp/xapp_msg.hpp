@@ -102,6 +102,38 @@ class xapp_msg{
 		 * Create final msg for sending out
 		 * @param[str] : str will be updated with the final msg by the function
 		 */
+
+        unsigned char* rsa_decrypt(unsigned char* cip_buf, long int cip_len);
+        /*
+         * @param[cip_buf] : cipher buffer
+         * @param[cip_len] : cipher length
+         * return plaintext pointer
+         */
+
+        void prep_msg_2(unsigned char m_buf[], unsigned char sig_buf[], unsigned char msg_plain_1[], unsigned char msg_plain_2[]);
+        /*
+         * extracts and prepares the message and signature from the plaintext 1 & 2 for verification
+         * @param[m_buf] : plaintext to be populated by the function
+         * @param[sig_buf] : signature to be populated by the funciton
+         * @param[msg_plain_1] : the half of the message after decryption
+         * @param[msg_plain_2] : the other half of the message after decryption
+         */
+
+        int verify_sig(unsigned char* md_buf, unsigned char* sig_buf);
+        /*
+         * verification of signature
+         * @param[md_buf] : hash of m
+         * @param[sig_buf] : signature to be verified
+         * return 1 if successful, 0 if unsuccessful, something else for unexpected errors
+         */
+
+        int final_verification(const std::string&rec_str, unsigned char m_buf[]);
+        /*
+         * final verification function being called from xrf_main
+         * @param[rec_str] : string received from xapp, passed to this funciton from xrf_main
+         * @param[m_buf] : funciton updates this buffer with the plaintext challenge sent by xApp
+         * return 1 if successful, 0 if unsuccessful, something else for unexpected errors
+         */
 	
 };
 
