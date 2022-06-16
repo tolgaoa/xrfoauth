@@ -20,7 +20,7 @@ int main(int argc, char** argv){
 	//Set log level debug
 	spdlog::set_level(spdlog::level::debug);
 
-	const std::string xrfaddress = "http://172.17.0.2:9090/init/auth";
+	const std::string xrfaddress = "http://10.0.0.135:9090/init/auth";
 
 	//---------------------------Create xApp Profile-----------------------------	
 	spdlog::info("Creating xApp Profile");
