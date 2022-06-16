@@ -69,15 +69,6 @@ class xapp_msg{
 		 * @param[write_msg_len] : length of the msg to be written to file
 		 */
 
-//TA:-----------------------ADDED This------------------------------------------
-		void calc_hash(unsigned char m_buf[], unsigned char hm_buf[]);
-		/*
-		 * @param[m_buf] : message buffer
-		 * @param[hm_buf] : hashed message buffer
-		 * return void
-		 */
-//------------------------------------------------------------------------------
-
 		void gen_rand(unsigned char rand_buf[]);
 		/*
 		 * @param[rand_buf[]] : buffer for random number
@@ -109,7 +100,7 @@ class xapp_msg{
 		void create_final_msg(std::string&str);
 		/*
 		 * Create final msg for sending out
-		 * return void
+		 * @param[str] : str will be updated with the final msg by the function
 		 */
 	
 };

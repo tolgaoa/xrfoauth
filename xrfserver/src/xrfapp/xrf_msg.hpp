@@ -85,12 +85,45 @@ namespace app{
              * return 1 if successful, 0 if unsuccessful, something else for unexpected errors
              */
 
-            int final_verification(const std::string&rec_str);
+            int final_verification(const std::string&rec_str, unsigned char m_buf[]);
             /*
              * final verification function being called from xrf_main
              * @param[rec_str] : string received from xapp, passed to this funciton from xrf_main
+             * @param[m_buf] : funciton updates this buffer with the plaintext challenge sent by xApp
              * return 1 if successful, 0 if unsuccessful, something else for unexpected errors
              */
+
+            unsigned char* gen_sig(unsigned char hm_buf[]);
+            /*
+             * @param[hm_buf] : hash of random number
+             * return signature buffer pointer
+             */
+
+            void prep_msg_1(unsigned char m_buf[], unsigned char sig_buf[], unsigned char msg_plain_1[], unsigned char msg_plain_2[]);
+            /*
+             * @param[m_buf[]] : random number
+             * @param[sig_buf[]] : signature
+             * @param[input1] : address of the first input to be concatenated i.e., m_buf  
+             * @param[input2] : address of the first input to be concatenated i.e., sig_buf
+             * prepares two input buffers with messages for encryption
+             */
+
+            unsigned char* rsa_encrypt(unsigned char* msg_plain, long int msg_plain_len);
+            /*
+             * @param[msg_plain]
+             * @param[msg_plain_len]
+             * return pointer to encrypted buffer
+             */
+
+            void create_final_msg(std::string&str, unsigned char m_buf[]);
+            /*
+             * Create final msg for sending out
+             * @param[str] : str will be updated with the final msg by the function
+             * @param[rec_msg] : pass in the received challenege 
+             */
+
+
+
 
     };
 }

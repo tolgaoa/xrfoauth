@@ -54,13 +54,6 @@ void xapp_msg::gen_rand(unsigned char rand_buf[]){
         if(rc != 1) spdlog::debug("Random number generation failed");
 }
 
-//TA:-----------ADDED this------------------------------------
-void xapp_msg::calc_hash(unsigned char m_buf[], unsigned char hm_buf[]){
-        size_t n = RND_LENGTH;
-        SHA256(m_buf, n, hm_buf);
-}
-//------------------------------------------------------------
-
 unsigned char* xapp_msg::gen_sig(unsigned char hm_buf[]){
         /*
 	Generate Signature: E(PR_xApp, H(m))
@@ -112,12 +105,6 @@ void xapp_msg::prep_msg(unsigned char m_buf[], unsigned char sig_buf[], unsigned
         for(int i = RND_LENGTH; i < MSG_BUFLEN; i++){
                 msg_buf[i] = sig_buf[i-RND_LENGTH];
         }
-
-
-	/*spdlog::debug("msg:");
-	for(int i = 0; i < MSG_BUFLEN; i++){
-		spdlog::debug("%02x",msg_buf[i]);
-	}*/
 
         if(WRITE_FILE){
                 std::ofstream plaintextFile("plaintext");
@@ -177,6 +164,7 @@ void xapp_msg::create_final_msg(std::string&str) {
 
 	unsigned char m_buf[RND_LENGTH];
 	gen_rand(m_buf);
+        print_debug("\nm:\n", m_buf, RND_LENGTH);
 
 	unsigned char hm_buf[SHA256_LENGTH];
 	SHA256(m_buf, RND_LENGTH, hm_buf);
