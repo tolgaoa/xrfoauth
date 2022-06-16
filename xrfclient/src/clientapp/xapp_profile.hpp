@@ -24,12 +24,12 @@
 #include <utility>
 #include <vector>
 #include <iostream>
+#include <string>
 
 #include <boost/uuid/uuid.hpp>            // uuid class
 #include <boost/uuid/uuid_generators.hpp> // generators
 #include <boost/uuid/uuid_io.hpp>	  // streaming operators etc.
 
-#include "profile.h"
 #include "spdlog/spdlog.h"
 
 namespace xrf {
@@ -39,11 +39,17 @@ using namespace std;
 
 class xapp_profile {
 	public:
-                explicit xapp_profile();
-                xapp_profile(xapp_profile const&) = delete;
-                virtual ~xapp_profile();
+		xapp_profile(std::string id, std::string name, std::string status, std::string func, std::string addresses)
+		{
+			xapp_instance_id = id;
+			xapp_instance_name = name;
+			xapp_instance_status = status;
+			xapp_instance_func = func;
+			ipv4_addresses = addresses;
+		}
+		virtual ~xapp_profile () {}
 
-		void set_instance_id(std::string& instance_id_v); 
+		void set_instance_id(std::string instance_id); 
 		/*
 		 * set instance id for an xapp instance manually
 		 * @param instance_id 
@@ -59,7 +65,7 @@ class xapp_profile {
 		 * retreive the id of an xapp instance
 		 */
 
-		void set_instance_name(std::string& instance_name_v);
+		void set_instance_name(std::string instance_name);
 		/*
 		 * set the instance name for an xapp instance
 		 * @param instance name
@@ -70,7 +76,7 @@ class xapp_profile {
 		 * retreive the name of an xapp instance
 		 */
 
-		void set_status(std::string& instance_status_v);
+		void set_status(std::string instance_status);
 		/*
 		 * set the status of an xapp instance
 		 * @param instance status
@@ -81,7 +87,7 @@ class xapp_profile {
 		 * retrieve the status of an xapp instance
 		 */
 
-		void set_func(std::string& func_v);
+		void set_func(std::string instance_func);
 		/*
 		 * set the function of an xapp instance
 		 * @param instance function
@@ -92,32 +98,39 @@ class xapp_profile {
 		 * get the function of an xapp instance
 		 */
 
-		void set_ipv4(std::vector<std::string>& addresses);
+		void set_ipv4(std::string addresses);
 		/*
 		 * set the ipv4 addresses for the xapp instance
 		 * @param addresses: set of addresses
 		 */
 
-		void create_profile(std::string& instance_id_v, std::string& instance_name_v,
-                                  std::string& instance_status_v, std::string& func_v,
-                                  std::vector<std::string>& addresses);
+		void create_profile(std::string instance_id_v, std::string instance_name_v,
+                                  std::string instance_status_v, std::string func_v,
+                                  std::string addresses);
+		/*
+		 * @param : all class variables
+		 * create profile from scratch 
+		 */
 
+		void profile_to_json(nlohmann::json& data);
+		/*
+		* turn xapp profile to json
+		* @param data: Json data
+		* @return void
+		*/
+		
 		void display();
 		/*
 		 * display the xapp information
 		 */
 		
-		void create_uuid();
-		/*
-		 * randomize uuid for instance_id calling
-		 */
-
-		std::string instance_id;
-		std::string instance_name;
-		std::string status;
-		std::string func;
-		std::vector<string> ipv4_addresses;
-	     	       
+	private:
+		std::string xapp_instance_id;
+		std::string xapp_instance_name;
+		std::string xapp_instance_status;
+		std::string xapp_instance_func;
+		std::string ipv4_addresses;
+		nlohmann::json custom_info;
 };
 
 } // namespace app

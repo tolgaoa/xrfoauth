@@ -90,22 +90,6 @@ class xrf_main{
 		  * @param{problem_details}: auto generated api parameter describing error cases
 		  */
 
-
-	private:
-		 /*std::string xrf_id;
-		 std::map<std::string, std::shared_ptr<xrf_profile>> instance_id_to_xrf_profile;
-		 std::shared_mutex mut_instance_id_conv_xrf_profile;
-
-  		 std::map<std::string, std::shared_ptr<xrf_subscription>>subscrition_id_conv_xrf_subscription;
-                 mutable std::shared_mutex mut_subscription_id_conv_xrf_subscription;
-                 xrf_event& m_event_sub;
-                 util::uint_generator<uint32_t> evsub_id_generator;
-                 std::vector<bs2::connection> connections;
-
-                 util::uint_generator<uint32_t> search_id_generator;
-                 std::map<std::string, std::shared_ptr<xrf_search_result>>search_id_conv_search_result;
-                 mutable std::shared_mutex mut_search_id_conv_search_result;*/
-
 };
 
 }

@@ -20,25 +20,30 @@ int main(int argc, char** argv){
 	//Set log level debug
 	spdlog::set_level(spdlog::level::debug);
 
-	const std::string xrfaddress = "http://10.0.0.135:9090/init/auth";
+	const std::string xrfaddress_auth_endpoint = "http://172.17.0.2:9090/init/auth";
+	const std::string xrfaddress_reg_endpoint = "http://172.17.0.2:9090/xapp/disc/0001";
 
 	//---------------------------Create xApp Profile-----------------------------	
 	spdlog::info("Creating xApp Profile");
-        std::string instance_id_v = "xAppUUIDCreate";
+        std::string instance_id_v = "Generate UUID Internally";
         std::string instance_name_v = "testxApp1";
         std::string instance_status_v = "Initial Spawn";
         std::string func_v = "TS";
-	std::vector<string> addresses = {"172.17.0.2"};
-	
+	std::string addresses = "172.17.0.2";
+
 	xapp_main_inst->generate_profile(instance_id_v, instance_name_v, instance_status_v, func_v, addresses);
 	xapp_main_inst->display_profile();
 	spdlog::info("xApp Profile Created");
+	//---------------------------------------------------------------------------
+	
+	//--------------------------XRF Registration---------------------------------
+	xapp_main_inst->register_with_xrf(xrfaddress_reg_endpoint);
 	//---------------------------------------------------------------------------
 
 	//--------------------------Send Authentication Challenge--------------------
 	spdlog::info("Sending Initial Authentication Challenge to XRF");
 	const std::string xrfchallenge = "Sudip's String A" ;
-	xapp_main_inst->sendauth_to_xrf(xrfchallenge, xrfaddress);
+	//xapp_main_inst->sendauth_to_xrf(xrfchallenge, xrfaddress_auth_endpoint);
 	spdlog::info("Completed Initial Authentication with XRF");	
 	//---------------------------------------------------------------------------
 	

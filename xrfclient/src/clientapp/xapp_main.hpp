@@ -38,6 +38,7 @@ namespace xrf {
 namespace app {
 
 class xapp_main {
+
 	public:
 		explicit xapp_main();
 		xapp_main(xapp_main const&) = delete;
@@ -52,7 +53,7 @@ class xapp_main {
 		 * return void
 		 */
 				
-		void register_with_xrf();
+		void register_with_xrf(const std::string& xrfaddress);
 		/*
 		 * Register the xapp with the XRF server
 		 */
@@ -67,9 +68,9 @@ class xapp_main {
 		 * initate a request to the XRF for registration
 		 */
 
-                void generate_profile(std::string& instance_id_v, std::string& instance_name_v,
-                                      std::string& instance_status_v, std::string& func_v,
-                                      std::vector<std::string>& addresses);
+                void generate_profile(std::string instance_id_v, std::string instance_name_v,
+                                      std::string instance_status_v, std::string func_v,
+                                      std::string addresses);
 		/*
 		 * create xapp profile by invoking setters and creators
 		 */
@@ -80,8 +81,8 @@ class xapp_main {
 		 */
 
         private:
-                //xappclient_profile xappclient_instance_profile;
                 std::string xappclient_instance_id;
+		xapp_profile xapp_instance_profile;
 };
 
 

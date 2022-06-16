@@ -22,17 +22,25 @@ xrf_client* xrf_client_inst = nullptr;
 xapp_msg* xapp_msg_inst = nullptr;
 xapp_profile* xapp_profile_inst = nullptr;
 
-void xapp_main::register_with_xrf() {
-	unsigned int wait = 10000;
-	usleep(wait);
-	//create_xappclient_profile();
-	//send_xapp_registration_request();
+void xapp_main::register_with_xrf(const std::string& xrfaddress) {
+	std::string response_from_xrf;
+	std::string str;
+
+	nlohmann::json data;
+	xapp_profile_inst->profile_to_json(data);
+	xrf_client_inst->curl_create_handle(xrfaddress, str, response_from_xrf,1);
+	//std::cout << data << std::endl;
+	
 }
 
-void xapp_main::generate_profile(std::string& instance_id_v, std::string& instance_name_v,
-		  std::string& instance_status_v, std::string& func_v,
-		  std::vector<std::string>& addresses){
-        xapp_profile_inst->create_profile(instance_id_v, instance_name_v, instance_status_v, func_v, addresses);
+void xapp_main::generate_profile(std::string instance_id_v, std::string instance_name_v,
+		  std::string instance_status_v, std::string func_v,
+		  std::string addresses){
+	
+	boost::uuids::uuid uuid = boost::uuids::random_generator()();
+	xapp_profile *xapp_p = new xapp_profile(to_string(uuid), instance_name_v, instance_status_v, func_v, addresses);
+	xapp_profile_inst = xapp_p;
+        //xapp_profile_inst->create_profile(instance_id_v, instance_name_v, instance_status_v, func_v, addresses);
 };
 
 void xapp_main::display_profile() {
@@ -48,15 +56,9 @@ void xapp_main::sendauth_to_xrf(const std::string& challenge, const std::string&
 	spdlog::info("Creating challenge");
 	xapp_msg_inst->create_final_msg(str);
 	spdlog::info("Challenge created");
-	//spdlog::debug("String is:");
-	//spdlog::debug(str);
 
-	spdlog::info("Creating Client");
 	xrf_client_inst->curl_create_handle(xrfaddress, str, response_from_xrf, 1);
-	std::cout << "Response from XRF: " << response_from_xrf << std::endl;
-	spdlog::info("Client Created");
-
-
+	spdlog::info("Response from XRF: {}", response_from_xrf);
 }
 
 
