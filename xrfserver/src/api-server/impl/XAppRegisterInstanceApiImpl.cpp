@@ -23,8 +23,15 @@ XAppRegisterInstanceApiImpl::XAppRegisterInstanceApiImpl(
 		std::string addr)
     		: XAppRegisterInstanceApi(rtr), m_xrf_main(xrf_main_inst), m_addr(addr) {}
 
-void XAppRegisterInstanceApiImpl::registerx_app_instance(const std::string &xAppInstanceId, const XAppProfile &xAppProfile, Pistache::Http::ResponseWriter &response) {
-    response.send(Pistache::Http::Code::Ok, "Do some magic\n");
+void XAppRegisterInstanceApiImpl::registerx_app_instance(const Pistache::Rest::Request &request, const std::string &xAppInstanceId, const XAppProfile &xAppProfile, Pistache::Http::ResponseWriter &response) {
+	spdlog::info("Incoming registration request from an xApp");
+	int http_code = 200;
+	ProblemDetails problem_details = {};
+
+	m_xrf_main->handle_reg_request(request.body(), http_code, 1, problem_details);	
+	spdlog::info("Finished registering the XRF");
+
+	response.send(Pistache::Http::Code::Ok, "You have registered with the XRF");
 }
 
 }

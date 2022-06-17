@@ -79,10 +79,10 @@ void xrf_main::handle_auth_request
                 //std::vector<std::string> kv;
                 boost::split(kv, i, boost::is_any_of(":"), boost::token_compress_on);
                 if (kv.size() != 2){
-                        spdlog::warn("Invalid Request--Expecting single KVpair--Received more");
+                        spdlog::warn("Invalid Authentication Request--Expecting single KVpair--Received more");
                 }else request[kv[0]] = kv[1];
-		printf("(Key, Value):  %s, %s \n", kv[0].c_str(), kv[1].c_str());
-		//spdlog::info("(Key, Value):  %s, %s \n", kv[0].c_str(), kv[1].c_str());
+		//printf("(Key, Value):  %s, %s \n", kv[0].c_str(), kv[1].c_str());
+		spdlog::info("(Key, Value):  {} , {}", kv[0].c_str(), kv[1].c_str());
         }
 
         
@@ -108,5 +108,26 @@ void xrf_main::handle_auth_request
 	in_auth_rsp.setChallenge(str1);
 
 };
+
+void xrf_main::handle_reg_request
+	(const std::string& request_main, 
+	 int& http_code, const uint8_t http_version, 
+	 ProblemDetails& problem_details) {
+
+	std::map<std::string, std::string> request;
+        std::vector<std::string> kvpairs;
+        boost::split(kvpairs, request_main, boost::is_any_of(","), boost::token_compress_on);
+
+        std::vector<std::string> kv;
+        for (auto i : kvpairs){
+                //std::vector<std::string> kv;
+                boost::split(kv, i, boost::is_any_of(":"), boost::token_compress_on);
+                request[kv[0]] = kv[1];
+                //printf("(Key, Value):  %s, %s \n", kv[0].c_str(), kv[1].c_str());
+                spdlog::info("\t(Key, Value):  {} , {}", kv[0].c_str(), kv[1].c_str());
+        }
+
+	
+}
 
 

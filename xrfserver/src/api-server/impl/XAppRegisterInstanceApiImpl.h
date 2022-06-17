@@ -51,7 +51,7 @@ public:
     XAppRegisterInstanceApiImpl(std::shared_ptr<Pistache::Rest::Router>& rtr, xrf_main* xrf_main_inst, std::string addr);
     ~XAppRegisterInstanceApiImpl() {};
 
-    void registerx_app_instance(const std::string &xAppInstanceId, const XAppProfile &xAppProfile, Pistache::Http::ResponseWriter &response);
+    void registerx_app_instance(const Pistache::Rest::Request &request, const std::string &xAppInstanceId, const XAppProfile &xAppProfile, Pistache::Http::ResponseWriter &response);
     //void registerx_app_instance(const std::string &xAppInstanceId, const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter &response);
 
 private:

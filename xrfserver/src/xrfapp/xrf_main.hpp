@@ -90,6 +90,13 @@ class xrf_main{
 		  * @param{problem_details}: auto generated api parameter describing error cases
 		  */
 
+		void handle_reg_request(const std::string& request_main, int& http_code, const uint8_t http_version, ProblemDetails& problem_details);
+		/*
+		 * @param{request_main} : contains xApp profile
+		 * @param{httpcode}
+		 * @param{http_version}
+		 * @param{problem_details}
+		 */
 };
 
 }

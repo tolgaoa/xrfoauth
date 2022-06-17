@@ -80,7 +80,7 @@ void XAppRegisterInstanceApi::registerx_app_instance_handler(const Pistache::Res
     }
 
     try {
-        this->registerx_app_instance(xAppInstanceId, xAppProfile, response);
+        this->registerx_app_instance(request, xAppInstanceId, xAppProfile, response);
         //this->registerx_app_instance(xAppInstanceId, request, response);
         //this->registerx_app_instance(request, request, response);
     } catch (Pistache::Http::HttpError &e) {

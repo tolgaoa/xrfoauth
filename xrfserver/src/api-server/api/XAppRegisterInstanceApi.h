@@ -83,7 +83,7 @@ private:
 
     //virtual void registerx_app_instance(const std::string &xAppInstanceId, const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter &response) = 0;
     
-    virtual void registerx_app_instance(const std::string& xAppInstanceId, const xrf::model::XAppProfile& xAppProfile, Pistache::Http::ResponseWriter &response) = 0;
+    virtual void registerx_app_instance(const Pistache::Rest::Request &request, const std::string& xAppInstanceId, const xrf::model::XAppProfile& xAppProfile, Pistache::Http::ResponseWriter &response) = 0;
     
     //virtual void registerx_app_instance(const Pistache::Rest::Request &request, const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter &response) = 0;
 

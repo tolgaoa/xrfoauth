@@ -24,12 +24,11 @@ xapp_profile* xapp_profile_inst = nullptr;
 
 void xapp_main::register_with_xrf(const std::string& xrfaddress) {
 	std::string response_from_xrf;
-	std::string str;
-
+	std::string str = "test";	
+	
 	nlohmann::json data;
 	xapp_profile_inst->profile_to_json(data);
-	xrf_client_inst->curl_create_handle(xrfaddress, str, response_from_xrf,1);
-	//std::cout << data << std::endl;
+	xrf_client_inst->curl_create_handle(xrfaddress, data, response_from_xrf,1);
 	
 }
 
@@ -37,10 +36,8 @@ void xapp_main::generate_profile(std::string instance_id_v, std::string instance
 		  std::string instance_status_v, std::string func_v,
 		  std::string addresses){
 	
-	boost::uuids::uuid uuid = boost::uuids::random_generator()();
-	xapp_profile *xapp_p = new xapp_profile(to_string(uuid), instance_name_v, instance_status_v, func_v, addresses);
+	xapp_profile *xapp_p = new xapp_profile(instance_id_v, instance_name_v, instance_status_v, func_v, addresses);
 	xapp_profile_inst = xapp_p;
-        //xapp_profile_inst->create_profile(instance_id_v, instance_name_v, instance_status_v, func_v, addresses);
 };
 
 void xapp_main::display_profile() {
@@ -50,7 +47,7 @@ void xapp_main::display_profile() {
 
 void xapp_main::sendauth_to_xrf(const std::string& challenge, const std::string& xrfaddress){
 	
-	std::string response_from_xrf;;
+	std::string response_from_xrf;
 	std::string str;
 
 	spdlog::info("Creating challenge");
@@ -59,6 +56,16 @@ void xapp_main::sendauth_to_xrf(const std::string& challenge, const std::string&
 
 	xrf_client_inst->curl_create_handle(xrfaddress, str, response_from_xrf, 1);
 	spdlog::info("Response from XRF: {}", response_from_xrf);
+	//-----------------Process for XRF ID authentication by xApp----------------------------
+	unsigned char xrf_challenge[RND_LENGTH];
+
+	int xrf_auth_result = xapp_msg_inst->final_verification(response_from_xrf, xrf_challenge);
+
+	if (xrf_auth_result == 1) spdlog::info("Rejoice! xApp authentication successful!");
+	else if (xrf_auth_result == 0) spdlog::warn("Alas! xApp authentication failed!");
+	else spdlog::error("Unspecified signature verification error");
+
+
 }
 
 
