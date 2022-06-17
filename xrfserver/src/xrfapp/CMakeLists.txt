@@ -7,4 +7,4 @@ add_library (XRF STATIC
 	xrf_jwt.cpp
 	xrf_msg.cpp
 	xrf_main.cpp
-	)
+	xapp_meta.cpp)
