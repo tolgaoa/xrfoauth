@@ -85,11 +85,11 @@ void xrf_client::curl_create_handle(const std::string& uri, const std::string& d
                 res = curl_easy_perform(curl);
                 curl_easy_cleanup(curl);
         }
-
+	
         std::map<std::string, std::string> request;
         std::vector<std::string> kvpairs;
         boost::split(kvpairs, readBuffer, boost::is_any_of("&"), boost::token_compress_on);
-
+	
         std::vector<std::string> kv;
         for (auto i : kvpairs){
                 //std::vector<std::string> kv;

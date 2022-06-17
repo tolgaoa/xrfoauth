@@ -36,4 +36,5 @@ target_link_libraries(${PROJECT_NAME} OpenSSL::SSL)
 target_link_libraries(${PROJECT_NAME} OpenSSL::Crypto)
 target_link_libraries(${PROJECT_NAME} ${PISTACHE_LIBRARY})
 target_link_libraries(${PROJECT_NAME} curl)
+target_link_libraries(${PROJECT_NAME} boost_system)
 

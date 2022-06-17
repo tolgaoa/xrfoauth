@@ -1,4 +1,4 @@
-FROM ubuntu:focal
+FROM ubuntu:bionic
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Europe/Paris
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
@@ -34,7 +34,9 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade --yes && DE
     ninja-build \
     libboost-all-dev \
     libgtest-dev \
-    nlohmann-json3-dev \
+    libcurl4-openssl-dev \
+    curl \
+    cmake \
   && rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update && apt-get install -y software-properties-common gcc && \
@@ -43,14 +45,20 @@ RUN apt-get update && apt-get install -y software-properties-common gcc && \
 RUN apt-get update && apt-get install -y python3.6 python3-distutils python3-pip python3-apt
 RUN pip3 install numpy
 
+RUN add-apt-repository ppa:team-xbmc/ppa && apt-get update && \
+    apt-get install nlohmann-json3-dev
+    
+
 RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | tee /usr/share/keyrings/kitware-archive-keyring.gpg >/dev/null && \
-    echo 'deb [signed-by=/usr/share/keyrings/kitware-archive-keyring.gpg] https://apt.kitware.com/ubuntu/ focal main' | tee /etc/apt/sources.list.d/kitware.list >/dev/null && \
+    echo 'deb [signed-by=/usr/share/keyrings/kitware-archive-keyring.gpg] https://apt.kitware.com/ubuntu/ bionic main' | tee /etc/apt/sources.list.d/kitware.list >/dev/null && \    
     apt-get update && \
     rm /usr/share/keyrings/kitware-archive-keyring.gpg && \
     apt-get install kitware-archive-keyring && \
-    echo 'deb [signed-by=/usr/share/keyrings/kitware-archive-keyring.gpg] https://apt.kitware.com/ubuntu/ focal-rc main' | tee -a /etc/apt/sources.list.d/kitware.list >/dev/null && \ 
-    apt-get update && \
     apt-get install cmake -y
+
+WORKDIR /usr/src/gtest
+RUN cmake CMakeLists.txt && make
+RUN cp *.a /usr/lib
 
 WORKDIR /root
 RUN git clone https://github.com/arun11299/cpp-jwt.git
