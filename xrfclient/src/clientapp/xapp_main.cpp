@@ -27,7 +27,9 @@ void xapp_main::register_with_xrf(const std::string& xrfaddress) {
 	std::string str = "test";	
 	
 	nlohmann::json data;
+	std::vector<std::string> data_s;
 	xapp_profile_inst->profile_to_json(data);
+	xapp_profile_inst->profile_to_vector_s(data_s);
 	xrf_client_inst->curl_create_handle(xrfaddress, data, response_from_xrf,1);
 	
 }
@@ -62,7 +64,6 @@ void xapp_main::sendauth_to_xrf(const std::string& challenge, const std::string&
 	if (xrf_auth_result == 1) spdlog::info("Rejoice! xApp authentication successful!");
 	else if (xrf_auth_result == 0) spdlog::warn("Alas! xApp authentication failed!");
 	else spdlog::error("Unspecified signature verification error");
-	spdlog::info("Client Created");
 }
 
 

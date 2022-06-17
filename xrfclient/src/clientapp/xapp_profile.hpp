@@ -118,6 +118,13 @@ class xapp_profile {
 		* @param data: Json data
 		* @return void
 		*/
+
+                void profile_to_vector_s(std::vector<std::string>& data);
+                /*
+                * turn xapp profile to string vector
+                * @param data: string vector
+                * @return void
+                */
 		
 		void display();
 		/*

@@ -25,7 +25,7 @@ int main(int argc, char** argv){
 	boost::uuids::uuid uuid = boost::uuids::random_generator()();
         std::string instance_id_v = to_string(uuid);
         std::string instance_name_v = "testxApp1";
-        std::string instance_status_v = "Initial Spawn";
+        std::string instance_status_v = "Authenticated";
         std::string func_v = "TS";
 	std::string addresses = "172.17.0.2";
 

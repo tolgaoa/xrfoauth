@@ -69,7 +69,7 @@ class xrf_client {
                          std::string& response_data, uint8_t http_version);
 		/*
 		 * @param[uri] : target address/port/path
-		 * @param[data] : data to send
+		 * @param[data] : data to send : string
 		 * @param[response_data] : response from target
 		 * @param[http_versoin] : http version
 		 * @return CURL
@@ -79,11 +79,22 @@ class xrf_client {
                          std::string& response_data, uint8_t http_version);
                 /*
                  * @param[uri] : target address/port/path
-                 * @param[data] : data to send
+                 * @param[data] : data to send : json object
                  * @param[response_data] : response from target
                  * @param[http_versoin] : http version
                  * @return CURL
                  */
+
+		void curl_create_handle(const std::string& uri, const std::vector<std::string>& data,
+                         std::string& response_data, uint8_t http_version);
+                /*
+                 * @param[uri] : target address/port/path
+                 * @param[data] : data to send : vector string
+                 * @param[response_data] : response from target
+                 * @param[http_versoin] : http version
+                 * @return CURL
+                 */
+
 
 		void to_json(nlohmann::json& j, const std::string& kv1, const std::string& kv2);
 		/*
