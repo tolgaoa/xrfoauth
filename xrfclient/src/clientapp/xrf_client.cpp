@@ -125,7 +125,6 @@ void xrf_client::curl_create_handle(const std::string& uri, const nlohmann::json
         curl = curl_easy_init();
 
 	const auto s = data.dump(); 
-	//std::cout << "JSON string: " << s << '\n';
 	std::string s1="";
 	for(int i=0;i<s.length();i++)
 	{
@@ -135,16 +134,10 @@ void xrf_client::curl_create_handle(const std::string& uri, const nlohmann::json
 	    s1=s1+s[i]+" ";
 	}
 
-	std::string test = "{\"xAppInstanceId\":\"a29c73f3-9377-43ed-8c7c-0698adcf8674\", \"xAppStatus\":\"Authenticated\", \"xAppIpv4\":\"10.0.0.140\", \"xAppFunc\":\"TS\"}";
-	//std::string test = "{\"xAppFunc\":\"TS\", \"xAppIPv4\":\"10.0.0.140\", \"xAppInstanceId\":\"a29c73f3-9377-43ed-8c7c-0698adcf8674\", \"xAppStatus\":\"Authenticated\"}";
-
-	std::cout << s1 << std::endl;
-	std::cout << test << std::endl;
-
         if(curl) {
                 curl_easy_setopt(curl, CURLOPT_URL, uri.c_str());
                 curl_easy_setopt(curl, CURLOPT_HTTPHEADER, slist1);
-                curl_easy_setopt(curl, CURLOPT_POSTFIELDS, test.c_str());
+                curl_easy_setopt(curl, CURLOPT_POSTFIELDS, s1.c_str());
 		curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "PUT");
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
                 curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);

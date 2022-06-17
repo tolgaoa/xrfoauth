@@ -31,13 +31,13 @@ int main(int argc, char** argv){
 
 	xapp_main_inst->generate_profile(instance_id_v, instance_name_v, instance_status_v, func_v, addresses);
 	xapp_main_inst->display_profile();
-	std::string xrfaddress_reg_endpoint = "http://10.0.0.135:9090/xapp/disc/0001";
+	std::string xrfaddress_reg_endpoint = "http://127.0.0.1:9090/xapp/disc/0001";
 	
 	spdlog::info("xApp Profile Created");
 	//---------------------------------------------------------------------------
 	
 	//--------------------------Send Authentication Challenge--------------------
-	const std::string xrfaddress_auth_endpoint = "http://10.0.0.135:9090/init/auth";
+	const std::string xrfaddress_auth_endpoint = "http://127.0.0.1:9090/init/auth";
 	const std::string xrfchallenge = "Sudip's String A" ;
 	spdlog::info("Sending Initial Authentication Challenge to XRF");
 	xapp_main_inst->sendauth_to_xrf(xrfchallenge, xrfaddress_auth_endpoint);

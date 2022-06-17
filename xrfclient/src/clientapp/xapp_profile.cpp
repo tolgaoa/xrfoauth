@@ -104,7 +104,7 @@ void xapp_profile::profile_to_json(nlohmann::json& data){
 	//data["xAppInstanceName"] = xapp_instance_name;
 	data["xAppStatus"]       = xapp_instance_status;
 	data["xAppFunc"]	 = xapp_instance_func;
-	data["xAppIPv4"] 	 = ipv4_addresses;
+	data["xAppIpv4"] 	 = ipv4_addresses;
 	/*
 	// ipv4_addresses
 	data["ipv4Addresses"] = nlohmann::json::array();
