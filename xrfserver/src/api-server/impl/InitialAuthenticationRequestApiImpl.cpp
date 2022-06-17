@@ -45,9 +45,8 @@ void InitialAuthenticationRequestApiImpl::init_auth_request(const Pistache::Rest
 
 	response.headers().add<Pistache::Http::Header::ContentType>(Pistache::Http::Mime::MediaType(content_type));
         
-	spdlog::debug("Creating JSON Response for Authentication Challenge");
 	response.send(Pistache::Http::Code(http_code), json_data.dump().c_str());	
-	spdlog::info("Authentication Request Processed");
+	spdlog::debug("Created JSON Response for Authentication Challenge");
 }
 
 }

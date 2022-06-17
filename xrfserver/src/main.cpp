@@ -22,13 +22,10 @@ XRFApiServer* api_server = nullptr;
 
 int main(int argc, char** argv){
 
-	//Test JWT
-	//spdlog::info("Testing JWT Elliptic Key Enc/Dec Scheme");
-	//xrf_jwt obj;
-	//obj.test_jwt();
+	spdlog::set_level(spdlog::level::debug);
 
 	spdlog::info("Starting XRF API Server");
-	
+		
 	Pistache::Address addr(Pistache::Ipv4::any(), Pistache::Port(9090));
 	api_server = new XRFApiServer(addr, xrf_main_inst);	
 	api_server->init(2);

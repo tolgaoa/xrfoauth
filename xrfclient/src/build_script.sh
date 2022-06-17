@@ -4,5 +4,5 @@ rm -rf build/
 mkdir build
 cd build 
 cmake ..
-make -j4
+make -j20
 cp ../prv_xapp ../prv_xrf ../pub_xapp ../pub_xrf .

@@ -29,7 +29,7 @@ void XAppRegisterInstanceApiImpl::registerx_app_instance(const Pistache::Rest::R
 	ProblemDetails problem_details = {};
 
 	m_xrf_main->handle_reg_request(request.body(), http_code, 1, problem_details);	
-	spdlog::info("Finished registering the XRF");
+	spdlog::info("Finished registering the xApp");
 
 	response.send(Pistache::Http::Code::Ok, "You have registered with the XRF");
 }

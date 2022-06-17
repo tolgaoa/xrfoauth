@@ -103,7 +103,7 @@ void xrf_main::handle_auth_request
 	std::string response_challenge;
 	xrf_msg_inst->create_final_msg(response_challenge, xapp_challenge);
 
-	std::cout << "\nChallenge to be sent to xApp:\n" << response_challenge << std::endl;
+	spdlog::debug("\nChallenge to be sent to xApp: {}", response_challenge);
 	
         const std::string str1 = response_challenge;
 	//-----------------------------------------------------------------
