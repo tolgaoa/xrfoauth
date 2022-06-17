@@ -85,8 +85,6 @@ void xrf_main::handle_auth_request
 		spdlog::info("(Key, Value):  {} , {}", kv[0].c_str(), kv[1].c_str());
         }
 
-        
-
 	spdlog::info("Starting processing of Incoming Authentication Request");	
 	//------Processing the incoming string from authentication of the xApp-------
 	std::string rec_str = kv[1];
@@ -94,13 +92,19 @@ void xrf_main::handle_auth_request
 	rec_str.erase(rec_str.end()-1);
 	rec_str.erase(rec_str.end()-1);
 
-	int xapp_auth_result = xrf_msg_inst->final_verification(rec_str);
+	unsigned char xapp_challenge[RND_LENGTH];
+
+	int xapp_auth_result = xrf_msg_inst->final_verification(rec_str, xapp_challenge);
+
 	if (xapp_auth_result == 1) spdlog::info("Rejoice! xApp authentication successful!");
 	else if (xapp_auth_result == 0) spdlog::warn("Alas! xApp authentication failed!");
 	else spdlog::warn("Unspecified signature verification error");
+
+	std::string response_challenge;
+	xrf_msg_inst->create_final_msg(response_challenge, xapp_challenge);
+
+	std::cout << "\nChallenge to be sent to xApp:\n" << response_challenge << std::endl;
 	
-	//--------------------Sudip's function-----------------------------
-	std::string response_challenge = "Sudip's String B";
         const std::string str1 = response_challenge;
 	//-----------------------------------------------------------------
 		

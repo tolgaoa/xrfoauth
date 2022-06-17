@@ -58,14 +58,11 @@ void xapp_main::sendauth_to_xrf(const std::string& challenge, const std::string&
 	spdlog::info("Response from XRF: {}", response_from_xrf);
 	//-----------------Process for XRF ID authentication by xApp----------------------------
 	unsigned char xrf_challenge[RND_LENGTH];
-
 	int xrf_auth_result = xapp_msg_inst->final_verification(response_from_xrf, xrf_challenge);
-
 	if (xrf_auth_result == 1) spdlog::info("Rejoice! xApp authentication successful!");
 	else if (xrf_auth_result == 0) spdlog::warn("Alas! xApp authentication failed!");
 	else spdlog::error("Unspecified signature verification error");
-
-
+	spdlog::info("Client Created");
 }
 
 

@@ -42,9 +42,10 @@ int main(int argc, char** argv){
 
 	//--------------------------Send Authentication Challenge--------------------
 	const std::string xrfaddress_auth_endpoint = "http://10.0.0.135:9090/init/auth";
+	const std::string xrfchallenge = "Sudip's String A" ;
 	spdlog::info("Sending Initial Authentication Challenge to XRF");
 	const std::string xrfchallenge = "Sudip's String A" ;
-	//xapp_main_inst->sendauth_to_xrf(xrfchallenge, xrfaddress_auth_endpoint);
+	xapp_main_inst->sendauth_to_xrf(xrfchallenge, xrfaddress_auth_endpoint);
 	spdlog::info("Completed Initial Authentication with XRF");	
 	//---------------------------------------------------------------------------
 	
