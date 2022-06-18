@@ -32,6 +32,7 @@ using namespace std::chrono;
 extern xrf_main* xrf_main_inst;
 xrf_jwt* xrf_jwt_inst = nullptr;
 xrf_msg* xrf_msg_inst = nullptr;
+xapp_meta* xapp_meta_inst = nullptr;
 
 void xrf_main::access_token_request(
 		const std::string& request_main, AccessTokenRsp& access_token_rsp, 
@@ -120,16 +121,26 @@ void xrf_main::handle_reg_request
 
 	std::map<std::string, std::string> request;
         std::vector<std::string> kvpairs;
+	std::vector<std::string> kvpairs1;
         boost::split(kvpairs, request_main, boost::is_any_of(","), boost::token_compress_on);
+	
+	std::string xfunc;
+	std::string xid;	
 
         std::vector<std::string> kv;
         for (auto i : kvpairs){
-                //std::vector<std::string> kv;
                 boost::split(kv, i, boost::is_any_of(":"), boost::token_compress_on);
                 request[kv[0]] = kv[1];
-                //printf("(Key, Value):  %s, %s \n", kv[0].c_str(), kv[1].c_str());
                 spdlog::info("\t(Key, Value):  {} , {}", kv[0].c_str(), kv[1].c_str());
+		if (kv[0] == "xAppFunc") xfunc = kv[1];
+		if (kv[0] == "xAppInstanceId") xid = kv[1];
+		kvpairs1.push_back(kv[1]);
         }
+
+	std::string imap = "imap";
+	std::string fmap = "fmap";
+	xapp_meta_inst->register_profile(kvpairs1, xid, imap);
+	//xapp_meta_inst->register_profile(kvpairs1, xfunc, fmap);
 
 	
 }

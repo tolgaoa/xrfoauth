@@ -17,6 +17,7 @@
 #define FILE_XAPP_META_SEEN
 
 #include <unordered_map>
+#include <iostream>
 
 #include "spdlog/spdlog.h"
 
@@ -55,11 +56,12 @@ class xapp_meta {
 		virtual ~ xapp_meta();
 		void operator = (xapp_meta const&) = delete;
 
-		void register_profile(std::vector<std::string>& data, std::string& key);
+		void register_profile(std::vector<std::string>& data, std::string& key, std::string& map);
 		/*
 		 * Register xApp into unordered_map
 		 * @param[data] : vector string values for xApp data
 		 * @param[key] : key for unordered_map
+		 * @param[map] : which map to update
 		 * return void
 		 */
 
@@ -76,8 +78,10 @@ class xapp_meta {
 		 * @param[key_id] : instance id of profile to delete
 		 * return void
 		 */
+
 	private: 
-		std::unordered_map<std::string, xapp_profile_t> xapp_p;
+		std::unordered_map<std::string, xapp_profile_t> xapp_i_p;
+		std::unordered_map<std::string, xapp_profile_t> xapp_f_p;
 
 };
 

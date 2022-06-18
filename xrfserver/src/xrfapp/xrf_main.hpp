@@ -17,6 +17,7 @@
 
 
 #include <string>
+#include <iostream>
 #include "ProblemDetails.h"
 #include "AccessTokenRsp.h"
 #include "InitAuthRsp.h"
@@ -25,7 +26,7 @@
 
 #include "xrf_msg.hpp"
 #include "xrf_jwt.hpp"
-//#include "xrf_profile.hpp"
+#include "xapp_meta.hpp"
 
 namespace xrf {
 namespace app {
