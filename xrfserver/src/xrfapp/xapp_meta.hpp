@@ -51,10 +51,10 @@ namespace app {
 class xapp_meta {
 
 	public:
-		explicit xapp_meta();
-		xapp_meta(xapp_meta const&) = delete;
+		xapp_meta();
+		//xapp_meta(xapp_meta const&) = delete;
 		virtual ~ xapp_meta();
-		void operator = (xapp_meta const&) = delete;
+		//void operator=(xapp_meta const&) = delete;
 
 		void register_profile(std::vector<std::string>& data, std::string& key, std::string& map);
 		/*
@@ -79,9 +79,13 @@ class xapp_meta {
 		 * return void
 		 */
 
+		std::string testret();
+		void testset(std::string x);
+
 	private: 
 		std::unordered_map<std::string, xapp_profile_t> xapp_i_p;
 		std::unordered_map<std::string, xapp_profile_t> xapp_f_p;
+		std::string test;
 
 };
 

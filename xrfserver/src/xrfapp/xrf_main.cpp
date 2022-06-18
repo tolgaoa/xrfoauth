@@ -137,6 +137,11 @@ void xrf_main::handle_reg_request
 		kvpairs1.push_back(kv[1]);
         }
 
+	xapp_meta *xapp_m = new xapp_meta(); 
+	std::string test1  = xapp_m->testret();
+	std::cout << test1 << std::endl;
+	xapp_m->testset("test1");
+	//xapp_meta_inst = xapp_meta;
 	std::string imap = "imap";
 	std::string fmap = "fmap";
 	xapp_meta_inst->register_profile(kvpairs1, xid, imap);
