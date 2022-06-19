@@ -55,16 +55,36 @@ void xapp_meta::register_profile(std::vector<std::string>& data, std::string& ke
 
 };
 
-void xapp_meta::update_profile(std::string& key_id, std::unordered_map<std::string, xapp_profile_t>& xapp_map, xapp_profile_t xapp_profile){
+void xapp_meta::update_profile(std::string& key_id, std::unordered_map<std::string, xapp_profile_t>& xapp_map_i, std::unordered_map<std::string, xapp_profile_t>& xapp_map_f, xapp_profile_t xapp_profile){
 
-	xapp_map.at(key_id) = xapp_profile;
+	spdlog::info("Updating xApp Profile: {}", key_id);
+	xapp_map_i.at(key_id) = xapp_profile;
+
+        std::unordered_map<std::string, xapp_profile_t>::iterator itf = xapp_map_f.begin();
+        while(itf != xapp_map_f.end()) {
+                if(itf->second.xapp_instance_id == key_id)
+                    break;
+                itf++;
+        }
+	if (itf != xapp_map_f.end()) xapp_map_f.erase(itf);
+	xapp_map_f[xapp_profile.xapp_instance_func] = xapp_profile;
+
 };
 
-void xapp_meta::delete_profile(std::string& key_id, std::unordered_map<std::string, xapp_profile_t>& xapp_map, xapp_profile_t xapp_profile){
+void xapp_meta::delete_profile(std::string& key_id, std::unordered_map<std::string, xapp_profile_t>& xapp_map_i, std::unordered_map<std::string, xapp_profile_t>& xapp_map_f){
 
 	spdlog::info("Removing xApp with ID: {}", key_id);
-	std::unordered_map<std::string, xapp_profile_t>::iterator it = xapp_map.find(key_id);
-	if (it != xapp_map.end()) xapp_map.erase(it);
+	std::unordered_map<std::string, xapp_profile_t>::iterator it = xapp_map_i.find(key_id);
+	if (it != xapp_map_i.end()) xapp_map_i.erase(it);
+	
+	std::unordered_map<std::string, xapp_profile_t>::iterator itf = xapp_map_f.begin();
+	while(itf != xapp_map_f.end()) {
+		if(itf->second.xapp_instance_id == key_id)
+		    break;
+		itf++;
+	}
+	if (itf != xapp_map_f.end()) xapp_map_f.erase(itf);
+
 };
 
 void xapp_meta::display_map(std::unordered_map<std::string, xapp_profile_t>& xapp_map) {

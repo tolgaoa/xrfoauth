@@ -65,18 +65,21 @@ class xapp_meta {
 		 * return void
 		 */
 
-		void update_profile(std::string& key_id, std::unordered_map<std::string, xapp_profile_t>& xapp_map, xapp_profile_t xapp_profile);
+		void update_profile(std::string& key_id, std::unordered_map<std::string, xapp_profile_t>& xapp_map_i, std::unordered_map<std::string, xapp_profile_t>& xapp_map_f, xapp_profile_t xapp_profile);
 		/*
 		 * Update existing profile
 		 * @param[instance_id key] : instance id of profile to update
-		 * @param[] : 
+		 * @param[xapp_map_i] : map for xid and profile 
+		 * @param[xapp_map_f] : map for xfunc and profile 
 		 * return void
 		 */
 
-		void delete_profile(std::string& key_id, std::unordered_map<std::string, xapp_profile_t>& xapp_map, xapp_profile_t xapp_profile);
+		void delete_profile(std::string& key_id, std::unordered_map<std::string, xapp_profile_t>& xapp_map_i, std::unordered_map<std::string, xapp_profile_t>& xapp_map_f);
 		/* 
 		 * delete existing profile
 		 * @param[key_id] : instance id of profile to delete
+		 * @param[xapp_map_i] : map for xid and profile 
+		 * @param[xapp_map_f] : map for xfunc and profile 
 		 * return void
 		 */
 
