@@ -34,6 +34,9 @@ xrf_jwt* xrf_jwt_inst = nullptr;
 xrf_msg* xrf_msg_inst = nullptr;
 xapp_meta* xapp_meta_inst = nullptr;
 
+std::unordered_map<std::string, xapp_profile_t> profile_i;
+std::unordered_map<std::string, xapp_profile_t> profile_f;
+
 void xrf_main::access_token_request(
 		const std::string& request_main, AccessTokenRsp& access_token_rsp, 
 		int& http_code, const uint8_t http_version, 
@@ -76,15 +79,18 @@ void xrf_main::handle_auth_request
         boost::split(kvpairs, request_main, boost::is_any_of("&"), boost::token_compress_on);
 
         std::vector<std::string> kv;
+
+	spdlog::info("=============================================");
+	spdlog::info("=============================================");
 	for (auto i : kvpairs){
-                //std::vector<std::string> kv;
                 boost::split(kv, i, boost::is_any_of(":"), boost::token_compress_on);
                 if (kv.size() != 2){
                         spdlog::warn("Invalid Authentication Request--Expecting single KVpair--Received more");
                 }else request[kv[0]] = kv[1];
-		//printf("(Key, Value):  %s, %s \n", kv[0].c_str(), kv[1].c_str());
 		spdlog::info("(Key, Value):  {} , {}", kv[0].c_str(), kv[1].c_str());
         }
+	spdlog::info("=============================================");
+	spdlog::info("=============================================");
 
 	spdlog::info("Starting processing of Incoming Authentication Request");	
 	//------Processing the incoming string from authentication of the xApp-------
@@ -94,7 +100,6 @@ void xrf_main::handle_auth_request
 	rec_str.erase(rec_str.end()-1);
 
 	unsigned char xapp_challenge[RND_LENGTH];
-
 	int xapp_auth_result = xrf_msg_inst->final_verification(rec_str, xapp_challenge);
 
 	if (xapp_auth_result == 1) spdlog::info("Rejoice! xApp authentication successful!");
@@ -108,7 +113,6 @@ void xrf_main::handle_auth_request
 	
         const std::string str1 = response_challenge;
 	//-----------------------------------------------------------------
-		
 	spdlog::info("Finished processing Incoming Authentication Request");
 	in_auth_rsp.setChallenge(str1);
 
@@ -128,6 +132,18 @@ void xrf_main::handle_reg_request
 	std::string xid;	
 
         std::vector<std::string> kv;
+	std::string reqmod = request_main;
+	
+	reqmod.erase(remove(reqmod.begin(), reqmod.end(), '"'), reqmod.end()); 
+	reqmod.erase(remove(reqmod.begin(), reqmod.end(), '{'), reqmod.end()); 
+	reqmod.erase(remove(reqmod.begin(), reqmod.end(), '}'), reqmod.end()); 
+	reqmod.erase(remove(reqmod.begin(), reqmod.end(), ' '), reqmod.end()); 
+
+        //boost::split(kvpairs, request_main, boost::is_any_of(","), boost::token_compress_on);
+        boost::split(kvpairs, reqmod, boost::is_any_of(","), boost::token_compress_on);
+
+	spdlog::info("=============================================");
+	spdlog::info("=============================================");
         for (auto i : kvpairs){
                 boost::split(kv, i, boost::is_any_of(":"), boost::token_compress_on);
                 request[kv[0]] = kv[1];
@@ -135,19 +151,30 @@ void xrf_main::handle_reg_request
 		if (kv[0] == "xAppFunc") xfunc = kv[1];
 		if (kv[0] == "xAppInstanceId") xid = kv[1];
 		kvpairs1.push_back(kv[1]);
-        }
+        }	
+	spdlog::info("=============================================");
+	spdlog::info("=============================================");
 
-	xapp_meta *xapp_m = new xapp_meta(); 
-	std::string test1  = xapp_m->testret();
-	std::cout << test1 << std::endl;
-	xapp_m->testset("test1");
-	//xapp_meta_inst = xapp_meta;
 	std::string imap = "imap";
 	std::string fmap = "fmap";
-	xapp_meta_inst->register_profile(kvpairs1, xid, imap);
-	//xapp_meta_inst->register_profile(kvpairs1, xfunc, fmap);
+	xapp_meta_inst->register_profile(kvpairs1, xid, imap, profile_i);
+	xapp_meta_inst->register_profile(kvpairs1, xfunc, fmap, profile_f);
 
-	
+	xapp_meta_inst->display_map(profile_i);
+
+
+
+        /*for (auto i : profile_i){
+                std::cout << i.first << std::endl;
+                std::cout << i.second.to_string() << std::endl;
+        }
+
+        for (auto i : profile_f){
+                std::cout << i.first << std::endl;
+                std::cout << i.second.to_string() << std::endl;
+        }*/
+
+
 }
 
 

@@ -56,7 +56,7 @@ class xapp_meta {
 		virtual ~ xapp_meta();
 		//void operator=(xapp_meta const&) = delete;
 
-		void register_profile(std::vector<std::string>& data, std::string& key, std::string& map);
+		void register_profile(std::vector<std::string>& data, std::string& key, std::string& map, std::unordered_map<std::string, xapp_profile_t>& xapp_map);
 		/*
 		 * Register xApp into unordered_map
 		 * @param[data] : vector string values for xApp data
@@ -65,27 +65,30 @@ class xapp_meta {
 		 * return void
 		 */
 
-		void update_profile(std::string& key_id);
+		void update_profile(std::string& key_id, std::unordered_map<std::string, xapp_profile_t>& xapp_map, xapp_profile_t xapp_profile);
 		/*
 		 * Update existing profile
 		 * @param[instance_id key] : instance id of profile to update
+		 * @param[] : 
 		 * return void
 		 */
 
-		void delete_profile(std::string& key_id);
+		void delete_profile(std::string& key_id, std::unordered_map<std::string, xapp_profile_t>& xapp_map, xapp_profile_t xapp_profile);
 		/* 
 		 * delete existing profile
 		 * @param[key_id] : instance id of profile to delete
 		 * return void
 		 */
 
-		std::string testret();
-		void testset(std::string x);
-
+		void display_map(std::unordered_map<std::string, xapp_profile_t>& xapp_map);
+		/* 
+		 * display contents of xapp profile map
+		 * @param[xapp_map] : unordered_map containing xapp_profiles
+		 * return void
+		 */
 	private: 
-		std::unordered_map<std::string, xapp_profile_t> xapp_i_p;
-		std::unordered_map<std::string, xapp_profile_t> xapp_f_p;
-		std::string test;
+		std::unordered_map<std::string, xapp_profile_t*> xapp_i_p;
+		std::unordered_map<std::string, xapp_profile_t*> xapp_f_p;
 
 };
 
