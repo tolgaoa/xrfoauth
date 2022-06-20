@@ -54,6 +54,15 @@ int main(int argc, char** argv){
         xapp_main_inst->register_with_xrf(xrfaddress_reg_endpoint);
         //---------------------------------------------------------------------------
 
+	
+	//--------------------------xApp Discovery Request---------------------------
+	std::string xrfaddress_disc_endpoint = "http://127.0.0.1:9090/xapp/discall";
+	const std::string targetxApp = "TS";
+	const std::string targetLoc = "312";
+        xapp_main_inst->send_discovery_request(xrfaddress_disc_endpoint, targetxApp, targetLoc);
+	//---------------------------------------------------------------------------
+
+
 	return 0;
 }
 

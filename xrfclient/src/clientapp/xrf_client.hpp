@@ -95,6 +95,16 @@ class xrf_client {
                  * @return CURL
                  */
 
+                void curl_create_get_handle(const std::string& uri,
+                         std::string& response_data, uint8_t http_version,
+			 const std::string& targetxApp, const std::string targetLoc);
+                /*
+                 * @param[uri] : target address/port/path
+                 * @param[response_data] : response from target
+                 * @param[http_versoin] : http version
+                 * @return CURL
+                 */
+
 
 		void to_json(nlohmann::json& j, const std::string& kv1, const std::string& kv2);
 		/*

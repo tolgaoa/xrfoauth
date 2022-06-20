@@ -57,6 +57,13 @@ class xapp_main {
 		/*
 		 * Register the xapp with the XRF server
 		 */
+
+		void send_discovery_request(std::string& xrfaddressbase, const std::string& targetxApp, const std::string& targetLoc);
+		/*
+		 * @param[xrfaddressbase] : base address of xrf without queries
+		 * @param[targetxApp] : targetxApp query
+		 * @param[targetLoc] : targetLoc query
+		 */
 		
 		std::string& create_auth_challenge();
                 /*

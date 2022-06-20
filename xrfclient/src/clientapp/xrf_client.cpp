@@ -157,7 +157,6 @@ void xrf_client::curl_create_handle(const std::string& uri, const std::vector<st
         slist1 = NULL;
         slist1 = curl_slist_append(slist1, "Content-Type: application/json");
 
-        std::vector<std::string> keys = {"xAppInstanceId", "xAppInstanceName", "xAppStatus", "xAppFunc", "xAppIPv4", "xAppLocation"};
 
         if(curl) {
                 curl_easy_setopt(curl, CURLOPT_BUFFERSIZE, 102400L);
@@ -165,7 +164,6 @@ void xrf_client::curl_create_handle(const std::string& uri, const std::vector<st
                 curl_easy_setopt(curl, CURLOPT_URL, uri.c_str());
                 curl_easy_setopt(curl, CURLOPT_HTTPHEADER, slist1);
                 curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data);
-                //curl_easy_setopt(curl, CURLOPT_POSTFIELDS, "{\"xAppInstanceId\":\"a29c73f3-9377-43ed-8c7c-0698adcf8674\", \"xAppStatus\":\"InitAuthDone\", \"xAppIpv4\":\"10.0.0.140\", \"xAppFunc\":\"TS\"}");
                 curl_easy_setopt(curl, CURLOPT_POSTFIELDSIZE_LARGE, (curl_off_t)128);
                 curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "PUT");
                 curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
@@ -177,6 +175,46 @@ void xrf_client::curl_create_handle(const std::string& uri, const std::vector<st
 
 }
 
+void xrf_client::curl_create_get_handle(const std::string& uri,
+					std::string& response_data, uint8_t http_version,
+					const std::string& targetxApp, const std::string targetLoc){
+	
+        CURL *curl;
+        CURLcode res;
+        std::string readBuffer;
+	
+	std::string fulluri = uri;;
+	fulluri.push_back('?');
+	fulluri.append("targetxApp");
+	fulluri.push_back('=');
+	fulluri.append(targetxApp);
+	fulluri.push_back('&');
+	fulluri.append("targetLoc");
+	fulluri.push_back('=');
+	fulluri.append(targetLoc);
+
+	spdlog::debug("Target Query is: {}", fulluri);
+
+        if(curl) {
+		curl = curl_easy_init();
+                curl_easy_setopt(curl, CURLOPT_BUFFERSIZE, 102400L);
+                curl_easy_setopt(curl, CURLOPT_NOPROGRESS, 1L);
+		curl_easy_setopt(curl, CURLOPT_MAXREDIRS, 50L);
+                curl_easy_setopt(curl, CURLOPT_URL, fulluri.c_str());
+                curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "GET");
+		curl_easy_setopt(curl, CURLOPT_FTP_SKIP_PASV_IP, 1L);
+		curl_easy_setopt(curl, CURLOPT_TCP_KEEPALIVE, 1L);
+                curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
+                curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
+                res = curl_easy_perform(curl);
+                curl_easy_cleanup(curl);
+        }
+
+	//std::cout << readBuffer << std::endl;
+
+
+
+};
 
 
 
