@@ -27,6 +27,9 @@ xapp_meta::xapp_meta(){
 	xapp_t->xapp_instance_status = " ";
 	xapp_t->ipv4_addresses = " ";
 	xapp_t->xapp_instance_func = " ";
+	xapp_t->xapp_instance_loc = " ";
+	xapp_t->xapp_instance_name = " ";
+	xapp_t->xapp_clients = 0;
 };
 
 xapp_meta::~xapp_meta(){};
@@ -34,10 +37,13 @@ xapp_meta::~xapp_meta(){};
 void xapp_meta::register_profile(std::vector<std::string>& data, std::string& key, std::string& map, std::unordered_map<std::string, xapp_profile_t>& xapp_map){
 	
 	xapp_profile_t xapp_p;
-	xapp_p.xapp_instance_func = data[0];
-	xapp_p.xapp_instance_id = data[1];
-	xapp_p.ipv4_addresses = data[2];
-	xapp_p.xapp_instance_status = data[3];
+	xapp_p.xapp_clients = std::stoi(data[0]);
+	xapp_p.xapp_instance_func = data[1];
+	xapp_p.xapp_instance_id = data[2];
+	xapp_p.xapp_instance_name = data[3];
+	xapp_p.ipv4_addresses = data[4];
+	xapp_p.xapp_instance_loc = data[5];
+	xapp_p.xapp_instance_status = data[6];
 		
 	spdlog::debug("Loading xApp Profile");
 	//if (map == "imap") xapp_map[key] = xapp_p;

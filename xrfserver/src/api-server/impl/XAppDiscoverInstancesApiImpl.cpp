@@ -17,13 +17,30 @@ namespace api {
 
 using namespace xrf::model;
 
-XAppDiscoverInstancesApiImpl::XAppDiscoverInstancesApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr)
+XAppDiscoverInstancesApiImpl::XAppDiscoverInstancesApiImpl(std::shared_ptr<Pistache::Rest::Router>& rtr, xrf_main* xrf_main_inst, std::string addr)
     : XAppDiscoverInstancesApi(rtr)
 {
 }
 
-void XAppDiscoverInstancesApiImpl::x_app_disc_inst(const Pistache::Optional<XAppService> &targetxApp, Pistache::Http::ResponseWriter &response) {
-    response.send(Pistache::Http::Code::Ok, "Do some magic\n");
+void XAppDiscoverInstancesApiImpl::x_app_disc_inst(const Pistache::Optional<std::string>& targetxApp, 
+						   const Pistache::Optional<std::string>& targetLoc, 
+						   Pistache::Http::ResponseWriter &response) {
+	spdlog::info("===============Incoming xApp Discovery Request=================");  
+
+	std::string targetxApp_v = {};
+	if (!targetxApp.isEmpty()) {
+		targetxApp_v = targetxApp.get();
+		spdlog::debug("Target xApp is: {}", targetxApp_v.c_str());
+	}
+
+	std::string targetLoc_v = {};
+	if (!targetLoc.isEmpty()) {
+		targetLoc_v = targetLoc.get();
+		spdlog::debug("Target xApp Location is: {}", targetLoc_v.c_str());
+	}
+
+	
+	response.send(Pistache::Http::Code::Ok, "Do some magic\n");
 }
 
 }

@@ -71,6 +71,7 @@ void XRFApiServer::init(size_t thr) {
   m_accessTokenRequestApiImpl->init();
   m_initialAuthenticationRequestApiImpl->init();
   m_XAppRegisterInstanceApiImpl->init();
+  m_XAppDiscoverInstancesApiImpl->init();
 }
 void XRFApiServer::start() {
   m_httpEndpoint->setHandler(m_router->handler());

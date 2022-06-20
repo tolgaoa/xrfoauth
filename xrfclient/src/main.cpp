@@ -28,8 +28,14 @@ int main(int argc, char** argv){
         std::string instance_status_v = "Authenticated";
         std::string func_v = "TS";
 	std::string addresses = "172.17.0.2";
+	std::string loc_v = "312";
+	int clients = 0;
+	
+	// Not yet implemented in profile
+	std::vector<std::string> servers_v = {""};
+	std::vector<std::string> consumers_v = {""};
 
-	xapp_main_inst->generate_profile(instance_id_v, instance_name_v, instance_status_v, func_v, addresses);
+	xapp_main_inst->generate_profile(instance_id_v, instance_name_v, instance_status_v, func_v, addresses, loc_v, clients);
 	xapp_main_inst->display_profile();
 	std::string xrfaddress_reg_endpoint = "http://127.0.0.1:9090/xapp/disc/0001";
 	

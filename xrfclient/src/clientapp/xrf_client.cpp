@@ -157,7 +157,7 @@ void xrf_client::curl_create_handle(const std::string& uri, const std::vector<st
         slist1 = NULL;
         slist1 = curl_slist_append(slist1, "Content-Type: application/json");
 
-        std::vector<std::string> keys = {"xAppInstanceId", "xAppInstanceName", "xAppStatus", "xAppFunc", "xAppIPv4"};
+        std::vector<std::string> keys = {"xAppInstanceId", "xAppInstanceName", "xAppStatus", "xAppFunc", "xAppIPv4", "xAppLocation"};
 
         if(curl) {
                 curl_easy_setopt(curl, CURLOPT_BUFFERSIZE, 102400L);

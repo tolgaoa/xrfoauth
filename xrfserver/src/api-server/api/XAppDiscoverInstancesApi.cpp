@@ -58,21 +58,34 @@ std::pair<Pistache::Http::Code, std::string> XAppDiscoverInstancesApi::handleOpe
 }
 
 void XAppDiscoverInstancesApi::x_app_disc_inst_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response) {
-    try {
-
 
     // Getting the query params
+    /*auto fullQuery = request.query().parameters();
+    for (auto i: fullQuery)
+        std::cout << i << ' ';
+    */
+
     auto targetxAppQuery = request.query().get("targetxApp");
-    Pistache::Optional<XAppService> targetxApp;
+    Pistache::Optional<std::string> targetxApp;
     if(!targetxAppQuery.isEmpty()){
-        XAppService valueQuery_instance;
+	std::string valueQuery_instance;
         if(fromStringValue(targetxAppQuery.get(), valueQuery_instance)){
             targetxApp = Pistache::Some(valueQuery_instance);
         }
     }
+
+    auto targetLocQuery = request.query().get("targetLoc");
+    Pistache::Optional<std::string> targetLoc;
+    if(!targetLocQuery.isEmpty()){
+        std::string valueQuery_instance;
+        if(fromStringValue(targetLocQuery.get(), valueQuery_instance)){
+            targetLoc = Pistache::Some(valueQuery_instance);
+        }
+    }
+
     
     try {
-        this->x_app_disc_inst(targetxApp, response);
+        this->x_app_disc_inst(targetxApp, targetLoc, response);
     } catch (Pistache::Http::HttpError &e) {
         response.send(static_cast<Pistache::Http::Code>(e.code()), e.what());
         return;
@@ -82,13 +95,10 @@ void XAppDiscoverInstancesApi::x_app_disc_inst_handler(const Pistache::Rest::Req
         return;
     }
 
-    } catch (std::exception &e) {
-        response.send(Pistache::Http::Code::Internal_Server_Error, e.what());
-    }
 
 }
 
-void XAppDiscoverInstancesApi::x_app_discover_instances_api_default_handler(const Pistache::Rest::Request &, Pistache::Http::ResponseWriter response) {
+void XAppDiscoverInstancesApi::x_app_discover_instances_api_default_handler(const Pistache::Rest::Request&, Pistache::Http::ResponseWriter response) {
     response.send(Pistache::Http::Code::Not_Found, "The requested method does not exist");
 }
 

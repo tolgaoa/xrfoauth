@@ -7,3 +7,6 @@ curl -X PUT http://10.0.0.135:9090/xapp/disc/0001 -H 'Content-Type: application/
 curl -X PUT http://10.0.0.135:9090/xapp/disc/0001 -H 'Content-Type: application/json' -d '{"xAppInstanceId":"0001", "xAppStatus":"InitAuthDone", "xAppIpv4":"10.0.0.140", "xAppFunc":"TS"}'
 
 curl -X PUT http://10.0.0.135:9090/xapp/disc/0001 -H 'Content-Type: application/json' -d '{"xAppInstanceId":"0001", "xAppStatus":"InitAuthDone", "xAppIpv4":"10.0.0.140", "xAppFunc":"TS", "test":"test2"}'
+
+curl -X GET "http://10.0.0.135:9090/xapp/discall?targetxApp=TS&targetLoc=312"
+For the multiple curl requests while testing from the shell, the URL needs to be encapsulated in " " or the shell will think that ' & ' is the end of the command and wont send the remaining queries

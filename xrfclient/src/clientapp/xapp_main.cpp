@@ -36,9 +36,9 @@ void xapp_main::register_with_xrf(const std::string& xrfaddress) {
 
 void xapp_main::generate_profile(std::string instance_id_v, std::string instance_name_v,
 		  std::string instance_status_v, std::string func_v,
-		  std::string addresses){
+		  std::string addresses, std::string loc_v, int cap){
 	
-	xapp_profile *xapp_p = new xapp_profile(instance_id_v, instance_name_v, instance_status_v, func_v, addresses);
+	xapp_profile *xapp_p = new xapp_profile(instance_id_v, instance_name_v, instance_status_v, func_v, addresses, loc_v, cap);
 	xapp_profile_inst = xapp_p;
 };
 

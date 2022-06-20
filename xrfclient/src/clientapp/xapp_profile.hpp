@@ -39,13 +39,16 @@ using namespace std;
 
 class xapp_profile {
 	public:
-		xapp_profile(std::string id, std::string name, std::string status, std::string func, std::string addresses)
+		xapp_profile(std::string id, std::string name, std::string status, std::string func, std::string addresses, std::string loc, int clients)
 		{
 			xapp_instance_id = id;
 			xapp_instance_name = name;
 			xapp_instance_status = status;
 			xapp_instance_func = func;
+			xapp_instance_loc = loc;
 			ipv4_addresses = addresses;
+			xapp_clients = clients;
+
 		}
 		virtual ~xapp_profile () {}
 
@@ -136,7 +139,9 @@ class xapp_profile {
 		std::string xapp_instance_name;
 		std::string xapp_instance_status;
 		std::string xapp_instance_func;
+		std::string xapp_instance_loc;
 		std::string ipv4_addresses;
+		int xapp_clients;
 		nlohmann::json custom_info;
 };
 

@@ -33,17 +33,31 @@
 #include "XAppDiscRsp.h"
 #include "XAppService.h"
 
+#include <string>
+#include <xrf_main.hpp>
+#include <spdlog/spdlog.h>
+
 namespace xrf::api
 {
 
 using namespace xrf::model;
+using namespace xrf::app;
 
 class XAppDiscoverInstancesApiImpl : public xrf::api::XAppDiscoverInstancesApi {
 public:
-    explicit XAppDiscoverInstancesApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rtr);
-    ~XAppDiscoverInstancesApiImpl() override = default;
+    XAppDiscoverInstancesApiImpl(std::shared_ptr<Pistache::Rest::Router>& rtr, xrf_main* xrf_main_inst, std::string addr);
+    ~XAppDiscoverInstancesApiImpl() {};
 
-    void x_app_disc_inst(const Pistache::Optional<XAppService> &targetxApp, Pistache::Http::ResponseWriter &response);
+    void x_app_disc_inst(const Pistache::Optional<std::string>& targetxApp, 
+		         const Pistache::Optional<std::string>& targetLoc,
+			 Pistache::Http::ResponseWriter &response);
+
+
+    //void x_app_disc_inst(const Pistache::Optional<XAppService> &targetxApp, Pistache::Http::ResponseWriter &response);
+
+private:
+    xrf_main* m_xrf_inst;
+    std::string m_addr;
 
 };
 

@@ -70,7 +70,7 @@ class xapp_main {
 
                 void generate_profile(std::string instance_id_v, std::string instance_name_v,
                                       std::string instance_status_v, std::string func_v,
-                                      std::string addresses);
+                                      std::string addresses, std::string loc_v, int cap);
 		/*
 		 * create xapp profile by invoking setters and creators
 		 */

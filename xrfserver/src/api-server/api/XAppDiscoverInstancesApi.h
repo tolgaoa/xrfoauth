@@ -30,6 +30,8 @@
 #include "XAppDiscRsp.h"
 #include "XAppService.h"
 
+#include "spdlog/spdlog.h"
+
 namespace xrf::api
 {
 
@@ -75,7 +77,10 @@ private:
     
     //virtual void x_app_disc_inst(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter &response) = 0;
     
-    virtual void x_app_disc_inst(const Pistache::Optional<XAppService> &targetxApp, Pistache::Http::ResponseWriter &response) = 0;
+    //virtual void x_app_disc_inst(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter &response) = 0;
+    virtual void x_app_disc_inst(const Pistache::Optional<std::string>& targetxApp, 
+		    		 const Pistache::Optional<std::string>& targetLoc, 
+				 Pistache::Http::ResponseWriter &response) = 0;
 
 
 

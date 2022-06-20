@@ -101,16 +101,12 @@ void xapp_profile::create_profile(std::string instance_id_v, std::string instanc
 
 void xapp_profile::profile_to_json(nlohmann::json& data){
 	data["xAppInstanceId"]   = xapp_instance_id;
-	//data["xAppInstanceName"] = xapp_instance_name;
+	data["xAppInstanceName"] = xapp_instance_name;
 	data["xAppStatus"]       = xapp_instance_status;
 	data["xAppFunc"]	 = xapp_instance_func;
 	data["xAppIpv4"] 	 = ipv4_addresses;
-	/*
-	// ipv4_addresses
-	data["ipv4Addresses"] = nlohmann::json::array();
-	for (auto address : ipv4_addresses) {
-	data["ipv4Addresses"].push_back(inet_ntoa(address));
-	}*/
+	data["xAppLocation"] 	 = xapp_instance_loc;
+	data["xAppClients"] 	 = xapp_clients;
 }
 
 void xapp_profile::profile_to_vector_s(std::vector<std::string>& data){
@@ -125,10 +121,12 @@ void xapp_profile::profile_to_vector_s(std::vector<std::string>& data){
 void xapp_profile::display() {
 	spdlog::info("xApp Instance Info");
 	spdlog::info("\tInstance ID: {}", xapp_instance_id.c_str());
-	//spdlog::info("\tInstance Name: {}", xapp_instance_name.c_str());
+	spdlog::info("\tInstance Name: {}", xapp_instance_name.c_str());
 	spdlog::info("\tInstance Function: {}", xapp_instance_func.c_str());
 	spdlog::info("\tInstance Status: {}", xapp_instance_status.c_str());
 	spdlog::info("\tInstance Address: {}", ipv4_addresses.c_str());
+	spdlog::info("\tInstance Location: {}", xapp_instance_loc.c_str());
+	spdlog::info("\tInstance Clients: {}", xapp_clients);
 
 };
 
