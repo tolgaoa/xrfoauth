@@ -68,6 +68,7 @@ void xapp_main::sendauth_to_xrf(const std::string& challenge, const std::string&
 
 void xapp_main::send_discovery_request(std::string& xrfaddressbase, const std::string& targetxApp, const std::string& targetLoc){
 
+	spdlog::info("Sending xApp Disocovery Request to XRF");
 	std::string response_from_xrf;
 	xrf_client_inst->curl_create_get_handle(xrfaddressbase, response_from_xrf, 1, targetxApp, targetLoc);
 };

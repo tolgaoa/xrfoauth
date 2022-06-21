@@ -39,8 +39,31 @@ void XAppDiscoverInstancesApiImpl::x_app_disc_inst(const Pistache::Optional<std:
 		spdlog::debug("Target xApp Location is: {}", targetLoc_v.c_str());
 	}
 
+	int http_code = 0;
+	ProblemDetails problem_details = {};
+	std::vector<std::string> search_result = {};
+
+	xrf_main_inst->handle_search_xapp_instances(targetxApp_v, targetLoc_v, search_result, http_code, 1, problem_details);
+
+	nlohmann::json json_data = {};
+	std::string content_type = "application/json";
+
+	if (http_code != 200) {
+		// handle this inside the xrf_main function
+		//to_json(json_data, problem_details);
+		//content_type = "application/problem+json";
+	} else {
+		if (!search_result.empty()) 
+			xrf_main_inst->vector_to_json(search_result, json_data);
+	}
+
+	spdlog::debug("Search result for target xApp is: {}", json_data.dump().c_str());
 	
-	response.send(Pistache::Http::Code::Ok, "Do some magic\n");
+	response.headers().add<Pistache::Http::Header::ContentType>(
+			Pistache::Http::Mime::MediaType(content_type));
+
+	
+	response.send(Pistache::Http::Code(http_code), json_data.dump().c_str());
 }
 
 }

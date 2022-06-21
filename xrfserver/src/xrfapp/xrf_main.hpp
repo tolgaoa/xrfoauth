@@ -93,11 +93,37 @@ class xrf_main{
 
 		void handle_reg_request(const std::string& request_main, int& http_code, const uint8_t http_version, ProblemDetails& problem_details);
 		/*
+		 * Handle xApp registration request
 		 * @param{request_main} : contains xApp profile
 		 * @param{httpcode}
 		 * @param{http_version}
 		 * @param{problem_details}
+		*/
+
+		void handle_search_xapp_instances(const std::string& targetxApp, 
+				const std::string& targetLoc, 
+				std::vector<std::string>& search_result,
+				int& http_code, const uint8_t http_version,
+				ProblemDetails& problem_details);
+		/*
+		 * Handle xApp discovery request
+		 * @param[targetxApp] : query for target xApp function
+		 * @param[targetLoc] : query for target xApp location
+		 * @param[limit_nfs] : maximum number of resulsts to return
+		 * @param[search_result] : store search result ID
+		 * @param[http_code] : http code to return
+		 * @param[http_versoin] : http version ued
+		 * @param[problem_details] : error details
 		 */
+
+		void vector_to_json(std::vector<std::string>& vector_ids, nlohmann::json& json_data);
+		/*
+		 * convert vector of xapp ids to json
+		 * @param[json_data] : json to feedback
+		 * @param[vector_ids] : vector of ids received
+		 * return void
+		 */
+
 };
 
 }

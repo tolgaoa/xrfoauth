@@ -32,6 +32,8 @@
 #include "XAppDiscErr.h"
 #include "XAppDiscRsp.h"
 #include "XAppService.h"
+#include "ProblemDetails.h"
+
 
 #include <string>
 #include <xrf_main.hpp>
@@ -56,7 +58,7 @@ public:
     //void x_app_disc_inst(const Pistache::Optional<XAppService> &targetxApp, Pistache::Http::ResponseWriter &response);
 
 private:
-    xrf_main* m_xrf_inst;
+    xrf_main* xrf_main_inst;
     std::string m_addr;
 
 };

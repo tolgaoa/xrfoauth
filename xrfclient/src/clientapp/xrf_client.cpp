@@ -210,7 +210,7 @@ void xrf_client::curl_create_get_handle(const std::string& uri,
                 curl_easy_cleanup(curl);
         }
 
-	//std::cout << readBuffer << std::endl;
+	std::cout << readBuffer << std::endl;
 
 
 
