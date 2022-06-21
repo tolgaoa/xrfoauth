@@ -162,8 +162,6 @@ void xrf_main::handle_reg_request
 
 	xapp_meta_inst->display_map(profile_i);
 
-
-
         /*for (auto i : profile_i){
                 std::cout << i.first << std::endl;
                 std::cout << i.second.to_string() << std::endl;
@@ -173,8 +171,6 @@ void xrf_main::handle_reg_request
                 std::cout << i.first << std::endl;
                 std::cout << i.second.to_string() << std::endl;
         }*/
-
-
 }
 
 
@@ -184,14 +180,13 @@ void xrf_main::handle_search_xapp_instances(const std::string& targetxApp, const
 	spdlog::debug("Handling xApp Discovery request and searching for a set of xApp Instances");
 	
 	for (auto i : profile_i){
-		if (i.second.xapp_instance_func == targetxApp && 
-		    i.second.xapp_instance_loc == targetLoc){
+		if (i.second.xapp_instance_func == targetxApp){
 			spdlog::debug("Found xApp: {}", i.second.xapp_instance_id);
 			search_result.push_back(i.second.xapp_instance_id);
 		}
 	}
 
-	if (search_result.empty()) spdlog::warn("No xApp Profile Found Correspond to desired request");
+	if (search_result.empty()) spdlog::warn("No xApp profile found corresponding to desired request");
 	else http_code = 200;
 };
 
@@ -202,8 +197,10 @@ void xrf_main::vector_to_json(std::vector<std::string>& vector_ids, nlohmann::js
 
 	for (int i = 0; i < vector_ids.size(); i++) {
 		s = std::to_string(i);
-		std::cout << vector_ids[i] << std::endl;
-		json_data[s] = vector_ids[i];
+		//std::cout << vector_ids[i] << std::endl;
+		json_data["&"+s] = { {"id" , vector_ids[i]} , 
+				 {"location" , profile_i.at(vector_ids[i]).xapp_instance_loc + '&'} ,
+				 {"ipv4" , profile_i.at(vector_ids[i]).ipv4_addresses } };
 	}
 	spdlog::debug("Finished converting search result to JSON");
 };

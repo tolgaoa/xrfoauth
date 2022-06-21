@@ -63,6 +63,7 @@ class xapp_main {
 		 * @param[xrfaddressbase] : base address of xrf without queries
 		 * @param[targetxApp] : targetxApp query
 		 * @param[targetLoc] : targetLoc query
+		 * @param[disc_map] : discovery result
 		 */
 		
 		std::string& create_auth_challenge();

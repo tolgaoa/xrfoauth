@@ -27,6 +27,7 @@
 #include <nlohmann/json.hpp>
 #include <shared_mutex>
 #include <utility>
+#include <cmath>
 #include <vector>
 
 #include <unistd.h>
@@ -44,6 +45,24 @@
 #include <iostream>
 
 #include <nlohmann/json.hpp>
+
+typedef struct xapp_profile_s {
+        std::string id;
+        std::string ipv4;
+        int location;
+
+        std::string to_string() const {
+                std::string s = {};
+                s.append("xApp Id: ");
+                s.append(id);
+                s.append(", xApp Ipv4: ");
+                s.append(ipv4);
+                s.append(", xApp Location: ");
+                s.append(std::to_string(location));
+                return s;
+        }
+
+} xapp_profile_t;
 
 namespace xrf {
 namespace app {
@@ -96,7 +115,7 @@ class xrf_client {
                  */
 
                 void curl_create_get_handle(const std::string& uri,
-                         std::string& response_data, uint8_t http_version,
+                         std::map<int, xapp_profile_t>& disc_map, uint8_t http_version,
 			 const std::string& targetxApp, const std::string targetLoc);
                 /*
                  * @param[uri] : target address/port/path

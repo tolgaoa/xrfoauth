@@ -22,8 +22,32 @@ extern xrf_client* xrf_client_inst;
 
 static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *userp)
 {
-    ((std::string*)userp)->append((char*)contents, size * nmemb);
-    return size * nmemb;
+	((std::string*)userp)->append((char*)contents, size * nmemb);
+	return size * nmemb;
+}
+
+void erase_every_even(std::vector<std::string>& v) {
+	if ((v.size() % 2) == 0)
+		v.pop_back();
+
+	auto size = (v.size() / 2) + 1;
+
+	for (size_t i = 1; i < size; ++i)
+		v.erase(v.begin() + i);
+}
+
+void erase_every_odd(std::vector<std::string>& v) {
+	if ((v.size() % 2) > 0)
+		v.pop_back();
+
+	auto size = v.size() / 2;
+
+	for (size_t i = 0; i < size; ++i)
+		v.erase(v.begin() + i);
+}
+
+void erase_preamble(std::string s){
+	s.erase(0,3);
 }
 
 xrf_client::xrf_client() {
@@ -92,12 +116,10 @@ void xrf_client::curl_create_handle(const std::string& uri, const std::string& d
 	
         std::vector<std::string> kv;
         for (auto i : kvpairs){
-                //std::vector<std::string> kv;
                 boost::split(kv, i, boost::is_any_of(":"), boost::token_compress_on);
                 if (kv.size() != 2){
                         spdlog::warn("Invalid Authentication Request--Expecting single KVpair--Received more");
                 }else request[kv[0]] = kv[1];
-                //`printf("(Key, Value):  %s, %s \n", kv[0].c_str(), kv[1].c_str());
                 //spdlog::info("(Key, Value):  %s, %s \n", kv[0].c_str(), kv[1].c_str());
         }
         std::string rec_str = kv[1];
@@ -176,7 +198,7 @@ void xrf_client::curl_create_handle(const std::string& uri, const std::vector<st
 }
 
 void xrf_client::curl_create_get_handle(const std::string& uri,
-					std::string& response_data, uint8_t http_version,
+					std::map<int, xapp_profile_t>& disc_map, uint8_t http_version,
 					const std::string& targetxApp, const std::string targetLoc){
 	
         CURL *curl;
@@ -210,10 +232,61 @@ void xrf_client::curl_create_get_handle(const std::string& uri,
                 curl_easy_cleanup(curl);
         }
 
-	std::cout << readBuffer << std::endl;
+	spdlog::info("Incoming xApp Profiles: {}", readBuffer);
 
 
+        std::vector<std::string> raw_disc;
+        boost::split(raw_disc, readBuffer, boost::is_any_of("&"), boost::token_compress_on);
+	
+	/*for (int i=0; i < raw_disc.size(); i++) {
+                std::cout << raw_disc[i] << std::endl;
+        }*/
 
+	/*std::cout << "" << std::endl;
+	std::cout << "" << std::endl;*/
+
+	erase_every_odd(raw_disc);
+
+        /*for (int i=0; i < raw_disc.size(); i++) {
+                std::cout << raw_disc[i] << std::endl;
+        }*/
+
+	/*std::cout << "" << std::endl;
+	std::cout << "" << std::endl;*/
+
+	int c = 0;
+        for (auto i : raw_disc){
+		c++;
+		i.erase(0,3);
+		i.erase(remove(i.begin(), i.end(), '"'), i.end());
+		i.erase(remove(i.begin(), i.end(), '{'), i.end());
+		i.erase(remove(i.begin(), i.end(), '}'), i.end());
+
+        	std::vector<std::string> proc_disc;
+		boost::split(proc_disc, i, boost::is_any_of(","), boost::token_compress_on);
+			xapp_profile_t xapp_p;
+		for (auto j : proc_disc){
+			std::vector<std::string> kv;
+			//xapp_profile_t xapp_p;
+			boost::split(kv, j, boost::is_any_of(":"), boost::token_compress_on);
+			for (auto k : kv){
+				if (kv[0] == "id") {
+					xapp_p.id = kv[1];
+					//std::cout << kv[1] << std::endl;
+				}
+				if (kv[0] == "ipv4") {
+					xapp_p.ipv4 = kv[1];
+					//std::cout << kv[1] << std::endl; 
+				}
+				if (kv[0] == "location") {
+					xapp_p.location = std::stoi(kv[1]);
+					//std::cout << kv[1] << std::endl; 
+				}
+			}
+		}
+		disc_map[c] = xapp_p;
+		//std::cout << xapp_p.to_string() << std::endl;
+        }
 };
 
 

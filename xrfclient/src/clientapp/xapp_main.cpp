@@ -22,6 +22,10 @@ xrf_client* xrf_client_inst = nullptr;
 xapp_msg* xapp_msg_inst = nullptr;
 xapp_profile* xapp_profile_inst = nullptr;
 
+std::map<int, xapp_profile_t> disc_map;
+std::string chosen_xapp_id;
+
+
 void xapp_main::register_with_xrf(const std::string& xrfaddress) {
 	std::string response_from_xrf;
 	std::string str = "test";	
@@ -70,5 +74,20 @@ void xapp_main::send_discovery_request(std::string& xrfaddressbase, const std::s
 
 	spdlog::info("Sending xApp Disocovery Request to XRF");
 	std::string response_from_xrf;
-	xrf_client_inst->curl_create_get_handle(xrfaddressbase, response_from_xrf, 1, targetxApp, targetLoc);
+	xrf_client_inst->curl_create_get_handle(xrfaddressbase, disc_map, 1, targetxApp, targetLoc);
+	
+	int targetLoc_i = std::stoi(targetLoc);
+	int distdiff = 100; //initial value
+
+	if (disc_map.size() == 0) spdlog::warn("no valid xApp discovered");
+	else{	
+		for (auto i : disc_map) {
+			if ( abs(i.second.location - targetLoc_i) < distdiff) {
+				distdiff = abs(i.second.location - targetLoc_i);
+				chosen_xapp_id = i.second.id;
+			}
+		}
+		spdlog::info("Chosen xApp with ID: {}", chosen_xapp_id);
+	}
 };
+
