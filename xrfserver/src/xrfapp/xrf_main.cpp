@@ -36,6 +36,7 @@ xapp_meta* xapp_meta_inst = nullptr;
 
 std::unordered_map<std::string, xapp_profile_t> profile_i;
 std::unordered_map<std::string, xapp_profile_t> profile_f;
+std::unordered_map<std::string, EVP_PKEY*> jwks;
 
 void xrf_main::access_token_request(
 		const std::string& request_main, AccessTokenRsp& access_token_rsp, 
@@ -49,9 +50,7 @@ void xrf_main::access_token_request(
 	for (auto i : kvpairs){
 		std::vector<std::string> kv;
 		boost::split(kv, i, boost::is_any_of(","), boost::token_compress_on);
-		if (kv.size() != 3){
-			std::cout << "Invalid Request" << std::endl;
-		}else request[kv[0]] = kv[1];	
+		request[kv[0]] = kv[1];	
 
 		printf("(Key, Value):  %s, %s \n", kv[0].c_str(), kv[1].c_str());
 	}
@@ -60,13 +59,15 @@ void xrf_main::access_token_request(
 	std::string sign = {};
 	bool outcome = false;
 
-	outcome = xrf_jwt_inst->generate_signature("00001", "1", "00002", "A1", sign);
+	outcome = xrf_jwt_inst->generate_signature("00001", "00002", sign, jwks);
 	spdlog::info("JWT Access Token Generated");
 	spdlog::info(sign);
 	spdlog::info("JWT Access Token Signed");
 	access_token_rsp.setAccessToken(sign);
 	access_token_rsp.setTokenType("Bearer");
 	http_code = 200;
+
+	xrf_jwt_inst->test_jwt();
 };
 
 void xrf_main::handle_auth_request
