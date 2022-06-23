@@ -83,6 +83,13 @@ class xapp_main {
 		 * create xapp profile by invoking setters and creators
 		 */
 
+		void send_token_req(const std::string& xrfaddress);
+		/*
+		 * send access token request
+		 * @param[xrfaddress] : target endpoint on xrfserver
+		 * return void
+		 */
+
 		void display_profile();
 		/*
 		 * display xapp profile

@@ -63,6 +63,12 @@ int main(int argc, char** argv){
 	//---------------------------------------------------------------------------
 
 
+	//-------------------------OAuth 2.0 Token Request---------------------------
+	const std::string xrfaddress_tokenreq_endpoint = "http://127.0.0.1:9090/oauth2/token";
+	xapp_main_inst->send_token_req(xrfaddress_tokenreq_endpoint);
+	//---------------------------------------------------------------------------
+	
+
 	return 0;
 }
 

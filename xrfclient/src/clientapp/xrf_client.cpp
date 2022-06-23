@@ -289,6 +289,50 @@ void xrf_client::curl_create_get_handle(const std::string& uri,
         }
 };
 
+void xrf_client::curl_create_token_req_handle(const std::string& uri, nlohmann::json& data, 
+		std::string& response_data, uint8_t http_version){
+	
+        CURL *curl;
+        CURLcode res;
+        std::string readBuffer;
+
+        struct curl_slist *slist1;
+        slist1 = NULL;
+        slist1 = curl_slist_append(slist1, "Content-Type: application/json");
+
+        curl = curl_easy_init();
+
+	std::string s = data.dump();
+	spdlog::debug("Token request: {}" , s);
+
+        if(curl) {
+                curl_easy_setopt(curl, CURLOPT_URL, uri.c_str());
+                curl_easy_setopt(curl, CURLOPT_POST, 1);
+                curl_easy_setopt(curl, CURLOPT_HTTPHEADER, slist1);
+                curl_easy_setopt(curl, CURLOPT_POSTFIELDS, s.c_str());
+                //curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json_data);
+                //curl_easy_setopt(curl, CURLOPT_READDATA, &readBuffer);
+                curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
+                curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
+                res = curl_easy_perform(curl);
+                curl_easy_cleanup(curl);
+        }
+
+	std::map<std::string, std::string> request;
+        std::vector<std::string> kvpairs;
+        boost::split(kvpairs, readBuffer, boost::is_any_of("&"), boost::token_compress_on);
+
+        std::vector<std::string> kv;
+        for (auto i : kvpairs){
+                boost::split(kv, i, boost::is_any_of(":"), boost::token_compress_on);
+                request[kv[0]] = kv[1];
+        }
+        response_data = readBuffer;
+	
+	
+
+};
+
 
 
 

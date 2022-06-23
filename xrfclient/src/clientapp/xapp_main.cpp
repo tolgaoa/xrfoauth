@@ -24,6 +24,7 @@ xapp_profile* xapp_profile_inst = nullptr;
 
 std::map<int, xapp_profile_t> disc_map;
 std::string chosen_xapp_id;
+std::unordered_map<std::string, std::string> token_map;
 
 
 void xapp_main::register_with_xrf(const std::string& xrfaddress) {
@@ -61,12 +62,12 @@ void xapp_main::sendauth_to_xrf(const std::string& challenge, const std::string&
 	spdlog::info("Challenge created");
 
 	xrf_client_inst->curl_create_handle(xrfaddress, str, response_from_xrf, 1);
-	spdlog::info("Response from XRF: {}", response_from_xrf);
+	spdlog::info("Authentication challenge response from XRF: {}", response_from_xrf);
 	//-----------------Process for XRF ID authentication by xApp----------------------------
 	unsigned char xrf_challenge[RND_LENGTH];
 	int xrf_auth_result = xapp_msg_inst->final_verification(response_from_xrf, xrf_challenge);
-	if (xrf_auth_result == 1) spdlog::info("Rejoice! xApp authentication successful!");
-	else if (xrf_auth_result == 0) spdlog::warn("Alas! xApp authentication failed!");
+	if (xrf_auth_result == 1) spdlog::info("Initial authentication successful");
+	else if (xrf_auth_result == 0) spdlog::warn("Initial authentication failed");
 	else spdlog::error("Unspecified signature verification error");
 }
 
@@ -91,3 +92,21 @@ void xapp_main::send_discovery_request(std::string& xrfaddressbase, const std::s
 	}
 };
 
+void xapp_main::send_token_req(const std::string& xrfaddress){
+
+	std::string local_xapp_id = xapp_profile_inst->get_instance_id();
+	spdlog::debug("Local xApp ID is: {}", local_xapp_id);
+	std::string target_xapp_id = chosen_xapp_id;
+	spdlog::debug("Target xApp ID for token request is: {}", target_xapp_id);
+	
+	nlohmann::json data;
+	data["requester_ID"] = local_xapp_id;
+	data["target_ID"] = target_xapp_id;
+
+	std::string response_from_xrf;
+
+	xrf_client_inst->curl_create_token_req_handle(xrfaddress, data, response_from_xrf, 1);
+	spdlog::info("Token {} received for xApp: {}", response_from_xrf, target_xapp_id);
+
+
+};

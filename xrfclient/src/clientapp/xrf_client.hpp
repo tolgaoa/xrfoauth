@@ -87,6 +87,7 @@ class xrf_client {
 		void curl_create_handle(const std::string& uri, const std::string& data,
                          std::string& response_data, uint8_t http_version);
 		/*
+		 * curl handle with string data input
 		 * @param[uri] : target address/port/path
 		 * @param[data] : data to send : string
 		 * @param[response_data] : response from target
@@ -97,6 +98,7 @@ class xrf_client {
 		void curl_create_handle(const std::string& uri, const nlohmann::json& data,
                          std::string& response_data, uint8_t http_version);
                 /*
+		 * curl handle with json data input
                  * @param[uri] : target address/port/path
                  * @param[data] : data to send : json object
                  * @param[response_data] : response from target
@@ -107,6 +109,7 @@ class xrf_client {
 		void curl_create_handle(const std::string& uri, const std::vector<std::string>& data,
                          std::string& response_data, uint8_t http_version);
                 /*
+		 * curl handle with string vector input 
                  * @param[uri] : target address/port/path
                  * @param[data] : data to send : vector string
                  * @param[response_data] : response from target
@@ -123,6 +126,16 @@ class xrf_client {
                  * @param[http_versoin] : http version
                  * @return CURL
                  */
+
+		void curl_create_token_req_handle(const std::string& uri, nlohmann::json& data,
+				std::string& response_data, uint8_t http_version);
+		/*
+		 * create curl handle for oauth token request
+		 * @param[uri] : target address
+		 * @param[data] : data to send
+		 * @param[response_data] : response from target
+		 * @param[http_version] : http version
+		 */
 
 
 		void to_json(nlohmann::json& j, const std::string& kv1, const std::string& kv2);
