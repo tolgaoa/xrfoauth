@@ -38,8 +38,8 @@ bool xrf_jwt::generate_signature(const std::string& xapp_consumer_id,
 	//std::string kid;
 	
 	std::string priv_key;
-
-	generate_key_pair(jwks, priv_key);
+	int kid; 
+	generate_key_pair(jwks, priv_key, kid);
 
 	spdlog::debug("Chosen private key pair: {}", priv_key);
 
@@ -52,7 +52,7 @@ bool xrf_jwt::generate_signature(const std::string& xapp_consumer_id,
 	boost::uuids::uuid jti = boost::uuids::random_generator()();
         jwt::jwt_object obj{jwt::params::algorithm("RS256"),
         //jwt::jwt_object obj{jwt::params::algorithm("ES256"),
-			jwt::params::headers({{"kid", "12-34-56"}}),
+			jwt::params::headers({{"kid", std::to_string(kid)}}),
                         jwt::params::payload({{"iss", "nssl.xrf"},
                                             {"sub", target_xapp_id},
                                             {"aud", xapp_consumer_id},
@@ -80,12 +80,12 @@ bool xrf_jwt::generate_key_pair(std::unordered_map<std::string, EVP_PKEY*>& jwks
 
 }
 
-bool xrf_jwt::generate_key_pair(std::unordered_map<int, std::string>& jwks, std::string& priv_key){
+bool xrf_jwt::generate_key_pair(std::unordered_map<int, std::string>& jwks, std::string& priv_key, int& kid){
 	
 	spdlog::debug("Generating key pair for JWT");
 
         srand (time(NULL));
-	int kid = rand() % 10000000 + 99999999;
+	kid = rand() % 10000000 + 99999999;
 	
 
 	spdlog::debug("Selecting key pair from set");
@@ -184,17 +184,30 @@ using namespace jwt::params;
 
 
 	std::cout << "Create string view of the private key" << std::endl;
-	jwt::string_view sv = tokenkeypriv1;
+	jwt::string_view sv = tokenkeypriv2;
 	std::cout << tokenkeypriv1 << std::endl;
 
 	std::cout << "Create string view of the public key" << std::endl;
-	jwt::string_view sv1 = tokenkeypub1;
+	jwt::string_view sv1 = tokenkeypub2;
 	std::cout << tokenkeypub1 << std::endl;
 
 	std::cout << "Create JWT Object" << std::endl;
 	// Create JWT object
-        jwt::jwt_object obj{algorithm("RS256"), payload({{"some", "payload"}}),
+        boost::uuids::uuid jti = boost::uuids::random_generator()();
+        jwt::jwt_object obj{jwt::params::algorithm("RS256"),
+        //jwt::jwt_object obj{jwt::params::algorithm("ES256"),
+                        jwt::params::headers({{"kid", "12-34-56"}}),
+                        jwt::params::payload({{"iss", "nssl.xrf"},
+                                            {"sub", "targetxapp"},
+                                            {"aud", "consumer"},
+                                            {"scope", "read, write"},
+                                            {"exp", "1000"}}),  // seconds
+                        //jwt::params::secret(tokenkey1priv)};
+                        jwt::params::secret(tokenkeypriv2)};
+
+        /*jwt::jwt_object obj{algorithm("RS256"), payload({{"some", "payload"}}),
                       secret(tokenkeypriv1)};
+	*/
 
 	std::cout << obj.header() << std::endl;
 	std::cout << obj.payload() << std::endl;
@@ -208,7 +221,7 @@ using namespace jwt::params;
 	std::cout << "encrypted token printed" << std::endl;
 
         // Decode
-        auto dec_obj = jwt::decode(enc_str, algorithms({"RS256"}), secret(tokenkeypub1));
+        auto dec_obj = jwt::decode(enc_str, algorithms({"RS256"}), secret(tokenkeypub2));
         std::cout << dec_obj.header() << std::endl;
         std::cout << dec_obj.payload() << std::endl;
 	std::cout << "token printed" << std::endl;

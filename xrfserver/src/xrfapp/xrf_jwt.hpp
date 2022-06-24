@@ -69,7 +69,7 @@ class xrf_jwt{
                  */
 
                 bool generate_key_pair(std::unordered_map<int, std::string>& jwks, 
-				       std::string& priv_key);
+				       std::string& priv_key, int& kid);
                 /*
                  * Get the secret key
                  * @param {scope}: names of the xapp services that the consumer is trying to access
