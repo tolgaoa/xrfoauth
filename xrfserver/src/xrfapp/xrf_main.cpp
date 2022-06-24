@@ -36,7 +36,8 @@ xapp_meta* xapp_meta_inst = nullptr;
 
 std::unordered_map<std::string, xapp_profile_t> profile_i;
 std::unordered_map<std::string, xapp_profile_t> profile_f;
-std::unordered_map<std::string, EVP_PKEY*> jwks;
+//std::unordered_map<std::string, EVP_PKEY*> jwks; // kid .at() tokenpubkey
+std::unordered_map<int, std::string> jwks; // kid .at() tokenpubkey
 
 void xrf_main::access_token_request(
 		const std::string& request_main, AccessTokenRsp& access_token_rsp, 
@@ -45,21 +46,27 @@ void xrf_main::access_token_request(
 
 	std::map<std::string, std::string> request;
 	std::vector<std::string> kvpairs;
-	boost::split(kvpairs, request_main, boost::is_any_of("&"), boost::token_compress_on);
+	boost::split(kvpairs, request_main, boost::is_any_of(","), boost::token_compress_on);
 
 	for (auto i : kvpairs){
+                i.erase(remove(i.begin(), i.end(), '"'), i.end());
+                i.erase(remove(i.begin(), i.end(), '{'), i.end());
+                i.erase(remove(i.begin(), i.end(), '}'), i.end());
+
 		std::vector<std::string> kv;
-		boost::split(kv, i, boost::is_any_of(","), boost::token_compress_on);
+		boost::split(kv, i, boost::is_any_of(":"), boost::token_compress_on);
 		request[kv[0]] = kv[1];	
 
-		printf("(Key, Value):  %s, %s \n", kv[0].c_str(), kv[1].c_str());
+		spdlog::debug("(Key, Value):  {}, {}", kv[0], kv[1]);
 	}
 
 	//JWT Object created here
 	std::string sign = {};
 	bool outcome = false;
 
-	outcome = xrf_jwt_inst->generate_signature("00001", "00002", sign, jwks);
+	std::string scope = "read, write";
+
+	outcome = xrf_jwt_inst->generate_signature(request.at("requester_ID"), request.at("target_ID"), sign, jwks, scope);
 	spdlog::info("JWT Access Token Generated");
 	spdlog::info(sign);
 	spdlog::info("JWT Access Token Signed");

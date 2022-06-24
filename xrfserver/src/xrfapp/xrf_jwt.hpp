@@ -29,6 +29,9 @@
 #include <openssl/err.h>
 #include <exception>
 
+#include <keys.hpp>
+#include <spdlog/spdlog.h>
+
 namespace xrf {
 namespace app {
 
@@ -42,18 +45,19 @@ class xrf_jwt{
 		bool generate_signature(const std::string& xapp_consumer_id,
                                         const std::string& target_xapp_id,
                                         std::string& signature, 
-					std::unordered_map<std::string, EVP_PKEY*>& jwks);
+					std::unordered_map<int, std::string>& jwks,
+					std::string& scope);
                 /*
                  * Generate signature for the requested consumer trying to access resources
                  * @param {xapp_consumer_id}: the id of the consumer xapp
-                 * @param {scope}: name of the xapp services that the consumer is trying to access
                  * @param {target_xapp_id}: instance ID of the xapp service producer
-                 * @param {xrf_id}: The id of the OAUTH 2.0 server that is being used which has been
-                 * name xApp Repository Function (XRF)
                  * @param {signature}: generated signature
+		 * @param {jwks} : JSON Web key set for kid and public key mapping
+		 * @param {scope} : access rights of the token
                  * return void
                  */
 
+		//Overload generate_key_pair
                 bool generate_key_pair(std::unordered_map<std::string, EVP_PKEY*>& jwks,
                                     std::string& kid,  EVP_PKEY *priv_key) ;
                 /*
@@ -63,11 +67,29 @@ class xrf_jwt{
                  * @param {key}: secret key [K]
                  * return void
                  */
+
+                bool generate_key_pair(std::unordered_map<int, std::string>& jwks, 
+				       std::string& priv_key);
+                /*
+                 * Get the secret key
+                 * @param {scope}: names of the xapp services that the consumer is trying to access
+                 * @param {target_xapp_id}: instance id of the xapp service producer
+                 * @param {key}: secret key [K]
+                 * return void
+                 */
+
 		std::pair<EVP_PKEY*,EVP_PKEY*> GetKeyRSApair();
 		/*
 		 * generate RSA key pair
 		 * return std::pair priv and pub key
 		 */
+		
+		std::pair<std::string, std::string> selectRSApair();
+		/*
+		 * select from pre-created list of keys
+		 * return std::pair priv and pub key
+		 */
+
 	private:
 		const int kBits = 1024;
 		const int kExp = 3;

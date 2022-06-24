@@ -320,14 +320,24 @@ void xrf_client::curl_create_token_req_handle(const std::string& uri, nlohmann::
 
 	std::map<std::string, std::string> request;
         std::vector<std::string> kvpairs;
-        boost::split(kvpairs, readBuffer, boost::is_any_of("&"), boost::token_compress_on);
+        boost::split(kvpairs, readBuffer, boost::is_any_of(","), boost::token_compress_on);
+       
+       	/*for (int i=0; i < kvpairs.size(); i++) {
+                std::cout << kvpairs[i] << std::endl;
+        }*/
 
         std::vector<std::string> kv;
-        for (auto i : kvpairs){
-                boost::split(kv, i, boost::is_any_of(":"), boost::token_compress_on);
+        
+	for (auto i : kvpairs){
+                i.erase(remove(i.begin(), i.end(), '"'), i.end());
+                i.erase(remove(i.begin(), i.end(), '{'), i.end());
+                i.erase(remove(i.begin(), i.end(), '}'), i.end());
+       
+       		boost::split(kv, i, boost::is_any_of(":"), boost::token_compress_on);
                 request[kv[0]] = kv[1];
         }
-        response_data = readBuffer;
+        response_data = request.at("access_token");
+        //response_data = readBuffer;
 	
 	
 

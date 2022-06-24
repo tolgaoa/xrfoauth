@@ -13,8 +13,8 @@
  * \email: tolgaoa@vt.edu
 */
 
-#ifndef FILE_3GPP_29_510_NRF_SEEN
-#define FILE_3GPP_29_510_NRF_SEEN
+#ifndef FILE_SERVER_SEEN
+#define FILE_SERVER_SEEN
 
 #include <vector>
 #include <netinet/in.h>

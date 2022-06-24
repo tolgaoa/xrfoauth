@@ -106,7 +106,8 @@ void xapp_main::send_token_req(const std::string& xrfaddress){
 	std::string response_from_xrf;
 
 	xrf_client_inst->curl_create_token_req_handle(xrfaddress, data, response_from_xrf, 1);
-	spdlog::info("Token {} received for xApp: {}", response_from_xrf, target_xapp_id);
+	spdlog::info("Token ----- {} ----- received for xApp: {}", response_from_xrf, target_xapp_id);
 
+	token_map[target_xapp_id] = response_from_xrf;
 
 };
