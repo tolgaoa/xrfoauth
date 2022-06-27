@@ -66,7 +66,7 @@ void xrf_main::access_token_request(
 
 	std::string scope = "read, write";
 
-	outcome = xrf_jwt_inst->generate_signature(request.at("requester_ID"), request.at("target_ID"), sign, jwks, scope);
+	outcome = xrf_jwt_inst->generate_signature(request.at("requester_ID"), request.at("target_ID"), sign, jwks, request.at("scope"));
 	spdlog::info("JWT Access Token Generated");
 	spdlog::info(sign);
 	spdlog::info("JWT Access Token Signed");

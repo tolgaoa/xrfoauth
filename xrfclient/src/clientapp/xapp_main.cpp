@@ -98,10 +98,15 @@ void xapp_main::send_token_req(const std::string& xrfaddress){
 	spdlog::debug("Local xApp ID is: {}", local_xapp_id);
 	std::string target_xapp_id = chosen_xapp_id;
 	spdlog::debug("Target xApp ID for token request is: {}", target_xapp_id);
-	
+	std::string scope = "write";
+	spdlog::debug("Requested access scope is: {}", scope);
+
 	nlohmann::json data;
 	data["requester_ID"] = local_xapp_id;
 	data["target_ID"] = target_xapp_id;
+	data["scope"] = scope;
+
+
 
 	std::string response_from_xrf;
 
