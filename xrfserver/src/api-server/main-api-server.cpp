@@ -1,6 +1,6 @@
 /**
-* XRF OAuth2
-* XRF OAuth2 Authorization server for generating access tokens to xApps 
+* XRF OAuth2 Token Introspection Request API
+* XRF OAuth2 Authorization server, token introspection API 
 *
 * The version of the OpenAPI document: 1
 * Contact: tolgaoa@vt.edu
@@ -20,13 +20,11 @@
 #include <unistd.h>
 #endif
 
-#include "AccessTokenRequestApiImpl.h"
-#include "xrf-api-server.h"
+#include "RequestJWKSAccessApiImpl.h"
 
-//#define PISTACHE_SERVER_THREADS     2
+#define PISTACHE_SERVER_THREADS     2
 #define PISTACHE_SERVER_MAX_REQUEST_SIZE 32768
 #define PISTACHE_SERVER_MAX_RESPONSE_SIZE 32768
-#define PISTACHE_SERVER_MAX_PAYLOAD 32768
 
 static Pistache::Http::Endpoint *httpEndpoint;
 #ifdef __linux__
@@ -37,7 +35,7 @@ static void sigHandler [[noreturn]] (int sig){
         case SIGTERM:
         case SIGHUP:
         default:
-            httpEndpoint->shutdown();//can change default to nothing later
+            httpEndpoint->shutdown();
             break;
     }
     exit(0);
@@ -60,27 +58,31 @@ static void setUpUnixSignals(std::vector<int> quitSignals) {
 #endif
 
 using namespace xrf::api;
-using namespace xrf::app;
 
-void XRFApiServer::init(size_t thr) {
-  auto opts = Pistache::Http::Endpoint::options().threads(thr);
-  opts.flags(Pistache::Tcp::Options::ReuseAddr);
-  opts.maxRequestSize(PISTACHE_SERVER_MAX_PAYLOAD);
-  m_httpEndpoint->init(opts);
+int main() {
+#ifdef __linux__
+    std::vector<int> sigs{SIGQUIT, SIGINT, SIGTERM, SIGHUP};
+    setUpUnixSignals(sigs);
+#endif
+    Pistache::Address addr(Pistache::Ipv4::any(), Pistache::Port(8080));
 
-  m_accessTokenRequestApiImpl->init();
-  m_initialAuthenticationRequestApiImpl->init();
-  m_XAppRegisterInstanceApiImpl->init();
-  m_XAppDiscoverInstancesApiImpl->init();
-  m_RequestJWKSAccessApiImpl->init();
-  m_TokenIntrospectionRequestApiImpl->init();
+    httpEndpoint = new Pistache::Http::Endpoint((addr));
+    auto router = std::make_shared<Pistache::Rest::Router>();
+
+    auto opts = Pistache::Http::Endpoint::options()
+        .threads(PISTACHE_SERVER_THREADS);
+    opts.flags(Pistache::Tcp::Options::ReuseAddr);
+    opts.maxRequestSize(PISTACHE_SERVER_MAX_REQUEST_SIZE);
+    opts.maxResponseSize(PISTACHE_SERVER_MAX_RESPONSE_SIZE);
+    httpEndpoint->init(opts);
+
+    
+    RequestJWKSAccessApiImpl RequestJWKSAccessApiserver(router);
+    RequestJWKSAccessApiserver.init();
+
+    httpEndpoint->setHandler(router->handler());
+    httpEndpoint->serve();
+
+    httpEndpoint->shutdown();
+
 }
-void XRFApiServer::start() {
-  m_httpEndpoint->setHandler(m_router->handler());
-  m_httpEndpoint->serve();
-}
-void XRFApiServer::shutdown() {
-  m_httpEndpoint->shutdown();
-}
-
-

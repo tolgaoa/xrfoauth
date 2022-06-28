@@ -1,6 +1,6 @@
 /**
-* XRF OAuth2 xApp Discvoery API
-* XRF OAuth2 Authorization server, xApp Discovery API 
+* XRF OAuth2 Token Introspection Request API
+* XRF OAuth2 Authorization server, token introspection API 
 *
 * The version of the OpenAPI document: 1
 * Contact: tolgaoa@vt.edu
@@ -94,17 +94,6 @@ bool fromStringValue(const std::string &inStr, int32_t &value){
     catch (const std::invalid_argument&) {
         return false;
     }
-    return true;
-}
-
-// Added after auto-generation
-bool fromStringValue(const std::basic_string<char> &inStr, xrf::model::XAppService &value){
-    //value = std::string(inStr);
-    return true;
-}
-
-bool fromStringValue(const std::basic_string<char> &inStr, xrf::model::XAppProfile &value){
-    //value = std::string(inStr);
     return true;
 }
 

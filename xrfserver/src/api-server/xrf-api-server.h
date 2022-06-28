@@ -14,6 +14,8 @@
 #include "InitialAuthenticationRequestApiImpl.h"
 #include "XAppRegisterInstanceApiImpl.h"
 #include "XAppDiscoverInstancesApiImpl.h"
+#include "RequestJWKSAccessApiImpl.h"
+#include "TokenIntrospectionRequestApiImpl.h"
 #include "xrf_main.hpp"
 
 using namespace xrf::api;
@@ -38,6 +40,11 @@ public:
 		m_XAppDiscoverInstancesApiImpl = std::make_shared<XAppDiscoverInstancesApiImpl>(
                         m_router, xrf_main_inst, m_address);
 
+                m_RequestJWKSAccessApiImpl = std::make_shared<RequestJWKSAccessApiImpl>(
+                        m_router, xrf_main_inst, m_address);
+
+		m_TokenIntrospectionRequestApiImpl = std::make_shared<TokenIntrospectionRequestApiImpl>(
+                        m_router, xrf_main_inst, m_address);
 	
 	}		
 	void init(size_t thr = 4);
@@ -54,6 +61,8 @@ private:
 	std::shared_ptr<InitialAuthenticationRequestApiImpl> m_initialAuthenticationRequestApiImpl;
 	std::shared_ptr<XAppRegisterInstanceApiImpl> m_XAppRegisterInstanceApiImpl;
 	std::shared_ptr<XAppDiscoverInstancesApiImpl> m_XAppDiscoverInstancesApiImpl;
+	std::shared_ptr<RequestJWKSAccessApiImpl> m_RequestJWKSAccessApiImpl;
+	std::shared_ptr<TokenIntrospectionRequestApiImpl> m_TokenIntrospectionRequestApiImpl;
 
 	// String address
 	std::string m_address;

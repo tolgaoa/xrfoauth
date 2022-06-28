@@ -1,5 +1,7 @@
 curl -X POST http://10.0.0.135:9090/oauth2/token -H 'Content-Type: application/json' -d '{test1,test2&test3,test4}'
 
+curl -X POST http://10.0.0.135:9090/oauth/intro -H 'Content-Type: application/json' -d '{"Token" : ""}'
+
 curl -X POST http://10.0.0.135:9090/init/auth -H 'Content-Type: application/json' -d '{"xxx":"yyy"}'
 
 curl -X PUT http://10.0.0.135:9090/xapp/disc/0001 -H 'Content-Type: application/json' -d '{"xAppInstanceId":"0001", "xAppStatus":"InitAuthDone", "xAppIpv4":"10.0.0.140"}'
@@ -12,3 +14,5 @@ curl -X PUT http://10.0.0.135:9090/xapp/disc/0001 -H 'Content-Type: application/
 curl -X GET "http://10.0.0.135:9090/xapp/discall?targetxApp=TS&targetLoc=312"
 For the multiple curl requests while testing from the shell, the URL needs to be encapsulated in " " or the shell will think that ' & ' is the end of the command and wont send the remaining queries
 ---------------------------------------------------------------------------------
+
+curl -X GET "http://10.0.0.135:9090/oauth/jwks?keyid=test"

@@ -79,7 +79,7 @@ private:
     /// <param name="xAppProfile"> (optional)</param>
    
    
-   // virtual void registerx_app_instance(const std::string &xAppInstanceId, const org::openapitools::server::model::XAppProfile &xAppProfile, Pistache::Http::ResponseWriter &response) = 0;
+   // virtual void registerx_app_instance(const std::string &xAppInstanceId, const xrf::model::XAppProfile &xAppProfile, Pistache::Http::ResponseWriter &response) = 0;
 
     //virtual void registerx_app_instance(const std::string &xAppInstanceId, const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter &response) = 0;
     

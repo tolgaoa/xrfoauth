@@ -11,36 +11,25 @@ info:
 servers: 
   - url: http://xrfapi.com
 paths:
-  /oauth/intro:
-    post:
-      summary: Token Introspection Request
-      operationId: TokenIntroRequest
+  /oauth/jwks:
+    get:
+      summary: Discover the set of xApp Instances offering a given service
+      operationId: JWKSReq
       tags:
-        - Token Introspection Request
+        - Request JWKS access
       parameters:
-        - name: Content-Encoding
-          in: header
-          description: Content-Encoding, described in IETF RFC 7231
+        - name: keyid
+          in: query
+          description: key id in the header of JWT to be validated
           schema:
-            type: string
-        - name: Accept-Encoding
-          in: header
-          description: Accept-Encoding, described in IETF RFC 7231
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/TokenIntroReq'
-        required: true
+            $ref: '#/components/schemas/JWKSKeyReq'
       responses:
         '200':
-          description: Successful Token Introspection Request
+          description: successful key retrieval
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TokenIntroRsp'
+                $ref: '#/components/schemas/JWKSKeyRsp'
           headers:
             Cache-Control:
               $ref: '#/components/headers/cache-control'
@@ -55,14 +44,14 @@ paths:
               schema:
                 type: string
         '400':
-          description: Error in the Token Introspection Request
+          description: Error in key retrieval Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TokenIntroErr'
+                $ref: '#/components/schemas/JWKSErr'
             application/problem+json:
               schema:
-                $ref: '#components/schemas/ProblemDetails'
+                $ref: '#/components/schemas/ProblemDetails'
           headers:
             Cache-Control:
               $ref: '#/components/headers/cache-control'
