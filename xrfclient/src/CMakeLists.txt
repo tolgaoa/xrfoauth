@@ -15,22 +15,22 @@ find_library(PISTACHE_LIBRARY pistache)
 
 include_directories(${PROJECT_SOURCE_DIR})
 include_directories(${PROJECT_SOURCE_DIR}/clientapp)
-#include_directories(${PROJECT_SOURCE_DIR}/api-server)
-#include_directories(${PROJECT_SOURCE_DIR}/api-server/api)
-#include_directories(${PROJECT_SOURCE_DIR}/api-server/impl)
-#include_directories(${PROJECT_SOURCE_DIR}/api-server/model)
+include_directories(${PROJECT_SOURCE_DIR}/api-server)
+include_directories(${PROJECT_SOURCE_DIR}/api-server/api)
+include_directories(${PROJECT_SOURCE_DIR}/api-server/impl)
+include_directories(${PROJECT_SOURCE_DIR}/api-server/model)
 
 add_subdirectory(clientapp)
-#add_subdirectory(api-server)
+add_subdirectory(api-server)
 
 add_executable(${PROJECT_NAME} main.cpp) 
 
 target_include_directories(${PROJECT_NAME} PUBLIC ./)
 
 target_link_directories(${PROJECT_NAME} PUBLIC clientapp/)
-#target_link_directories(${PROJECT_NAME} PUBLIC api-server/)
+target_link_directories(${PROJECT_NAME} PUBLIC api-server/)
 
-#target_link_libraries(${PROJECT_NAME} XAPP_CLIENT_API XAPP_CLIENT)
+target_link_libraries(${PROJECT_NAME} XAPP_CLIENT_API XAPP_CLIENT)
 target_link_libraries(${PROJECT_NAME} XAPP_CLIENT)
 target_link_libraries(${PROJECT_NAME} OpenSSL::SSL)
 target_link_libraries(${PROJECT_NAME} OpenSSL::Crypto)
