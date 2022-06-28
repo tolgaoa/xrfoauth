@@ -58,22 +58,16 @@ std::pair<Pistache::Http::Code, std::string> ServiceTestRequestApi::handleOperat
 }
 
 void ServiceTestRequestApi::serv_test_req_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response) {
-    try {
 
-    /*
-    // Getting the body param
-    
-    ServTestReq servTestReq;
-    
-    try {
-        nlohmann::json::parse(request.body()).get_to(servTestReq);
-        servTestReq.validate();
-    } catch (std::exception &e) {
-        const std::pair<Pistache::Http::Code, std::string> errorInfo = this->handleParsingException(e);
-        response.send(errorInfo.first, errorInfo.second);
-        return;
-    }
-    */
+	Pistache::Http::Mime::MediaType mime; 
+	const auto mime_ptr = request.headers().tryGet<Pistache::Http::Header::ContentType>();
+	if (mime_ptr) {
+		mime = mime_ptr->mime();
+	}
+	for (const auto &hdr: request.headers().rawList()) {
+		std::cerr << hdr.first << " " << hdr.second.value() << "\n";
+	}
+	
 
     try {
         this->serv_test_req(request, response);
@@ -86,9 +80,6 @@ void ServiceTestRequestApi::serv_test_req_handler(const Pistache::Rest::Request 
         return;
     }
 
-    } catch (std::exception &e) {
-        response.send(Pistache::Http::Code::Internal_Server_Error, e.what());
-    }
 
 }
 

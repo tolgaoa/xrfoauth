@@ -16,3 +16,5 @@ For the multiple curl requests while testing from the shell, the URL needs to be
 ---------------------------------------------------------------------------------
 
 curl -X GET "http://10.0.0.135:9090/oauth/jwks?keyid=test"
+
+curl -X POST -H 'Accept: application/json' -H "Authorization: Bearer balbalbalbalba" http://127.0.0.1:9095/serv/test -d '{"Key":"Value"}'
