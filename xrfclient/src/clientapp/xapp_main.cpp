@@ -21,8 +21,10 @@ extern xapp_main* xapp_main_inst;
 xrf_client* xrf_client_inst = nullptr;
 xapp_msg* xapp_msg_inst = nullptr;
 xapp_profile* xapp_profile_inst = nullptr;
+xapp_jwt* xapp_jwt_inst = nullptr;
 
 std::map<int, xapp_profile_t> disc_map;
+std::unordered_map<std::string, std::string> token_key_map;
 std::string chosen_xapp_id;
 std::unordered_map<std::string, std::string> token_map;
 
@@ -114,5 +116,14 @@ void xapp_main::send_token_req(const std::string& xrfaddress){
 	spdlog::info("Token ----- {} ----- received for xApp: {}", response_from_xrf, target_xapp_id);
 
 	token_map[target_xapp_id] = response_from_xrf;
+
+};
+
+void xapp_main::validate_token_self(const std::string& xrfaddress, std::string& token, bool& validity) {
+
+	std::string kid;
+	xapp_jwt_inst->validate_token_jwks(token, kid);
+	xrf_client_inst->curl_create_jwks_req_handle(xrfaddress, token_key_map, 1, kid);
+	
 
 };

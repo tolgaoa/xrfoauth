@@ -31,6 +31,8 @@
 #include "ServTestReq.h"
 #include "ServTestRsp.h"
 
+#include "spdlog/spdlog.h"
+
 namespace xrf::api
 {
 
@@ -71,7 +73,7 @@ private:
     /// 
     /// </remarks>
     /// <param name="servTestReq"></param>
-    virtual void serv_test_req(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter &response) = 0;
+    virtual void serv_test_req(const Pistache::Rest::Request &request, std::string& bearer, Pistache::Http::ResponseWriter &response) = 0;
 
 };
 

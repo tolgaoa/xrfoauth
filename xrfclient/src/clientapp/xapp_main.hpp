@@ -33,6 +33,7 @@
 #include "xapp_msg.hpp"
 #include "xapp_profile.hpp"
 #include "spdlog/spdlog.h"
+#include "xapp_jwt.hpp"
 
 namespace xrf {
 namespace app {
@@ -90,6 +91,22 @@ class xapp_main {
 		 * return void
 		 */
 
+		void validate_token_self(const std::string& xrfaddress, std::string& token, bool& validity);
+		/*
+		 * call internal validation
+		 * @param[token] : JWT
+		 * @param[validity] token validity
+		 * return true
+		 */
+
+                void validate_token_remote(std::string& token, bool& validity);
+                /*
+                 * call remote validation
+                 * @param[token] : JWT
+		 * @param[validity] : token validity
+                 * return true
+                 */
+	
 		void display_profile();
 		/*
 		 * display xapp profile

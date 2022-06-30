@@ -32,6 +32,8 @@
 #include <keys.hpp>
 #include <spdlog/spdlog.h>
 
+#include <jwt/jwt.hpp>
+
 namespace xrf {
 namespace app {
 

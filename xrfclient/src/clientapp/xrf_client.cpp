@@ -344,6 +344,43 @@ void xrf_client::curl_create_token_req_handle(const std::string& uri, nlohmann::
 };
 
 
+void xrf_client::curl_create_jwks_req_handle(const std::string& uri,
+                                        std::unordered_map<std::string, std::string>& token_key_map, uint8_t http_version,
+                                        std::string& kid){
+
+        CURL *curl;
+        CURLcode res;
+        std::string readBuffer;
+
+        std::string fulluri = uri;;
+        fulluri.push_back('?');
+        fulluri.append("kid");
+        fulluri.push_back('=');
+        fulluri.append(kid);
+
+        spdlog::debug("Target Query is: {}", fulluri);
+
+        if(curl) {
+                curl = curl_easy_init();
+                curl_easy_setopt(curl, CURLOPT_BUFFERSIZE, 102400L);
+                curl_easy_setopt(curl, CURLOPT_NOPROGRESS, 1L);
+                curl_easy_setopt(curl, CURLOPT_MAXREDIRS, 50L);
+                curl_easy_setopt(curl, CURLOPT_URL, fulluri.c_str());
+                curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "GET");
+                curl_easy_setopt(curl, CURLOPT_FTP_SKIP_PASV_IP, 1L);
+                curl_easy_setopt(curl, CURLOPT_TCP_KEEPALIVE, 1L);
+                curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
+                curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
+                res = curl_easy_perform(curl);
+                curl_easy_cleanup(curl);
+        }
+
+        if (readBuffer.empty() == 0) spdlog::error("No key received from server that corresponds to the given key id");
+	else spdlog::debug("Incoming public Key is: {}", readBuffer);
+	
+	token_key_map[kid] = readBuffer;
+
+};
 
 
 

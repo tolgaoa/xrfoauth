@@ -103,7 +103,7 @@ class xrf_client {
                  * @param[data] : data to send : json object
                  * @param[response_data] : response from target
                  * @param[http_versoin] : http version
-                 * @return CURL
+                 * @return void
                  */
 
 		void curl_create_handle(const std::string& uri, const std::vector<std::string>& data,
@@ -114,7 +114,7 @@ class xrf_client {
                  * @param[data] : data to send : vector string
                  * @param[response_data] : response from target
                  * @param[http_versoin] : http version
-                 * @return CURL
+                 * @return void
                  */
 
                 void curl_create_get_handle(const std::string& uri,
@@ -122,9 +122,11 @@ class xrf_client {
 			 const std::string& targetxApp, const std::string targetLoc);
                 /*
                  * @param[uri] : target address/port/path
-                 * @param[response_data] : response from target
-                 * @param[http_versoin] : http version
-                 * @return CURL
+                 * @param[disc] : discovered xapp's map to be updated
+                 * @param[http_version] : http version
+		 * @param[targetxApp] : target functioanlity query
+		 * @param[targetLoc] : target location query
+                 * @return void
                  */
 
 		void curl_create_token_req_handle(const std::string& uri, nlohmann::json& data,
@@ -137,6 +139,25 @@ class xrf_client {
 		 * @param[http_version] : http version
 		 */
 
+		void curl_create_jwks_req_handle(const std::string& uri,
+			        		 std::unordered_map<std::string, std::string>& token_key_map,
+			       			 uint8_t http_version, std::string& kid);
+		/*
+		 * create curl handle for jwks key request
+		 * @param[uri] : target address
+		 * @param[token_key_map] : token to public key map to be updated
+		 * @param[http_version] : http version
+		 * @param[kid] : key id query
+		 *
+		 */
+
+                /*
+                 * create curl handle for oauth token request
+                 * @param[uri] : target address
+                 * @param[data] : data to send
+                 * @param[response_data] : response from target
+                 * @param[http_version] : http version
+                 */
 
 		void to_json(nlohmann::json& j, const std::string& kv1, const std::string& kv2);
 		/*

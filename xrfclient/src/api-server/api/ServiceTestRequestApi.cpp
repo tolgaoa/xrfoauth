@@ -64,13 +64,23 @@ void ServiceTestRequestApi::serv_test_req_handler(const Pistache::Rest::Request 
 	if (mime_ptr) {
 		mime = mime_ptr->mime();
 	}
+	
+	std::string bearer;
+
 	for (const auto &hdr: request.headers().rawList()) {
-		std::cerr << hdr.first << " " << hdr.second.value() << "\n";
+		if (hdr.first.compare("Authorization") == 0) {
+			bearer = hdr.second.value();
+			bearer.erase(0,7);
+		}
+		std::cerr << hdr.first << " ----  " << hdr.second.value() << "\n";
 	}
+
+	if (bearer.empty()) spdlog::error("Did not receieve authorization token");
+	else spdlog::debug("Received authorization bearer in request");
 	
 
     try {
-        this->serv_test_req(request, response);
+        this->serv_test_req(request, bearer, response);
     } catch (Pistache::Http::HttpError &e) {
         response.send(static_cast<Pistache::Http::Code>(e.code()), e.what());
         return;

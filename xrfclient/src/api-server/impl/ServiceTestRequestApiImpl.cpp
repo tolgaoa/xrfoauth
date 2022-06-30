@@ -22,8 +22,15 @@ ServiceTestRequestApiImpl::ServiceTestRequestApiImpl(std::shared_ptr<Pistache::R
 		                                     std::string addr) 
     						     : ServiceTestRequestApi(rtr) , m_xapp_main(xapp_main_inst), m_addr(addr) {}
 
-void ServiceTestRequestApiImpl::serv_test_req(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter &response) {
-    response.send(Pistache::Http::Code::Ok, "Do some magic\n");
+void ServiceTestRequestApiImpl::serv_test_req(const Pistache::Rest::Request &request, std::string& bearer, Pistache::Http::ResponseWriter &response) {
+    	spdlog::debug("Passed bearer: {} to the handler", bearer);
+	
+	bool tokenValid;
+	const std::string jwksEndpoint = "http://127.0.0.1:9090/oauth/jwks";
+
+	m_xapp_main->validate_token_self(jwksEndpoint, bearer, tokenValid);
+	
+	response.send(Pistache::Http::Code::Ok, "Do some magic\n");
 }
 
 }

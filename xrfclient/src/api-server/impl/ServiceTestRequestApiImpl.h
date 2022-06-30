@@ -48,7 +48,7 @@ public:
     ServiceTestRequestApiImpl(std::shared_ptr<Pistache::Rest::Router>& rtr, xapp_main* xapp_main_inst, std::string addr);
     ~ServiceTestRequestApiImpl() override = default;
 
-    void serv_test_req(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter &response);
+    void serv_test_req(const Pistache::Rest::Request& request, std::string& bearer, Pistache::Http::ResponseWriter &response);
 
 private:
     xapp_main* m_xapp_main;
