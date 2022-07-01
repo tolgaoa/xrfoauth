@@ -72,7 +72,7 @@ void ServiceTestRequestApi::serv_test_req_handler(const Pistache::Rest::Request 
 			bearer = hdr.second.value();
 			bearer.erase(0,7);
 		}
-		std::cerr << hdr.first << " ----  " << hdr.second.value() << "\n";
+		//std::cerr << hdr.first << " ----  " << hdr.second.value() << "\n";
 	}
 
 	if (bearer.empty()) spdlog::error("Did not receieve authorization token");

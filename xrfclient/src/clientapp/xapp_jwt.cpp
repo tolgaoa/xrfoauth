@@ -30,7 +30,7 @@ template<class T> std::string toString(const T& x)
 }
 
 
-void xapp_jwt::validate_token_jwks(std::string& bearer, std::string& kid) {
+void xapp_jwt::extract_token_jwks(std::string& bearer, std::string& kid) {
 	auto decoded = jwt::decode(bearer);
 
 	for(auto& e : decoded.get_header_claims()){

@@ -41,7 +41,7 @@ namespace app {
 
 class xapp_jwt {
 	public:
-		void validate_token_jwks (std::string& bearer, std::string& kid);
+		void extract_token_jwks (std::string& bearer, std::string& kid);
 		/*
 		 * validate JWT through the JWKS endpoint by fetching a public key
 		 * @param[bearer] : JWT received

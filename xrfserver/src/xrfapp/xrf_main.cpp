@@ -74,7 +74,7 @@ void xrf_main::access_token_request(
 	access_token_rsp.setTokenType("Bearer");
 	http_code = 200;
 
-	//xrf_jwt_inst->test_jwt();
+	xrf_jwt_inst->test_jwt();
 };
 
 void xrf_main::handle_auth_request
@@ -212,4 +212,14 @@ void xrf_main::vector_to_json(std::vector<std::string>& vector_ids, nlohmann::js
 	}
 	spdlog::debug("Finished converting search result to JSON");
 };
+
+void xrf_main::fetch_token_key(std::string& kid, std::string& token_pub_key) {
+
+	spdlog::debug("Processing for key id: {}", kid);	
+	int kid_i = std::stoi(kid);
+	token_pub_key = jwks.at(kid_i);
+	spdlog::debug("Found pub key: {}", token_pub_key);
+
+};
+
 

@@ -24,10 +24,17 @@ xapp_profile* xapp_profile_inst = nullptr;
 xapp_jwt* xapp_jwt_inst = nullptr;
 
 std::map<int, xapp_profile_t> disc_map;
-std::unordered_map<std::string, std::string> token_key_map;
+std::unordered_map<std::string, std::string> token_key_map; // kid to pubkey map
 std::string chosen_xapp_id;
-std::unordered_map<std::string, std::string> token_map;
+std::unordered_map<std::string, std::string> token_map; // kid to token map
 
+
+template<class T> std::string toString(const T& x)
+{
+  std::ostringstream ss;
+  ss << x;
+  return ss.str();
+}
 
 void xapp_main::register_with_xrf(const std::string& xrfaddress) {
 	std::string response_from_xrf;
@@ -122,8 +129,32 @@ void xapp_main::send_token_req(const std::string& xrfaddress){
 void xapp_main::validate_token_self(const std::string& xrfaddress, std::string& token, bool& validity) {
 
 	std::string kid;
-	xapp_jwt_inst->validate_token_jwks(token, kid);
+        auto decoded = jwt::decode(token);
+
+        for(auto& e : decoded.get_header_claims()){
+                //std::cout << e.first << " = " << e.second << std::endl;
+                if (e.first == "kid") {
+                        kid = toString(e.second);
+                        kid = kid.substr(1, kid.size() - 2);
+                        //std::cout << "Key ID is: " << kid << std::endl;
+                }
+        }
+
+        if(kid.empty()) spdlog::error("Did not find key id in JWT header");
+        else spdlog::debug("Key id is: {}", kid);
+
+	//xapp_jwt_inst->extact_token_jwks(token, kid);
+
 	xrf_client_inst->curl_create_jwks_req_handle(xrfaddress, token_key_map, 1, kid);
-	
+
+	std::cout << token_key_map.at(kid) << std::endl;
+	auto verify = jwt::verify().allow_algorithm(jwt::algorithm::rs256(token_key_map.at(kid), "", "", "")).with_issuer("nssl.xrf");
+
+	//verify.verify(decoded);
+	for (auto& e : decoded.get_header_claims())
+		std::cout << e.first << " = " << e.second.to_json() << std::endl;
+	for (auto& e : decoded.get_payload_claims())
+		std::cout << e.first << " = " << e.second.to_json() << std::endl;
+
 
 };

@@ -354,7 +354,7 @@ void xrf_client::curl_create_jwks_req_handle(const std::string& uri,
 
         std::string fulluri = uri;;
         fulluri.push_back('?');
-        fulluri.append("kid");
+        fulluri.append("keyid");
         fulluri.push_back('=');
         fulluri.append(kid);
 
@@ -375,10 +375,25 @@ void xrf_client::curl_create_jwks_req_handle(const std::string& uri,
                 curl_easy_cleanup(curl);
         }
 
-        if (readBuffer.empty() == 0) spdlog::error("No key received from server that corresponds to the given key id");
-	else spdlog::debug("Incoming public Key is: {}", readBuffer);
-	
-	token_key_map[kid] = readBuffer;
+        //if (readBuffer.empty() == 0) spdlog::error("No key received from server that corresponds to the given key id");
+	spdlog::debug("Incoming public Key is: {}", readBuffer);
+
+        std::map<std::string, std::string> request;
+        std::vector<std::string> kvpairs;
+        boost::split(kvpairs, readBuffer, boost::is_any_of("&"), boost::token_compress_on);
+
+        std::vector<std::string> kv;
+        for (auto i : kvpairs){
+                boost::split(kv, i, boost::is_any_of(":"), boost::token_compress_on);
+                if (kv.size() != 2){
+                        spdlog::warn("Invalid Response--Expecting single KVpair--Received more");
+                }else request[kv[0]] = kv[1];
+                //spdlog::info("(Key, Value):  %s, %s \n", kv[0].c_str(), kv[1].c_str());
+        }
+
+	std::string r = kv[1];
+	r.erase(remove(r.begin(), r.end(), '"'), r.end());
+	token_key_map[kid] = r;
 
 };
 

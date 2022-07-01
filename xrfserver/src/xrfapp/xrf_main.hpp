@@ -116,6 +116,14 @@ class xrf_main{
 		 * @param[problem_details] : error details
 		 */
 
+		void fetch_token_key(std::string& kid, std::string& token_pub_key);
+		/*
+		 * get public key corresponding to a key id
+		 * @param[kid] : key id
+		 * @param[jwks_map] : key id to pubkey map
+		 * return void
+		 */
+
 		void vector_to_json(std::vector<std::string>& vector_ids, nlohmann::json& json_data);
 		/*
 		 * convert vector of xapp ids to json

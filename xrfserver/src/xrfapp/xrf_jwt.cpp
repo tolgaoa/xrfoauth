@@ -23,9 +23,6 @@
 #include <boost/uuid/uuid_io.hpp>         // streaming operators etc.
 
 
-#include <jwt/jwt.hpp>
-
-
 using namespace xrf::app;
 
 bool xrf_jwt::generate_signature(const std::string& xapp_consumer_id,
@@ -61,6 +58,7 @@ bool xrf_jwt::generate_signature(const std::string& xapp_consumer_id,
                         //jwt::params::secret(tokenkey1priv)};
                         jwt::params::secret(priv_key)};
         signature = obj.signature();
+
         return true;
 }
 
@@ -180,19 +178,46 @@ std::pair<EVP_PKEY*,EVP_PKEY*> xrf_jwt::GetKeyRSApair()
 
 void xrf_jwt::test_jwt(){
 
-using namespace jwt::params;
+//using namespace jwt::params;
 
 
-	std::cout << "Create string view of the private key" << std::endl;
+	/*std::cout << "Create string view of the private key" << std::endl;
 	jwt::string_view sv = tokenkeypriv2;
 	std::cout << tokenkeypriv1 << std::endl;
 
 	std::cout << "Create string view of the public key" << std::endl;
 	jwt::string_view sv1 = tokenkeypub2;
 	std::cout << tokenkeypub1 << std::endl;
-
+	*/
 	std::cout << "Create JWT Object" << std::endl;
-	// Create JWT object
+	auto token = jwt::create()
+					 .set_issuer("auth0")
+					 .set_type("JWT")
+					 .set_id("rsa-create-example")
+					 .set_key_id("rsa-create-example")
+					 .set_issued_at(std::chrono::system_clock::now())
+					 .set_expires_at(std::chrono::system_clock::now() + std::chrono::seconds{36000})
+					 .set_payload_claim("sample", jwt::claim(std::string{"test"}))
+					 .sign(jwt::algorithm::rs256("", tokenkeypriv1, "", ""));
+
+	std::cout << "token:\n" << token << std::endl;
+
+	auto verify = jwt::verify().allow_algorithm(jwt::algorithm::rs256(tokenkeypub1, "", "", "")).with_issuer("auth0");
+
+	auto decoded = jwt::decode(token);
+
+	verify.verify(decoded);
+
+	for (auto& e : decoded.get_header_claims())
+		std::cout << e.first << " = " << e.second.to_json() << std::endl;
+	for (auto& e : decoded.get_payload_claims())
+		std::cout << e.first << " = " << e.second.to_json() << std::endl;
+
+
+
+
+	/*
+	//Create JWT object
         boost::uuids::uuid jti = boost::uuids::random_generator()();
         jwt::jwt_object obj{jwt::params::algorithm("RS256"),
         //jwt::jwt_object obj{jwt::params::algorithm("ES256"),
@@ -203,11 +228,7 @@ using namespace jwt::params;
                                             {"scope", "read, write"},
                                             {"exp", "1000"}}),  // seconds
                         //jwt::params::secret(tokenkey1priv)};
-                        jwt::params::secret(tokenkeypriv2)};
-
-        /*jwt::jwt_object obj{algorithm("RS256"), payload({{"some", "payload"}}),
-                      secret(tokenkeypriv1)};
-	*/
+                        jwt::params::secret(tokenkeypriv1)};
 
 	std::cout << obj.header() << std::endl;
 	std::cout << obj.payload() << std::endl;
@@ -221,9 +242,10 @@ using namespace jwt::params;
 	std::cout << "encrypted token printed" << std::endl;
 
         // Decode
-        auto dec_obj = jwt::decode(enc_str, algorithms({"RS256"}), secret(tokenkeypub2));
+        auto dec_obj = jwt::decode(enc_str, algorithms({"RS256"}), secret(tokenkeypub1));
         std::cout << dec_obj.header() << std::endl;
         std::cout << dec_obj.payload() << std::endl;
 	std::cout << "token printed" << std::endl;
+	*/
 }
 

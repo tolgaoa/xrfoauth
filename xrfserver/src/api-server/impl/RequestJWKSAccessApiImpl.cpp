@@ -22,8 +22,25 @@ RequestJWKSAccessApiImpl::RequestJWKSAccessApiImpl(std::shared_ptr<Pistache::Res
 
 
 void RequestJWKSAccessApiImpl::j_wks_req(const Pistache::Optional<std::string>& keyid, Pistache::Http::ResponseWriter &response) {
-	spdlog::info("=======================Incoming JWKS Key Discovery Request======================");	
-    	response.send(Pistache::Http::Code::Ok, "Do some magic\n");
+	spdlog::info("=======================Incoming JWKS Key Discovery Request======================");
+
+	std::string request_key;
+	std::string targetKeyid_v = {};
+	if (!keyid.isEmpty()) {
+		targetKeyid_v = keyid.get();
+		spdlog::debug("Target Key ID is: {}", targetKeyid_v.c_str());
+	}
+
+	m_xrf_main->fetch_token_key(targetKeyid_v, request_key);
+	int http_code = 200;
+
+	nlohmann::json json_data = {};
+	std::string content_type = "applicaiton/json";
+
+	if (http_code == 200) json_data["pubkey"] = request_key;
+	else json_data["pubkey"] = "not found";
+
+	response.send(Pistache::Http::Code(http_code), json_data.dump().c_str());
 }
 
 }
