@@ -175,6 +175,7 @@ void xapp_main::validate_token_self(const std::string& xrfaddress, std::string& 
 
 	std::error_code ec;
 	auto dec_obj = jwt::decode(token, algorithms({"RS256"}), ec, secret(token_key_map.at(kid)), verify(true));
+	std::cout << ec << std::endl;
 	assert (ec);
 	validity = true;
 

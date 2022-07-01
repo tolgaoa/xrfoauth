@@ -281,7 +281,7 @@ Vfo3IVNL8aXzZp6NNzpaAbsCAwEAAQ==
 
 
 	//Decode
-  jwt::jwt_object obj{algorithm("HS256"), secret("secret")};
+  jwt::jwt_object obj{algorithm("RS256"), secret(testkeypriv)};
   obj.add_claim("iss", "arun.muralidharan")
      .add_claim("exp", std::chrono::system_clock::now() - std::chrono::seconds{1})
      ;
@@ -290,7 +290,9 @@ Vfo3IVNL8aXzZp6NNzpaAbsCAwEAAQ==
   auto enc_str = obj.signature(ec);
   assert (!ec);
 
-  auto dec_obj = jwt::decode(enc_str, algorithms({"HS256"}), ec, secret("secret"), verify(true));
+  //auto dec_obj = jwt::decode(enc_str, algorithms({"HS256"}), ec, secret(tokenkeypub3), verify(true));
+  auto dec_obj = jwt::decode(enc_str, algorithms({"RS256"}), ec, verify(true));
+  std::cout << ec << std::endl;
   assert (ec);
   assert (ec.value() == static_cast<int>(jwt::VerificationErrc::TokenExpired));
 
