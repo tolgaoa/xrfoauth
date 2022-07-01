@@ -31,22 +31,7 @@ template<class T> std::string toString(const T& x)
 
 
 void xapp_jwt::extract_token_jwks(std::string& bearer, std::string& kid) {
-	auto decoded = jwt::decode(bearer);
-
-	for(auto& e : decoded.get_header_claims()){
-		//std::cout << e.first << " = " << e.second << std::endl;
-		if (e.first == "kid") {
-			kid = toString(e.second);
-			kid = kid.substr(1, kid.size() - 2);
-			//std::cout << "Key ID is: " << kid << std::endl;
-		}	
-	}
-
-
-	if(kid.empty()) spdlog::error("Did not find key id in JWT header");
-	else spdlog::debug("Key id is: {}", kid);
 };
 
 void xapp_jwt::validate_token_remote(std::string& bearer, std::string& kid) {
-
 };

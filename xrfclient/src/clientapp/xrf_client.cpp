@@ -376,7 +376,7 @@ void xrf_client::curl_create_jwks_req_handle(const std::string& uri,
         }
 
         //if (readBuffer.empty() == 0) spdlog::error("No key received from server that corresponds to the given key id");
-	spdlog::debug("Incoming public Key is: {}", readBuffer);
+	//spdlog::debug("Incoming public Key is: {}", readBuffer);
 
         std::map<std::string, std::string> request;
         std::vector<std::string> kvpairs;
@@ -394,6 +394,7 @@ void xrf_client::curl_create_jwks_req_handle(const std::string& uri,
 	std::string r = kv[1];
 	r.erase(remove(r.begin(), r.end(), '"'), r.end());
 	token_key_map[kid] = r;
+	spdlog::debug("Received key: {}", r);
 
 };
 

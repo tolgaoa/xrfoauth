@@ -28,6 +28,7 @@
 #include <openssl/pem.h>
 #include <openssl/err.h>
 #include <exception>
+#include <cassert>
 
 #include <keys.hpp>
 #include <spdlog/spdlog.h>

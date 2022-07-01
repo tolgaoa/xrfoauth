@@ -46,6 +46,7 @@
 
 #include <nlohmann/json.hpp>
 
+
 typedef struct xapp_profile_s {
         std::string id;
         std::string ipv4;

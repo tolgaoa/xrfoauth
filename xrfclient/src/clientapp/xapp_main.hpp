@@ -34,6 +34,8 @@
 #include "xapp_profile.hpp"
 #include "spdlog/spdlog.h"
 #include "xapp_jwt.hpp"
+#include "keys.hpp"
+
 
 namespace xrf {
 namespace app {

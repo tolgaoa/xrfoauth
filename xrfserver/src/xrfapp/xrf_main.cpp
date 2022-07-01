@@ -74,7 +74,7 @@ void xrf_main::access_token_request(
 	access_token_rsp.setTokenType("Bearer");
 	http_code = 200;
 
-	xrf_jwt_inst->test_jwt();
+	//xrf_jwt_inst->test_jwt();
 };
 
 void xrf_main::handle_auth_request

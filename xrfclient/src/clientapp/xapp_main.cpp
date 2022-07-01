@@ -36,6 +36,21 @@ template<class T> std::string toString(const T& x)
   return ss.str();
 }
 
+std::vector<std::string> splitString(const std::string& str)
+{
+    std::vector<std::string> tokens;
+ 
+    std::string::size_type pos = 0;
+    std::string::size_type prev = 0;
+    while ((pos = str.find("\\n", prev)) != std::string::npos) {
+        tokens.push_back(str.substr(prev, pos - prev));
+        prev = pos + 1;
+    }
+    tokens.push_back(str.substr(prev));
+ 
+    return tokens;
+}
+
 void xapp_main::register_with_xrf(const std::string& xrfaddress) {
 	std::string response_from_xrf;
 	std::string str = "test";	
@@ -128,33 +143,80 @@ void xapp_main::send_token_req(const std::string& xrfaddress){
 
 void xapp_main::validate_token_self(const std::string& xrfaddress, std::string& token, bool& validity) {
 
+	using namespace jwt::params;
+	
 	std::string kid;
-        auto decoded = jwt::decode(token);
+        auto decoded = jwt::decode(token, algorithms({"none"}), verify(false));
 
+        spdlog::debug("======Decoding Token Header and Payload======");
+        spdlog::debug("===Header===");
+	spdlog::debug("{}", toString(decoded.header()));
+        spdlog::debug("===Payload===");
+	spdlog::debug("{}", toString(decoded.payload()));
+
+	std::string header_raw = toString(decoded.header());
+	std::vector<std::string> header;	
+	boost::split(header, header_raw, boost::is_any_of(","), boost::token_compress_on);
+        for (auto i : header){
+                i.erase(remove(i.begin(), i.end(), '"'), i.end());
+                i.erase(remove(i.begin(), i.end(), '{'), i.end());
+                i.erase(remove(i.begin(), i.end(), '}'), i.end());
+
+		std::vector<std::string> hkv;
+		boost::split(hkv, i, boost::is_any_of(":"), boost::token_compress_on);
+		for (auto k : hkv){
+			if (hkv[0] == "kid") {
+				kid = hkv[1];
+			}
+		}
+        }
+	spdlog::debug("Key ID is: {}", kid);
+	xrf_client_inst->curl_create_jwks_req_handle(xrfaddress, token_key_map, 1, kid);
+
+	std::error_code ec;
+	auto dec_obj = jwt::decode(token, algorithms({"RS256"}), ec, secret(token_key_map.at(kid)), verify(true));
+	assert (ec);
+	validity = true;
+
+	/*
+	spdlog::debug("======Decoding Token Header and Payload======");
+	spdlog::debug("===Header===");
         for(auto& e : decoded.get_header_claims()){
-                //std::cout << e.first << " = " << e.second << std::endl;
+		spdlog::debug("{} = {}", toString(e.first), toString(e.second));
                 if (e.first == "kid") {
                         kid = toString(e.second);
                         kid = kid.substr(1, kid.size() - 2);
-                        //std::cout << "Key ID is: " << kid << std::endl;
                 }
         }
+	spdlog::debug("===Payload===");
+        for(auto& e : decoded.get_payload_claims())
+		spdlog::debug("{} = {}", toString(e.first), toString(e.second));
+
 
         if(kid.empty()) spdlog::error("Did not find key id in JWT header");
         else spdlog::debug("Key id is: {}", kid);
 
-	//xapp_jwt_inst->extact_token_jwks(token, kid);
-
 	xrf_client_inst->curl_create_jwks_req_handle(xrfaddress, token_key_map, 1, kid);
 
-	std::cout << token_key_map.at(kid) << std::endl;
-	auto verify = jwt::verify().allow_algorithm(jwt::algorithm::rs256(token_key_map.at(kid), "", "", "")).with_issuer("nssl.xrf");
+	spdlog::debug("The received key is: {}", token_key_map.at(kid));
+	
+	std::string str =  token_key_map.at(kid);
+	std::vector<std::string> tokens = splitString(str);
+	std::string finalkey;
 
-	//verify.verify(decoded);
-	for (auto& e : decoded.get_header_claims())
-		std::cout << e.first << " = " << e.second.to_json() << std::endl;
-	for (auto& e : decoded.get_payload_claims())
-		std::cout << e.first << " = " << e.second.to_json() << std::endl;
+	int c = 0;
+	for (auto i : tokens) {
+		if(c > 0) i.erase(0,1);
+		i.erase(remove(i.begin(), i.end(), '}'), i.end());
+		finalkey.append(i);
+		finalkey.append("\n");
+		//std::cout << i << std::endl;        
+		c++;
+	}
 
+	auto verifier = jwt::verify().allow_algorithm(jwt::algorithm::rs256(tokenkeypub3, "", "", ""))
+		.with_issuer("nssl.xrf");
 
+	verifier.verify(decoded);
+	*/
 };

@@ -30,7 +30,10 @@ void ServiceTestRequestApiImpl::serv_test_req(const Pistache::Rest::Request &req
 
 	m_xapp_main->validate_token_self(jwksEndpoint, bearer, tokenValid);
 	
-	response.send(Pistache::Http::Code::Ok, "Do some magic\n");
+	if (tokenValid) {	
+		response.send(Pistache::Http::Code::Ok, "https://www.tomorrowtides.com/service15.html\n");
+	}else spdlog::error("OAuth Token invalid");
+
 }
 
 }
