@@ -78,6 +78,7 @@ class xapp_meta {
 		 * @param[data] : vector string values for xApp data
 		 * @param[key] : key for unordered_map
 		 * @param[map] : which map to update
+		 * @param[xpp_map] : map itself
 		 * return void
 		 */
 

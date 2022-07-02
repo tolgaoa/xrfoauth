@@ -178,7 +178,8 @@ void xapp_main::validate_token_self(const std::string& xrfaddress, std::string& 
 	//std::cout << ec << std::endl;
 	assert (ec);
 	validity = true;
-
+	
+	//*************************************This block uses the other jwt library: cpp-jwt*********************************
 	/*
 	spdlog::debug("======Decoding Token Header and Payload======");
 	spdlog::debug("===Header===");
@@ -220,6 +221,7 @@ void xapp_main::validate_token_self(const std::string& xrfaddress, std::string& 
 
 	verifier.verify(decoded);
 	*/
+	//***************************************************************************************************************
 };
 
 void xapp_main::validate_token_remote(const std::string& xrfaddress, std::string& token, bool& validity) {

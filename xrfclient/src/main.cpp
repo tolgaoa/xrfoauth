@@ -76,12 +76,8 @@ int main(int argc, char** argv){
         Pistache::Address addr(Pistache::Ipv4::any(), Pistache::Port(9095));
         api_server = new XRFcApiServer(addr, xapp_main_inst);
         api_server->init(2);
-        //std::thread xrf_manager(&XRFApiServer::start, api_server);
         api_server->start();
-
 	//---------------------------------------------------------------------------
-
-
 	return 0;
 }
 

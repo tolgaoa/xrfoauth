@@ -30,6 +30,7 @@ template<class T> std::string toString(const T& x)
 }
 
 
+// Implemented in xapp_main for now
 void xapp_jwt::extract_token_jwks(std::string& bearer, std::string& kid) {
 };
 

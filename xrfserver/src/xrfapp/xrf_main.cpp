@@ -36,8 +36,8 @@ xapp_meta* xapp_meta_inst = nullptr;
 
 std::unordered_map<std::string, xapp_profile_t> profile_i;
 std::unordered_map<std::string, xapp_profile_t> profile_f;
-//std::unordered_map<std::string, EVP_PKEY*> jwks; // kid .at() tokenpubkey
-std::unordered_map<int, std::string> jwks; // kid .at() tokenpubkey
+//std::unordered_map<std::string, EVP_PKEY*> jwks; // kid .at() tokenpubkey where key is EVP_PKEY
+std::unordered_map<int, std::string> jwks; // kid .at() tokenpubkey where key is plaintext
 
 template<class T> std::string toString(const T& x)
 {
@@ -81,6 +81,7 @@ void xrf_main::access_token_request(
 	access_token_rsp.setTokenType("Bearer");
 	http_code = 200;
 
+	//Uncomment to test JWT encode and decode
 	//xrf_jwt_inst->test_jwt();
 };
 
@@ -154,7 +155,6 @@ void xrf_main::handle_reg_request
 	reqmod.erase(remove(reqmod.begin(), reqmod.end(), '}'), reqmod.end()); 
 	reqmod.erase(remove(reqmod.begin(), reqmod.end(), ' '), reqmod.end()); 
 
-        //boost::split(kvpairs, request_main, boost::is_any_of(","), boost::token_compress_on);
         boost::split(kvpairs, reqmod, boost::is_any_of(","), boost::token_compress_on);
 
 	spdlog::info("=============================================");
@@ -177,15 +177,6 @@ void xrf_main::handle_reg_request
 
 	xapp_meta_inst->display_map(profile_i);
 
-        /*for (auto i : profile_i){
-                std::cout << i.first << std::endl;
-                std::cout << i.second.to_string() << std::endl;
-        }
-
-        for (auto i : profile_f){
-                std::cout << i.first << std::endl;
-                std::cout << i.second.to_string() << std::endl;
-        }*/
 }
 
 
@@ -277,7 +268,8 @@ void xrf_main::validate_token(const std::string& token, bool& validity){
 
         std::error_code ec;
         auto dec_obj = jwt::decode(token, algorithms({"RS256"}), ec, secret(jwks.at(std::stoi(kid))), verify(true));
-        //std::cout << ec << std::endl;
+        //If there is a verification error, uncomment to see the code
+	//std::cout << ec << std::endl;
         assert (ec);
         validity = true;
 	spdlog::debug("Introspection Complete");

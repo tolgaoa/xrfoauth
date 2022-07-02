@@ -120,7 +120,7 @@ class xrf_main{
 		/*
 		 * get public key corresponding to a key id
 		 * @param[kid] : key id
-		 * @param[jwks_map] : key id to pubkey map
+		 * @param[token_pub_key] : public key for the token
 		 * return void
 		 */
 

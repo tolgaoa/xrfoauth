@@ -40,13 +40,15 @@ bool xrf_jwt::generate_signature(const std::string& xapp_consumer_id,
 	generate_key_pair(jwks, priv_key, kid);
 
 	//spdlog::debug("Chosen private key pair: {}", priv_key);
-
+	
+	//***************************Generate keys internally: not used right now*****************************
 	/*EVP_PKEY *prvKey;
 	prvKey = EVP_PKEY_new();
 	FILE* fp = fopen("prv_xrf", "r");
 	PEM_read_PrivateKey(fp,&prvKey,NULL,NULL);*/
-
+	//****************************************************************************************************
 	
+	//******************************Token generation doesn't work with alignment**************************
 	/*boost::uuids::uuid jti = boost::uuids::random_generator()();
         jwt::jwt_object obj{jwt::params::algorithm("RS256"),
         //jwt::jwt_object obj{jwt::params::algorithm("ES256"),
@@ -59,6 +61,8 @@ bool xrf_jwt::generate_signature(const std::string& xapp_consumer_id,
                         //jwt::params::secret(tokenkey1priv)};
                         jwt::params::secret(priv_key)};
 	*/
+	//****************************************************************************************************
+
         jwt::jwt_object obj{algorithm("RS256"),
                         headers({{"kid", std::to_string(kid)}}),
                         payload({{"iss", "nssl.xrf"}, {"sub", target_xapp_id}, {"aud", xapp_consumer_id}, {"scope", scope}, {"exp", "1000"}}),

@@ -96,6 +96,7 @@ class xapp_main {
 		void validate_token_self(const std::string& xrfaddress, std::string& token, bool& validity);
 		/*
 		 * call internal validation
+		 * @param[xrfaddress] : address of the jwks endpoint on server
 		 * @param[token] : JWT
 		 * @param[validity] token validity
 		 * return true
@@ -104,6 +105,7 @@ class xapp_main {
                 void validate_token_remote(const std::string& xrfaddress, std::string& token, bool& validity);
                 /*
                  * call remote validation
+		 * @param[xrfaddress] : address of the introspection endpoint on server
                  * @param[token] : JWT
 		 * @param[validity] : token validity
                  * return true
