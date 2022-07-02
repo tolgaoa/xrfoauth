@@ -8,16 +8,23 @@ int main(int argc, char *argv[])
 {
   CURLcode ret;
   CURL *hnd;
+  struct curl_slist *slist1;
+
+  slist1 = NULL;
+  slist1 = curl_slist_append(slist1, "Content-Type: application/json");
 
   hnd = curl_easy_init();
   curl_easy_setopt(hnd, CURLOPT_BUFFERSIZE, 102400L);
-  curl_easy_setopt(hnd, CURLOPT_URL, "http://127.0.0.1:9090/oauth/jwks?keyid=test");
+  curl_easy_setopt(hnd, CURLOPT_URL, "http://10.0.0.135:9090/oauth/intro");
   curl_easy_setopt(hnd, CURLOPT_NOPROGRESS, 1L);
+  curl_easy_setopt(hnd, CURLOPT_POSTFIELDS, "{\"Token\" : \"\"}");
+  curl_easy_setopt(hnd, CURLOPT_POSTFIELDSIZE_LARGE, (curl_off_t)14);
+  curl_easy_setopt(hnd, CURLOPT_HTTPHEADER, slist1);
   curl_easy_setopt(hnd, CURLOPT_USERAGENT, "curl/7.68.0");
   curl_easy_setopt(hnd, CURLOPT_MAXREDIRS, 50L);
   curl_easy_setopt(hnd, CURLOPT_HTTP_VERSION, (long)CURL_HTTP_VERSION_2TLS);
   curl_easy_setopt(hnd, CURLOPT_SSH_KNOWNHOSTS, "/home/taport/.ssh/known_hosts");
-  curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "GET");
+  curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "POST");
   curl_easy_setopt(hnd, CURLOPT_FTP_SKIP_PASV_IP, 1L);
   curl_easy_setopt(hnd, CURLOPT_TCP_KEEPALIVE, 1L);
 
@@ -43,6 +50,8 @@ int main(int argc, char *argv[])
 
   curl_easy_cleanup(hnd);
   hnd = NULL;
+  curl_slist_free_all(slist1);
+  slist1 = NULL;
 
   return (int)ret;
 }

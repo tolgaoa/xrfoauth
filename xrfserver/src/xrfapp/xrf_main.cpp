@@ -39,6 +39,13 @@ std::unordered_map<std::string, xapp_profile_t> profile_f;
 //std::unordered_map<std::string, EVP_PKEY*> jwks; // kid .at() tokenpubkey
 std::unordered_map<int, std::string> jwks; // kid .at() tokenpubkey
 
+template<class T> std::string toString(const T& x)
+{
+  std::ostringstream ss;
+  ss << x;
+  return ss.str();
+}
+
 void xrf_main::access_token_request(
 		const std::string& request_main, AccessTokenRsp& access_token_rsp, 
 		int& http_code, const uint8_t http_version, 
@@ -222,4 +229,59 @@ void xrf_main::fetch_token_key(std::string& kid, std::string& token_pub_key) {
 
 };
 
+void xrf_main::validate_token(const std::string& token, bool& validity){
+
+	using namespace jwt::params;
+
+	std::vector<std::string> kvpairs;
+        boost::split(kvpairs, token, boost::is_any_of(","), boost::token_compress_on);
+        std::vector<std::string> kv;
+	std::string proc_token;
+
+        for (auto i : kvpairs){
+                i.erase(remove(i.begin(), i.end(), '"'), i.end());
+                i.erase(remove(i.begin(), i.end(), '{'), i.end());
+                i.erase(remove(i.begin(), i.end(), '}'), i.end());
+
+                boost::split(kv, i, boost::is_any_of(":"), boost::token_compress_on);
+                proc_token = kv[1];
+                spdlog::debug("(Key, Value):  {}, {}", kv[0], kv[1]);
+        }
+
+        std::string kid;
+        auto decoded = jwt::decode(proc_token, algorithms({"none"}), verify(false));
+
+        spdlog::debug("======Decoding Token Header and Payload======");
+        spdlog::debug("===Header===");
+        spdlog::debug("{}", toString(decoded.header()));
+        spdlog::debug("===Payload===");
+        spdlog::debug("{}", toString(decoded.payload()));
+
+        std::string header_raw = toString(decoded.header());
+        std::vector<std::string> header;
+        boost::split(header, header_raw, boost::is_any_of(","), boost::token_compress_on);
+        for (auto i : header){
+                i.erase(remove(i.begin(), i.end(), '"'), i.end());
+                i.erase(remove(i.begin(), i.end(), '{'), i.end());
+                i.erase(remove(i.begin(), i.end(), '}'), i.end());
+
+                std::vector<std::string> hkv;
+                boost::split(hkv, i, boost::is_any_of(":"), boost::token_compress_on);
+                for (auto k : hkv){
+                        if (hkv[0] == "kid") {
+                                kid = hkv[1];
+                        }
+                }
+        }
+        spdlog::debug("Key ID is: {}", kid);
+
+        std::error_code ec;
+        auto dec_obj = jwt::decode(token, algorithms({"RS256"}), ec, secret(jwks.at(std::stoi(kid))), verify(true));
+        //std::cout << ec << std::endl;
+        assert (ec);
+        validity = true;
+	spdlog::debug("Introspection Complete");
+
+
+};
 

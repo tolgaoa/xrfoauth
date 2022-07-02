@@ -398,6 +398,53 @@ void xrf_client::curl_create_jwks_req_handle(const std::string& uri,
 
 };
 
+void xrf_client::curl_create_intro_req_handle(const std::string& uri,
+                                  uint8_t http_version, nlohmann::json& json_data, bool& validity) {
+
+        CURL *curl;
+        CURLcode res;
+        std::string readBuffer;
+
+        struct curl_slist *slist1;
+        slist1 = NULL;
+        slist1 = curl_slist_append(slist1, "Content-Type: application/json");
+
+        curl = curl_easy_init();
+
+	std::string s = json_data.dump();
+        
+	if(curl) {
+                curl_easy_setopt(curl, CURLOPT_URL, uri.c_str());
+                curl_easy_setopt(curl, CURLOPT_POST, 1);
+                curl_easy_setopt(curl, CURLOPT_HTTPHEADER, slist1);
+                curl_easy_setopt(curl, CURLOPT_POSTFIELDS, s.c_str());
+                curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
+                curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
+                res = curl_easy_perform(curl);
+                curl_easy_cleanup(curl);
+        }
+
+        std::vector<std::string> kvpairs;
+        boost::split(kvpairs, readBuffer, boost::is_any_of(","), boost::token_compress_on);
+        std::vector<std::string> kv;
+        std::string resp;
+
+        for (auto i : kvpairs){
+                i.erase(remove(i.begin(), i.end(), '"'), i.end());
+                i.erase(remove(i.begin(), i.end(), '{'), i.end());
+                i.erase(remove(i.begin(), i.end(), '}'), i.end());
+
+                boost::split(kv, i, boost::is_any_of(":"), boost::token_compress_on);
+                resp = kv[1];
+                //spdlog::debug("(Key, Value):  {}, {}", kv[0], kv[1]);
+        }
+
+	if (resp == "true") validity = true;
+	else validity = false;
+
+
+};
+
 
 
 

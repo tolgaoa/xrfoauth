@@ -124,6 +124,14 @@ class xrf_main{
 		 * return void
 		 */
 
+		void validate_token(const std::string& token, bool& validity);
+		/*
+		 * validate token for introspection endpoint
+		 * @param[token] : token reqeust coming from client
+		 * @param[validity] : valid or not
+		 * return void
+		 */
+
 		void vector_to_json(std::vector<std::string>& vector_ids, nlohmann::json& json_data);
 		/*
 		 * convert vector of xapp ids to json

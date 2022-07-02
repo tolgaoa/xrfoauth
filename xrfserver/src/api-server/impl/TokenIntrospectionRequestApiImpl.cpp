@@ -23,8 +23,19 @@ TokenIntrospectionRequestApiImpl::TokenIntrospectionRequestApiImpl(std::shared_p
 
 void TokenIntrospectionRequestApiImpl::token_intro_request(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter &response) {
 
-	spdlog::info("========================Incoming Token Introspection Request==========================");
-	response.send(Pistache::Http::Code::Ok, "Do some magic\n");
+	spdlog::info("=============Incoming Token Introspection Request=============");
+	
+	int http_code = 200;
+
+	bool validity;
+
+	m_xrf_main->validate_token(request.body(), validity);
+
+	nlohmann::json data;
+	data["result"] = "true";
+
+	if (validity) response.send(Pistache::Http::Code(http_code), data.dump().c_str());
+	else spdlog::error("token not valid");
 }
 
 }

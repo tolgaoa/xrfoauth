@@ -101,7 +101,7 @@ class xapp_main {
 		 * return true
 		 */
 
-                void validate_token_remote(std::string& token, bool& validity);
+                void validate_token_remote(const std::string& xrfaddress, std::string& token, bool& validity);
                 /*
                  * call remote validation
                  * @param[token] : JWT

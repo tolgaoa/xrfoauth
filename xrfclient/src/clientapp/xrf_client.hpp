@@ -152,6 +152,17 @@ class xrf_client {
 		 *
 		 */
 
+                void curl_create_intro_req_handle(const std::string& uri,
+                                                 uint8_t http_version, nlohmann::json& token,
+						 bool& validity);
+                /*
+                 * create curl handle for jwks key request
+                 * @param[uri] : target address
+                 * @param[http_version] : http version
+                 * @param[token] : token to send
+                 *
+                 */
+	
                 /*
                  * create curl handle for oauth token request
                  * @param[uri] : target address

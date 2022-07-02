@@ -175,7 +175,7 @@ void xapp_main::validate_token_self(const std::string& xrfaddress, std::string& 
 
 	std::error_code ec;
 	auto dec_obj = jwt::decode(token, algorithms({"RS256"}), ec, secret(token_key_map.at(kid)), verify(true));
-	std::cout << ec << std::endl;
+	//std::cout << ec << std::endl;
 	assert (ec);
 	validity = true;
 
@@ -220,4 +220,19 @@ void xapp_main::validate_token_self(const std::string& xrfaddress, std::string& 
 
 	verifier.verify(decoded);
 	*/
+};
+
+void xapp_main::validate_token_remote(const std::string& xrfaddress, std::string& token, bool& validity) {
+
+	spdlog::info("Performing remote token introspection");
+	spdlog::debug("Token is: {}", token);
+        nlohmann::json data;
+        data["token"] = token;
+	std::cout << data << std::endl;
+
+        xrf_client_inst->curl_create_intro_req_handle(xrfaddress, 1, data, validity);
+
+
+
+
 };
