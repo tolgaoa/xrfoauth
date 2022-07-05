@@ -31,6 +31,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade --yes && DE
     git \
     gpg \ 
     wget \
+    curl \
     ninja-build \
     libboost-all-dev \
     libgtest-dev \
@@ -84,8 +85,14 @@ WORKDIR /root/pistache/build
 RUN cmake .. && make -j8 && make install && ldconfig
 WORKDIR /root
 
+# For adding xrfserver build
+COPY ./xrfoauth/xrfserver /root/xrfserver
+WORKDIR /root/xrfserver/src
+RUN ./build_script.sh
+
+
 # expose ports
-EXPOSE 80/tcp 9090/tcp 38412/sctp
+EXPOSE 80/tcp 9090/tcp
 
 CMD ["sleep", "infinity"]
 
