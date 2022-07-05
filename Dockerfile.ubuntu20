@@ -1,7 +1,4 @@
 FROM ubuntu:focal
-ENV DEBIAN_FRONTEND=noninteractive
-ENV TZ=Europe/Paris
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade --yes && DEBIAN_FRONTEND=noninteractive apt-get install --yes \
     tzdata \
@@ -31,18 +28,11 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade --yes && DE
     git \
     gpg \ 
     wget \
-    curl \
     ninja-build \
     libboost-all-dev \
     libgtest-dev \
     nlohmann-json3-dev \
   && rm -rf /var/lib/apt/lists/*
-
-RUN apt-get update && apt-get install -y software-properties-common gcc && \
-    add-apt-repository -y ppa:deadsnakes/ppa
-
-RUN apt-get update && apt-get install -y python3.6 python3-distutils python3-pip python3-apt
-RUN pip3 install numpy
 
 RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | tee /usr/share/keyrings/kitware-archive-keyring.gpg >/dev/null && \
     echo 'deb [signed-by=/usr/share/keyrings/kitware-archive-keyring.gpg] https://apt.kitware.com/ubuntu/ focal main' | tee /etc/apt/sources.list.d/kitware.list >/dev/null && \
@@ -85,11 +75,10 @@ WORKDIR /root/pistache/build
 RUN cmake .. && make -j8 && make install && ldconfig
 WORKDIR /root
 
-# For adding xrfserver build
-COPY ./xrfoauth/xrfserver /root/xrfserver
+# Add xrfserver build
+COPY ./xrfserver /root/xrfserver
 WORKDIR /root/xrfserver/src
 RUN ./build_script.sh
-
 
 # expose ports
 EXPOSE 80/tcp 9090/tcp
