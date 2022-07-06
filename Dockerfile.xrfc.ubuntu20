@@ -26,6 +26,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade --yes && DE
     libprotobuf-dev \
     protobuf-compiler \
     git \
+    curl \
+    libcurl4-openssl-dev \
     gpg \ 
     wget \
     ninja-build \
@@ -76,12 +78,11 @@ RUN cmake .. && make -j8 && make install && ldconfig
 WORKDIR /root
 
 # Add xrfserver build
-COPY ./xrfserver /root/xrfserver
-WORKDIR /root/xrfserver/src
+COPY ./xrfclient /root/xrfclient
+WORKDIR /root/xrfclient/src
 RUN ./build_script.sh
 
 # expose ports
-EXPOSE 80/tcp 9090/tcp
+EXPOSE 9090
 
 CMD ["sleep", "infinity"]
-
