@@ -15,24 +15,24 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: xrfc
+  name: xrfc1
   namespace: xrf
   labels:
-    app: xrfc
+    app: xrfc1
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: xrfc
+      app: xrfc1
   template:
     metadata:
       annotations:
         config.linkerd.io/enable-debug-sidecar: "true"
         linkerd.io/inject: enabled
       labels:
-        app: xrfc
+        app: xrfc1
     spec:
       containers:
-      - name: xrfc
+      - name: xrfc1
         image: tolgaomeratalay/xrfclient:1.0
         imagePullPolicy: IfNotPresent
