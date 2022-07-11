@@ -41,9 +41,16 @@ AccessTokenRequestApiImpl::AccessTokenRequestApiImpl(
 			spdlog::debug("Expected client count is: {}", nc);
 			std::string ncs = nc;
 			inc = std::stoi(ncs);
+			wbegin = std::chrono::high_resolution_clock::now(); //Start server wall clock
+			cstart = clock(); // Start server cpu clock
 		}
 
-void AccessTokenRequestApiImpl::access_token_request(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter &response){	
+void AccessTokenRequestApiImpl::access_token_request(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter &response) {	
+
+        //if (pclient_c == 0) wbegin = std::chrono::high_resolution_clock::now(); //Start server wall clock
+        //if (pclient_c == 0) cstart = clock(); // Start server cpu clock
+	pclient_c++;
+
 	spdlog::info("Incoming Request for an OAuth2 access token from xApp");	
 	int http_code = 0;
 	ProblemDetails problem_details = {};
@@ -60,11 +67,7 @@ void AccessTokenRequestApiImpl::access_token_request(const Pistache::Rest::Reque
 	
 	response.headers().add<Pistache::Http::Header::ContentType>(Pistache::Http::Mime::MediaType(content_type));
 	response.send(Pistache::Http::Code(http_code), json_data.dump().c_str());
-	pclient_c++;
-	
-	if (pclient_c == 1) wbegin = std::chrono::high_resolution_clock::now(); //Start server wall clock
-	if (pclient_c == 1) cstart = clock(); // Start server cpu clock
-
+		
 	if (pclient_c == inc) {
 		cend = clock(); // Stop server cpu clock
 		wend = std::chrono::high_resolution_clock::now(); //Stop server wall clock 
@@ -77,8 +80,8 @@ void AccessTokenRequestApiImpl::access_token_request(const Pistache::Rest::Reque
 		auto welapseds = std::to_string(welapsed.count());
 
 		std::ofstream out("latency.txt");
-		out << celapseds;
-		out << "\n";
+		//out << celapseds;
+		//out << "\n";
 		out << welapseds;
 		out << "\n";
 		out.close();	

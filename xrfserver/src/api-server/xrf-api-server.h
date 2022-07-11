@@ -66,6 +66,8 @@ private:
 
 	// String address
 	std::string m_address;
+
+
 };
 
 #endif
