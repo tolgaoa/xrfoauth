@@ -34,8 +34,11 @@ spec:
     spec:
       containers:
       - name: xrfs
-        image: tolgaomeratalay/xrfserver:1.0
+        image: tolgaomeratalay/xrfserver:3.1
         imagePullPolicy: IfNotPresent
+        env:
+        - name: CLIENT_COUNT
+          value: "20"
         resources:
           requests:
             memory: "512Mi"

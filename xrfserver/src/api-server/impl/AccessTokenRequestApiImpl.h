@@ -25,6 +25,25 @@
 #include <pistache/router.h>
 #include <memory>
 
+#include <stdio.h>
+#include <chrono>
+#include <fstream>
+#include <string_view>
+#include <signal.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <time.h>
+#include <cstdlib>
+#include <iostream>
+
+#include <sstream>
+#include <iomanip>
+
+#include <utility>
+#include <cmath>
+#include <vector>
+
 #include <AccessTokenRequestApi.h>
 
 //#include <pistache/optional.h>
@@ -52,6 +71,9 @@ public:
 private:
 	xrf_main*  m_xrf_main;
 	std::string m_addr;
+
+protected:
+	int pclient_c;
 
 };
 

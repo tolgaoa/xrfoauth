@@ -83,5 +83,5 @@ RUN ./build_script.sh
 # expose ports
 EXPOSE 9090
 
-#CMD ["sleep", "infinity"]
-CMD ["/root/xrfserver/src/build/xappoauth"]
+CMD ["sleep", "infinity"]
+#CMD ["/root/xrfserver/src/build/xappoauth"]
