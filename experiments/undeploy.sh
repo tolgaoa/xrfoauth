@@ -3,9 +3,9 @@
 
 waitAllPods()
 {
-        wrnmsg "\tWaiting for all pods to be deployed"
+        wrnmsg "\tWaiting for all pods to be terminated"
 
-        while [[ "$(kubectl get -n xrf pods --field-selector status.phase!=Running -o name)" != "" ]];
+        while [[ "$(kubectl get -n xrf pods --field-selector status.phase=Running -o name)" != "" ]];
                 do
                         wrnmsg "."
                         sleep 2
