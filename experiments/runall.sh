@@ -13,10 +13,10 @@ nousers=(1 2 5 10 15 20 25 30 35 40 50 60 70 80 90 100)
 
 for ((u=0;u<${#nousers[@]};u++))
 do	
-	lu=nousers[u]; 
+	lu=${nousers[$u]}; 
 
-	mkdir logs/clientSide/clientc$u
-	mkdir logs/serverSide/clientc$u
+	mkdir logs/clientSide/clientc$lu
+	mkdir logs/serverSide/clientc$lu
 
 	for ((ite=1;ite<=$iterations;ite++))
 	do
