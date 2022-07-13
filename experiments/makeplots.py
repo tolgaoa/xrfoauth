@@ -6,8 +6,10 @@ import math
 import random
 import warnings
 
-itec=100
-cln=np.array([1, 2, 5, 10, 15, 20])
+itec=10
+#cln=np.array([1, 2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
+#cln=np.array([10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
+cln=np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50])
 resarrc = {}
 resarrs = {}
 tlc=0
@@ -22,7 +24,6 @@ for i in range(0, len(cln)):
     pathbase="logs/clientSide/clientc"
     clientvar=str(cln[i])
     clientapp="/iter"
-
     for j in range(1, itec):
         itervar=str(j)
         iterapp="/xrfc"
@@ -55,8 +56,8 @@ for arr in resarrc:
     fmeans = np.nanmean(itemeans)
     datam[arr] = fmeans
     itemeans = itemeans[~np.isnan(itemeans)]
-    dataeb[0,arr] = np.max(itemeans) - fmeans
-    dataeb[1,arr] = np.min(itemeans) - fmeans
+    #dataeb[0,arr] = np.max(itemeans) - fmeans
+    #dataeb[1,arr] = np.min(itemeans) - fmeans
     ferr = np.std(itemeans)/np.sqrt(len(itemeans))
     datae[arr] = ferr
 
@@ -100,8 +101,8 @@ for arr in resarrs:
     fmeans = np.nanmean(datat)
     datams[arr] = fmeans
     datat = datat[~np.isnan(datat)]
-    dataebs[0,arr] = np.max(datat) - fmeans
-    dataebs[1,arr] = np.min(datat) - fmeans
+    #dataebs[0,arr] = np.max(datat) - fmeans
+    #dataebs[1,arr] = np.min(datat) - fmeans
     ferr = np.std(datat)/np.sqrt(len(datat))
     dataes[arr] = ferr
 
@@ -131,6 +132,6 @@ ax1.set_xlabel('Number of Concurrent Clients', fontsize=18)
 ax1.set_ylabel('Average client latency (ms)', fontsize=18)
 ax2.set_ylabel('Average server throughput (users/s)', fontsize=18)
 #fig1.legend(['Client-side', 'Server-side'], bbox_to_anchor=(0.4, 0.88), fontsize=14)
-fig1.legend(bbox_to_anchor=(0.25, 0.88), fontsize=14)
+fig1.legend(bbox_to_anchor=(0.45, 0.88), fontsize=14)
 
 plt.savefig('figures/tot_lat_thr.eps', format='eps')

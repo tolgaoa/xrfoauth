@@ -38,7 +38,7 @@ spec:
         imagePullPolicy: IfNotPresent
         env:
         - name: CLIENT_COUNT
-          value: "20"
+          value: "50"
         resources:
           requests:
             memory: "512Mi"

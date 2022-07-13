@@ -3,3 +3,5 @@ linkerd viz -n xrf tap deploy xrfs    ---- for tapping into the deployment conne
 ------------------- System Path which includes linkerd at the end ---------------------------
 /home/nsslm/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/nsslm/.linkerd2/bin
 
+
+export PATH=$PATH:/home/nssl/.linkerd2/bin
