@@ -1,6 +1,7 @@
 #!/bin/bash
 
 nousers=$1
+thc=$2
 
 waitAllPods()
 {
@@ -36,6 +37,7 @@ deployServer()
 {
 	echo "Deploying XRF Server"
 	sed -i "41s/.*/          value: \"$nousers\"/" ../xrfserver/deployment/dep.yaml
+	sed -i "43s/.*/          value: \"$thc\"/" ../xrfserver/deployment/dep.yaml
 	kubectl apply -f ../xrfserver/deployment/dep.yaml
 	kubectl wait --for=condition=available --timeout=200s deployment/xrfs -n xrf
 }

@@ -6,10 +6,12 @@ import math
 import random
 import warnings
 
-itec=10
+itec=5
 #cln=np.array([1, 2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
 #cln=np.array([10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
-cln=np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50])
+#cln=np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50])
+#cln=np.array([2, 5, 10, 20, 30, 40])
+cln=np.array([2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90])
 resarrc = {}
 resarrs = {}
 tlc=0

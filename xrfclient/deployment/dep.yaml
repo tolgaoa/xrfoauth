@@ -15,22 +15,22 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: xrfc50
+  name: xrfc90
   namespace: xrf
   labels:
-    app: xrfc50
+    app: xrfc90
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: xrfc50
+      app: xrfc90
   template:
     metadata:
       annotations:
         config.linkerd.io/enable-debug-sidecar: "true"
         linkerd.io/inject: enabled
       labels:
-        app: xrfc50
+        app: xrfc90
     spec:
       containers:
       - name: xrfc
@@ -38,6 +38,6 @@ spec:
         imagePullPolicy: IfNotPresent
         env:
         - name: SERVER_XRF
-          value: "10.9.0.91"
+          value: "10.42.0.81"
         - name: XRF_PORT
           value: "9090"

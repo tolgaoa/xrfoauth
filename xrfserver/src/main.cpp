@@ -20,6 +20,7 @@ xrf_main* xrf_main_inst = nullptr;
 XRFApiServer* api_server = nullptr;
 
 const char *nc = "CLIENT_COUNT";
+const char *tc = "THREAD_COUNT";
 
 void reportTime(std::shared_mutex *mtx_start, std::shared_mutex *mtx_end) {
 
@@ -71,6 +72,19 @@ int main(int argc, char** argv){
 	
 	spdlog::set_level(spdlog::level::debug);
 	
+        //Get Thread count
+        const char *tmp = getenv("THREAD_COUNT");
+	std::string tc(tmp ? tmp : "");
+        if (tc.empty()) {
+                spdlog::error("Thread count not found");
+                exit(EXIT_FAILURE);
+        }
+        spdlog::info("Thread count is: {}", tc);
+
+	std::stringstream sstc(tc);
+	size_t tcr;
+	sstc >> tcr;
+
 	int clientc = 0;
 
 	std::shared_mutex mutex_start, mutex_end;
@@ -80,7 +94,7 @@ int main(int argc, char** argv){
 	spdlog::info("Starting XRF API Server");
 	Pistache::Address addr(Pistache::Ipv4::any(), Pistache::Port(9090));
 	api_server = new XRFApiServer(addr, xrf_main_inst);	
-	api_server->init(2);
+	api_server->init(tcr);
 	api_server->start();
 
 	return 0;

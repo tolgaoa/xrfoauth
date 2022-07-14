@@ -34,18 +34,20 @@ spec:
     spec:
       containers:
       - name: xrfs
-        image: tolgaomeratalay/xrfserver:3.4
+        image: tolgaomeratalay/xrfserver:3.6
         imagePullPolicy: IfNotPresent
         env:
         - name: CLIENT_COUNT
-          value: "50"
+          value: "90"
+        - name: THREAD_COUNT
+          value: "40"
         resources:
           requests:
-            memory: "512Mi"
-            cpu: "800m"
+            cpu: 40
+            memory: "12560M"
           limits:
-            memory: "1024Mi"
-            cpu: "1200m"
+            cpu: 40
+            memory: "12560M"
         ports:
         - containerPort: 9090
           name: http1

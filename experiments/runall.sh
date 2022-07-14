@@ -1,13 +1,14 @@
 #!/bin/bash
 
 iterations=$1
+thc=$2
 
 rm -r logs/clientSide
 mkdir logs/clientSide
 rm -r logs/serverSide
 mkdir logs/serverSide
 
-nousers=(1 2 3 4 5 6 7 8 9 10 20 30 40 50)
+nousers=(20 30 40 50 60 70 80 90)
 #nousers=(5)
 
 
@@ -24,7 +25,7 @@ do
 		mkdir logs/clientSide/clientc$lu/iter$ite
 		mkdir logs/serverSide/clientc$lu/iter$ite
 
-		/bin/bash ./deploy.sh $lu
+		/bin/bash ./deploy.sh $lu $thc
 		sleep 2
 		/bin/bash ./startclients.sh $lu $ite
 		sleep 2
