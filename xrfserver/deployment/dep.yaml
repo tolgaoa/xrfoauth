@@ -27,27 +27,27 @@ spec:
   template:
     metadata:
       annotations:
-        config.linkerd.io/enable-debug-sidecar: "true"
-        linkerd.io/inject: enabled
+              #config.linkerd.io/enable-debug-sidecar: "true"
+              #linkerd.io/inject: enabled
       labels:
         app: xrfs
     spec:
       containers:
       - name: xrfs
-        image: tolgaomeratalay/xrfserver:3.6
+        image: tolgaomeratalay/xrfserver:4.0
         imagePullPolicy: IfNotPresent
         env:
         - name: CLIENT_COUNT
-          value: "90"
+          value: "500"
         - name: THREAD_COUNT
-          value: "40"
+          value: "20"
         resources:
           requests:
-            cpu: 40
-            memory: "12560M"
+            cpu: 18
+            memory: "32560M"
           limits:
-            cpu: 40
-            memory: "12560M"
+            cpu: 18
+            memory: "32560M"
         ports:
         - containerPort: 9090
           name: http1
