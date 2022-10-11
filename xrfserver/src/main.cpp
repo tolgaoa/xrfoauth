@@ -22,6 +22,8 @@ XRFApiServer* api_server = nullptr;
 const char *nc = "CLIENT_COUNT";
 const char *tc = "THREAD_COUNT";
 
+auto wbeginor = std::chrono::high_resolution_clock::now();
+
 void reportTime(std::shared_mutex *mtx_start, std::shared_mutex *mtx_end) {
 
 	mtx_start->lock();

@@ -97,7 +97,7 @@ void xapp_meta::display_map(std::unordered_map<std::string, xapp_profile_t>& xap
 
 	spdlog::info("==================Displaying Current xApp Map======================");
 	for (std::pair<std::string, xapp_profile_t> element : xapp_map)
-		spdlog::info("Map Key: {} , Map Entry: {}", element.first, element.second.to_string());
+		spdlog::debug("Map Key: {} , Map Entry: {}", element.first, element.second.to_string());
 
 };
 

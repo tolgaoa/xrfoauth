@@ -35,39 +35,40 @@ wrnmsg()
 
 deployServer() 
 {
-	echo "Deploying XRF Server"
-	sed -i "41s/.*/          value: \"$nousers\"/" ../xrfserver/deployment/dep.yaml
-	sed -i "43s/.*/          value: \"$thc\"/" ../xrfserver/deployment/dep.yaml
-	kubectl apply -f ../xrfserver/deployment/dep.yaml
-	kubectl wait --for=condition=available --timeout=200s deployment/xrfs -n xrf
+        echo "Deploying XRF Server"
+        sed -i "41s/.*/          value: \"$nousers\"/" ../xrfserver/deployment/dep.yaml
+        sed -i "43s/.*/          value: \"$thc\"/" ../xrfserver/deployment/dep.yaml
+        kubectl apply -f ../xrfserver/deployment/dep.yaml
+        kubectl wait --for=condition=available --timeout=200s deployment/xrfs -n xrf
 }
 
 deployClients()
 {
 
-	echo "Deploying XRF Server"
-	kubectl apply -f ../xrfserver/deployment/dep.yaml
-	kubectl wait --for=condition=available --timeout=200s deployment/xrfs -n xrf
+        echo "Deploying XRF Server"
+        kubectl apply -f ../xrfserver/deployment/dep.yaml
+        kubectl wait --for=condition=available --timeout=200s deployment/xrfs -n xrf
 
-	echo "Starting XRF client deployments"
+        echo "Starting XRF client deployments"
 
-	xrfIP=$(kubectl get pods -n xrf -o wide| grep xrfs | awk '{print $6}');
+        xrfIP=$(kubectl get pods -n xrf -o wide| grep xrfs | awk '{print $6}');
 
-	for ((c=1;c<=$nousers;c++))
-	do
-		sed -i "18s/.*/  name: xrfc$c/" ../xrfclient/deployment/dep.yaml
-		sed -i "21s/.*/    app: xrfc$c/" ../xrfclient/deployment/dep.yaml
-		sed -i "26s/.*/      app: xrfc$c/" ../xrfclient/deployment/dep.yaml
-		sed -i "33s/.*/        app: xrfc$c/" ../xrfclient/deployment/dep.yaml
-		sed -i "41s/.*/          value: \"$xrfIP\"/" ../xrfclient/deployment/dep.yaml
+        for ((c=1;c<=$nousers;c++))
+        do
+                sed -i "18s/.*/  name: xrfc$c/" ../xrfclient/deployment/dep.yaml
+                sed -i "21s/.*/    app: xrfc$c/" ../xrfclient/deployment/dep.yaml
+                sed -i "26s/.*/      app: xrfc$c/" ../xrfclient/deployment/dep.yaml
+                sed -i "33s/.*/        app: xrfc$c/" ../xrfclient/deployment/dep.yaml
+                sed -i "41s/.*/          value: \"$xrfIP\"/" ../xrfclient/deployment/dep.yaml
 
-		kubectl apply -f ../xrfclient/deployment/dep.yaml
-	done
+                kubectl apply -f ../xrfclient/deployment/dep.yaml
+        done
 
-	waitAllPods
+        waitAllPods
 
 }
 
 deployServer
 
 deployClients
+

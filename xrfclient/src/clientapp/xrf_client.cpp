@@ -232,7 +232,7 @@ void xrf_client::curl_create_get_handle(const std::string& uri,
                 curl_easy_cleanup(curl);
         }
 
-	spdlog::info("Incoming xApp Profiles: {}", readBuffer);
+	spdlog::debug("Incoming xApp Profiles: {}", readBuffer);
 
 
         std::vector<std::string> raw_disc;
@@ -445,7 +445,40 @@ void xrf_client::curl_create_intro_req_handle(const std::string& uri,
 
 };
 
+void xrf_client::curl_create_client_req(const std::string& uri,
+                                        uint8_t http_version, std::string& token) {
 
+	CURLcode ret;
+	CURL *hnd;
+	struct curl_slist *slist1;
+
+	std::string readBuffer;
+
+	slist1 = NULL;
+	slist1 = curl_slist_append(slist1, "Accept: application/json");
+
+        std::string datakvsta = "Authorization: Bearer ";
+        std::string datasend = datakvsta + token;
+
+	slist1 = curl_slist_append(slist1, datasend.c_str());
+	
+	hnd = curl_easy_init();
+	curl_easy_setopt(hnd, CURLOPT_BUFFERSIZE, 102400L);
+	curl_easy_setopt(hnd, CURLOPT_URL, uri.c_str());
+	curl_easy_setopt(hnd, CURLOPT_NOPROGRESS, 1L);
+	curl_easy_setopt(hnd, CURLOPT_POSTFIELDS, "{\"Key\":\"Value\"}");
+	curl_easy_setopt(hnd, CURLOPT_POSTFIELDSIZE_LARGE, (curl_off_t)15);
+	curl_easy_setopt(hnd, CURLOPT_HTTPHEADER, slist1);
+	curl_easy_setopt(hnd, CURLOPT_USERAGENT, "curl/7.68.0");
+	curl_easy_setopt(hnd, CURLOPT_MAXREDIRS, 50L);
+	curl_easy_setopt(hnd, CURLOPT_HTTP_VERSION, (long)CURL_HTTP_VERSION_2TLS);
+	curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "POST");
+	curl_easy_setopt(hnd, CURLOPT_FTP_SKIP_PASV_IP, 1L);
+	curl_easy_setopt(hnd, CURLOPT_TCP_KEEPALIVE, 1L);
+	
+	ret = curl_easy_perform(hnd);
+	curl_easy_cleanup(hnd);
+};
 
 
 

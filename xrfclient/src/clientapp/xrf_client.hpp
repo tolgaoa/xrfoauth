@@ -162,6 +162,16 @@ class xrf_client {
                  * @param[token] : token to send
                  *
                  */
+
+		void curl_create_client_req(const std::string& uri,
+					    uint8_t http_version, std::string& token);
+		/*
+		 * create client request
+		 * @param[uri] : target address
+		 * @param[http_version] : http version
+		 * @param[token] : access token to use
+		 * @param[dummy_content] : null content
+		 */
 	
                 /*
                  * create curl handle for oauth token request

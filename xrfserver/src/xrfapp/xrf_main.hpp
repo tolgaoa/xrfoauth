@@ -140,6 +140,13 @@ class xrf_main{
 		 * return void
 		 */
 
+		void check_client_clount(int& clientc);
+		/*
+		 * check client count for throughput calculation
+		 * @param[clientc] : client count
+		 * return void
+		 */
+
 };
 
 }

@@ -75,7 +75,7 @@ void xrf_main::access_token_request(
 
 	outcome = xrf_jwt_inst->generate_signature(request.at("requester_ID"), request.at("target_ID"), sign, jwks, request.at("scope"));
 	spdlog::info("JWT Access Token Generated");
-	spdlog::info(sign);
+	spdlog::debug(sign);
 	spdlog::info("JWT Access Token Signed");
 	access_token_rsp.setAccessToken(sign);
 	access_token_rsp.setTokenType("Bearer");
@@ -103,7 +103,7 @@ void xrf_main::handle_auth_request
                 if (kv.size() != 2){
                         spdlog::warn("Invalid Authentication Request--Expecting single KVpair--Received more");
                 }else request[kv[0]] = kv[1];
-		spdlog::info("(Key, Value):  {} , {}", kv[0].c_str(), kv[1].c_str());
+		spdlog::debug("(Key, Value):  {} , {}", kv[0].c_str(), kv[1].c_str());
         }
 	spdlog::info("=============================================");
 	spdlog::info("=============================================");

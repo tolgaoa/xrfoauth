@@ -34,11 +34,11 @@ spec:
     spec:
       containers:
       - name: xrfs
-        image: tolgaomeratalay/xrfserver:4.0
+        image: tolgaomeratalay/xrfserver:4.1
         imagePullPolicy: IfNotPresent
         env:
         - name: CLIENT_COUNT
-          value: "500"
+          value: "20"
         - name: THREAD_COUNT
           value: "20"
         resources:

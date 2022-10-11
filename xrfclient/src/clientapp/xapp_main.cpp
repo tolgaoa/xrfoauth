@@ -28,6 +28,15 @@ std::unordered_map<std::string, std::string> token_key_map; // kid to pubkey map
 std::string chosen_xapp_id;
 std::unordered_map<std::string, std::string> token_map; // kid to token map
 
+auto wbeginjwks = std::chrono::high_resolution_clock::now();
+auto wbeginremote = std::chrono::high_resolution_clock::now();
+clock_t cstartjwks = clock();
+clock_t cstartremote = clock();
+
+const char *nc = "CLIENT_COUNT";
+
+int pclient_jwks = 0;
+int pclient_remote = 0;
 
 template<class T> std::string toString(const T& x)
 {
@@ -86,7 +95,7 @@ void xapp_main::sendauth_to_xrf(const std::string& challenge, const std::string&
 	spdlog::info("Challenge created");
 
 	xrf_client_inst->curl_create_handle(xrfaddress, str, response_from_xrf, 1);
-	spdlog::info("Authentication challenge response from XRF: {}", response_from_xrf);
+	spdlog::debug("Authentication challenge response from XRF: {}", response_from_xrf);
 	//-----------------Process for XRF ID authentication by xApp----------------------------
 	unsigned char xrf_challenge[RND_LENGTH];
 	int xrf_auth_result = xapp_msg_inst->final_verification(response_from_xrf, xrf_challenge);
@@ -135,13 +144,23 @@ void xapp_main::send_token_req(const std::string& xrfaddress){
 	std::string response_from_xrf;
 
 	xrf_client_inst->curl_create_token_req_handle(xrfaddress, data, response_from_xrf, 1);
-	spdlog::info("Token ----- {} ----- received for xApp: {}", response_from_xrf, target_xapp_id);
+	spdlog::debug("Token ----- {} ----- received for xApp: {}", response_from_xrf, target_xapp_id);
 
 	token_map[target_xapp_id] = response_from_xrf;
 
 };
 
 void xapp_main::validate_token_self(const std::string& xrfaddress, std::string& token, bool& validity) {
+
+        //Get Client count
+        const char *tmp = getenv("CLIENT_COUNT");
+        std::string tc(tmp ? tmp : "");
+        if (tc.empty()) {
+                spdlog::error("Client count not found");
+                exit(EXIT_FAILURE);
+        }
+        spdlog::info("Client count is: {}", tc);
+
 
 	using namespace jwt::params;
 	
@@ -171,11 +190,17 @@ void xapp_main::validate_token_self(const std::string& xrfaddress, std::string& 
 		}
         }
 	spdlog::debug("Key ID is: {}", kid);
-	xrf_client_inst->curl_create_jwks_req_handle(xrfaddress, token_key_map, 1, kid);
 
 	std::error_code ec;
+	
+	if (token_key_map.find(kid) == token_key_map.end()) {
+		
+		xrf_client_inst->curl_create_jwks_req_handle(xrfaddress, token_key_map, 1, kid);
+		spdlog::info("Public key for token not found. Contacting XRF Server");
+	}
+
 	auto dec_obj = jwt::decode(token, algorithms({"RS256"}), ec, secret(token_key_map.at(kid)), verify(true));
-	//std::cout << ec << std::endl;
+
 	assert (ec);
 	validity = true;
 	
@@ -222,9 +247,39 @@ void xapp_main::validate_token_self(const std::string& xrfaddress, std::string& 
 	verifier.verify(decoded);
 	*/
 	//***************************************************************************************************************
+	//
+	
+	if (pclient_jwks == std::stoi(tc)) {
+		auto wendjwks = std::chrono::high_resolution_clock::now(); //Stop client wall clock
+		clock_t cendjwks = clock(); // Stop client cpu clock
+		//---------------------------------------------------------------------------
+		double celapsed = double(cendjwks - cstartjwks)/CLOCKS_PER_SEC; // calculate cpu time
+		spdlog::debug("CPU-time: {} ms", celapsed * 1000.0);
+		auto welapsed = std::chrono::duration<double, std::milli>(wendjwks - wbeginjwks); //calculate wall time
+		spdlog::debug("Wall-time: {} ms", welapsed.count());
+
+		auto celapseds = std::to_string(celapsed*1000.0);
+		auto welapseds = std::to_string(welapsed.count());
+
+		std::ofstream out("latencyjwks.txt");
+		out << celapseds;
+		out << "\n";
+		out << welapseds;
+		out << "\n";
+		out.close();
+	}
 };
 
 void xapp_main::validate_token_remote(const std::string& xrfaddress, std::string& token, bool& validity) {
+
+        //Get Client count
+        const char *tmp = getenv("CLIENT_COUNT");
+        std::string tc(tmp ? tmp : "");
+        if (tc.empty()) {
+                spdlog::error("Client count not found");
+                exit(EXIT_FAILURE);
+        }
+        spdlog::info("Client count is: {}", tc);
 
 	spdlog::info("Performing remote token introspection");
 	spdlog::debug("Token is: {}", token);
@@ -234,7 +289,31 @@ void xapp_main::validate_token_remote(const std::string& xrfaddress, std::string
 
         xrf_client_inst->curl_create_intro_req_handle(xrfaddress, 1, data, validity);
 
+        if (pclient_jwks == std::stoi(tc)) {
+                auto wendremote = std::chrono::high_resolution_clock::now(); //Stop client wall clock
+                clock_t cendremote = clock(); // Stop client cpu clock
+                //---------------------------------------------------------------------------
+                double celapsed = double(cendremote - cstartremote)/CLOCKS_PER_SEC; // calculate cpu time
+                spdlog::debug("CPU-time: {} ms", celapsed * 1000.0);
+                auto welapsed = std::chrono::duration<double, std::milli>(wendremote - wbeginremote); //calculate wall time
+                spdlog::debug("Wall-time: {} ms", welapsed.count());
 
+                auto celapseds = std::to_string(celapsed*1000.0);
+                auto welapseds = std::to_string(welapsed.count());
 
+                std::ofstream out("latencyremote.txt");
+                out << celapseds;
+                out << "\n";
+                out << welapseds;
+                out << "\n";
+                out.close();
+        }
+};
+
+void xapp_main::send_client_connection(const std::string& addr) {
+
+	std::string temptoken = token_map.begin()->second;	
+	spdlog::info("Sending client connection");
+	xrf_client_inst->curl_create_client_req(addr, 1, temptoken);
 
 };

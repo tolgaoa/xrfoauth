@@ -41,13 +41,14 @@ AccessTokenRequestApiImpl::AccessTokenRequestApiImpl(
 			spdlog::debug("Expected client count is: {}", nc);
 			std::string ncs = nc;
 			inc = std::stoi(ncs);
-			wbegin = std::chrono::high_resolution_clock::now(); //Start server wall clock
+			//wbegin = std::chrono::high_resolution_clock::now(); //Start server wall clock
 			cstart = clock(); // Start server cpu clock
 		}
 
-void AccessTokenRequestApiImpl::access_token_request(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter &response) {	
+void AccessTokenRequestApiImpl::access_token_request(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter &response) {
 
-        //if (pclient_c == 0) wbegin = std::chrono::high_resolution_clock::now(); //Start server wall clock
+
+	//if (pclient_c == 0) wbegin = std::chrono::high_resolution_clock::now(); //Start server wall clock
         //if (pclient_c == 0) cstart = clock(); // Start server cpu clock
 	pclient_c++;
 
@@ -74,14 +75,14 @@ void AccessTokenRequestApiImpl::access_token_request(const Pistache::Rest::Reque
 		double celapsed = double(cend - cstart)/CLOCKS_PER_SEC; // calculate cpu time
 		spdlog::debug("CPU-time: {} ms", celapsed * 1000.0);
 		auto welapsed = std::chrono::duration<double, std::milli>(wend - wbegin); //calculate wall time
-		spdlog::debug("Wall-time: {} ms", welapsed.count());
+		spdlog::info("Wall-time: {} ms", welapsed.count());
 		
 		auto celapseds = std::to_string(celapsed*1000.0);
 		auto welapseds = std::to_string(welapsed.count());
 
 		std::ofstream out("latency.txt");
-		//out << celapseds;
-		//out << "\n";
+		out << celapseds;
+		out << "\n";
 		out << welapseds;
 		out << "\n";
 		out.close();	

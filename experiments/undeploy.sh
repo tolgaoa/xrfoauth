@@ -32,10 +32,10 @@ wrnmsg()
         echo -en "${bold}${color}${message}${color_default}${normal}"
 }
 
-kubectl delete deployment xrfs -n xrf
-for ((count=1;count<=$1;count++))
-do
-	kubectl delete deployment xrfc$count -n xrf
-done
+kubectl delete deployment --all -n xrf
+#for ((count=1;count<=$1;count++))
+#do
+#       kubectl delete deployment xrfc$count -n xrf
+#done
 
 waitAllPods

@@ -116,6 +116,13 @@ class xapp_main {
 		 * display xapp profile
 		 */
 
+		void send_client_connection(const std::string& xrfcaddress);
+		/*
+		 * send client connection
+		 * @param[xrfcaddress] : address of the client server
+		 * @param[token] : token to use
+		 */
+
         private:
                 std::string xappclient_instance_id;
 		xapp_profile xapp_instance_profile;

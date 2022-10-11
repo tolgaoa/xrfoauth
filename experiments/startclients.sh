@@ -6,14 +6,16 @@ tc=$3
 
 xrfpod=$(kubectl get pods -n xrf -o wide| grep xrfs | awk '{print $1}');
 
-kubectl exec -n xrf $xrfpod -c xrfs -- build/xappoauth &
-#sleep 2
+#kubectl exec -n xrf $xrfpod -c xrfs -- build/xappoauth &
 
 declare -A clients=()
 for ((i=1;i<=$nc;i++))
 do
         clients[$i]=$(kubectl get pods -n xrf -o wide| grep xrfc$i | awk '{print $1}');
 done
+
+kubectl exec -n xrf $xrfpod -c xrfs -- build/xappoauth &
+sleep 1
 
 for ((j=1;j<=$nc;j++))
 do
@@ -22,7 +24,7 @@ do
         #sleep 1
 done
 
-#sleep 10
+sleep 10
 
 for ((k=1;k<=$nc;k++))
 do
@@ -33,13 +35,14 @@ done
 kubectl cp xrf/$xrfpod:/root/xrfserver/src/latency.txt ./logs/thr$tc/serverSide/clientc$nc/iter$nu/xrfslog.txt -c xrfs
 
 xpid=$(kubectl exec -it -n xrf $xrfpod -c xrfs -- ps aux | grep xappoa | awk '{print $2}')
-tpids=( $(ps aux -T -p $xpid | grep xappoa | awk '{print $3}') )
+tpids=( $(kubectl exec -it -n xrf $xrfpod -c xrfs -- ps aux -T -p $xpid | grep build/x | awk '{print $3}') )
 
 for ((t=0;t<${#tpids[@]};t++))
 do
         tid=${tpids[$t]};
+	echo $tid
+        kubectl exec -it -n xrf $xrfpod -c xrfs -- cat /proc/$tid/status | grep voluntary | awk '{print$2}' | tee -a >> ./logs/thr$tc/serverSide/clientc$nc/iter$nu/ctxts.txt
 
-        kubectl exec -it -n xrf $xrfpod -c xrfs -- cat /proc/$tid/status | grep voluntary | awk '{print$2}' | tee ./logs/thr$tc/serverSide/clientc$nc/iter$nu/ctxts$t.txt
+	kubectl exec it -n xrf $xrfpod -c xrfs -- cat /proc/$tid/stat | awk '{print ($13+$14)}' |awk '{print "CPU Usage: " $1}' | tee -a >> ./logs/thr$tc/serverSide/clientc$nc/iter$nu/cpuusage.txt
 
 done
-
