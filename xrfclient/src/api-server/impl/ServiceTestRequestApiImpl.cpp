@@ -29,8 +29,8 @@ void ServiceTestRequestApiImpl::serv_test_req(const Pistache::Rest::Request &req
 	const std::string jwksEndpoint = "http://127.0.0.1:9090/oauth/jwks";
 	const std::string introEndpoint = "http://127.0.0.1:9090/oauth/intro";
 
-	m_xapp_main->validate_token_self(jwksEndpoint, bearer, tokenValid);
-	//m_xapp_main->validate_token_remote(introEndpoint, bearer, tokenValid);
+	//m_xapp_main->validate_token_self(jwksEndpoint, bearer, tokenValid);
+	m_xapp_main->validate_token_remote(introEndpoint, bearer, tokenValid);
 	
 	if (tokenValid) {	
 		response.send(Pistache::Http::Code::Ok, "https://www.tomorrowtides.com/service15.html\n");

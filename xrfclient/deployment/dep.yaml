@@ -38,6 +38,17 @@ spec:
         imagePullPolicy: IfNotPresent
         env:
         - name: SERVER_XRF
-          value: "10.42.0.32"
+          value: "10.42.11.86"
         - name: XRF_PORT
           value: "9090"
+        - name: SERVER_CLIENT
+          value: "10.42.11.178"
+        - name: CLIENT_PORT
+          value: "9095"
+        - name: REG_COUNT
+          value: "1"
+        - name: CLIENT_COUNT
+          value: "100"
+        - name: METHOD
+          value: "0"
+

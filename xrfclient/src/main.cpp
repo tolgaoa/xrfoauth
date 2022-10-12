@@ -194,7 +194,7 @@ void callClientConnReq(std::string http_pre, std::string ipc_var, std::string po
 int main(int argc, char** argv){
 
         //Set log level debug
-        //spdlog::set_level(spdlog::level::debug);
+        spdlog::set_level(spdlog::level::debug);
 
 	auto wbegin = std::chrono::high_resolution_clock::now(); // Start client wall clock
 	clock_t cstart = clock(); // Start client cpu clock
