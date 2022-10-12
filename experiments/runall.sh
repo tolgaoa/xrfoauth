@@ -9,9 +9,7 @@ mkdir logs/thr$2/
 mkdir logs/thr$2/serverSide
 mkdir logs/thr$2/clientSide
 
-nousers=(20 50 200)
-#nousers=(200)
-
+nousers=(400)
 
 for ((u=0;u<${#nousers[@]};u++))
 do

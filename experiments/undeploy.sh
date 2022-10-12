@@ -35,7 +35,7 @@ wrnmsg()
 kubectl delete deployment --all -n xrf
 #for ((count=1;count<=$1;count++))
 #do
-#       kubectl delete deployment xrfc$count -n xrf
+#	kubectl delete deployment xrfc$count -n xrf
 #done
 
 waitAllPods

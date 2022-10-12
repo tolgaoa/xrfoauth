@@ -6,9 +6,10 @@ import math
 import random
 import warnings
 
-itec=5
-tln = np.array([2, 20])
-cln = np.array([4, 10, 50])
+itec=10
+cln=np.array([2, 4, 6, 8, 10, 15, 20, 25, 30, 50, 100, 200, 300, 400, 500])
+#cln=np.array([2, 4, 6, 8, 10, 15, 20, 25, 30, 50 ,100, 200, 300, 400, 500])
+tln = np.array([2, 6, 12, 20])
 
 tlc=0
 tls=0
@@ -89,10 +90,10 @@ for t in range(0, len(tln)):
             finalpathx=pathbase+thrvar+paththrd+clientvar+clientapp+itervar+iterappx
             #print(finalpath)
             try:
-                data=np.loadtxt(finalpath, dtype=float)
-                #datax=np.loadtxt(finalpathx, dtype=float)
-                dataarr[j] = (cln[i])/(data-1000)*1000
-                #dataarrx[j] = np.sum(datax)
+                data=np.loadtxt(finalpath, dtype=float)[1]
+                datax=np.loadtxt(finalpathx, dtype=float)
+                dataarr[j] = cln[i]/(data-1000)*1000
+                dataarrx[j] = np.sum(datax)
             except:
                 continue
 
@@ -138,9 +139,9 @@ fig1 = plt.figure(figsize=(12,5.1))
 ax1 = fig1.add_subplot(111)
 ax2 = ax1.twinx()
 ax1.plot(cln, datam[0,:], 'g-', label="client", marker='*', markevery=markerplace)
-(_, caps, _) = ax1.errorbar(cln, datam[0,:], yerr=datae, fmt='none', color='g', markersize=8, capsize=10)
+(_, caps, _) = ax1.errorbar(cln, datam[0,:], yerr=datae[0,:], fmt='none', color='g', markersize=8, capsize=10)
 ax2.plot(cln, datams[0,:] , 'b-', label="server", marker='x', markevery=markerplace)
-(_, caps, _) = ax2.errorbar(cln, datams[0,:], yerr=dataes, fmt='none', color='b', markersize=8, capsize=10)
+(_, caps, _) = ax2.errorbar(cln, datams[0,:], yerr=dataes[0,:], fmt='none', color='b', markersize=8, capsize=10)
 
 for cap in caps:
     cap.set_markeredgewidth(1)
@@ -166,9 +167,9 @@ fig2 = plt.figure(figsize=(12,5.1))
 ax3 = fig2.add_subplot(111)
 ax4 = ax3.twinx()
 ax3.plot(cln, datamx[0,:], 'g-', label="client", marker='*', markevery=markerplace)
-(_, caps, _) = ax1.errorbar(cln, datamx[0,:], yerr=datae, fmt='none', color='g', markersize=8, capsize=10)
+(_, caps, _) = ax1.errorbar(cln, datamx[0,:], yerr=datae[0,:], fmt='none', color='g', markersize=8, capsize=10)
 ax4.plot(cln, datams[0,:] , 'b-', label="server", marker='x', markevery=markerplace)
-(_, caps, _) = ax2.errorbar(cln, datams[0,:], yerr=dataes, fmt='none', color='b', markersize=8, capsize=10)
+(_, caps, _) = ax2.errorbar(cln, datams[0,:], yerr=dataes[0,:], fmt='none', color='b', markersize=8, capsize=10)
 
 for cap in caps:
     cap.set_markeredgewidth(1)
@@ -191,9 +192,14 @@ plt.savefig('figures/tot_ctx_thr.eps', format='eps')
 #-------------------------------------------------------------------------
 fig3 = plt.figure(figsize=(12,5.1))
 plt.plot(cln, datams[0,:], 'g-', label="client", marker='*', markevery=markerplace)
-plt.errorbar(cln, datams[0,:], yerr=dataes[0,:], fmt='none', color='g', markersize=16, capsize=10)
+#plt.errorbar(cln, datams[0,:], yerr=dataes[0,:], fmt='none', color='g', markersize=16, capsize=10)
 plt.plot(cln, datams[1,:] , 'b-', label="server", marker='x', markevery=markerplace)
-plt.errorbar(cln, datams[1,:], yerr=dataes[1,:], fmt='none', color='b', markersize=16, capsize=10)
+#plt.errorbar(cln, datams[1,:], yerr=dataes[1,:], fmt='none', color='b', markersize=16, capsize=10)
+plt.plot(cln, datams[2,:] , 'r-', label="server", marker='o', markevery=markerplace)
+#plt.errorbar(cln, datams[2,:], yerr=dataes[2,:], fmt='none', color='r', markersize=16, capsize=10)
+plt.plot(cln, datams[3,:] , 'k-', label="server", marker='^', markevery=markerplace)
+#plt.errorbar(cln, datams[3,:], yerr=dataes[3,:], fmt='none', color='k', markersize=16, capsize=10)
+
 
 for cap in caps:
     cap.set_markeredgewidth(1)
@@ -202,7 +208,7 @@ plt.grid()
 
 plt.xlabel('Number of Concurrent Clients', fontsize=18)
 plt.ylabel('Average server throughput (users/s)', fontsize=18)
-plt.legend(['thr=2', 'thr=20'], bbox_to_anchor=(0.4, 0.88), fontsize=14)
+plt.legend(['thr=2', 'thr=6', 'thr=12', 'thr=20'], bbox_to_anchor=(0.18, 0.88), fontsize=14)
 
 plt.savefig('figures/thr_comp_throu.eps', format='eps')
 #-------------------------------------------------------------------------
@@ -212,7 +218,10 @@ plt.plot(cln, datamx[0,:], 'g-', label="client", marker='*', markevery=markerpla
 plt.errorbar(cln, datamx[0,:], yerr=dataex[0,:], fmt='none', color='g', markersize=16, capsize=10)
 plt.plot(cln, datamx[1,:] , 'b-', label="server", marker='x', markevery=markerplace)
 plt.errorbar(cln, datamx[1,:], yerr=dataex[1,:], fmt='none', color='b', markersize=16, capsize=10)
-
+plt.plot(cln, datamx[2,:] , 'r-', label="server", marker='o', markevery=markerplace)
+plt.errorbar(cln, datamx[2,:], yerr=dataex[2,:], fmt='none', color='r', markersize=16, capsize=10)
+plt.plot(cln, datamx[3,:] , 'k-', label="server", marker='^', markevery=markerplace)
+plt.errorbar(cln, datamx[3,:], yerr=dataex[3,:], fmt='none', color='k', markersize=16, capsize=10)
 
 for cap in caps:
     cap.set_markeredgewidth(1)
@@ -221,7 +230,7 @@ plt.grid()
 
 plt.xlabel('Number of Concurrent Clients', fontsize=18)
 plt.ylabel('Average server process context switches', fontsize=18)
-plt.legend(['thr=2', 'thr=20'], bbox_to_anchor=(0.4, 0.88), fontsize=14)
+plt.legend(['thr=2', 'thr=6', 'thr=12',  'thr=20'], bbox_to_anchor=(0.4, 0.88), fontsize=14)
 
 plt.savefig('figures/thr_comp_ctxt.eps', format='eps')
 #-------------------------------------------------------------------------
@@ -231,7 +240,10 @@ plt.plot(cln, datam[0,:], 'g-', label="client", marker='*', markevery=markerplac
 plt.errorbar(cln, datam[0,:], yerr=datae[0,:], fmt='none', color='g', markersize=16, capsize=10)
 plt.plot(cln, datam[1,:] , 'b-', label="server", marker='x', markevery=markerplace)
 plt.errorbar(cln, datam[1,:], yerr=datae[1,:], fmt='none', color='b', markersize=16, capsize=10)
-
+plt.plot(cln, datam[2,:] , 'r-', label="server", marker='o', markevery=markerplace)
+plt.errorbar(cln, datam[2,:], yerr=datae[2,:], fmt='none', color='r', markersize=16, capsize=10)
+plt.plot(cln, datam[3,:] , 'k-', label="server", marker='^', markevery=markerplace)
+plt.errorbar(cln, datam[3,:], yerr=datae[3,:], fmt='none', color='k', markersize=16, capsize=10)
 
 for cap in caps:
     cap.set_markeredgewidth(1)
@@ -240,6 +252,7 @@ plt.grid()
 
 plt.xlabel('Number of Concurrent Clients', fontsize=18)
 plt.ylabel('Average client latency (ms)', fontsize=18)
-plt.legend(['thr=2', 'thr=20'], bbox_to_anchor=(0.4, 0.88), fontsize=14)
+plt.legend(['thr=2', 'thr=6', 'thr=12',  'thr=20'], bbox_to_anchor=(0.4, 0.88), fontsize=14)
 
 plt.savefig('figures/thr_comp_lat.eps', format='eps')
+
