@@ -34,7 +34,7 @@ spec:
     spec:
       containers:
       - name: xrfs
-        image: tolgaomeratalay/xrfserver:4.1
+        image: tolgaomeratalay/xrfserver:buildertestv1
         imagePullPolicy: IfNotPresent
         env:
         - name: CLIENT_COUNT
