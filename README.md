@@ -1,5 +1,7 @@
 # xApp Repository Function (XRF) for OpenAuthorization 2.0 Enablement in Linux Foundation's reference RAN Intelligent Controller
+The source code of the submission to INFOCOM 2023.
 
+## Summary of the threat model
 The initial makings of an OAuth2.0 server to be integrated into the LF RIC in the future for enabling authentication between select xApps. 
 
 The goal of this project is address the threat model given below.
@@ -20,4 +22,8 @@ The primary type of adversary is the MVNO N, who is allowed to submit onboarding
 A scenario is formulated to describe the types of attacks that an attacker can carry out. xApp1 is subscribed to receive RLC and MAC layer information from the DU. This information is forwarded to xApp2 where various real-time load balancing decisions are made and traffic patterns are adjusted. Finally these decisions are relayed back to xApp1 for execution. In such a scenario, the attacker can carry out the following attacks.
     - *Eavesdropping*: on sensitive real-time decisions regarding user device operations. 
     - *Faulty injections*: to change either the incoming data to be used by xApp2 for decision making or outgoing data to xApp1 for execution to alter the ultimate behaviour of the system. 
+    
+## Testing on baremetal
+- 1) Use build_script.sh to build both XRF server and client separately.
+- 2) Use setenv.sh to set the required environmental variables on baremetal for local debugging.
 
