@@ -34,15 +34,15 @@ spec:
     spec:
       containers:
       - name: xrfc
-        image: tolgaomeratalay/xrfclient:buildertestv1 #4.2
+        image: tolgaomeratalay/xrfclient:buildtestv5 #4.2
         imagePullPolicy: IfNotPresent
         env:
         - name: SERVER_XRF
-          value: "10.42.0.243"
+          value: "10.42.0.254"
         - name: XRF_PORT
           value: "9090"
         - name: SERVER_CLIENT
-          value: "10.42.11.178"
+          value: "10.42.0.9"
         - name: CLIENT_PORT
           value: "9095"
         - name: REG_COUNT

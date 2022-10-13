@@ -89,8 +89,6 @@ FROM ubuntu:focal as xrfs
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade --yes && DEBIAN_FRONTEND=noninteractive apt-get install --yes \
     tzdata \
-    build-essential \
-    psmisc \
     net-tools \
     bc \
     tshark \
@@ -100,17 +98,9 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade --yes && DE
     iperf3 \
     iproute2 \
     libconfig++9v5 \
-    pkg-config \
-    dh-autoreconf \
-    ncurses-dev \
-    build-essential \
     libssl-dev \
     libpcap-dev \
     libncurses5-dev \
-    git \
-    gpg \
-    libboost-all-dev \
-    libgtest-dev \
     nlohmann-json3-dev \
   && rm -rf /var/lib/apt/lists/*
 

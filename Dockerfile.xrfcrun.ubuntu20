@@ -91,8 +91,6 @@ FROM ubuntu:focal as xrfc
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade --yes && DEBIAN_FRONTEND=noninteractive apt-get install --yes \
     tzdata \
-    build-essential \
-    psmisc \
     net-tools \
     bc \
     tshark \
@@ -102,17 +100,10 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade --yes && DE
     iperf3 \
     iproute2 \
     libconfig++9v5 \
-    pkg-config \
-    dh-autoreconf \
-    ncurses-dev \
-    build-essential \
     libssl-dev \
     libpcap-dev \
     libncurses5-dev \
-    git \
-    gpg \
-    libboost-all-dev \
-    libgtest-dev \
+    libcurl4-openssl-dev \
     nlohmann-json3-dev \
   && rm -rf /var/lib/apt/lists/*
 
@@ -130,6 +121,7 @@ COPY --from=xrfc-builder \
     /usr/lib/x86_64-linux-gnu/libcurl-gnutls.so.4 \
     /usr/lib/x86_64-linux-gnu/librtmp.so.1 \
     /usr/lib/x86_64-linux-gnu/libpsl.so.5 \
+    /usr/lib/x86_64-linux-gnu/libcurl.so.4 \
     /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0 \
     /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0 \
     ./
