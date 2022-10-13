@@ -32,5 +32,6 @@ target_link_directories(${PROJECT_NAME} PUBLIC api-server/)
 target_link_libraries(${PROJECT_NAME} XRF_API XRF)
 target_link_libraries(${PROJECT_NAME} OpenSSL::SSL)
 target_link_libraries(${PROJECT_NAME} OpenSSL::Crypto)
+target_link_libraries(${PROJECT_NAME} curl)
 target_link_libraries(${PROJECT_NAME} ${PISTACHE_LIBRARY})
 

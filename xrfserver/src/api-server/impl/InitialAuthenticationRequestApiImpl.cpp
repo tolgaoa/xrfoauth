@@ -15,6 +15,36 @@
 
 namespace xrf::api {
 
+static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *userp)
+{
+        ((std::string*)userp)->append((char*)contents, size * nmemb);
+        return size * nmemb;
+}
+
+void send_custom_curl(std::string& uri, std::string& message, std::string& response) {
+        CURL *curl;
+        CURLcode res;
+        std::string readBuffer;
+
+        struct curl_slist *slist1;
+        slist1 = NULL;
+        slist1 = curl_slist_append(slist1, "Content-Type: application/json");
+
+        curl = curl_easy_init();
+
+        if(curl) {
+                curl_easy_setopt(curl, CURLOPT_URL, uri.c_str());
+                curl_easy_setopt(curl, CURLOPT_POST, 1);
+                curl_easy_setopt(curl, CURLOPT_HTTPHEADER, slist1);
+                curl_easy_setopt(curl, CURLOPT_POSTFIELDS, message.c_str());
+                curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
+                curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
+                res = curl_easy_perform(curl);
+                curl_easy_cleanup(curl);
+        }
+        response = readBuffer;
+}
+
 using namespace xrf::model;
 using namespace xrf::app;
 
@@ -29,7 +59,21 @@ void InitialAuthenticationRequestApiImpl::init_auth_request(const Pistache::Rest
 	ProblemDetails problem_details = {};
 	InitAuthRsp init_auth_rsp = {};
 	spdlog::debug("Entering Challenge Handle");
-	m_xrf_main->handle_auth_request(request.body(), init_auth_rsp, http_code, 1, problem_details);
+
+
+	//m_xrf_main->handle_auth_request(request.body(), init_auth_rsp, http_code, 1, problem_details); //internal handle
+	
+	//-------------------External handler isolation-------------------
+	std::string AUTHEXTIP = "127.0.0.1";
+	std::string uriauthext="http://" + AUTHEXTIP + ":9999/xrfauthext";
+	std::string authext_send = request.body();
+	std::string respauthext;	
+
+	send_custom_curl(uriauthext, authext_send, respauthext);//external handle
+	
+	init_auth_rsp.setChallenge(respauthext);
+	//-------------------External handler isolation-------------------
+
 	spdlog::debug("Finished Challenge Handle");
 	nlohmann::json json_data = {};
 	std::string content_type = "application/problem+json";

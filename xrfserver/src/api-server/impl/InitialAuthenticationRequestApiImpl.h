@@ -19,6 +19,7 @@
 #ifndef INITIAL_AUTHENTICATION_REQUEST_API_IMPL_H_
 #define INITIAL_AUTHENTICATION_REQUEST_API_IMPL_H_
 
+#include <curl/curl.h>
 
 #include <pistache/endpoint.h>
 #include <pistache/http.h>
