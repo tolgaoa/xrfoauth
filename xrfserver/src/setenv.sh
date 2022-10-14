@@ -5,3 +5,4 @@
 
 export CLIENT_COUNT=1
 export THREAD_COUNT=5
+export AUTH_EXT_IP=127.0.0.1

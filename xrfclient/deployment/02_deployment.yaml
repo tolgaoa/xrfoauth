@@ -27,6 +27,7 @@ spec:
   template:
     metadata:
       annotations:
+        k8s.v1.cni.cncf.io/networks: xrf-ext-net3
               #config.linkerd.io/enable-debug-sidecar: "true"
               #linkerd.io/inject: enabled
       labels:
@@ -38,17 +39,17 @@ spec:
         imagePullPolicy: IfNotPresent
         env:
         - name: SERVER_XRF
-          value: "10.42.0.254"
+          value: "20.12.10.10"
         - name: XRF_PORT
           value: "9090"
         - name: SERVER_CLIENT
-          value: "10.42.0.9"
+          value: "20.12.10.20"
         - name: CLIENT_PORT
           value: "9095"
         - name: REG_COUNT
           value: "1"
         - name: CLIENT_COUNT
-          value: "100"
+          value: "5"
         - name: METHOD
           value: "0"
 

@@ -27,6 +27,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade --yes && DE
     libsctp-dev \
     lksctp-tools \
     libprotobuf-dev \
+    libcurl4-openssl-dev \
     protobuf-compiler \
     git \
     gpg \ 
@@ -102,6 +103,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade --yes && DE
     libpcap-dev \
     libncurses5-dev \
     nlohmann-json3-dev \
+    libcurl4-openssl-dev \
   && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /xrfserver/bin

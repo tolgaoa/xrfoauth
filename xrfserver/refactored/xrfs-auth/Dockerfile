@@ -26,6 +26,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade --yes && DE
     libncurses5-dev \
     libsctp-dev \
     lksctp-tools \
+    libgmp-dev \
     libprotobuf-dev \
     protobuf-compiler \
     git \
@@ -35,6 +36,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade --yes && DE
     libboost-all-dev \
     libgtest-dev \
     nlohmann-json3-dev \
+    rapidjson-dev \
   && rm -rf /var/lib/apt/lists/*
 
 RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | tee /usr/share/keyrings/kitware-archive-keyring.gpg >/dev/null && \
@@ -105,8 +107,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade --yes && DE
   && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /xrfauth/bin
-COPY --from=xrfs-builder \
-	/root/xrfauth/xrfauth \
+COPY --from=xrfsauth-builder \
+	/root/xrfauth/build/xrfauth \
 	/root/xrfauth/prv_xrf \
 	/root/xrfauth/prv_xapp \
 	/root/xrfauth/pub_xrf \
@@ -114,7 +116,7 @@ COPY --from=xrfs-builder \
 	./
 
 WORKDIR /usr/lib/x86_64-linux-gnu
-COPY --from=xrfs-builder \
+COPY --from=xrfsauth-builder \
     /usr/lib/x86_64-linux-gnu/libcurl-gnutls.so.4 \
     /usr/lib/x86_64-linux-gnu/librtmp.so.1 \
     /usr/lib/x86_64-linux-gnu/libpsl.so.5 \
@@ -123,7 +125,7 @@ COPY --from=xrfs-builder \
     ./
 
 WORKDIR /usr/local/lib
-COPY --from=xrfs-builder \
+COPY --from=xrfsauth-builder \
     /usr/local/lib/libpistache.so \
     ./
 

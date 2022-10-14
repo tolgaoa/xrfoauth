@@ -13,6 +13,8 @@
 #include "InitialAuthenticationRequestApiImpl.h"
 #include "InitAuthRsp.h"
 
+const char *authextIP = "AUTH_EXT_IP";
+
 namespace xrf::api {
 
 static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *userp)
@@ -64,7 +66,17 @@ void InitialAuthenticationRequestApiImpl::init_auth_request(const Pistache::Rest
 	//m_xrf_main->handle_auth_request(request.body(), init_auth_rsp, http_code, 1, problem_details); //internal handle
 	
 	//-------------------External handler isolation-------------------
-	std::string AUTHEXTIP = "127.0.0.1";
+
+        //Get IP Addresses for Remote Auth Server
+        const char *tmp1 = getenv("AUTH_EXT_IP");
+        std::string AUTHEXTIP(tmp1 ? tmp1 : "");
+        if (AUTHEXTIP.empty()) {
+		spdlog::error("auth remote server IP not found");
+                exit(EXIT_FAILURE);
+        }
+	spdlog::debug("auth remote server IP is: {}", AUTHEXTIP.c_str());
+
+	//std::string AUTHEXTIP = "127.0.0.1";
 	std::string uriauthext="http://" + AUTHEXTIP + ":9999/xrfauthext";
 	std::string authext_send = request.body();
 	std::string respauthext;	
