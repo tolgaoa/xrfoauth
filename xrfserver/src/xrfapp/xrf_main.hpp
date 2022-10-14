@@ -16,6 +16,8 @@
 #define FILE_XRF_MAIN_HPP_SEEN
 
 
+#include <curl/curl.h>
+
 #include <string>
 #include <iostream>
 #include "ProblemDetails.h"

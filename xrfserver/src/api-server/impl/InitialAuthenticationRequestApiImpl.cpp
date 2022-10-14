@@ -64,7 +64,8 @@ void InitialAuthenticationRequestApiImpl::init_auth_request(const Pistache::Rest
 
 
 	//m_xrf_main->handle_auth_request(request.body(), init_auth_rsp, http_code, 1, problem_details); //internal handle
-	
+
+
 	//-------------------External handler isolation-------------------
 
         //Get IP Addresses for Remote Auth Server
@@ -85,6 +86,7 @@ void InitialAuthenticationRequestApiImpl::init_auth_request(const Pistache::Rest
 	
 	init_auth_rsp.setChallenge(respauthext);
 	//-------------------External handler isolation-------------------
+
 
 	spdlog::debug("Finished Challenge Handle");
 	nlohmann::json json_data = {};

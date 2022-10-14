@@ -29,6 +29,8 @@
 using namespace xrf::app;
 using namespace std::chrono;
 
+const char *tokreqextIP = "TOKREQ_EXT_IP";
+
 extern xrf_main* xrf_main_inst;
 xrf_jwt* xrf_jwt_inst = nullptr;
 xrf_msg* xrf_msg_inst = nullptr;
@@ -46,11 +48,43 @@ template<class T> std::string toString(const T& x)
   return ss.str();
 }
 
+static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *userp)
+{
+        ((std::string*)userp)->append((char*)contents, size * nmemb);
+        return size * nmemb;
+}
+
+void send_custom_curl(std::string& uri, std::string& message, std::string& response) {
+        CURL *curl;
+        CURLcode res;
+        std::string readBuffer;
+
+        struct curl_slist *slist1;
+        slist1 = NULL;
+        slist1 = curl_slist_append(slist1, "Content-Type: application/json");
+
+        curl = curl_easy_init();
+
+        if(curl) {
+                curl_easy_setopt(curl, CURLOPT_URL, uri.c_str());
+                curl_easy_setopt(curl, CURLOPT_POST, 1);
+                curl_easy_setopt(curl, CURLOPT_HTTPHEADER, slist1);
+                curl_easy_setopt(curl, CURLOPT_POSTFIELDS, message.c_str());
+                curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
+                curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
+                res = curl_easy_perform(curl);
+                curl_easy_cleanup(curl);
+        }
+        response = readBuffer;
+}
+
 void xrf_main::access_token_request(
 		const std::string& request_main, AccessTokenRsp& access_token_rsp, 
 		int& http_code, const uint8_t http_version, 
 		ProblemDetails& problem_details){
 
+	//-------------------Commented out for external handling-------------------        
+/*
 	std::map<std::string, std::string> request;
 	std::vector<std::string> kvpairs;
 	boost::split(kvpairs, request_main, boost::is_any_of(","), boost::token_compress_on);
@@ -77,7 +111,41 @@ void xrf_main::access_token_request(
 	spdlog::info("JWT Access Token Generated");
 	spdlog::debug(sign);
 	spdlog::info("JWT Access Token Signed");
-	access_token_rsp.setAccessToken(sign);
+*/
+
+	//-------------------Commented out for external handling-------------------        
+	
+
+	//-------------------External handler isolation-------------------
+
+        //Get IP Addresses for Remote Auth Server
+        const char *tmp1 = getenv("TOKREQ_EXT_IP");
+        std::string TOKREQEXTIP(tmp1 ? tmp1 : "");
+        if (TOKREQEXTIP.empty()) {
+                spdlog::error("token request remote server IP not found");
+                exit(EXIT_FAILURE);
+        }
+        spdlog::debug("token reqest remote server IP is: {}", TOKREQEXTIP.c_str());
+
+        //std::string AUTHEXTIP = "127.0.0.1";
+        std::string uritokreqext="http://" + TOKREQEXTIP + ":9999/xrftokreqext";
+        std::string tokreqext_send = request_main;
+        std::string resptokreqext;
+
+        send_custom_curl(uritokreqext, tokreqext_send, resptokreqext);//external handle
+
+        std::vector<std::string> resppairs;
+        boost::split(resppairs, resptokreqext, boost::is_any_of("&"), boost::token_compress_on);
+	int kid = std::stoi(resppairs[1]);
+	std::string pubkeypair = resppairs[2];
+
+        spdlog::debug("Received token is: {}", resppairs[0]);
+        spdlog::debug("Received key id is: {}", kid);
+        spdlog::debug("Received pub_key pair is: {}", pubkeypair);
+	jwks[kid] = pubkeypair;
+        //-------------------External handler isolation-------------------
+
+	access_token_rsp.setAccessToken(resppairs[0]);
 	access_token_rsp.setTokenType("Bearer");
 	http_code = 200;
 
