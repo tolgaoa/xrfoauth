@@ -23,7 +23,7 @@ spec:
         runAsGroup: 0
       containers:
       - name: xrfs
-        image: tolgaomeratalay/xrfserver:auth_tokreq_extv1
+        image: tolgaomeratalay/xrfserver:auth_tokreq_tokremextv1
         command:
           - sleep
           - infinity
@@ -37,6 +37,8 @@ spec:
           value: "20.12.10.11"
         - name: TOKREQ_EXT_IP
           value: "20.12.10.12"
+        - name: TOKREM_EXT_IP
+          value: "20.12.10.15"
         securityContext:
           privileged: true
       dnsPolicy: ClusterFirst

@@ -27,12 +27,14 @@ A scenario is formulated to describe the types of attacks that an attacker can c
 - 1) Use build_script.sh to build both XRF server and client separately.
 - 2) Use setenv.sh to set the required environmental variables on baremetal for local debugging.
 
-## Refactored Images
+## Refactored and Normal Images
 - XRF Server - InitAuth Only: tolgaomeratalay/xrfserver:auth_extv2
 - XRF Server - InitAuth + AccessTokReq: tolgaomeratalay/xrfserver:auth_tokreq_extv1
-- XRF Client - Generic: tolgaomeratalay/xrfclient:buildtestv5
+- XRF Server - InitAuth + AccessTokReq + RemoteIntro: tolgaomeratalay/xrfserver:auth_tokreq_tokremextv1
+- XRF Client - Generic: tolgaomeratalay/xrfclient:senderv1
 - XRF Recv Client - Generic: tolgaomeratalay/xrfclient:recvclientv3
 - InitAuthModule: tolgaomeratalay/xrfsauth:v1
 - AccessTokReqModule: tolgaomeratalay/xrfstokreq:v1
+- RemoteIntroModule: tolgaomeratalay/xrfstokrem:v2
 
 

@@ -30,6 +30,7 @@ using namespace xrf::app;
 using namespace std::chrono;
 
 const char *tokreqextIP = "TOKREQ_EXT_IP";
+const char *tokremextIP = "TOKREM_EXT_IP";
 
 extern xrf_main* xrf_main_inst;
 xrf_jwt* xrf_jwt_inst = nullptr;
@@ -304,18 +305,18 @@ void xrf_main::validate_token(const std::string& token, bool& validity){
 
                 boost::split(kv, i, boost::is_any_of(":"), boost::token_compress_on);
                 proc_token = kv[1];
-                spdlog::debug("(Key, Value):  {}, {}", kv[0], kv[1]);
+                //spdlog::debug("(Key, Value):  {}, {}", kv[0], kv[1]);
         }
 
         std::string kid;
         auto decoded = jwt::decode(proc_token, algorithms({"none"}), verify(false));
-
+/*
         spdlog::debug("======Decoding Token Header and Payload======");
         spdlog::debug("===Header===");
         spdlog::debug("{}", toString(decoded.header()));
         spdlog::debug("===Payload===");
         spdlog::debug("{}", toString(decoded.payload()));
-
+*/
         std::string header_raw = toString(decoded.header());
         std::vector<std::string> header;
         boost::split(header, header_raw, boost::is_any_of(","), boost::token_compress_on);
@@ -334,12 +335,43 @@ void xrf_main::validate_token(const std::string& token, bool& validity){
         }
         spdlog::debug("Key ID is: {}", kid);
 
+/*
         std::error_code ec;
+	auto wbegin = std::chrono::high_resolution_clock::now();
+        clock_t cstart = clock();
         auto dec_obj = jwt::decode(token, algorithms({"RS256"}), ec, secret(jwks.at(std::stoi(kid))), verify(true));
+        auto wend = std::chrono::high_resolution_clock::now(); //Stop client wall clock
+        clock_t cend = clock(); // Stop client cpu clock
+        double celapsed = double(cend - cstart)/CLOCKS_PER_SEC; // calculate cpu time
+        spdlog::debug("CPU-time for token validation: {} ms", celapsed * 1000.0);
+        auto welapsed = std::chrono::duration<double, std::milli>(wend - wbegin); //calculate wall time
+        spdlog::debug("Wall-time for token validation: {} ms", welapsed.count());
+        auto celapseds = std::to_string(celapsed*1000.0);
+        auto welapseds = std::to_string(welapsed.count());
+*/
+        //-------------------External handler isolation-------------------
+        //Get IP Addresses for Remote Token Intropsection Server
+        const char *tmp2 = getenv("TOKREM_EXT_IP");
+        std::string TOKREMEXTIP(tmp2 ? tmp2 : "");
+        if (TOKREMEXTIP.empty()) {
+                spdlog::error("token validation remote server IP not found");
+                exit(EXIT_FAILURE);
+        }
+        spdlog::debug("token reqest remote server IP is: {}", TOKREMEXTIP.c_str());
+
+        std::string uritokremext="http://" + TOKREMEXTIP + ":9999/xrftokremext";
+        std::string tokremext_send = token + "&" + jwks.at(std::stoi(kid));
+        std::string resptokremext; 
+
+        send_custom_curl(uritokremext, tokremext_send, resptokremext);//external handle
+	
+        //-------------------External handler isolation-------------------
+
+
         //If there is a verification error, uncomment to see the code
 	//std::cout << ec << std::endl;
-        assert (ec);
-        validity = true;
+        //assert (ec);
+	if (resptokremext == "true") validity = true;
 	spdlog::debug("Introspection Complete");
 
 

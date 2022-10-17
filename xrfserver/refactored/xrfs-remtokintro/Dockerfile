@@ -1,0 +1,137 @@
+#---------------------------------------------------------------------
+# BUILDER IMAGE
+#---------------------------------------------------------------------
+FROM ubuntu:focal as xrfstokrem-builder
+
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade --yes && DEBIAN_FRONTEND=noninteractive apt-get install --yes \
+    tzdata \
+    build-essential \
+    psmisc \
+    net-tools \
+    bc \
+    tshark \
+    iputils-ping \
+    iptables \
+    vim \
+    iperf3 \
+    iproute2 \
+    libconfig++9v5 \
+    libsctp1 \
+    pkg-config \
+    dh-autoreconf \
+    ncurses-dev \
+    build-essential \
+    libssl-dev \
+    libpcap-dev \
+    libncurses5-dev \
+    libsctp-dev \
+    lksctp-tools \
+    libgmp-dev \
+    libprotobuf-dev \
+    protobuf-compiler \
+    git \
+    gpg \ 
+    wget \
+    ninja-build \
+    libboost-all-dev \
+    libgtest-dev \
+    nlohmann-json3-dev \
+    rapidjson-dev \
+  && rm -rf /var/lib/apt/lists/*
+
+RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | tee /usr/share/keyrings/kitware-archive-keyring.gpg >/dev/null && \
+    echo 'deb [signed-by=/usr/share/keyrings/kitware-archive-keyring.gpg] https://apt.kitware.com/ubuntu/ focal main' | tee /etc/apt/sources.list.d/kitware.list >/dev/null && \
+    apt-get update && \
+    rm /usr/share/keyrings/kitware-archive-keyring.gpg && \
+    apt-get install kitware-archive-keyring && \
+    echo 'deb [signed-by=/usr/share/keyrings/kitware-archive-keyring.gpg] https://apt.kitware.com/ubuntu/ focal-rc main' | tee -a /etc/apt/sources.list.d/kitware.list >/dev/null && \ 
+    apt-get update && \
+    apt-get install cmake -y
+
+WORKDIR /root
+RUN git clone https://github.com/arun11299/cpp-jwt.git
+WORKDIR /root/cpp-jwt
+RUN mkdir build
+WORKDIR /root/cpp-jwt/build
+RUN cmake ../ && make -j8 && make install && ldconfig
+
+WORKDIR /root
+RUN git clone https://github.com/gabime/spdlog.git
+WORKDIR /root/spdlog
+RUN mkdir build
+WORKDIR /root/spdlog/build
+RUN cmake .. && make -j8 && make install && ldconfig
+
+WORKDIR /root
+RUN git clone https://github.com/nanomsg/nng.git
+WORKDIR /root/nng
+RUN mkdir build
+WORKDIR /root/nng/build
+RUN cmake -G Ninja .. && ninja && ninja install && ldconfig
+
+WORKDIR /root
+RUN git clone https://github.com/pistacheio/pistache.git
+WORKDIR /root/pistache
+RUN  git checkout e18ed9baeb2145af6f9ea41246cf48054ffd9907
+WORKDIR /root
+WORKDIR /root/pistache
+RUN mkdir build
+WORKDIR /root/pistache/build
+RUN cmake .. && make -j8 && make install && ldconfig
+WORKDIR /root
+
+# Add xrfserver build
+COPY ./src /root/xrftokrem
+WORKDIR /root/xrftokrem
+RUN ./build_script.sh
+#---------------------------------------------------------------------
+# TARGET IMAGE
+#---------------------------------------------------------------------
+FROM ubuntu:focal as xrfstokrem
+
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade --yes && DEBIAN_FRONTEND=noninteractive apt-get install --yes \
+    tzdata \
+    net-tools \
+    bc \
+    tshark \
+    iputils-ping \
+    iptables \
+    vim \
+    iperf3 \
+    iproute2 \
+    libconfig++9v5 \
+    libssl-dev \
+    libpcap-dev \
+    libncurses5-dev \
+    nlohmann-json3-dev \
+  && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /xrftokrem/bin
+COPY --from=xrfstokrem-builder \
+	/root/xrftokrem/build/xrftokrem \
+	./
+
+WORKDIR /usr/lib/x86_64-linux-gnu
+COPY --from=xrfstokrem-builder \
+    /usr/lib/x86_64-linux-gnu/libcurl-gnutls.so.4 \
+    /usr/lib/x86_64-linux-gnu/librtmp.so.1 \
+    /usr/lib/x86_64-linux-gnu/libpsl.so.5 \
+    /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0 \
+    /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0 \
+    ./
+
+WORKDIR /usr/local/lib
+COPY --from=xrfstokrem-builder \
+    /usr/local/lib/libpistache.so \
+    ./
+
+RUN ldconfig && \
+    ldd /xrftokrem/bin/xrftokrem
+
+WORKDIR /xrftokrem/bin
+
+# expose ports
+EXPOSE 9999
+
+CMD ["sleep", "infinity"]
+#CMD ["/root/xrfreg/bin/xrfreg"]

@@ -293,7 +293,7 @@ int main(int argc, char** argv){
 	
 	//---------------------------Client Connection Request-----------------------
 	
-	//callClientConnReq(http_pre, ipc_var, portc_var);        
+	callClientConnReq(http_pre, ipc_var, portc_var);        
 
 	//------------------------Starting service API-------------------------------
 	spdlog::info("Starting Service API");
