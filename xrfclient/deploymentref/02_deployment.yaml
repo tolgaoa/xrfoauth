@@ -1,41 +1,41 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: xrfcapi
+  name: xrfcapiref
   namespace: xrf
 spec:
   selector:
-    app: xrfcapi
+    app: xrfcapiref
   type: ClusterIP
   ports:
     - name: http
-      port: 9091
-      targetPort: 9091
+      port: 9095
+      targetPort: 9095
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: xrfc20
+  name: xrfcref
   namespace: xrf
   labels:
-    app: xrfc20
+    app: xrfcref
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: xrfc20
+      app: xrfcref
   template:
     metadata:
       annotations:
-        k8s.v1.cni.cncf.io/networks: xrf-ext-net3
+        k8s.v1.cni.cncf.io/networks: xrf-ext-netref
               #config.linkerd.io/enable-debug-sidecar: "true"
               #linkerd.io/inject: enabled
       labels:
-        app: xrfc20
+        app: xrfcref
     spec:
       containers:
       - name: xrfc
-        image: tolgaomeratalay/xrfclient:buildtestv5 #4.2
+        image: tolgaomeratalay/xrfclient:recvclientv3 #4.2
         imagePullPolicy: IfNotPresent
         env:
         - name: SERVER_XRF

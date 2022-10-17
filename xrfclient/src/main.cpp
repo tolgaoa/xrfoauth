@@ -169,7 +169,7 @@ void callClientConnReq(std::string http_pre, std::string ipc_var, std::string po
 
         auto wbegincl = std::chrono::high_resolution_clock::now(); // Start client wall clock for connection request
         clock_t cstartcl = clock(); // Start client cpu clock for connection request
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 1; i++) {
                 const std::string xrfclientaddress_connreq_endpoint = http_pre + ipc_var + ":" + portc_var + "/serv/test";
                 xapp_main_inst->send_client_connection(xrfclientaddress_connreq_endpoint);
         }
@@ -293,7 +293,7 @@ int main(int argc, char** argv){
 	
 	//---------------------------Client Connection Request-----------------------
 	
-	callClientConnReq(http_pre, ipc_var, portc_var);        
+	//callClientConnReq(http_pre, ipc_var, portc_var);        
 
 	//------------------------Starting service API-------------------------------
 	spdlog::info("Starting Service API");

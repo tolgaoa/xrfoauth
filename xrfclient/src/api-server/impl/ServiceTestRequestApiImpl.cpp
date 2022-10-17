@@ -15,6 +15,8 @@
 namespace xrf {
 namespace api {
 
+const char *IP_VAR_S = "SERVER_XRF";
+
 using namespace xrf::model;
 using namespace xrf::app;
 
@@ -24,10 +26,20 @@ ServiceTestRequestApiImpl::ServiceTestRequestApiImpl(std::shared_ptr<Pistache::R
 
 void ServiceTestRequestApiImpl::serv_test_req(const Pistache::Rest::Request &request, std::string& bearer, Pistache::Http::ResponseWriter &response) {
     	spdlog::debug("Passed bearer: {} to the handler", bearer);
+
+        const char *tmp = getenv("SERVER_XRF");
+        string ip_var_s(tmp ? tmp : "");
+        if (ip_var_s.empty()) {
+                spdlog::error("Server IP not foundin api handler");
+                exit(EXIT_FAILURE);
+        }
+        spdlog::info("XRF Server for introspection reachable at: {}", ip_var_s);
+
+
 	
 	bool tokenValid;
-	const std::string jwksEndpoint = "http://127.0.0.1:9090/oauth/jwks";
-	const std::string introEndpoint = "http://127.0.0.1:9090/oauth/intro";
+	const std::string jwksEndpoint = "http://" + ip_var_s + ":9090/oauth/jwks";
+	const std::string introEndpoint = "http://" + ip_var_s + ":9090/oauth/intro";
 
 	//m_xapp_main->validate_token_self(jwksEndpoint, bearer, tokenValid);
 	m_xapp_main->validate_token_remote(introEndpoint, bearer, tokenValid);
