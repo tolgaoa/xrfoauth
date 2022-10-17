@@ -27,6 +27,16 @@ A scenario is formulated to describe the types of attacks that an attacker can c
 - 1) Use build_script.sh to build both XRF server and client separately.
 - 2) Use setenv.sh to set the required environmental variables on baremetal for local debugging.
 
+## Refactoring Status
+ - :heavy_check_mark: - InitAuth
+ - :x: - Registration
+ - :x: - Discovery
+ - >> Won't refactor registration and discovery since they are not security protocol modules
+ - :heavy_check_mark: - AccessTokReq
+ - >> Currently there is a redundancy in double token decoding on both refactored and main module since main module needs to retreive public key from JWKS unordered_map
+ - :heavy_check_mark: - RemoteIntro
+ - :construction: - JWKSdecode
+
 ## Refactored and Normal Images
 - XRF Server - InitAuth Only: tolgaomeratalay/xrfserver:auth_extv2
 - XRF Server - InitAuth + AccessTokReq: tolgaomeratalay/xrfserver:auth_tokreq_extv1
