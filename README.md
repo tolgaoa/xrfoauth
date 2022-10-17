@@ -31,6 +31,7 @@ A scenario is formulated to describe the types of attacks that an attacker can c
 - XRF Server - InitAuth Only: tolgaomeratalay/xrfserver:auth_extv2
 - XRF Server - InitAuth + AccessTokReq: tolgaomeratalay/xrfserver:auth_tokreq_extv1
 - XRF Client - Generic: tolgaomeratalay/xrfclient:buildtestv5
+- XRF Recv Client - Generic: tolgaomeratalay/xrfclient:recvclientv3
 - InitAuthModule: tolgaomeratalay/xrfsauth:v1
 - AccessTokReqModule: tolgaomeratalay/xrfstokreq:v1
 
