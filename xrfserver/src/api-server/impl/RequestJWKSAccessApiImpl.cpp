@@ -12,10 +12,45 @@
 
 #include "RequestJWKSAccessApiImpl.h"
 
+const char *tokall2extIP = "TOKALL_EXT_IP";
+static size_t WriteCallback2(void *contents, size_t size, size_t nmemb, void *userp)
+{
+        ((std::string*)userp)->append((char*)contents, size * nmemb);
+        return size * nmemb;
+}
+
+void send_custom_curl2(std::string& uri, std::string& message, std::string& response) {
+        CURL *curl;
+        CURLcode res;
+        std::string readBuffer;
+
+        struct curl_slist *slist1;
+        slist1 = NULL;
+        slist1 = curl_slist_append(slist1, "Content-Type: application/json");
+
+        curl = curl_easy_init();
+
+        if(curl) {
+                curl_easy_setopt(curl, CURLOPT_URL, uri.c_str());
+                curl_easy_setopt(curl, CURLOPT_POST, 1);
+                curl_easy_setopt(curl, CURLOPT_HTTPHEADER, slist1);
+                curl_easy_setopt(curl, CURLOPT_POSTFIELDS, message.c_str());
+                curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback2);
+                curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
+                res = curl_easy_perform(curl);
+                curl_easy_cleanup(curl);
+        }
+        response = readBuffer;
+}
+
+
+
 namespace xrf {
 namespace api {
 
 using namespace xrf::model;
+
+
 
 RequestJWKSAccessApiImpl::RequestJWKSAccessApiImpl(std::shared_ptr<Pistache::Rest::Router>& rtr, xrf_main* xrf_main_inst, std::string addr)
     : RequestJWKSAccessApi(rtr) , m_xrf_main(xrf_main_inst), m_addr(addr) {}
@@ -31,13 +66,34 @@ void RequestJWKSAccessApiImpl::j_wks_req(const Pistache::Optional<std::string>& 
 		spdlog::debug("Target Key ID is: {}", targetKeyid_v.c_str());
 	}
 
-	m_xrf_main->fetch_token_key(targetKeyid_v, request_key);
+
+//	m_xrf_main->fetch_token_key(targetKeyid_v, request_key);
+
+	//---------------------External Isolation Handler------------------
+        const char *tmp1 = getenv("TOKALL_EXT_IP");
+        std::string TOKALLEXTIP(tmp1 ? tmp1 : "");
+        if (TOKALLEXTIP.empty()) {
+                spdlog::error("token handler remote server IP not found");
+                exit(EXIT_FAILURE);
+        }
+        spdlog::debug("token handler remote server IP is: {}", TOKALLEXTIP.c_str());
+
+        //std::string AUTHEXTIP = "127.0.0.1";
+        std::string uritokallext="http://" + TOKALLEXTIP + ":9999/xrftokjwksext";
+        std::string tokallext_send = targetKeyid_v.c_str();
+        std::string resptokallext;
+
+        send_custom_curl2(uritokallext, tokallext_send, resptokallext);//external handle
+
+        spdlog::debug("Received key is: {}", resptokallext);
+	//-------------------External Isolation Handler End----------------
+
 	int http_code = 200;
 
 	nlohmann::json json_data = {};
-	std::string content_type = "applicaiton/json";
+	std::string content_type = "application/json";
 
-	if (http_code == 200) json_data["pubkey"] = request_key;
+	if (http_code == 200) json_data["pubkey"] = resptokallext;
 	else json_data["pubkey"] = "not found";
 
 	response.send(Pistache::Http::Code(http_code), json_data.dump().c_str());

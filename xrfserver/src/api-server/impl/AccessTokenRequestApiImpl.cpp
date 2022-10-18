@@ -13,6 +13,38 @@
 #include "AccessTokenRequestApiImpl.h"
 #include "AccessTokenRsp.h"
 
+const char *tokall3extIP = "TOKALL_EXT_IP";
+static size_t WriteCallback3(void *contents, size_t size, size_t nmemb, void *userp)
+{
+        ((std::string*)userp)->append((char*)contents, size * nmemb);
+        return size * nmemb;
+}
+
+void send_custom_curl3(std::string& uri, std::string& message, std::string& response) {
+        CURL *curl;
+        CURLcode res;
+        std::string readBuffer;
+
+        struct curl_slist *slist1;
+        slist1 = NULL;
+        slist1 = curl_slist_append(slist1, "Content-Type: application/json");
+
+        curl = curl_easy_init();
+
+        if(curl) {
+                curl_easy_setopt(curl, CURLOPT_URL, uri.c_str());
+                curl_easy_setopt(curl, CURLOPT_POST, 1);
+                curl_easy_setopt(curl, CURLOPT_HTTPHEADER, slist1);
+                curl_easy_setopt(curl, CURLOPT_POSTFIELDS, message.c_str());
+                curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback3);
+                curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
+                res = curl_easy_perform(curl);
+                curl_easy_cleanup(curl);
+        }
+        response = readBuffer;
+}
+
+
 namespace xrf::api {
 
 using namespace xrf::model;
@@ -56,7 +88,33 @@ void AccessTokenRequestApiImpl::access_token_request(const Pistache::Rest::Reque
 	int http_code = 0;
 	ProblemDetails problem_details = {};
 	AccessTokenRsp access_token_rsp = {};
-	m_xrf_main->access_token_request(request.body(), access_token_rsp, http_code, 1, problem_details);
+
+
+
+//	m_xrf_main->access_token_request(request.body(), access_token_rsp, http_code, 1, problem_details);
+        //---------------------External Isolation Handler------------------
+        const char *tmp1 = getenv("TOKALL_EXT_IP");
+        std::string TOKALLEXTIP(tmp1 ? tmp1 : "");
+        if (TOKALLEXTIP.empty()) {
+                spdlog::error("token handler remote server IP not found");
+                exit(EXIT_FAILURE);
+        }
+        spdlog::debug("token handler remote server IP is: {}", TOKALLEXTIP.c_str());
+
+        //std::string AUTHEXTIP = "127.0.0.1";
+        std::string uritokallext="http://" + TOKALLEXTIP + ":9999/xrftokreqext";
+        std::string tokallext_send = request.body();
+        std::string resptokallext;
+
+        send_custom_curl3(uritokallext, tokallext_send, resptokallext);//external handle
+
+        spdlog::debug("Received token is: {}", resptokallext);
+	
+	access_token_rsp.setAccessToken(resptokallext);
+        access_token_rsp.setTokenType("Bearer");
+        http_code = 200;
+        //-------------------External Isolation Handler End----------------
+
 	spdlog::info("Token generation complete");
 	nlohmann::json json_data = {};
 	std::string content_type = "application/problem+json";

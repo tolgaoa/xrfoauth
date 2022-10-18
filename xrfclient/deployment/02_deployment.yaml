@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
       - name: xrfc
-        image: tolgaomeratalay/xrfclient:senderv1 #4.2
+        image: tolgaomeratalay/xrfclient:senderv2 #4.2
         imagePullPolicy: IfNotPresent
         env:
         - name: SERVER_XRF
@@ -51,5 +51,5 @@ spec:
         - name: CLIENT_COUNT
           value: "5"
         - name: METHOD
-          value: "0"
+          value: "1"
 

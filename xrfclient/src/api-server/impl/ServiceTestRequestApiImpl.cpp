@@ -16,6 +16,7 @@ namespace xrf {
 namespace api {
 
 const char *IP_VAR_S = "SERVER_XRF";
+const char *MET = "METHOD";
 
 using namespace xrf::model;
 using namespace xrf::app;
@@ -35,14 +36,27 @@ void ServiceTestRequestApiImpl::serv_test_req(const Pistache::Rest::Request &req
         }
         spdlog::info("XRF Server for introspection reachable at: {}", ip_var_s);
 
-
+        //Get validation method
+        const char *tmp2 = getenv("METHOD");
+        string methodval(tmp2 ? tmp2 : "");
+        if (methodval.empty()) {
+                spdlog::error("Token validation method not specified");
+                exit(EXIT_FAILURE);
+        }
+	int valmet = std::stoi(methodval);
 	
 	bool tokenValid;
 	const std::string jwksEndpoint = "http://" + ip_var_s + ":9090/oauth/jwks";
 	const std::string introEndpoint = "http://" + ip_var_s + ":9090/oauth/intro";
 
-	//m_xapp_main->validate_token_self(jwksEndpoint, bearer, tokenValid);
-	m_xapp_main->validate_token_remote(introEndpoint, bearer, tokenValid);
+	if (valmet == 0) {
+		spdlog::info("Token validation method is: JWKS fetch");
+		m_xapp_main->validate_token_self(jwksEndpoint, bearer, tokenValid);
+	}
+	else{
+		spdlog::info("Token validation method is: Full remote introspection");
+		m_xapp_main->validate_token_remote(introEndpoint, bearer, tokenValid);
+	}
 	
 	if (tokenValid) {	
 		response.send(Pistache::Http::Code::Ok, "https://www.tomorrowtides.com/service15.html\n");
