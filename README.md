@@ -39,16 +39,16 @@ A scenario is formulated to describe the types of attacks that an attacker can c
  - >> Won't refactor JWKS standalone
  - :heavy_check_mark: - All token handlers {AccesTokReq + JWKSHandle + RemTokIntro}
 ## Refactored and Normal Images
-- XRF Server - InitAuth Only: tolgaomeratalay/xrfserver:auth_extv2
-- XRF Server - InitAuth + AccessTokReq: tolgaomeratalay/xrfserver:auth_tokreq_extv1
-- XRF Server - InitAuth + AccessTokReq + RemoteIntro: tolgaomeratalay/xrfserver:auth_tokreq_tokremextv1
-- XRF Server - InitAuth + AllTokenHandling: tolgaomeratalay/xrfserver:auth_tokreq_tokallextv1
-- XRF Send Client (1 connection) - Generic: tolgaomeratalay/xrfclient:senderv1
-- XRF Send Client (10 connections) - Generic: tolgaomeratalay/xrfclient:senderv2
-- XRF Recv Client - Generic: tolgaomeratalay/xrfclient:recvclientv4
-- InitAuthModule: tolgaomeratalay/xrfsauth:v1
-- AccessTokReqModule: tolgaomeratalay/xrfstokreq:v1
-- RemoteIntroModule: tolgaomeratalay/xrfstokrem:v2
-- Alltokenhandler: tolgaomeratalay/xrfstokall:v1
+- 1) XRF Server - InitAuth Only: tolgaomeratalay/xrfserver:auth_extv2
+- 2) XRF Server - InitAuth + AccessTokReq: tolgaomeratalay/xrfserver:auth_tokreq_extv1
+- 3) XRF Server - InitAuth + AccessTokReq + RemoteIntro: tolgaomeratalay/xrfserver:auth_tokreq_tokremextv1
+- 4) XRF Server - InitAuth + AllTokenHandling: tolgaomeratalay/xrfserver:auth_tokreq_tokallextv1
+- 5) XRF Send Client (1 connection) - Generic: tolgaomeratalay/xrfclient:senderv1
+- 6) XRF Send Client (10 connections) - Generic: tolgaomeratalay/xrfclient:senderv2
+- 7) XRF Recv Client - Generic: tolgaomeratalay/xrfclient:recvclientv4
+- 8) InitAuthModule: tolgaomeratalay/xrfsauth:v1
+- 9) AccessTokReqModule: tolgaomeratalay/xrfstokreq:v1
+- 10) RemoteIntroModule: tolgaomeratalay/xrfstokrem:v2
+- 11) Alltokenhandler: tolgaomeratalay/xrfstokall:v1
 
 
