@@ -23,7 +23,7 @@ spec:
         runAsGroup: 0
       containers:
       - name: xrfs
-        image: tolgaomeratalay/xrfserver:auth_tokreq_tokallextv1
+        image: tolgaomeratalay/xrfserver:initauth_only_v1
         command:
           - sleep
           - infinity

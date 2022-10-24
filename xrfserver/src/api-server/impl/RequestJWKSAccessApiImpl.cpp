@@ -67,8 +67,8 @@ void RequestJWKSAccessApiImpl::j_wks_req(const Pistache::Optional<std::string>& 
 	}
 
 
-//	m_xrf_main->fetch_token_key(targetKeyid_v, request_key);
-
+	m_xrf_main->fetch_token_key(targetKeyid_v, request_key);
+/*
 	//---------------------External Isolation Handler------------------
         const char *tmp1 = getenv("TOKALL_EXT_IP");
         std::string TOKALLEXTIP(tmp1 ? tmp1 : "");
@@ -87,13 +87,14 @@ void RequestJWKSAccessApiImpl::j_wks_req(const Pistache::Optional<std::string>& 
 
         spdlog::debug("Received key is: {}", resptokallext);
 	//-------------------External Isolation Handler End----------------
-
+*/
 	int http_code = 200;
 
 	nlohmann::json json_data = {};
 	std::string content_type = "application/json";
 
-	if (http_code == 200) json_data["pubkey"] = resptokallext;
+	//if (http_code == 200) json_data["pubkey"] = resptokallext; //External isolation handler
+	if (http_code == 200) json_data["pubkey"] = request_key; // Comment for external handling
 	else json_data["pubkey"] = "not found";
 
 	response.send(Pistache::Http::Code(http_code), json_data.dump().c_str());

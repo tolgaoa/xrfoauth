@@ -50,5 +50,10 @@ A scenario is formulated to describe the types of attacks that an attacker can c
 - AccessTokReqModule: tolgaomeratalay/xrfstokreq:v1
 - RemoteIntroModule: tolgaomeratalay/xrfstokrem:v2
 - Alltokenhandler: tolgaomeratalay/xrfstokall:v1
-
+## Images for the Experiments
+### InitAuth Only
+- XRF Server - tolgaomeratalay/xrfserver:initauth_only_v1
+- External InitAuth Module - from source
+- XRF Client Receiver - tolgaomeratalay/xrfclient:recvclientv4
+- XRF Client Sender - tolgaomeratalay/xrfclient:senderv1
 
