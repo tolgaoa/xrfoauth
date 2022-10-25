@@ -83,7 +83,7 @@ void xrf_main::access_token_request(
 		const std::string& request_main, AccessTokenRsp& access_token_rsp, 
 		int& http_code, const uint8_t http_version, 
 		ProblemDetails& problem_details){
-
+/*
 	//-------------------Commented out for external handling-------------------        
 	std::map<std::string, std::string> request;
 	std::vector<std::string> kvpairs;
@@ -112,8 +112,8 @@ void xrf_main::access_token_request(
 	spdlog::debug(sign);
 	spdlog::info("JWT Access Token Signed");
 	//-------------------Commented out for external handling-------------------        
-	
-/*
+*/	
+
 	//-------------------External handler isolation-------------------
 
         //Get IP Addresses for Remote Auth Server
@@ -142,9 +142,9 @@ void xrf_main::access_token_request(
         spdlog::debug("Received pub_key pair is: {}", pubkeypair);
 	jwks[kid] = pubkeypair;
         //-------------------External handler isolation-------------------
-*/
-	//access_token_rsp.setAccessToken(resppairs[0]); //External handler isolation
-	access_token_rsp.setAccessToken(sign); //Comment for external handling
+
+	access_token_rsp.setAccessToken(resppairs[0]); //External handler isolation
+	//access_token_rsp.setAccessToken(sign); //Comment for external handling
 	access_token_rsp.setTokenType("Bearer");
 	http_code = 200;
 
