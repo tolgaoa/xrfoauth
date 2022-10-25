@@ -60,9 +60,9 @@ void TokenIntrospectionRequestApiImpl::token_intro_request(const Pistache::Rest:
 
 	bool validity;
 
-	//m_xrf_main->validate_token(request.body(), validity);
+	m_xrf_main->validate_token(request.body(), validity);
 
-
+/*
         //---------------------External Isolation Handler------------------
         const char *tmp1 = getenv("TOKALL_EXT_IP");
         std::string TOKALLEXTIP(tmp1 ? tmp1 : "");
@@ -82,7 +82,7 @@ void TokenIntrospectionRequestApiImpl::token_intro_request(const Pistache::Rest:
         spdlog::debug("Validity is: {}", resptokallext);
 	validity = true;
         //-------------------External Isolation Handler End----------------
-
+*/
 
 	nlohmann::json data;
 	data["result"] = "true";
