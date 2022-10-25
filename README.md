@@ -75,11 +75,16 @@ A scenario is formulated to describe the types of attacks that an attacker can c
 - external module - build from source
 - xrf client receiver - tolgaomeratalay/xrfclient:recvclientv4
 - xrf client sender - tolgaomeratalay/xrfclient:senderv1
-### InitAuth + TokenAll Only
+### InitAuth + TokenAll{TokGen + TokRem + JWKS} 
 - XRF Server - tolgaomeratalay/xrfserver:initauth_tokall_v1
 - External Module - build from source
 - XRF Client Receiver - tolgaomeratalay/xrfclient:recvclientv4
 - XRF Client Sender - tolgaomeratalay/xrfclient:senderv1
 - >> For switching between remote token introspection and JWKS, change the "method" env variable in the xrfclient:sender deployment file (method=0--JWKS, method=1--RemoteIntro)
+### InitAuth + TokenGen + TokRem
+- XRF Server - tolgaomeratalay/xrfserver:initauth_tokreq_tokrem_v1
+- External Module - build from source
+- XRF Client Receiver - tolgaomeratalay/xrfclient:recvclientv4
+- XRF Client Sender - tolgaomeratalay/xrfclient:senderv1
 
 
