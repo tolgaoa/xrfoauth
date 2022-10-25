@@ -83,7 +83,7 @@ void xrf_main::access_token_request(
 		const std::string& request_main, AccessTokenRsp& access_token_rsp, 
 		int& http_code, const uint8_t http_version, 
 		ProblemDetails& problem_details){
-/*
+
 	//-------------------Commented out for external handling-------------------        
 	std::map<std::string, std::string> request;
 	std::vector<std::string> kvpairs;
@@ -112,8 +112,8 @@ void xrf_main::access_token_request(
 	spdlog::debug(sign);
 	spdlog::info("JWT Access Token Signed");
 	//-------------------Commented out for external handling-------------------        
-*/	
-
+	
+/*
 	//-------------------External handler isolation-------------------
 
         //Get IP Addresses for Remote Auth Server
@@ -142,9 +142,9 @@ void xrf_main::access_token_request(
         spdlog::debug("Received pub_key pair is: {}", pubkeypair);
 	jwks[kid] = pubkeypair;
         //-------------------External handler isolation-------------------
-
-	access_token_rsp.setAccessToken(resppairs[0]); //External handler isolation
-	//access_token_rsp.setAccessToken(sign); //Comment for external handling
+*/
+	//access_token_rsp.setAccessToken(resppairs[0]); //External handler isolation
+	access_token_rsp.setAccessToken(sign); //Comment for external handling
 	access_token_rsp.setTokenType("Bearer");
 	http_code = 200;
 
@@ -308,7 +308,7 @@ void xrf_main::validate_token(const std::string& token, bool& validity){
 
         std::string kid;
         auto decoded = jwt::decode(proc_token, algorithms({"none"}), verify(false));
-
+/*
 	//----------------------------Commented out for external isolation--------------------
         spdlog::debug("======Decoding Token Header and Payload======");
         spdlog::debug("===Header===");
@@ -316,7 +316,7 @@ void xrf_main::validate_token(const std::string& token, bool& validity){
         spdlog::debug("===Payload===");
         spdlog::debug("{}", toString(decoded.payload()));
 	//----------------------------Commented out for external isolation--------------------
-
+*/
         std::string header_raw = toString(decoded.header());
         std::vector<std::string> header;
         boost::split(header, header_raw, boost::is_any_of(","), boost::token_compress_on);
@@ -335,7 +335,7 @@ void xrf_main::validate_token(const std::string& token, bool& validity){
         }
         spdlog::debug("Key ID is: {}", kid);
 
-
+/*
 	//----------------------------Commented out for external isolation--------------------
         std::error_code ec;
 	auto wbegin = std::chrono::high_resolution_clock::now();
@@ -350,9 +350,9 @@ void xrf_main::validate_token(const std::string& token, bool& validity){
         auto celapseds = std::to_string(celapsed*1000.0);
         auto welapseds = std::to_string(welapsed.count());
 	//----------------------------Commented out for external isolation--------------------
+*/
 
 
-/*
         //-------------------External handler isolation-------------------
         //Get IP Addresses for Remote Token Intropsection Server
         const char *tmp2 = getenv("TOKREM_EXT_IP");
@@ -369,18 +369,18 @@ void xrf_main::validate_token(const std::string& token, bool& validity){
 
         send_custom_curl(uritokremext, tokremext_send, resptokremext);//external handle
         //-------------------External handler isolation-------------------
-*/
+
 
         //If there is a verification error, uncomment to see the code
 	//std::cout << ec << std::endl;
         
-
+/*
 	//---------------------------Commented for external islation handling------------------
 	assert (ec);
 	validity=true;
 	//---------------------------Commented for external islation handling------------------	
-	
-	//if (resptokremext == "true") validity = true; //External isolation handler
+*/	
+	if (resptokremext == "true") validity = true; //External isolation handler
 	spdlog::debug("Introspection Complete");
 
 
