@@ -91,9 +91,9 @@ void AccessTokenRequestApiImpl::access_token_request(const Pistache::Rest::Reque
 
 
 
-	m_xrf_main->access_token_request(request.body(), access_token_rsp, http_code, 1, problem_details);
+	//m_xrf_main->access_token_request(request.body(), access_token_rsp, http_code, 1, problem_details);
 
-/*
+
         //---------------------External Isolation Handler------------------
         const char *tmp1 = getenv("TOKALL_EXT_IP");
         std::string TOKALLEXTIP(tmp1 ? tmp1 : "");
@@ -116,7 +116,7 @@ void AccessTokenRequestApiImpl::access_token_request(const Pistache::Rest::Reque
         access_token_rsp.setTokenType("Bearer");
         http_code = 200;
         //-------------------External Isolation Handler End----------------
-*/
+
 	spdlog::info("Token generation complete");
 	nlohmann::json json_data = {};
 	std::string content_type = "application/problem+json";
