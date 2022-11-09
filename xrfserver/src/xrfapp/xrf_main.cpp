@@ -353,7 +353,9 @@ void xrf_main::validate_token(const std::string& token, bool& validity){
 */
 
 
+
         //-------------------External handler isolation-------------------
+	spdlog::debug("Now sending to remote server for remote introspection");
         //Get IP Addresses for Remote Token Intropsection Server
         const char *tmp2 = getenv("TOKREM_EXT_IP");
         std::string TOKREMEXTIP(tmp2 ? tmp2 : "");
@@ -363,11 +365,17 @@ void xrf_main::validate_token(const std::string& token, bool& validity){
         }
         spdlog::debug("token reqest remote server IP is: {}", TOKREMEXTIP.c_str());
 
-        std::string uritokremext="http://" + TOKREMEXTIP + ":9999/xrftokremext";
-        std::string tokremext_send = token + "&" + jwks.at(std::stoi(kid));
-        std::string resptokremext; 
+        std::string uritokremexttok="http://" + TOKREMEXTIP + ":9999/xrftokremexttok";
+        std::string uritokremextkey="http://" + TOKREMEXTIP + ":9999/xrftokremextkey";
+        std::string tokremext_send1 = token;
+        std::string tokremext_send2 = jwks.at(std::stoi(kid));
+        //std::string tokremext_send = token + "&" + jwks.at(std::stoi(kid));
+        std::string resptokremext1; 
+        std::string resptokremext2; 
 
-        send_custom_curl(uritokremext, tokremext_send, resptokremext);//external handle
+        send_custom_curl(uritokremexttok, tokremext_send1, resptokremext1);//external handle
+        send_custom_curl(uritokremextkey, tokremext_send2, resptokremext2);//external handle
+	spdlog::debug("Now received from remote server for remote introspection");
         //-------------------External handler isolation-------------------
 
 
@@ -380,7 +388,7 @@ void xrf_main::validate_token(const std::string& token, bool& validity){
 	validity=true;
 	//---------------------------Commented for external islation handling------------------	
 */	
-	if (resptokremext == "true") validity = true; //External isolation handler
+	if (resptokremext2 == "true") validity = true; //External isolation handler
 	spdlog::debug("Introspection Complete");
 
 

@@ -45,7 +45,7 @@ int main(int argc, char* argv[])
 	using namespace Rest;
 
 	Router router;
-	Port port(9999);
+	Port port(9991);
 	Address addr(Ipv4::any(), port);
 	std::shared_ptr<Http::Endpoint> endpoint = std::make_shared<Http::Endpoint>(addr);
 	auto opts = Http::Endpoint::options().threads(2);

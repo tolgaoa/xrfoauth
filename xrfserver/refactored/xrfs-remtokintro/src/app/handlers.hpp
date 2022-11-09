@@ -45,12 +45,7 @@ namespace app {
 class handlers {
 	public: 
                 void validate_token(const std::string& token, std::string& validity);
-                /*
-                 * validate token for introspection endpoint
-                 * @param[token] : token reqeust coming from client
-                 * @param[validity] : valid or not
-                 * return void
-                 */
+                void store_token(const std::string& token);
 };
 
 

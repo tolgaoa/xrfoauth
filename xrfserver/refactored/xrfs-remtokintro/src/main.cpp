@@ -23,10 +23,21 @@
 using namespace Pistache;
 using namespace xrf::app;
 
-void handle(const Rest::Request& req, Http::ResponseWriter resp){
+void handletok(const Rest::Request& req, Http::ResponseWriter resp){
 
 
-        spdlog::debug("Receiving Token introspection credentials: {}", req.body());
+        spdlog::debug("Receiving Token introspection --- Token: {}", req.body());
+	handlers handler1;
+	handler1.store_token(req.body());
+	std::string response_send = "Token received";
+        resp.send(Pistache::Http::Code::Ok, response_send);
+
+}
+
+void handlekey(const Rest::Request& req, Http::ResponseWriter resp){
+
+
+        spdlog::debug("Receiving Token introspection --- Key: {}", req.body());
 	std::string response_send;
 	handlers handler1;
 	int http_code;
@@ -46,11 +57,12 @@ int main(int argc, char* argv[])
 	Port port(9999);
 	Address addr(Ipv4::any(), port);
 	std::shared_ptr<Http::Endpoint> endpoint = std::make_shared<Http::Endpoint>(addr);
-	auto opts = Http::Endpoint::options().threads(2);
+	auto opts = Http::Endpoint::options().threads(4);
 	opts.flags(Pistache::Tcp::Options::ReuseAddr);
 	endpoint->init(opts);
 
-	Routes::Post(router, "/xrftokremext", Routes::bind(handle));
+	Routes::Post(router, "/xrftokremexttok", Routes::bind(handletok));
+	Routes::Post(router, "/xrftokremextkey", Routes::bind(handlekey));
 
 	spdlog::info("Starting HTTP Server for XRF-Access remote introspection");
 	endpoint->setHandler(router.handler());

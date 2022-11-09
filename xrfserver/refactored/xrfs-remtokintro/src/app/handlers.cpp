@@ -21,7 +21,7 @@
 using namespace xrf::app;
 xrf_jwt* xrf_jwt_inst = nullptr;
 
-std::unordered_map<int, std::string> jwks; // kid .at() tokenpubkey where key is plaintext
+std::string current_token;
 
 template<class T> std::string toString(const T& x)
 {
@@ -30,17 +30,29 @@ template<class T> std::string toString(const T& x)
   return ss.str();
 }
 
+void handlers::store_token(const std::string& request_body) {
+
+        spdlog::debug("======Token received and stored======");
+	current_token = request_body;
+
+}
+
 void handlers::validate_token(const std::string& request_body, std::string& validity){
 
         using namespace jwt::params;
 
+/*
         std::vector<std::string> mainpairs;
 	boost::split(mainpairs, request_body, boost::is_any_of("&"), boost::token_compress_on);
+
 	std::string token = mainpairs[0];
 	std::string atkid = mainpairs[1];
+*/
 
+	std::string atkid = request_body;
+	
         std::vector<std::string> kvpairs;
-	boost::split(kvpairs, token, boost::is_any_of(","), boost::token_compress_on);
+	boost::split(kvpairs, current_token, boost::is_any_of(","), boost::token_compress_on);
         std::vector<std::string> kv;
         std::string proc_token;
 
@@ -63,6 +75,7 @@ void handlers::validate_token(const std::string& request_body, std::string& vali
         spdlog::debug("{}", toString(decoded.header()));
         spdlog::debug("===Payload===");
         spdlog::debug("{}", toString(decoded.payload()));
+
 /*
         std::string header_raw = toString(decoded.header());
         std::vector<std::string> header;
@@ -80,12 +93,11 @@ void handlers::validate_token(const std::string& request_body, std::string& vali
                         }
                 }
         }
-        spdlog::debug("Key ID is: {}", kid);
 */
+
+        spdlog::debug("Public key  is: {}", atkid);
         std::error_code ec;
-	auto dec_obj = jwt::decode(token, algorithms({"RS256"}), ec, secret(atkid), verify(true));
-        //If there is a verification error, uncomment to see the code
-        //std::cout << ec << std::endl;
+	auto dec_obj = jwt::decode(current_token, algorithms({"RS256"}), ec, secret(atkid), verify(true));
         assert (ec);
         validity = "true";
         spdlog::debug("Introspection Complete");
