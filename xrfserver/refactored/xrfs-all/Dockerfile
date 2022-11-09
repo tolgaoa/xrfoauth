@@ -109,6 +109,10 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade --yes && DE
 WORKDIR /xrfall/bin
 COPY --from=xrfall-builder \
 	/root/xrfall/build/xrfall \
+        /root/xrfall/prv_xrf \
+        /root/xrfall/prv_xapp \
+        /root/xrfall/pub_xrf \
+        /root/xrfall/pub_xapp \
 	./
 
 WORKDIR /usr/lib/x86_64-linux-gnu
