@@ -81,5 +81,11 @@ A scenario is formulated to describe the types of attacks that an attacker can c
 - XRF Client Receiver - tolgaomeratalay/xrfclient:recvclientv4
 - XRF Client Sender - tolgaomeratalay/xrfclient:senderv1
 - >> For switching between remote token introspection and JWKS, change the "method" env variable in the xrfclient:sender deployment file (method=0--JWKS, method=1--RemoteIntro)
+### {InitAuth + TokenAll} inside same Gramine-SGX
+- XRF Server - tolgaomeratalay/xrfserver:allisov1
+- External Module - build from source
+- XRF Client Receiver - tolgaomeratalay/xrfclient:recvclientv4
+- XRF Client Sender - tolgaomeratalay/xrfclient:senderv1
+- >> For switching between remote token introspection and JWKS, change the "method" env variable in the xrfclient:sender deployment file (method=0--JWKS, method=1--RemoteIntro)
 
 
