@@ -67,7 +67,7 @@ A scenario is formulated to describe the types of attacks that an attacker can c
 - XRF Client Receiver - tolgaomeratalay/xrfclient:recvclientv4
 - XRF Client Sender - tolgaomeratalay/xrfclient:senderv1
 ### TokenRemoteIntro Only
-- XRF Server - tolgaomeratalay/xrfserver:tokrem_only_v1
+- XRF Server - tolgaomeratalay/xrfserver:tokrem_only_v3
 - External InitAuth Module - build from source
 - XRF Client Receiver - tolgaomeratalay/xrfclient:recvclientv4
 - XRF Client Sender - tolgaomeratalay/xrfclient:senderv1
